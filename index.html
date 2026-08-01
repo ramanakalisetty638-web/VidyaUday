@@ -1,0 +1,2169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VidyaUday — Rise of Knowledge | Student Empowerment Platform</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --saffron:#FF6B2B; --saffron-light:#FF8F60; --saffron-glow:rgba(255,107,43,0.15);
+  --leaf:#1DB954; --sky:#0EA5E9;
+  --deep:#0F172A; --deep2:#1E293B; --deep3:#334155;
+  --text:#F1F5F9; --text2:#94A3B8; --text3:#64748B;
+  --card:rgba(30,41,59,0.85); --card-border:rgba(148,163,184,0.12);
+  --radius:16px; --font-display:'Space Grotesk',sans-serif; --font-body:'DM Sans',sans-serif;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--font-body);background:var(--deep);color:var(--text);line-height:1.6;overflow-x:hidden;}
+::-webkit-scrollbar{width:6px;} ::-webkit-scrollbar-track{background:var(--deep2);} ::-webkit-scrollbar-thumb{background:var(--saffron);border-radius:3px;}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:64px;background:rgba(15,23,42,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border);}
+.nav-logo{font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;}
+.logo-dot{width:10px;height:10px;background:var(--saffron);border-radius:50%;display:inline-block;}
+.nav-links{display:flex;gap:4px;list-style:none;}
+.nav-links a{font-size:0.83rem;font-weight:500;color:var(--text2);text-decoration:none;padding:6px 12px;border-radius:8px;transition:all 0.2s;}
+.nav-links a:hover{color:#fff;background:rgba(255,255,255,0.06);}
+.nav-cta{background:var(--saffron)!important;color:#fff!important;border-radius:8px!important;}
+.nav-cta:hover{opacity:0.88!important;}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;background:none;border:none;padding:4px;}
+.hamburger span{width:22px;height:2px;background:var(--text);border-radius:1px;}
+.mobile-nav{display:none;flex-direction:column;position:fixed;top:64px;left:0;right:0;background:rgba(15,23,42,0.98);border-bottom:1px solid var(--card-border);padding:16px 5vw;z-index:99;}
+.mobile-nav.open{display:flex;}
+.mobile-nav a{font-size:0.95rem;color:var(--text2);text-decoration:none;padding:11px 0;border-bottom:1px solid var(--card-border);}
+.mobile-nav a:hover{color:var(--saffron);}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 5vw 60px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,43,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+.hero::after{content:'';position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(29,185,84,0.1) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+.hero-content{max-width:640px;position:relative;z-index:1;}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--saffron-glow);border:1px solid rgba(255,107,43,0.3);color:var(--saffron-light);padding:6px 14px;border-radius:100px;font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:24px;}
+.hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;line-height:1.15;margin-bottom:20px;color:#fff;}
+.hero h1 span{background:linear-gradient(135deg,var(--saffron),#FFD700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero p{font-size:1.05rem;color:var(--text2);max-width:520px;margin-bottom:36px;}
+.hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
+.btn{font-family:var(--font-body);font-weight:600;font-size:0.95rem;padding:13px 28px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
+.btn-primary{background:var(--saffron);color:#fff;}
+.btn-primary:hover{background:var(--saffron-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,43,0.4);}
+.btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--card-border);}
+.btn-outline:hover{border-color:var(--text3);background:rgba(255,255,255,0.05);transform:translateY(-2px);}
+.hero-visual{position:absolute;right:5vw;top:50%;transform:translateY(-50%);width:min(42vw,460px);}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;animation:float 6s ease-in-out infinite;}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);}}
+.hero-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:20px;backdrop-filter:blur(10px);transition:all 0.25s;}
+.hero-card:hover{transform:translateY(-4px);border-color:rgba(255,107,43,0.4);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.hero-card .icon{font-size:2rem;margin-bottom:8px;}
+.hero-card h4{font-family:var(--font-display);font-size:0.9rem;font-weight:600;margin-bottom:4px;}
+.hero-card p{font-size:0.75rem;color:var(--text2);}
+
+/* STATS */
+.stats-bar{background:var(--deep2);border-top:1px solid var(--card-border);border-bottom:1px solid var(--card-border);padding:40px 5vw;}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;max-width:1100px;margin:0 auto;}
+.stat-item{text-align:center;}
+.stat-value{font-family:var(--font-display);font-size:2.4rem;font-weight:700;color:var(--saffron);display:block;}
+.stat-label{font-size:0.82rem;color:var(--text2);margin-top:4px;}
+
+/* SECTIONS */
+section{padding:80px 5vw;position:relative;z-index:1;}
+.section-tag{display:inline-flex;align-items:center;gap:8px;font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--saffron);margin-bottom:12px;}
+.section-tag::before{content:'';width:20px;height:2px;background:var(--saffron);border-radius:1px;}
+.section-title{font-family:var(--font-display);font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;margin-bottom:12px;color:#fff;}
+.section-sub{color:var(--text2);max-width:560px;margin-bottom:48px;font-size:1rem;}
+.max-w{max-width:1200px;margin:0 auto;}
+.bg-alt{background:var(--deep2);}
+.gradient-divider{height:1px;background:linear-gradient(90deg,transparent,var(--card-border),transparent);margin:0 5vw;}
+
+/* CARDS GRID */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:20px;}
+.cards-grid-5{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:20px;}
+
+/* ── AI TOOL CARD ── */
+.tool-card{
+  background:var(--card);border:1px solid var(--card-border);
+  border-radius:var(--radius);padding:26px;backdrop-filter:blur(10px);
+  transition:all 0.3s;position:relative;overflow:hidden;cursor:pointer;
+}
+.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,var(--saffron));}
+.tool-card:hover{transform:translateY(-6px);border-color:rgba(255,107,43,0.35);box-shadow:0 20px 50px rgba(0,0,0,0.35);}
+.tool-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;}
+.tool-icon-big{font-size:2.8rem;line-height:1;}
+.free-badge{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;background:rgba(29,185,84,0.15);color:#4ade80;padding:4px 10px;border-radius:100px;white-space:nowrap;}
+.tool-name{font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:4px;}
+.tool-category{font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;margin-bottom:10px;}
+.tool-tagline{font-size:0.82rem;font-style:italic;color:var(--text2);margin-bottom:12px;}
+.tool-desc-short{font-size:0.84rem;color:var(--text2);line-height:1.6;margin-bottom:18px;}
+.tool-actions{display:flex;gap:8px;}
+.tool-btn-info{flex:1;background:rgba(255,255,255,0.05);border:1.5px solid var(--card-border);color:var(--text2);font-family:var(--font-body);font-size:0.82rem;font-weight:600;padding:9px 12px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+.tool-btn-info:hover{border-color:var(--saffron);color:var(--saffron);}
+.tool-btn-open{flex:1;color:#fff;font-family:var(--font-body);font-size:0.82rem;font-weight:700;padding:9px 12px;border-radius:8px;text-decoration:none;text-align:center;display:flex;align-items:center;justify-content:center;gap:5px;transition:opacity 0.2s;border:none;cursor:pointer;}
+.tool-btn-open:hover{opacity:0.85;}
+
+/* ── MODAL ── */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:999;align-items:center;justify-content:center;padding:20px;backdrop-filter:blur(6px);}
+.modal-overlay.open{display:flex;}
+.modal-box{background:#1E293B;border:1px solid var(--card-border);border-radius:20px;max-width:680px;width:100%;max-height:88vh;overflow-y:auto;position:relative;}
+.modal-header-bar{position:sticky;top:0;background:#1E293B;border-bottom:1px solid var(--card-border);padding:16px 24px;display:flex;align-items:center;justify-content:space-between;z-index:10;border-radius:20px 20px 0 0;}
+.modal-header-bar h3{font-family:var(--font-display);font-size:1rem;font-weight:700;}
+.modal-close{background:rgba(255,255,255,0.08);border:none;color:var(--text2);font-size:1.2rem;width:32px;height:32px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+.modal-close:hover{background:rgba(255,255,255,0.15);color:#fff;}
+.modal-body{padding:24px;}
+.modal-tool-header{display:flex;align-items:center;gap:16px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--card-border);}
+.modal-icon{font-size:3rem;background:rgba(255,255,255,0.06);width:68px;height:68px;border-radius:14px;display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+.modal-tool-name{font-family:var(--font-display);font-size:1.5rem;font-weight:700;}
+.modal-desc{font-size:0.92rem;color:var(--text2);line-height:1.8;margin-bottom:22px;}
+.modal-two-col{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-bottom:24px;}
+.modal-section-title{font-size:0.7rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--text3);margin-bottom:10px;}
+.modal-list{list-style:none;}
+.modal-list li{font-size:0.84rem;color:var(--text2);padding:5px 0;padding-left:16px;position:relative;border-bottom:1px solid rgba(255,255,255,0.04);}
+.modal-list li:last-child{border-bottom:none;}
+.modal-list li::before{position:absolute;left:0;}
+.modal-list.check li::before{content:'✓';color:#4ade80;font-weight:700;}
+.modal-list.arrow li::before{content:'→';color:var(--saffron);}
+.modal-open-btn{display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-family:var(--font-display);font-size:1rem;font-weight:700;padding:15px 28px;border-radius:12px;text-decoration:none;width:100%;transition:opacity 0.2s;}
+.modal-open-btn:hover{opacity:0.85;}
+.modal-note{text-align:center;font-size:0.75rem;color:var(--text3);margin-top:8px;}
+
+/* CAREER TABS */
+.tabs{display:flex;gap:8px;margin-bottom:36px;}
+.tab-btn{font-family:var(--font-body);font-size:0.95rem;font-weight:600;padding:11px 28px;border-radius:10px;border:1.5px solid var(--card-border);cursor:pointer;transition:all 0.2s;background:transparent;color:var(--text2);}
+.tab-btn.active{background:var(--saffron);border-color:var(--saffron);color:#fff;}
+.career-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px;}
+.career-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;transition:all 0.3s;position:relative;}
+.career-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--accent,var(--saffron));border-radius:0 0 var(--radius) var(--radius);}
+.career-card:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(0,0,0,0.3);}
+.career-icon{font-size:2rem;margin-bottom:10px;}
+.career-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:4px;}
+.career-duration{font-size:0.78rem;color:var(--text3);font-weight:500;margin-bottom:10px;}
+.career-desc{font-size:0.85rem;color:var(--text2);margin-bottom:14px;line-height:1.5;}
+.career-options{list-style:none;}
+.career-options li{font-size:0.8rem;color:var(--text2);padding:3px 0;padding-left:14px;position:relative;}
+.career-options li::before{content:'▸';position:absolute;left:0;color:var(--accent,var(--saffron));font-size:0.7rem;}
+
+/* RESOURCE CARD */
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+.filter-btn{background:var(--deep2);border:1.5px solid var(--card-border);color:var(--text2);font-family:var(--font-body);font-size:0.82rem;font-weight:500;padding:7px 16px;border-radius:100px;cursor:pointer;transition:all 0.2s;}
+.filter-btn.active,.filter-btn:hover{background:var(--saffron);border-color:var(--saffron);color:#fff;}
+.res-card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:20px;transition:all 0.25s;display:flex;flex-direction:column;gap:10px;}
+.res-card:hover{border-color:rgba(14,165,233,0.4);transform:translateY(-3px);}
+.res-header{display:flex;align-items:center;gap:10px;}
+.res-icon{font-size:1.6rem;}
+.res-name{font-family:var(--font-display);font-size:0.95rem;font-weight:700;}
+.res-cat{font-size:0.7rem;text-transform:uppercase;font-weight:700;letter-spacing:0.08em;color:var(--sky);}
+.res-desc{font-size:0.82rem;color:var(--text2);line-height:1.5;flex:1;}
+.res-audience{font-size:0.75rem;color:var(--text3);}
+.stars{color:#fbbf24;font-size:0.85rem;}
+.link-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,107,43,0.1);border:1px solid rgba(255,107,43,0.25);color:var(--saffron-light);font-size:0.82rem;font-weight:600;padding:8px 16px;border-radius:8px;text-decoration:none;transition:all 0.2s;margin-top:4px;}
+.link-btn:hover{background:var(--saffron);color:#fff;}
+
+/* ── VIDYAUDAY ANIMATED LOGO ── */
+.nav-logo{ text-decoration:none; display:flex; align-items:center; gap:10px; }
+.logo-icon{ font-size:1.6rem; animation:owlBob 2.5s ease-in-out infinite; display:inline-block; }
+@keyframes owlBob{ 0%,100%{ transform:translateY(0) rotate(-5deg); } 50%{ transform:translateY(-4px) rotate(5deg); } }
+.logo-text-wrap{ display:flex; flex-direction:column; line-height:1; }
+.logo-vidya{ font-family:var(--font-display); font-size:1.1rem; font-weight:700; color:#fff; letter-spacing:0.01em; }
+.logo-uday{ font-family:var(--font-display); font-size:1.1rem; font-weight:700; letter-spacing:0.01em; background:linear-gradient(135deg,var(--saffron),#FFD700); -webkit-background-clip:text; -webkit-text-fill-color:transparent; display:inline-block; animation:glowPulse 2s ease-in-out infinite; }
+@keyframes glowPulse{ 0%,100%{ opacity:1; } 50%{ opacity:0.75; } }
+.logo-tagline{ font-size:0.55rem; font-weight:700; letter-spacing:0.12em; text-transform:uppercase; color:var(--text3); margin-top:1px; }
+/* display both words on same line */
+.logo-text-wrap{ flex-direction:row; align-items:baseline; gap:0; flex-wrap:wrap; }
+.logo-vidya,.logo-uday{ font-size:1.15rem; }
+.logo-tagline{ display:block; width:100%; font-size:0.5rem; margin-top:1px; }
+.ait-search-wrap{position:relative;margin-bottom:28px;max-width:580px;}
+.ait-search-wrap input{width:100%;background:var(--deep2);border:2px solid var(--card-border);color:var(--text);font-family:var(--font-body);font-size:0.98rem;padding:14px 48px 14px 48px;border-radius:14px;outline:none;transition:border 0.2s;}
+.ait-search-wrap input:focus{border-color:var(--saffron);box-shadow:0 0 0 3px rgba(255,107,43,0.1);}
+.ait-search-wrap input::placeholder{color:var(--text3);}
+.ait-search-icon{position:absolute;left:16px;top:50%;transform:translateY(-50%);font-size:1.1rem;pointer-events:none;}
+#aiSearchClear{position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.08);border:none;color:var(--text2);width:26px;height:26px;border-radius:50%;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;transition:all 0.2s;}
+#aiSearchClear:hover{background:rgba(255,255,255,0.15);color:#fff;}
+.ait-spinner{width:20px;height:20px;border:2px solid rgba(255,107,43,0.2);border-top-color:var(--saffron);border-radius:50%;animation:spin 0.7s linear infinite;margin-left:auto;flex-shrink:0;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.search-wrap{position:relative;max-width:480px;margin-bottom:32px;}
+.search-wrap input{width:100%;background:var(--deep2);border:1.5px solid var(--card-border);color:var(--text);font-family:var(--font-body);font-size:0.95rem;padding:12px 16px 12px 44px;border-radius:12px;outline:none;transition:border 0.2s;}
+.search-wrap input:focus{border-color:var(--saffron);}
+.search-wrap input::placeholder{color:var(--text3);}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:1.1rem;pointer-events:none;}
+.schol-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;transition:all 0.3s;display:flex;flex-direction:column;}
+.schol-card:hover{transform:translateY(-4px);border-color:rgba(29,185,84,0.3);}
+.schol-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
+.schol-icon{font-size:2rem;flex-shrink:0;}
+.schol-name{font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:4px;}
+.schol-cat{font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--leaf);}
+.schol-row{font-size:0.83rem;color:var(--text2);margin-bottom:8px;}
+.schol-row strong{color:var(--text);display:block;font-weight:600;margin-bottom:2px;}
+.deadline{color:#fb923c;font-weight:600;}
+
+/* CODING */
+.code-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;transition:all 0.3s;}
+.code-card:hover{border-color:rgba(255,107,43,0.3);transform:translateY(-4px);}
+.code-name{font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:6px;}
+.difficulty-badge{display:inline-block;padding:3px 12px;border-radius:100px;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:14px;}
+.easy{background:rgba(29,185,84,0.15);color:#4ade80;}
+.medium{background:rgba(251,191,36,0.15);color:#fbbf24;}
+
+/* DIGITAL LITERACY */
+.dl-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;transition:all 0.3s;}
+.dl-card:hover{transform:translateY(-4px);}
+.dl-icon{font-size:2.2rem;margin-bottom:12px;}
+.dl-title{font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:14px;}
+.dl-tips{list-style:none;}
+.dl-tips li{font-size:0.83rem;color:var(--text2);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;align-items:flex-start;}
+.dl-tips li:last-child{border-bottom:none;}
+.dl-tips li::before{content:'✓';color:var(--leaf);font-weight:700;flex-shrink:0;margin-top:2px;}
+
+/* SURVEY & QUIZ */
+.survey-wrap,.quiz-wrap{max-width:720px;margin:0 auto;background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:40px;backdrop-filter:blur(10px);}
+.survey-progress{height:4px;background:var(--deep3);border-radius:2px;margin-bottom:36px;}
+.survey-progress-fill{height:100%;background:linear-gradient(90deg,var(--saffron),#FFD700);border-radius:2px;transition:width 0.5s ease;}
+.survey-q{font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:20px;}
+.survey-step{color:var(--text3);font-size:0.82rem;margin-bottom:8px;}
+.survey-options{display:flex;flex-direction:column;gap:10px;margin-bottom:28px;}
+.survey-option{display:flex;align-items:center;gap:12px;background:var(--deep2);border:1.5px solid var(--card-border);border-radius:10px;padding:12px 16px;cursor:pointer;transition:all 0.2s;}
+.survey-option:hover{border-color:var(--saffron);background:rgba(255,107,43,0.05);}
+.survey-option.selected{border-color:var(--saffron);background:rgba(255,107,43,0.08);}
+.survey-option input{accent-color:var(--saffron);width:16px;height:16px;cursor:pointer;}
+.survey-option label{cursor:pointer;font-size:0.9rem;}
+.survey-nav{display:flex;justify-content:space-between;align-items:center;}
+.success-state{text-align:center;padding:40px;}
+.success-icon{font-size:4rem;margin-bottom:16px;}
+.success-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;margin-bottom:10px;}
+.success-text{color:var(--text2);margin-bottom:24px;}
+.quiz-score-ring{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
+.quiz-score-inner{width:90px;height:90px;border-radius:50%;background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.quiz-score-num{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--saffron);}
+.quiz-score-total{font-size:0.75rem;color:var(--text3);}
+
+/* MISSION */
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
+.mission-text p{color:var(--text2);margin-bottom:20px;line-height:1.8;}
+.mission-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.mission-card{background:var(--deep3);border-radius:12px;padding:20px;border:1px solid var(--card-border);}
+.mission-card .m-icon{font-size:1.5rem;margin-bottom:8px;}
+.mission-card h4{font-family:var(--font-display);font-size:0.9rem;font-weight:700;margin-bottom:4px;}
+.mission-card p{font-size:0.78rem;color:var(--text2);}
+
+/* FOOTER */
+footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:60px 5vw 30px;margin-top:40px;}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px;max-width:1200px;margin:0 auto 40px;}
+.footer-brand p{color:var(--text2);font-size:0.88rem;margin-top:12px;max-width:300px;}
+.footer-col h5{font-family:var(--font-display);font-weight:700;font-size:0.82rem;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);margin-bottom:16px;}
+.footer-col ul{list-style:none;}
+.footer-col ul li{margin-bottom:8px;}
+.footer-col ul li a{color:var(--text2);text-decoration:none;font-size:0.88rem;transition:color 0.2s;}
+.footer-col ul li a:hover{color:var(--saffron);}
+.footer-bottom{border-top:1px solid var(--card-border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;color:var(--text3);font-size:0.8rem;max-width:1200px;margin:0 auto;flex-wrap:wrap;gap:12px;}
+
+/* ── CAREER TREE ── */
+.c-choose-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:20px;padding:32px;cursor:pointer;transition:all 0.3s;text-align:center;}
+.c-choose-card:hover{border-color:var(--saffron);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.35);}
+.cc-icon{font-size:3rem;margin-bottom:14px;}
+.cc-title{font-family:var(--font-display);font-size:1.3rem;font-weight:700;margin-bottom:8px;}
+.cc-sub{font-size:0.88rem;color:var(--text2);margin-bottom:16px;}
+.cc-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center;margin-bottom:20px;}
+.ctag{background:rgba(255,107,43,0.12);color:var(--saffron-light);font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:100px;}
+.cc-btn{background:var(--saffron);color:#fff;font-family:var(--font-display);font-size:0.9rem;font-weight:700;padding:11px 24px;border-radius:10px;display:inline-block;}
+.c-choose-card:hover .cc-btn{opacity:0.88;}
+.c-back-btn{background:rgba(255,255,255,0.06);border:1.5px solid var(--card-border);color:var(--text2);font-family:var(--font-body);font-size:0.85rem;font-weight:600;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+.c-back-btn:hover{border-color:var(--saffron);color:var(--saffron);}
+.cpath-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:14px;}
+.cpath-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:14px;padding:22px;cursor:pointer;transition:all 0.25s;text-align:center;}
+.cpath-card:hover{transform:translateY(-4px);box-shadow:0 14px 36px rgba(0,0,0,0.3);}
+.cpath-icon{font-size:2.2rem;margin-bottom:10px;}
+.cpath-name{font-family:var(--font-display);font-size:0.95rem;font-weight:700;margin-bottom:5px;}
+.cpath-sub{font-size:0.75rem;color:var(--text2);}
+.cpath-arrow{font-size:0.75rem;font-weight:700;margin-top:10px;}
+/* Tree header */
+.ctree-header{border-radius:16px;padding:28px 32px;margin-bottom:36px;display:flex;align-items:center;gap:20px;}
+.ctree-header .th-icon{font-size:3rem;flex-shrink:0;}
+.ctree-header h2{font-family:var(--font-display);font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:4px;}
+.ctree-header p{font-size:0.88rem;color:rgba(255,255,255,0.85);}
+.ctree-badge{background:rgba(255,255,255,0.2);color:#fff;font-size:0.75rem;font-weight:700;padding:4px 14px;border-radius:100px;display:inline-block;margin-top:8px;}
+/* Timeline */
+.ctimeline{position:relative;padding-left:44px;margin-bottom:40px;}
+.ctimeline::before{content:'';position:absolute;left:14px;top:8px;bottom:8px;width:3px;background:linear-gradient(180deg,#FF6B2B,#1DB954,#0EA5E9);border-radius:2px;}
+.ctl-item{position:relative;margin-bottom:28px;}
+.ctl-dot{position:absolute;left:-38px;top:6px;width:18px;height:18px;border-radius:50%;border:3px solid #fff;box-shadow:0 0 0 3px rgba(255,107,43,0.3);}
+.ctl-year{font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;margin-bottom:6px;}
+.ctl-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:20px;border-left:3px solid;}
+.ctl-card h4{font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:6px;}
+.ctl-card p{font-size:0.84rem;color:var(--text2);line-height:1.65;margin-bottom:10px;}
+.ctl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.ctl-tag{font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:100px;}
+.tag-o{background:rgba(255,107,43,0.15);color:#FF8F60;}
+.tag-b{background:rgba(14,165,233,0.15);color:#38bdf8;}
+.tag-g{background:rgba(29,185,84,0.15);color:#4ade80;}
+.tag-p{background:rgba(139,92,246,0.15);color:#a78bfa;}
+/* Salary bar */
+.ctl-salary{margin-top:10px;}
+.ctl-salary-label{font-size:0.74rem;color:var(--text3);margin-bottom:4px;}
+.ctl-salary-track{background:var(--deep3);border-radius:100px;height:6px;overflow:hidden;}
+.ctl-salary-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--saffron),#FFD700);}
+.ctl-salary-amt{font-size:0.8rem;font-weight:700;color:#FFD700;margin-top:4px;}
+/* Branches */
+.cbranch-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:18px;color:var(--text2);}
+.cbranch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+.cbranch-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:20px;}
+.cbranch-card h4{font-family:var(--font-display);font-size:0.9rem;font-weight:700;margin-bottom:10px;}
+.cbranch-card ul{list-style:none;}
+.cbranch-card ul li{font-size:0.82rem;color:var(--text2);padding:4px 0;padding-left:14px;position:relative;border-bottom:1px solid rgba(255,255,255,0.04);}
+.cbranch-card ul li:last-child{border-bottom:none;}
+.cbranch-card ul li::before{content:'▸';position:absolute;left:0;font-size:0.7rem;}
+/* FADE IN */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s,transform 0.6s;}
+.fade-in.visible{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .nav-links{display:none;} .hamburger{display:flex;}
+  .hero-visual{display:none;} .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;} .mission-grid{grid-template-columns:1fr;}
+}
+@media(max-width:600px){
+  .cards-grid{grid-template-columns:1fr;} .career-cards{grid-template-columns:1fr;}
+  .footer-grid{grid-template-columns:1fr;} .survey-wrap,.quiz-wrap{padding:24px;}
+  .tabs{flex-direction:column;} .hero-btns{flex-direction:column;}
+  .modal-two-col{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <span class="logo-icon">🦉</span>
+    <span class="logo-text-wrap">
+      <span class="logo-vidya">Vidya</span><span class="logo-uday">Uday</span>
+      <span class="logo-tagline">Rise of Knowledge</span>
+    </span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#ai-tools">AI Tools</a></li>
+    <li><a href="#career">Careers</a></li>
+    <li><a href="#resources">Resources</a></li>
+    <li><a href="#scholarships">Scholarships</a></li>
+    <li><a href="#coding">Coding</a></li>
+    <li><a href="#digital-literacy">Digital Skills</a></li>
+    <li><a href="#quiz">🧠 Quiz</a></li>
+  </ul>
+  <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
+</nav>
+<div class="mobile-nav" id="mobileNav">
+  <a href="#ai-tools" onclick="closeNav()">🤖 AI Tools</a>
+  <a href="#career" onclick="closeNav()">🎯 Career Guidance</a>
+  <a href="#resources" onclick="closeNav()">📚 Learning Resources</a>
+  <a href="#scholarships" onclick="closeNav()">🏆 Scholarships</a>
+  <a href="#coding" onclick="closeNav()">💻 Coding Platforms</a>
+  <a href="#digital-literacy" onclick="closeNav()">🌐 Digital Skills</a>
+  <a href="#quiz" onclick="closeNav()">🧠 AI Quiz</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <div class="hero-tag">🇮🇳 B.Tech Community Project · VidyaUday · Andhra Pradesh</div>
+    <h1>Your Future Starts with <span>Digital Awareness</span></h1>
+    <p>A free platform giving rural 10th & Intermediate students access to AI tools, career guidance, scholarships, and learning resources — all in one place.</p>
+    <div class="hero-btns">
+      <a href="#ai-tools" class="btn btn-primary">🚀 Explore AI Tools</a>
+      <a href="#career" class="btn btn-outline">🎯 View Career Paths</a>
+    </div>
+  </div>
+  <div class="hero-visual">
+    <div class="hero-grid">
+      <a href="#ai-tools" class="hero-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+        <div class="icon">🤖</div><h4>AI Tools</h4><p>ChatGPT, Gemini & more</p>
+        <div style="font-size:0.72rem;color:var(--saffron);margin-top:6px;font-weight:600;">Explore →</div>
+      </a>
+      <a href="#career" class="hero-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+        <div class="icon">🎓</div><h4>Career Paths</h4><p>After 10th & Intermediate</p>
+        <div style="font-size:0.72rem;color:var(--saffron);margin-top:6px;font-weight:600;">Explore →</div>
+      </a>
+      <a href="#scholarships" class="hero-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+        <div class="icon">🏆</div><h4>Scholarships</h4><p>₹50K+ opportunities</p>
+        <div style="font-size:0.72rem;color:var(--saffron);margin-top:6px;font-weight:600;">Explore →</div>
+      </a>
+      <a href="#coding" class="hero-card" style="text-decoration:none;color:inherit;cursor:pointer;">
+        <div class="icon">💻</div><h4>Free Coding</h4><p>Learn from zero</p>
+        <div style="font-size:0.72rem;color:var(--saffron);margin-top:6px;font-weight:600;">Explore →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-grid">
+    <div class="stat-item"><span class="stat-value" id="stat1">0%</span><span class="stat-label">Rural students lack career guidance</span></div>
+    <div class="stat-item"><span class="stat-value" id="stat2">0%</span><span class="stat-label">Unaware of free AI tools</span></div>
+    <div class="stat-item"><span class="stat-value" id="stat3">₹0</span><span class="stat-label">Scholarships missed yearly</span></div>
+    <div class="stat-item"><span class="stat-value" id="stat4">0</span><span class="stat-label">Students we aim to reach</span></div>
+  </div>
+</div>
+
+<!-- MISSION -->
+<section class="bg-alt" style="border-top:1px solid var(--card-border);">
+  <div class="max-w">
+    <div class="mission-grid">
+      <div class="mission-text">
+        <div class="section-tag">Our Mission</div>
+        <h2 class="section-title">Why VidyaUday Exists</h2>
+        <p>Thousands of bright rural students across Andhra Pradesh miss life-changing opportunities every year — not because of lack of talent, but because of lack of information. A scholarship deadline passes. A free course goes unused. An AI tool that could help with studies is never discovered.</p>
+        <p>VidyaUday was built by students, for students — to be the guide that every rural learner deserves but rarely gets.</p>
+      </div>
+      <div class="mission-cards">
+        <div class="mission-card"><div class="m-icon">🎯</div><h4>Centralized Info</h4><p>All opportunities in one place</p></div>
+        <div class="mission-card"><div class="m-icon">🌐</div><h4>Digital Inclusion</h4><p>Bridging the urban-rural divide</p></div>
+        <div class="mission-card"><div class="m-icon">🤝</div><h4>Peer Support</h4><p>Built by students, for students</p></div>
+        <div class="mission-card"><div class="m-icon">🔓</div><h4>Always Free</h4><p>Every resource listed is free</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<!-- AI TOOLS -->
+<section id="ai-tools">
+  <div class="max-w">
+    <div class="section-tag">AI Awareness</div>
+    <h2 class="section-title">Discover AI Tools Built for You</h2>
+    <p class="section-sub">Click any card to learn more, then click "Open Tool" to start using it — all are completely free for students.</p>
+
+    <!-- SEARCH BAR -->
+    <div class="ait-search-wrap">
+      <span class="ait-search-icon">🔍</span>
+      <input type="text" id="aiSearchInput" placeholder="Search any AI tool... e.g. Grammarly, Midjourney, Adobe Firefly" oninput="handleAISearch(this.value)">
+      <button id="aiSearchClear" onclick="clearAISearch()" style="display:none;">✕</button>
+    </div>
+
+    <!-- SEARCH RESULT AREA -->
+    <div id="aiSearchResult" style="display:none; margin-bottom:28px;"></div>
+
+    <!-- EXISTING 10 TOOLS -->
+    <div id="aiToolsLabel" style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);margin-bottom:16px;">Our Top 10 Recommended Tools</div>
+    <div class="cards-grid" id="aiToolsGrid"></div>
+  </div>
+</section>
+
+<!-- AI TOOL MODAL -->
+<div class="modal-overlay" id="toolModal" onclick="handleModalClick(event)">
+  <div class="modal-box">
+    <div class="modal-header-bar">
+      <h3>Tool Details</h3>
+      <button class="modal-close" onclick="closeToolModal()">✕</button>
+    </div>
+    <div class="modal-body" id="modalContent"></div>
+  </div>
+</div>
+
+<div class="gradient-divider"></div>
+
+<!-- CAREER -->
+<section id="career" class="bg-alt">
+  <div class="max-w">
+    <div class="section-tag">Career Guidance</div>
+    <h2 class="section-title">Your Complete Career Roadmap</h2>
+    <p class="section-sub">Click your stage → choose your path → see the full year-by-year career tree with salary growth.</p>
+
+    <!-- STEP 1 -->
+    <div id="cStep1">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:720px;margin:0 auto;">
+        <div class="c-choose-card" onclick="showPaths('10th')">
+          <div class="cc-icon">🏫</div>
+          <h3 class="cc-title">After 10th Class</h3>
+          <p class="cc-sub">Just completed SSC? See all 5 paths available right now.</p>
+          <div class="cc-tags"><span class="ctag">MPC</span><span class="ctag">BiPC</span><span class="ctag">Polytechnic</span><span class="ctag">ITI</span></div>
+          <div class="cc-btn">Explore Paths →</div>
+        </div>
+        <div class="c-choose-card" onclick="showPaths('inter')">
+          <div class="cc-icon">🎓</div>
+          <h3 class="cc-title">After Intermediate</h3>
+          <p class="cc-sub">Completed 12th? Discover 6 paths with full roadmaps.</p>
+          <div class="cc-tags"><span class="ctag">B.Tech</span><span class="ctag">MBBS</span><span class="ctag">Govt Jobs</span><span class="ctag">Degree</span></div>
+          <div class="cc-btn">Explore Paths →</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="cStep2" style="display:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
+        <button class="c-back-btn" onclick="goStep1()">← Back</button>
+        <span id="cStep2Label" style="font-family:var(--font-display);font-weight:600;font-size:1rem;"></span>
+      </div>
+      <div class="cpath-grid" id="cPathGrid"></div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="cStep3" style="display:none;">
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
+        <button class="c-back-btn" onclick="goStep2()">← Back</button>
+        <span id="cStep3Label" style="font-family:var(--font-display);font-weight:600;font-size:1rem;"></span>
+      </div>
+      <div id="cTreeWrap"></div>
+    </div>
+
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<!-- RESOURCES -->
+<section id="resources">
+  <div class="max-w">
+    <div class="section-tag">Free Resources</div>
+    <h2 class="section-title">Learn Anything, For Free</h2>
+    <p class="section-sub">Carefully selected platforms that offer world-class education at zero cost.</p>
+    <div class="filter-row" id="resourceFilters"></div>
+    <div class="cards-grid" id="resourceGrid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));"></div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<!-- SCHOLARSHIPS -->
+<section id="scholarships" class="bg-alt">
+  <div class="max-w">
+    <div class="section-tag">Scholarships</div>
+    <h2 class="section-title">Money Is Available — Apply for It</h2>
+    <p class="section-sub">Search government scholarships you're eligible for right now. Don't miss deadlines.</p>
+    <div class="search-wrap">
+      <span class="search-icon">🔍</span>
+      <input type="text" id="scholSearch" placeholder="Search by name or category..." oninput="filterScholarships()">
+    </div>
+    <div class="cards-grid" id="scholarshipGrid"></div>
+    <p id="scholNoResult" style="display:none;color:var(--text3);text-align:center;padding:40px;">No scholarships match your search.</p>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<!-- CODING -->
+<section id="coding">
+  <div class="max-w">
+    <div class="section-tag">Start Coding</div>
+    <h2 class="section-title">Coding Platforms to Launch Your Tech Career</h2>
+    <p class="section-sub">Practice problems, earn certificates, and get noticed by top companies.</p>
+    <div class="cards-grid" id="codingGrid"></div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<!-- DIGITAL LITERACY -->
+<section id="digital-literacy" class="bg-alt">
+  <div class="max-w">
+    <div class="section-tag">Digital Skills</div>
+    <h2 class="section-title">Essential Digital Skills for Every Student</h2>
+    <p class="section-sub">Master these fundamentals to thrive in the modern world.</p>
+    <div class="cards-grid" id="digitalGrid"></div>
+  </div>
+</section>
+
+<div class="gradient-divider"></div>
+
+<!-- QUIZ -->
+<section id="quiz">
+  <div class="max-w">
+    <div class="section-tag">Test Yourself</div>
+    <h2 class="section-title" style="text-align:center;">AI Awareness Quiz</h2>
+    <p class="section-sub" style="text-align:center;margin:0 auto 36px;">How much do you know about AI? Find out in 2 minutes!</p>
+    <div class="quiz-wrap" id="quizWrap"></div>
+  </div>
+</section>
+
+
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#home" class="nav-logo" style="font-size:1.1rem;">
+        <span class="logo-icon">🦉</span>
+        <span class="logo-text-wrap">
+          <span class="logo-vidya">Vidya</span><span class="logo-uday">Uday</span>
+          <span class="logo-tagline">Rise of Knowledge</span>
+        </span>
+      </a>
+      <p>Empowering rural students of Andhra Pradesh with digital knowledge, AI awareness, and career guidance. Built with ❤️ as a B.Tech Community Project.</p>
+    </div>
+    <div class="footer-col"><h5>Platform</h5><ul><li><a href="#ai-tools">AI Tools</a></li><li><a href="#career">Career Guidance</a></li><li><a href="#resources">Learning Resources</a></li><li><a href="#scholarships">Scholarships</a></li></ul></div>
+    <div class="footer-col"><h5>Learn</h5><ul><li><a href="#coding">Coding Platforms</a></li><li><a href="#digital-literacy">Digital Skills</a></li><li><a href="#quiz">AI Quiz</a></li></ul></div>
+    <div class="footer-col"><h5>Quick Links</h5><ul><li><a href="https://scholarships.gov.in" target="_blank">National Scholarships</a></li><li><a href="https://swayam.gov.in" target="_blank">SWAYAM</a></li><li><a href="https://nptel.ac.in" target="_blank">NPTEL</a></li><li><a href="https://cfms.ap.gov.in" target="_blank">AP Epass</a></li></ul></div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2024 VidyaUday · Rise of Knowledge · B.Tech Community Project</span>
+    <span>🇮🇳 Made in Andhra Pradesh</span>
+  </div>
+</footer>
+
+<script>
+// ═══════════════════════════════════════════
+// DATA
+// ═══════════════════════════════════════════
+const aiTools = [
+  { id:1, name:"ChatGPT", icon:"🤖", color:"#10a37f", category:"AI Assistant",
+    tagline:"Your 24/7 personal study buddy",
+    description:"ChatGPT is an AI chatbot made by OpenAI. You can ask it anything — solve maths problems, write essays, understand science concepts, prepare for exams, and even get answers in Telugu. It's like having a smart tutor available at midnight before your exam.",
+    benefits:["Answers any subject question instantly","Explains topics in simple language","Helps write and improve essays","Works in Telugu, Hindi & English","Generates practice exam questions","Summarizes long chapters in seconds"],
+    useCases:["Type: 'Explain Newton's laws simply' → get a clear answer","Type: 'Write an essay on water conservation' → get a draft","Type: 'Give me 10 MCQs on photosynthesis' → instant quiz","Type: 'What are career options after BiPC?' → full guidance"],
+    link:"https://chat.openai.com",
+    youtube:"https://www.youtube.com/watch?v=JTxsNm9IdYU" },
+
+  { id:2, name:"Google Gemini", icon:"✨", color:"#4285f4", category:"AI Assistant",
+    tagline:"Google's AI — smarter search, better answers",
+    description:"Gemini is Google's AI assistant that understands both text and images. You can upload a photo of your textbook page and ask questions about it. It's deeply connected to Google Search so it gives you up-to-date information for any topic.",
+    benefits:["Upload textbook images and ask questions","Integrated with Gmail and Google Docs","Gives current up-to-date answers","Works on any Android phone","Supports multiple Indian languages","Completely free to use"],
+    useCases:["Photo your textbook diagram → ask 'explain this'","Research any topic with accurate Google-backed answers","Summarize a chapter by typing or uploading it","Get current scholarship deadlines and exam dates"],
+    link:"https://gemini.google.com",
+    youtube:"https://www.youtube.com/watch?v=Q1zF9pF6flw" },
+
+  { id:3, name:"Canva", icon:"🎨", color:"#7c3aed", category:"Design Tool",
+    tagline:"Design anything — no skills needed",
+    description:"Canva is a free online design tool with 1000+ ready-made templates. You can create beautiful project presentations, posters, resumes, college fest banners, and more in minutes — all from your phone or laptop. No design experience needed at all.",
+    benefits:["1000+ free professional templates","Works perfectly on mobile","Download as PDF, PNG, or PPT","Team collaboration feature","Drag and drop — no learning curve","Free education account with extra features"],
+    useCases:["Create a project presentation in 10 minutes","Design your college fest poster","Build a professional 1-page resume","Make an infographic for science projects","Create a LinkedIn banner for your profile"],
+    link:"https://www.canva.com",
+    youtube:"https://www.youtube.com/watch?v=X4uBKGiUnGQ" },
+
+  { id:4, name:"Gamma", icon:"⚡", color:"#6366f1", category:"AI Presentations",
+    tagline:"Turn notes into beautiful slides instantly",
+    description:"Gamma is an AI tool that creates stunning presentations automatically. You just type your topic or paste your notes, and Gamma designs beautiful slides with the right layout, colors, and content — in under 60 seconds. Perfect for project submissions.",
+    benefits:["Creates full presentations from one prompt","Automatically adds images and icons","Modern professional designs","Share as a link — no file needed","Free to use with generous limits","Great for project demos and seminars"],
+    useCases:["Type 'AI tools for students' → get a full presentation","Convert your notes into slides instantly","Create a project report that looks professional","Share presentations via link (no PPT file needed)","Present in class directly from browser"],
+    link:"https://gamma.app",
+    youtube:"https://www.youtube.com/watch?v=W5SuYBXKgJM" },
+
+  { id:5, name:"GitHub", icon:"🐙", color:"#7ee787", category:"Code Platform",
+    tagline:"The home for every developer's code",
+    description:"GitHub is where programmers store, share, and showcase their code projects. Think of it as Instagram — but for your coding work. Having a GitHub profile with your projects is often more valuable than a resume when applying for tech jobs.",
+    benefits:["Free unlimited code storage","Build a developer portfolio employers check","Learn by reading other people's code","Collaborate on group projects easily","GitHub Student Pack worth ₹50,000+ in free tools","Recognized and used by every tech company globally"],
+    useCases:["Store every coding project you ever make","Share your project link in your resume","Collaborate with classmates on group assignments","Explore open-source projects to learn from","Get GitHub Student Pack with your college email"],
+    link:"https://github.com",
+    youtube:"https://www.youtube.com/watch?v=RGOj5yH7evk" },
+
+  { id:6, name:"LinkedIn", icon:"💼", color:"#0077b5", category:"Professional Network",
+    tagline:"Start building your career network today",
+    description:"LinkedIn is the world's largest professional networking platform with 900 million users. Creating your profile as a student connects you with mentors, seniors, company recruiters, and scholarship opportunities. The earlier you start, the better.",
+    benefits:["Connect with alumni from your college","Find internships and part-time work","Free LinkedIn Learning courses (1000+)","Recruiters find YOU when your profile is strong","Follow companies and industry news","Post your projects and get noticed"],
+    useCases:["Create your student profile with education and skills","Connect with seniors who got placed in top companies","Follow TATA, Infosys, Google India for job openings","Post your project — tag your college — get visibility","Message professionals and ask for career advice"],
+    link:"https://www.linkedin.com",
+    youtube:"https://www.youtube.com/watch?v=SG5Sb5WTV_g" },
+
+  { id:7, name:"Microsoft Copilot", icon:"🪟", color:"#00a4ef", category:"AI Assistant",
+    tagline:"Free AI built into Windows & Bing",
+    description:"Microsoft Copilot is a free AI assistant built into Windows 11, Bing, and Microsoft Edge browser. If you use a Windows laptop, you already have it — press the Copilot button. It helps with writing, research, image generation, and coding.",
+    benefits:["Already on your Windows laptop — free","Generates images with DALL-E for free","Answers questions with live internet access","Helps write Word documents and emails","No account needed to start using","Works inside Microsoft Edge browser"],
+    useCases:["Press Win+C on Windows laptop → start chatting","Generate project images for free","Research any topic with live web results","Get help writing emails and formal letters","Ask coding questions while you are learning"],
+    link:"https://copilot.microsoft.com",
+    youtube:"https://www.youtube.com/watch?v=nrgCBGhOBos" },
+
+  { id:8, name:"Notion AI", icon:"📝", color:"#e8e8e8", category:"Productivity",
+    tagline:"Organize notes, studies and projects with AI",
+    description:"Notion is a free all-in-one workspace where you can take notes, plan your studies, manage projects, and track your goals. With Notion AI built in, it can summarize your notes, write content for you, and help you stay organized throughout your academic year.",
+    benefits:["Free for students with education email","Organize all subjects in one place","AI writes and summarizes content for you","Share study notes with classmates","Works on phone, tablet, and laptop","500+ free templates for students"],
+    useCases:["Create a study planner for your semester","Take class notes and let AI summarize them","Track your scholarship application deadlines","Manage your B.Tech project tasks and timeline","Share a notes page with your entire friend group"],
+    link:"https://notion.so",
+    youtube:"https://www.youtube.com/watch?v=oTahLEX3NXo" },
+
+  { id:9, name:"Perplexity AI", icon:"🔎", color:"#20b8cd", category:"AI Search",
+    tagline:"Ask anything — get answers with sources",
+    description:"Perplexity is an AI-powered search engine that gives you direct answers instead of a list of links. Unlike Google, it reads multiple sources and gives you a clear, summarized answer with references. Perfect for research and understanding complex topics.",
+    benefits:["Direct answers — no clicking multiple links","Shows sources so you can verify facts","Completely free to use","Great for research and assignments","Asks follow-up questions to dig deeper","No account needed"],
+    useCases:["'What are the best government schemes for students in AP?' → instant answer","Research any topic for your project","Understand complex science or history topics","Find scholarship info with reliable sources","Fact-check information you read online"],
+    link:"https://www.perplexity.ai",
+    youtube:"https://www.youtube.com/watch?v=EJfHqMWn_sA" },
+
+  { id:10, name:"QuillBot", icon:"✍️", color:"#21c26e", category:"Writing Tool",
+    tagline:"Write better — fix grammar, paraphrase, summarize",
+    description:"QuillBot is a free writing assistant that helps you paraphrase sentences, summarize long text, fix grammar mistakes, and improve your writing style. Extremely useful for writing assignments, project reports, and making your English writing sound professional.",
+    benefits:["Paraphrase tool rewrites sentences better","Grammar checker fixes all mistakes","Summarizer shortens long articles","Works in your browser — no install","Free tier is very generous","Helps improve your English writing skills"],
+    useCases:["Paste your assignment → fix grammar and improve it","Summarize a long article or chapter in seconds","Rewrite sentences in a more professional tone","Check and fix errors in your resume","Improve the English in your LinkedIn bio"],
+    link:"https://quillbot.com",
+    youtube:"https://www.youtube.com/watch?v=0bNf6CcBkmk" }
+];
+
+const learningResources = [
+  { name:"freeCodeCamp", cat:"Programming", icon:"🔥", desc:"Learn web development, Python and data science with 3000+ hours of free curriculum.", link:"https://freecodecamp.org", audience:"All students", rating:5 },
+  { name:"W3Schools", cat:"Programming", icon:"🌐", desc:"Simplest way to learn HTML, CSS, JavaScript and Python with interactive examples.", link:"https://w3schools.com", audience:"Beginners", rating:4.5 },
+  { name:"GeeksforGeeks", cat:"Programming", icon:"🧠", desc:"Learn DSA, algorithms, and prepare for technical interviews with 10,000+ articles.", link:"https://geeksforgeeks.org", audience:"Intermediate students", rating:5 },
+  { name:"NPTEL", cat:"Academic", icon:"🎓", desc:"IIT and IISc professors teach Engineering, Science and Humanities in English and regional languages.", link:"https://nptel.ac.in", audience:"Intermediate & College", rating:5 },
+  { name:"SWAYAM", cat:"Academic", icon:"🏛️", desc:"Government of India free education platform with UGC-recognized certifications.", link:"https://swayam.gov.in", audience:"All students", rating:4.5 },
+  { name:"Khan Academy", cat:"Academic", icon:"📚", desc:"Free world-class education for Class 6-12 covering Maths, Science and Economics.", link:"https://khanacademy.org", audience:"10th class students", rating:5 },
+  { name:"Coursera", cat:"Skill Dev", icon:"🚀", desc:"Top university courses from Google, IBM, Meta. Many free to audit.", link:"https://coursera.org", audience:"Intermediate & above", rating:4.5 },
+  { name:"edX", cat:"Skill Dev", icon:"⚡", desc:"Harvard and MIT courses free. Verified certificates in CS, Business and Data Science.", link:"https://edx.org", audience:"Intermediate & above", rating:4.5 }
+];
+
+const scholarships = [
+  { name:"AP Epass Scholarship", cat:"State", icon:"🏆", elig:"AP students, family income less than ₹2.5L, studying 10th to PG", benefits:"Full tuition fee reimbursement plus ₹12,000/year maintenance", process:"Apply online at cfms.ap.gov.in after admission with income and caste certificate.", link:"https://cfms.ap.gov.in", deadline:"Oct-Nov annually" },
+  { name:"Pre-Matric Scholarship SC/ST/OBC", cat:"Central", icon:"⭐", elig:"SC/ST/OBC students in Class 9-10, family income less than ₹2.5L", benefits:"₹1,000-₹2,250/month maintenance plus tuition fees", process:"Apply via National Scholarship Portal with Aadhaar, caste and income certificate.", link:"https://scholarships.gov.in", deadline:"Oct 31 annually" },
+  { name:"Post-Matric Scholarship", cat:"Central", icon:"🎯", elig:"SC/ST students after Class 10, family income less than ₹2.5L", benefits:"Course fees plus maintenance ₹380-₹1,200/month", process:"Apply on National Scholarship Portal with mark sheets and income certificate.", link:"https://scholarships.gov.in", deadline:"Nov 30 annually" },
+  { name:"Jagannath Scholarship Minorities", cat:"State", icon:"🌟", elig:"Minority students in AP (Muslim, Christian, Sikh, Buddhist), income less than ₹8L", benefits:"Tuition up to ₹20,000 plus maintenance ₹7,000-₹12,000/year", process:"Apply via AP Minority Welfare portal with income and religion certificate.", link:"https://apeamcet.nic.in", deadline:"December annually" },
+  { name:"AICTE Pragati for Girls", cat:"Central", icon:"👩‍🎓", elig:"Girl students in AICTE-approved technical courses, income less than ₹8L/year", benefits:"₹50,000/year tuition plus ₹2,000/month contingency allowance", process:"Apply at aicte-india.org after getting engineering admission.", link:"https://aicte-india.org", deadline:"December annually" },
+  { name:"INSPIRE Scholarship", cat:"Central", icon:"💡", elig:"Top 1% of Class 10 board exam, pursuing Science in Intermediate", benefits:"₹80,000/year for 5 years of BSc or Integrated MSc", process:"School nominates top performers after board results. No application needed.", link:"https://online-inspire.gov.in", deadline:"School nomination" }
+];
+
+const codingPlatforms = [
+  { name:"LeetCode", icon:"⚙️", color:"#ffa116", diff:"Medium-Hard", diffClass:"medium", purpose:"Practice Data Structures and Algorithms used in placements at Google, Amazon, and Microsoft.", benefits:["2,500+ coding problems","Company-specific problem sets","Monthly contests","Direct hiring platform"], bestFor:"B.Tech students and placement prep", link:"https://leetcode.com" },
+  { name:"HackerRank", icon:"🟢", color:"#00ea64", diff:"Easy-Medium", diffClass:"easy", purpose:"Start coding from scratch with structured learning paths in Python, Java, SQL and more.", benefits:["Beginner friendly","Industry skill certifications","Company hiring tests","30 Days of Code challenge"], bestFor:"10th and Intermediate students starting to code", link:"https://hackerrank.com" },
+  { name:"CodeChef", icon:"👨‍🍳", color:"#f59e0b", diff:"Easy-Hard", diffClass:"easy", purpose:"Indian competitive programming platform with monthly contests and a massive student community.", benefits:["Indian-focused contests","DSA learning paths","ICPC college competitions","Global rating system"], bestFor:"Students wanting competitive programming exposure", link:"https://codechef.com" }
+];
+
+const digitalLiteracy = [
+  { title:"Internet Safety", icon:"🛡️", color:"#ef4444", tips:["Never share your password with anyone","Use strong passwords — mix letters, numbers, symbols","Avoid clicking unknown links in messages","Look for https on websites you trust","Do not share your personal info on social media"] },
+  { title:"Professional Email Usage", icon:"📧", color:"#3b82f6", tips:["Create a professional ID: firstname.lastname@gmail.com","Always write a clear Subject line","Use proper greeting and sign-off","Reply within 24 hours for professional emails","Attach files before writing about them"] },
+  { title:"Building Your Resume", icon:"📄", color:"#10b981", tips:["Keep it to 1 page for freshers","Lead with your strongest skill or achievement","Include all certifications and online courses","Add your GitHub and LinkedIn profile link","Proofread carefully — no spelling mistakes"] },
+  { title:"LinkedIn Profile Setup", icon:"💼", color:"#0077b5", tips:["Use a clear professional profile photo","Write a headline that describes your career goal","Add all education details and skills","Connect with teachers, seniors and industry people","Post your project achievements regularly"] },
+  { title:"Basic Computer Skills", icon:"💻", color:"#8b5cf6", tips:["Learn MS Word, Excel, PowerPoint basics","Typing speed target: 30+ words per minute","Learn Google Docs, Sheets and Meet","Know basic file management and keyboard shortcuts","Practice online forms and digital applications"] }
+];
+
+const quizData = [
+  { q:"What does 'AI' stand for?", opts:["Artificial Intelligence","Automated Internet","Advanced Interface","Automated Intelligence"], ans:0 },
+  { q:"Which company created ChatGPT?", opts:["Google","Microsoft","OpenAI","Meta"], ans:2 },
+  { q:"What is Canva primarily used for?", opts:["Coding","Graphic Design","Video Editing","Data Analysis"], ans:1 },
+  { q:"GitHub is mainly used for:", opts:["Storing and sharing code","Social networking","Online shopping","Email communication"], ans:0 },
+  { q:"Which AI tool is made by Google?", opts:["ChatGPT","Copilot","Gemini","Siri"], ans:2 },
+  { q:"Gamma is best used for creating:", opts:["Code","Presentations and slides","Music","Videos"], ans:1 },
+  { q:"NPTEL courses are offered by:", opts:["Private companies","IITs and IISc","US Universities","State governments"], ans:1 },
+  { q:"LeetCode is best known for:", opts:["Design tools","Coding practice for placements","Video lectures","Job applications"], ans:1 }
+];
+
+// ═══════════════════════════════════════════
+// RENDER AI TOOLS
+// ═══════════════════════════════════════════
+function renderAITools() {
+  const grid = document.getElementById('aiToolsGrid');
+  grid.innerHTML = aiTools.map((t, i) => `
+    <div class="tool-card" style="--accent:${t.color}; opacity:1;" onclick="openToolModal(${t.id})">
+      <div class="tool-card-top">
+        <div class="tool-icon-big">${t.icon}</div>
+        <span class="free-badge">✓ FREE</span>
+      </div>
+      <div class="tool-name">${t.name}</div>
+      <div class="tool-category" style="color:${t.color};">${t.category}</div>
+      <div class="tool-tagline">"${t.tagline}"</div>
+      <div class="tool-desc-short">${t.description.substring(0, 105)}...</div>
+      <div class="tool-actions">
+        <button class="tool-btn-info" onclick="event.stopPropagation();openToolModal(${t.id})">📖 Learn More</button>
+        <a class="tool-btn-open" style="background:${t.color};" href="${t.link}" target="_blank" onclick="event.stopPropagation()">🚀 Open Tool ↗</a>
+      </div>
+    </div>
+  `).join('');
+}
+
+// ═══════════════════════════════════════════
+// AI TOOLS SEARCH
+// ═══════════════════════════════════════════
+let searchTimer = null;
+
+function handleAISearch(val) {
+  const clearBtn = document.getElementById('aiSearchClear');
+  clearBtn.style.display = val ? 'flex' : 'none';
+
+  clearTimeout(searchTimer);
+  if (!val.trim()) { clearAISearch(); return; }
+
+  // Check if matches existing tool
+  const match = aiTools.filter(t =>
+    t.name.toLowerCase().includes(val.toLowerCase()) ||
+    t.category.toLowerCase().includes(val.toLowerCase()) ||
+    t.tagline.toLowerCase().includes(val.toLowerCase())
+  );
+
+  if (match.length) {
+    // Show matched existing tools highlighted
+    showSearchResult(`
+      <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--saffron);margin-bottom:14px;">🔍 Results for "${val}"</div>
+      <div class="cards-grid">${match.map(t => `
+        <div class="tool-card" style="--accent:${t.color};opacity:1;border-color:rgba(255,107,43,0.4);" onclick="openToolModal(${t.id})">
+          <div class="tool-card-top"><div class="tool-icon-big">${t.icon}</div><span class="free-badge">✓ FREE</span></div>
+          <div class="tool-name">${t.name}</div>
+          <div class="tool-category" style="color:${t.color};">${t.category}</div>
+          <div class="tool-tagline">"${t.tagline}"</div>
+          <div class="tool-desc-short">${t.description.substring(0,105)}...</div>
+          <div class="tool-actions">
+            <button class="tool-btn-info" onclick="event.stopPropagation();openToolModal(${t.id})">📖 Learn More</button>
+            <a class="tool-btn-open" style="background:${t.color};" href="${t.link}" target="_blank" onclick="event.stopPropagation()">🚀 Open Tool ↗</a>
+          </div>
+        </div>`).join('')}
+      </div>
+    `);
+    return;
+  }
+
+  // Not in existing — show loading then fetch AI info
+  showSearchResult(`
+    <div style="display:flex;align-items:center;gap:12px;padding:20px;background:var(--card);border:1px solid var(--card-border);border-radius:14px;">
+      <div style="font-size:1.8rem;">🔍</div>
+      <div>
+        <div style="font-family:var(--font-display);font-weight:700;margin-bottom:4px;">Searching for "<span style="color:var(--saffron)">${val}</span>"...</div>
+        <div style="font-size:0.82rem;color:var(--text2);">Finding information about this tool for you...</div>
+      </div>
+      <div class="ait-spinner"></div>
+    </div>
+  `);
+
+  searchTimer = setTimeout(() => fetchToolInfo(val), 800);
+}
+
+function showSearchResult(html) {
+  const area = document.getElementById('aiSearchResult');
+  area.style.display = 'block';
+  area.innerHTML = html;
+}
+
+function clearAISearch() {
+  document.getElementById('aiSearchInput').value = '';
+  document.getElementById('aiSearchClear').style.display = 'none';
+  document.getElementById('aiSearchResult').style.display = 'none';
+}
+
+async function fetchToolInfo(toolName) {
+  // Build smart info from known tools database + AI generation
+  const knownExtras = {
+    'grammarly': { icon:'✏️', color:'#15c39a', category:'Writing Tool', tagline:'Write mistake-free, everywhere', desc:'Grammarly is an AI writing assistant that checks grammar, spelling, punctuation, and style in real time. It works across Gmail, Google Docs, and any website. Free version is very powerful for students writing assignments and emails.', link:'https://grammarly.com', youtube:'https://www.youtube.com/watch?v=EZJNmRGQVAE' },
+    'midjourney': { icon:'🎨', color:'#5865f2', category:'AI Image Generator', tagline:'Create stunning images from text', desc:'Midjourney is an AI tool that creates beautiful, artistic images just from text descriptions. Type what you want to see and it generates professional-quality artwork in seconds. Used by designers, artists, and creators worldwide.', link:'https://midjourney.com', youtube:'https://www.youtube.com/watch?v=7BH6tBOB0JA' },
+    'dall-e': { icon:'🖼️', color:'#10a37f', category:'AI Image Generator', tagline:'OpenAI image generation tool', desc:'DALL-E is OpenAI\'s image generation AI that creates realistic images and art from text descriptions. Available inside ChatGPT Plus. Great for creating illustrations for your projects and presentations.', link:'https://openai.com/dall-e-3', youtube:'https://www.youtube.com/watch?v=yCBEumeXY4A' },
+    'adobe firefly': { icon:'🔥', color:'#ff0000', category:'AI Design Tool', tagline:'Adobe\'s AI for creative work', desc:'Adobe Firefly is Adobe\'s AI image and design generator. Create images, text effects, and design elements using simple text prompts. Integrated directly into Photoshop and Illustrator.', link:'https://firefly.adobe.com', youtube:'https://www.youtube.com/watch?v=EN5TNqRAf2Y' },
+    'claude': { icon:'🤖', color:'#d97706', category:'AI Assistant', tagline:'Anthropic\'s powerful AI assistant', desc:'Claude is an AI assistant made by Anthropic. It is known for being safe, helpful, and honest. Great for writing long essays, analysing documents, coding help, and having thoughtful conversations about complex topics.', link:'https://claude.ai', youtube:'https://www.youtube.com/watch?v=XKh8bpN45gI' },
+    'copilot': { icon:'💻', color:'#0078d4', category:'AI Coding Assistant', tagline:'AI pair programmer for developers', desc:'GitHub Copilot is an AI coding assistant that suggests code as you type, directly inside VS Code. It can write entire functions, fix bugs, and explain code. Free for students with GitHub Student Pack.', link:'https://github.com/features/copilot', youtube:'https://www.youtube.com/watch?v=Fi3AJZZregI' },
+    'chatpdf': { icon:'📄', color:'#ef4444', category:'AI PDF Tool', tagline:'Chat with any PDF document', desc:'ChatPDF lets you upload any PDF — textbook, research paper, or notes — and ask questions about it in plain language. It reads the document and gives you answers instantly. Perfect for studying long chapters.', link:'https://www.chatpdf.com', youtube:'https://www.youtube.com/watch?v=aqdWSNsZFJc' },
+    'runway': { icon:'🎬', color:'#6366f1', category:'AI Video Tool', tagline:'AI-powered video creation and editing', desc:'Runway is an AI video generation and editing tool. Create videos from text prompts, remove backgrounds, generate slow motion, and edit videos using simple text commands. Used by professional filmmakers and students.', link:'https://runwayml.com', youtube:'https://www.youtube.com/watch?v=6mGJ3IdMqDE' },
+    'elevenlabs': { icon:'🎙️', color:'#f59e0b', category:'AI Voice Tool', tagline:'Generate realistic AI voices', desc:'ElevenLabs is an AI voice generation tool that creates extremely realistic human voices from text. Great for creating voice-overs for your project videos, podcasts, and presentations without recording your own voice.', link:'https://elevenlabs.io', youtube:'https://www.youtube.com/watch?v=VnXhzx3qYQY' },
+    'otter.ai': { icon:'🦦', color:'#5a67d8', category:'AI Transcription', tagline:'AI meeting notes and transcription', desc:'Otter.ai automatically transcribes spoken words into text in real time. Use it to transcribe your class lectures, interviews, and meetings. Never miss important points your teacher says again!', link:'https://otter.ai', youtube:'https://www.youtube.com/watch?v=yFkqSCN6iqk' }
+  };
+
+  const key = toolName.toLowerCase().trim();
+  const extra = knownExtras[key] || Object.entries(knownExtras).find(([k]) => k.includes(key) || key.includes(k))?.[1];
+
+  if (extra) {
+    showSearchResult(buildResultCard(toolName, extra));
+    return;
+  }
+
+  // Generic fallback card for unknown tools
+  const ytSearch = `https://www.youtube.com/results?search_query=${encodeURIComponent(toolName + ' tutorial for beginners')}`;
+  const toolLink = `https://www.google.com/search?q=${encodeURIComponent(toolName + ' AI tool official website')}`;
+  showSearchResult(`
+    <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--saffron);margin-bottom:14px;">🔍 Results for "${toolName}"</div>
+    <div class="tool-card" style="--accent:#FF6B2B;opacity:1;max-width:420px;">
+      <div class="tool-card-top">
+        <div class="tool-icon-big">🤖</div>
+        <span class="free-badge">AI Tool</span>
+      </div>
+      <div class="tool-name">${toolName}</div>
+      <div class="tool-category" style="color:#FF6B2B;">AI Tool</div>
+      <div class="tool-tagline">"Explore this tool and its capabilities"</div>
+      <div class="tool-desc-short">We don't have detailed info on <strong>${toolName}</strong> yet, but you can explore it using the links below. Click "Watch Tutorial" to learn how to use it on YouTube!</div>
+      <div class="tool-actions" style="flex-direction:column;gap:8px;margin-top:12px;">
+        <a class="tool-btn-open" style="background:#FF0000;" href="${ytSearch}" target="_blank">▶ Watch Tutorial on YouTube</a>
+        <a class="tool-btn-open" style="background:#FF6B2B;" href="${toolLink}" target="_blank">🌐 Find Official Website ↗</a>
+      </div>
+    </div>
+  `);
+}
+
+function buildResultCard(name, t) {
+  return `
+    <div style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--saffron);margin-bottom:14px;">🔍 Results for "${name}"</div>
+    <div class="tool-card" style="--accent:${t.color};opacity:1;max-width:420px;border-color:rgba(255,107,43,0.35);">
+      <div class="tool-card-top">
+        <div class="tool-icon-big">${t.icon}</div>
+        <span class="free-badge">✓ FREE</span>
+      </div>
+      <div class="tool-name">${name.charAt(0).toUpperCase()+name.slice(1)}</div>
+      <div class="tool-category" style="color:${t.color};">${t.category}</div>
+      <div class="tool-tagline">"${t.tagline}"</div>
+      <div class="tool-desc-short">${t.desc}</div>
+      <div class="tool-actions" style="flex-direction:column;gap:8px;margin-top:12px;">
+        <div style="display:flex;gap:8px;">
+          <a class="tool-btn-open" style="background:#FF0000;flex:1;" href="${t.youtube}" target="_blank">▶ Watch Tutorial</a>
+          <a class="tool-btn-open" style="background:${t.color};flex:1;" href="${t.link}" target="_blank">🚀 Open Tool ↗</a>
+        </div>
+      </div>
+    </div>`;
+}
+
+// ═══════════════════════════════════════════
+// MODAL
+// ═══════════════════════════════════════════
+function openToolModal(id) {
+  const t = aiTools.find(x => x.id === id);
+  if (!t) return;
+  document.getElementById('modalContent').innerHTML = `
+    <div class="modal-tool-header">
+      <div class="modal-icon">${t.icon}</div>
+      <div>
+        <div class="modal-tool-name">${t.name}</div>
+        <div style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:${t.color};margin:4px 0;">${t.category}</div>
+        <div style="font-size:0.84rem;color:var(--text2);font-style:italic;">"${t.tagline}"</div>
+      </div>
+    </div>
+    <div class="modal-desc">${t.description}</div>
+    <div class="modal-two-col">
+      <div>
+        <div class="modal-section-title">✅ Benefits for Students</div>
+        <ul class="modal-list check">${t.benefits.map(b=>`<li>${b}</li>`).join('')}</ul>
+      </div>
+      <div>
+        <div class="modal-section-title">💡 How to Use It</div>
+        <ul class="modal-list arrow">${t.useCases.map(u=>`<li>${u}</li>`).join('')}</ul>
+      </div>
+    </div>
+    <div style="display:flex;gap:10px;margin-bottom:10px;flex-wrap:wrap;">
+      <a href="${t.youtube}" target="_blank" style="flex:1;min-width:160px;display:flex;align-items:center;justify-content:center;gap:8px;background:#FF0000;color:#fff;font-family:var(--font-display);font-size:0.92rem;font-weight:700;padding:13px 20px;border-radius:12px;text-decoration:none;transition:opacity 0.2s;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="white"><path d="M19.615 3.184c-3.604-.246-11.631-.245-15.23 0-3.897.266-4.356 2.62-4.385 8.816.029 6.185.484 8.549 4.385 8.816 3.6.245 11.626.246 15.23 0 3.897-.266 4.356-2.62 4.385-8.816-.029-6.185-.484-8.549-4.385-8.816zm-10.615 12.816v-8l8 3.993-8 4.007z"/></svg>
+        Watch Tutorial on YouTube
+      </a>
+      <a href="${t.link}" target="_blank" class="modal-open-btn" style="flex:1;min-width:160px;background:${t.color};margin:0;" onmouseover="this.style.opacity='0.85'" onmouseout="this.style.opacity='1'">
+        🚀 Open ${t.name} ↗
+      </a>
+    </div>
+    <p class="modal-note">Both links open in a new tab · Completely free to use · No credit card needed</p>
+  `;
+  document.getElementById('toolModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeToolModal() {
+  document.getElementById('toolModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// ── CLARIFICATION FOR MODAL CLICK ──
+function handleModalClick(e) {
+  if (e.target === document.getElementById('toolModal')) closeToolModal();
+}
+
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeToolModal(); });
+
+// ═══════════════════════════════════════════
+// CAREER TREE DATA & LOGIC
+// ═══════════════════════════════════════════
+const cPaths = {
+  '10th':[
+    {id:'mpc',  icon:'🔬', name:'Intermediate MPC',      sub:'Maths, Physics, Chemistry',     color:'#3b82f6'},
+    {id:'bipc', icon:'🧬', name:'Intermediate BiPC',     sub:'Biology, Physics, Chemistry',   color:'#10b981'},
+    {id:'mec',  icon:'📊', name:'Intermediate MEC',      sub:'Maths, Economics, Commerce',    color:'#f97316'},
+    {id:'cec',  icon:'📚', name:'Intermediate CEC',      sub:'Civics, Economics, Commerce',   color:'#06b6d4'},
+    {id:'poly', icon:'⚙️', name:'Polytechnic Diploma',   sub:'Engineering Diploma (3 yrs)',   color:'#f59e0b'},
+    {id:'iti',  icon:'🔧', name:'ITI Courses',           sub:'Trade Certificate (1–2 yrs)',   color:'#ef4444'},
+    {id:'voc',  icon:'💻', name:'Vocational Courses',    sub:'Skill Certificate (6m–2 yrs)',  color:'#8b5cf6'},
+  ],
+  inter:[
+    {id:'btech', icon:'🏗️', name:'B.Tech / B.E.',        sub:'Engineering Degree (4 yrs)',    color:'#3b82f6'},
+    {id:'mbbs',  icon:'🏥', name:'MBBS / Medical',       sub:'Medical Degree (5.5 yrs)',      color:'#10b981'},
+    {id:'bsc',   icon:'🔭', name:'B.Sc Degree',          sub:'Science Degree (3 yrs)',        color:'#8b5cf6'},
+    {id:'bcom',  icon:'📊', name:'B.Com / BBA',          sub:'Commerce Degree (3 yrs)',       color:'#f59e0b'},
+    {id:'govt',  icon:'📋', name:'Government Exams',     sub:'UPSC / APPSC / SSC / Railways', color:'#ef4444'},
+    {id:'skill', icon:'🚀', name:'Skill Development',    sub:'Bootcamp / PMKVY (3–6 months)', color:'#06b6d4'},
+  ]
+};
+
+const cTrees = {
+  mpc:{
+    icon:'🔬', title:'Intermediate MPC', color:'#1d4ed8', color2:'#60a5fa',
+    tag:'2 yrs MPC → Entrance → B.Tech/IIT → Engineer → ₹3L to ₹1Cr+',
+    timeline:[
+      {yr:'Now → Year 1–2', dot:'#fb923c', border:'#fb923c', label:'orange',
+       title:'Intermediate MPC — 11th & 12th',
+       desc:'Study Maths, Physics, Chemistry deeply. Start EAMCET and JEE preparation from 11th itself — early preparation is the secret of toppers.',
+       tags:[{t:'EAMCET Prep',c:'tag-o'},{t:'JEE Mains',c:'tag-b'},{t:'Board Exams',c:'tag-g'}], salary:'', pct:0},
+      {yr:'End of Year 2 — Key Exams', dot:'#f59e0b', border:'#f59e0b', label:'#f59e0b',
+       title:'Entrance Exams — Your Gateway to College',
+       desc:'AP EAMCET for AP Engineering. JEE Mains for NITs. JEE Advanced for IITs (top 2.5 lakh JEE Mains qualify). NDA for Defence. Higher rank = better college = better future.',
+       tags:[{t:'AP EAMCET',c:'tag-o'},{t:'JEE Mains',c:'tag-b'},{t:'JEE Advanced',c:'tag-p'},{t:'NDA',c:'tag-g'}], salary:'', pct:0},
+      {yr:'Year 3–6', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'B.Tech / B.E. — 4 Year Engineering Degree',
+       desc:'Choose CS, ECE, Mechanical, Civil, EEE and more. Build real projects from Year 1. Do internships in Year 3. GitHub profile + certifications = better placement.',
+       tags:[{t:'CS / IT',c:'tag-b'},{t:'ECE',c:'tag-g'},{t:'Mechanical',c:'tag-o'},{t:'Civil',c:'tag-p'}],
+       salary:'Internship: ₹8,000 – ₹50,000/month', pct:20},
+      {yr:'Year 6 — First Job', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'Software / Core Engineer — First Salary',
+       desc:'Campus placements: TCS, Infosys, Wipro pay ₹3.5–7 LPA. Dream companies Amazon, Google, Microsoft pay ₹20–60 LPA for strong coders. Your projects and skills decide where you land.',
+       tags:[{t:'TCS / Infosys',c:'tag-b'},{t:'Amazon / Google',c:'tag-g'},{t:'Core Engineering',c:'tag-o'}],
+       salary:'₹3.5–7 LPA (service) | ₹12–60 LPA (product company)', pct:40},
+      {yr:'Year 8–10', dot:'#a78bfa', border:'#a78bfa', label:'#a78bfa',
+       title:'Senior Engineer / Tech Lead',
+       desc:'3–4 years experience makes you Senior Engineer. Specialize in AI/ML, Cloud, Cybersecurity, or Data Science. Switch companies to double/triple your salary.',
+       tags:[{t:'Senior Engineer',c:'tag-p'},{t:'Team Lead',c:'tag-b'},{t:'Job Switch +Salary',c:'tag-g'}],
+       salary:'₹12–35 LPA (India) | ₹60L–₹1.5Cr (abroad / remote)', pct:65},
+      {yr:'Year 12–15+', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'Tech Lead / Manager / Startup Founder',
+       desc:'With 8–10 years experience: Engineering Manager, Principal Engineer, or Startup Founder. IITians often raise crores in funding. The sky has no limit in tech.',
+       tags:[{t:'Tech Lead',c:'tag-p'},{t:'Startup Founder',c:'tag-o'},{t:'Engg Manager',c:'tag-b'}],
+       salary:'₹30–₹80 LPA (India) | ₹1–₹3 Crore/year (abroad / startup)', pct:92},
+    ],
+    branches:[
+      {color:'#3b82f6', title:'💻 CS Specializations', items:['AI & Machine Learning','Full Stack Web Development','Data Science & Analytics','Cloud Computing (AWS / Azure)','Cybersecurity & Ethical Hacking']},
+      {color:'#f59e0b', title:'🏭 Core Engineering', items:['Mechanical → Automobile / ISRO','Civil → Infrastructure / PWD','EEE → NTPC / Power Sector','ECE → VLSI / Embedded Systems']},
+      {color:'#8b5cf6', title:'🎓 Higher Studies', items:['GATE → M.Tech at IIT / NIT','GRE → MS in USA (₹60L+ salary)','CAT → MBA from IIM','JRF → PhD & Research Career']},
+      {color:'#10b981', title:'🏛️ Government / Defence', items:['ISRO / DRDO Scientist B','Indian Engineering Services (UPSC)','NDA → Defence Officer','PSU: BHEL / NTPC / ONGC']},
+    ]
+  },
+  bipc:{
+    icon:'🧬', title:'Intermediate BiPC', color:'#065f46', color2:'#34d399',
+    tag:'2 yrs BiPC → NEET → MBBS → Doctor → ₹6L to ₹2Cr+',
+    timeline:[
+      {yr:'Now → Year 1–2', dot:'#fb923c', border:'#fb923c', label:'#fb923c',
+       title:'Intermediate BiPC — 11th & 12th',
+       desc:'Study Biology, Physics, Chemistry. Begin NEET preparation from Day 1 of 11th class — top MBBS seats go to students who prepare early and consistently.',
+       tags:[{t:'NEET Prep',c:'tag-g'},{t:'Biology Focus',c:'tag-b'},{t:'Board Exams',c:'tag-o'}], salary:'', pct:0},
+      {yr:'End of Year 2 — NEET', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'NEET UG — The Only Gateway to Medical',
+       desc:'NEET score decides everything. 600+ for Government MBBS (almost free). 400–550 for private MBBS (expensive). Also opens BDS, BAMS, B.Pharmacy, B.Sc Nursing.',
+       tags:[{t:'NEET UG',c:'tag-g'},{t:'600+ = Govt Seat',c:'tag-o'},{t:'720 marks total',c:'tag-b'}], salary:'', pct:0},
+      {yr:'Year 3–7', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'MBBS — 5.5 Years including Internship',
+       desc:'Study Anatomy, Physiology, Medicine, Surgery and more. 1-year rotating internship across all departments. Govt Medical College fees: ₹10,000–₹50,000/year. Private: ₹5–₹20 Lakhs/year.',
+       tags:[{t:'Medicine',c:'tag-g'},{t:'Surgery',c:'tag-b'},{t:'1-yr Internship',c:'tag-o'}],
+       salary:'Internship stipend: ₹15,000 – ₹40,000/month', pct:20},
+      {yr:'Year 8 — Doctor!', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'MBBS Doctor — Licensed General Physician',
+       desc:'You are now a Doctor! Practice at Government hospital (job security), Private hospital (high pay), or own clinic. Government doctors at PHC/CHC are highly respected.',
+       tags:[{t:'Govt Hospital',c:'tag-b'},{t:'Private Hospital',c:'tag-g'},{t:'Own Clinic',c:'tag-o'}],
+       salary:'Govt Doctor: ₹60,000 – ₹1.2L/month | Private: ₹8–20 LPA', pct:50},
+      {yr:'Year 9–11', dot:'#a78bfa', border:'#a78bfa', label:'#a78bfa',
+       title:'MD / MS — Post-Graduate Specialization',
+       desc:'NEET PG exam for specialization. High demand: Radiology, Dermatology, Orthopaedics, Cardiology, Anaesthesia. PG from Government college = very high salary later.',
+       tags:[{t:'NEET PG',c:'tag-p'},{t:'MD / MS',c:'tag-b'},{t:'Specialization',c:'tag-g'}],
+       salary:'PG Stipend: ₹40,000 – ₹1 Lakh/month', pct:60},
+      {yr:'Year 12+', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'Specialist Doctor — Top 1% Earner in India',
+       desc:'Cardiologists, Neurosurgeons, Plastic Surgeons, Dermatologists are among the highest paid professionals in India and the world.',
+       tags:[{t:'Cardiologist',c:'tag-p'},{t:'Neurosurgeon',c:'tag-b'},{t:'Dermatologist',c:'tag-g'}],
+       salary:'₹30 LPA – ₹2–5 Crore/year for senior specialists', pct:97},
+    ],
+    branches:[
+      {color:'#10b981', title:'🦷 Other NEET Paths', items:['BDS — Dentist (5.5 yrs)','BAMS — Ayurvedic Doctor','B.Pharmacy — Pharmacist','B.Sc Nursing — High demand abroad']},
+      {color:'#3b82f6', title:'🌍 Practice Abroad', items:['USMLE → USA (₹1–3Cr/year)','PLAB → UK Practice','AMC → Australia','DHA → Dubai / Gulf']},
+      {color:'#f59e0b', title:'🌿 Agriculture & Life Sci', items:['B.Sc Agriculture (EAMCET)','B.Sc Biotechnology','B.Sc Microbiology','Food Technology degree']},
+      {color:'#ef4444', title:'🏛️ Government Medical', items:['Civil Surgeon — AP Govt','UPSC Medical Services','Indian Army Medical Corps','AIIMS / JIPMER jobs']},
+    ]
+  },
+  mec:{
+    icon:'📊', title:'Intermediate MEC', color:'#c2410c', color2:'#fb923c',
+    tag:'2 yrs MEC → B.Com / CA → Finance Leader → ₹7L to ₹1Cr+',
+    timeline:[
+      {yr:'Now → Year 1–2', dot:'#fb923c', border:'#fb923c', label:'#fb923c',
+       title:'Intermediate MEC — 11th & 12th',
+       desc:'Maths, Economics, Commerce. Best foundation for CA, Banking, MBA, and Business. Start CA Foundation in 11th itself — many toppers clear it before Intermediate finishes.',
+       tags:[{t:'CA Foundation',c:'tag-o'},{t:'Banking Prep',c:'tag-b'},{t:'Economics',c:'tag-g'}], salary:'', pct:0},
+      {yr:'Year 3–6', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'B.Com + CA Articleship',
+       desc:'B.Com + CA is the most powerful commerce combo. Do B.Com while simultaneously completing CA Inter and Articleship (3-year paid training). Or choose BBA for management path.',
+       tags:[{t:'B.Com',c:'tag-g'},{t:'CA Inter',c:'tag-o'},{t:'Articleship',c:'tag-b'}],
+       salary:'CA Articleship stipend: ₹10,000 – ₹25,000/month', pct:20},
+      {yr:'Year 6–8', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'Qualified CA / Bank PO / MBA',
+       desc:'Qualified CA is India\'s gold standard finance qualification. Bank PO via IBPS/SBI for security. MBA from IIM via CAT for corporate leadership. All excellent paths.',
+       tags:[{t:'Qualified CA',c:'tag-b'},{t:'Bank PO',c:'tag-g'},{t:'IIM MBA',c:'tag-p'}],
+       salary:'CA Fresh: ₹7–15 LPA | Bank PO: ₹8–12 LPA | MBA IIM: ₹15–50 LPA', pct:60},
+      {yr:'Year 10+', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'CA Partner / CFO / Business Leader',
+       desc:'Senior CA becomes Partner in CA firm or CFO of a company. MBAs become Business Heads, VPs. Commerce-background entrepreneurs run highly successful businesses.',
+       tags:[{t:'CA Partner',c:'tag-p'},{t:'CFO',c:'tag-b'},{t:'Business Head',c:'tag-o'}],
+       salary:'CA Partner: ₹25L–₹2Cr | CFO: ₹30L–₹1Cr | Own CA Firm: Unlimited', pct:90},
+    ],
+    branches:[
+      {color:'#f59e0b', title:'📈 CA / Accounts', items:['CA (ICAI) — Gold Standard','CMA — Cost Accountant','CS — Company Secretary','ACCA — International Finance']},
+      {color:'#3b82f6', title:'🏦 Banking & Finance', items:['IBPS PO / Clerk','SBI PO (most prestigious)','RBI Grade B Officer','SEBI / IRDA / NABARD']},
+      {color:'#8b5cf6', title:'📊 MBA Path', items:['CAT → IIM MBA','MAT / XAT → Other MBA','MBA Finance / Marketing','Foreign MBA — US / UK']},
+      {color:'#ef4444', title:'🏛️ Govt Commerce Commerce Jobs', items:['Income Tax Officer (SSC CGL)','Audit Officer (CAG)','APPSC Group II Commerce','State Treasury / Accounts']},
+    ]
+  },
+  cec:{
+    icon:'📚', title:'Intermediate CEC', color:'#0e7490', color2:'#22d3ee',
+    tag:'2 yrs CEC → BA / LLB → IAS / Lawyer → High Impact Career',
+    timeline:[
+      {yr:'Now → Year 1–2', dot:'#fb923c', border:'#fb923c', label:'#fb923c',
+       title:'Intermediate CEC — 11th & 12th',
+       desc:'Civics, Economics, Commerce. Best foundation for Civil Services (IAS/IPS), Law, and Social Sciences. Read newspaper daily from Day 1 — it\'s essential for Civil Services.',
+       tags:[{t:'Civil Services',c:'tag-o'},{t:'Law / LLB',c:'tag-b'},{t:'Economics',c:'tag-g'}], salary:'', pct:0},
+      {yr:'Year 3–5', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'BA / B.Com / 5-year Integrated LLB',
+       desc:'BA Political Science / History for UPSC. 5-year Integrated LLB for law career (most efficient). B.Com for banking. All are valid paths — choose based on your passion.',
+       tags:[{t:'BA Degree',c:'tag-g'},{t:'5-yr LLB',c:'tag-b'},{t:'B.Com',c:'tag-p'}], salary:'', pct:0},
+      {yr:'Year 5–8', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'Civil Services / Law Practice / Teaching',
+       desc:'UPSC for IAS/IPS. APPSC for State Services. District Court / High Court for lawyers. TET/PGT for teaching. All give respect, security, and social impact.',
+       tags:[{t:'IAS / IPS',c:'tag-b'},{t:'Advocate',c:'tag-p'},{t:'Bank PO',c:'tag-g'}],
+       salary:'IAS: ₹56,100+/month | Advocate starting: ₹3–10 LPA', pct:50},
+      {yr:'Year 10+', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'District Collector / Senior Advocate / Leader',
+       desc:'IAS officers become District Collectors, then Secretaries — highest power in administration. Senior Advocates earn crores. This stream produces India\'s leaders and policymakers.',
+       tags:[{t:'Dist Collector',c:'tag-p'},{t:'Senior Advocate',c:'tag-b'},{t:'Political Leader',c:'tag-o'}],
+       salary:'IAS Secretary: ₹2.5L+/month | Senior Advocate: ₹1–5 Crore/year', pct:95},
+    ],
+    branches:[
+      {color:'#06b6d4', title:'🏛️ Civil Services', items:['UPSC CSE → IAS / IPS / IFS','APPSC Group I → State Services','APPSC Group II → Deputy Collector','SSC CGL → Central Govt Officer']},
+      {color:'#8b5cf6', title:'⚖️ Law Career', items:['5-yr BA LLB (Integrated)','District / High Court practice','Government Lawyer (PP)','Corporate Lawyer — highest paid']},
+      {color:'#f97316', title:'📰 Journalism & Media', items:['Mass Communication degree','Digital journalist / Reporter','News anchor / Content Creator','Social media & YouTube career']},
+      {color:'#10b981', title:'🎓 Teaching & Research', items:['TET after B.Sc (School Teacher)','PGT after M.Sc','UGC NET → Degree Lecturer','PhD → College Professor']},
+    ]
+  },
+  poly:{
+    icon:'⚙️', title:'Polytechnic Diploma', color:'#92400e', color2:'#fbbf24',
+    tag:'3 yrs Diploma → Job or Lateral B.Tech → Engineer → ₹1.5L to ₹20L+',
+    timeline:[
+      {yr:'Now → Year 1–3', dot:'#fb923c', border:'#fb923c', label:'#fb923c',
+       title:'Polytechnic Diploma — 3 Years',
+       desc:'Practical engineering in Civil, Mechanical, Electrical, CS, Electronics. Heavy on workshops and labs. You build things, not just read theory. Very practical and job-focused.',
+       tags:[{t:'Civil Engg',c:'tag-o'},{t:'Mechanical',c:'tag-b'},{t:'CS / IT',c:'tag-g'},{t:'Electrical',c:'tag-p'}], salary:'', pct:0},
+      {yr:'After Year 3 — Option A', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'Direct Job — Technician / Junior Engineer',
+       desc:'Diploma holders are in high demand. Join private companies, government departments, Railways, or start your own small contracting business or workshop immediately.',
+       tags:[{t:'Junior Engineer',c:'tag-g'},{t:'Technician',c:'tag-b'},{t:'Supervisor',c:'tag-o'}],
+       salary:'Starting: ₹1.5 – ₹3.5 LPA', pct:25},
+      {yr:'After Year 3 — Option B (Best!)', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'Lateral Entry to B.Tech 2nd Year via ECET',
+       desc:'The biggest advantage of Diploma — skip B.Tech 1st year, join directly in 2nd year! Save 1 full year and complete B.Tech in just 3 more years instead of 4.',
+       tags:[{t:'ECET Exam',c:'tag-b'},{t:'B.Tech 2nd Year',c:'tag-g'},{t:'Save 1 Year',c:'tag-o'}], salary:'', pct:0},
+      {yr:'Year 5–7 (via Lateral)', dot:'#a78bfa', border:'#a78bfa', label:'#a78bfa',
+       title:'B.Tech Graduate — Double Qualified!',
+       desc:'You now have BOTH Diploma AND B.Tech. This makes you extremely valuable — practical workshop skills PLUS theoretical engineering knowledge. Employers love this combo.',
+       tags:[{t:'B.Tech Degree',c:'tag-p'},{t:'Practical Skills',c:'tag-g'},{t:'High Value',c:'tag-b'}],
+       salary:'₹3–8 LPA (B.Tech fresher)', pct:40},
+      {yr:'Year 10+', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'Senior Engineer / Project Manager / Business Owner',
+       desc:'With experience: Senior Engineer, Project Manager, or your own civil construction company / electrical contracting firm. Business owners earn unlimited income.',
+       tags:[{t:'Project Manager',c:'tag-p'},{t:'Business Owner',c:'tag-o'},{t:'Contractor',c:'tag-b'}],
+       salary:'₹6–20 LPA (job) | ₹10L – ₹1Cr+ (own business)', pct:72},
+    ],
+    branches:[
+      {color:'#ef4444', title:'🏛️ Government Jobs', items:['AP Govt Junior Engineer','Railways Technician (RRB)','DRDO / ISRO Technician','State Electricity Board posts']},
+      {color:'#f59e0b', title:'🔧 Apprenticeship', items:['NAPS Apprenticeship scheme','BHEL / NTPC Apprentice','Stipend: ₹8,000–₹14,000/month','Direct absorption in many cases']},
+      {color:'#10b981', title:'🌍 Gulf & Abroad', items:['UAE / Qatar / Saudi — huge demand','Visa sponsored by employer','Engineers earn ₹15–₹40 LPA equiv.','Start salary higher than India MNCs']},
+      {color:'#8b5cf6', title:'💼 Self Employment', items:['Electrical / civil contracting','AC service and repair shop','Welding / fabrication unit','Solar installation business']},
+    ]
+  },
+  iti:{
+    icon:'🔧', title:'ITI Courses', color:'#7f1d1d', color2:'#f87171',
+    tag:'1–2 yrs ITI → Apprenticeship → Skilled Job → Gulf → ₹1.2L to ₹30L+',
+    timeline:[
+      {yr:'Now → Year 1–2', dot:'#fb923c', border:'#fb923c', label:'#fb923c',
+       title:'ITI Trade Course',
+       desc:'Choose your trade: Electrician, Fitter, Welder, Plumber, COPA (Computer), AC Technician, Diesel Mechanic, Turner and 130+ more trades. Very practical, no memorising theory books.',
+       tags:[{t:'Electrician',c:'tag-o'},{t:'Welder',c:'tag-b'},{t:'COPA / Computer',c:'tag-g'},{t:'Fitter',c:'tag-p'}], salary:'', pct:0},
+      {yr:'After ITI', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'NCVT Certificate + National Apprenticeship',
+       desc:'Get your National Council Vocational Training Certificate. Do 1-year apprenticeship under NAPS scheme. Government pays your stipend. Many companies absorb apprentices directly.',
+       tags:[{t:'NCVT Certificate',c:'tag-g'},{t:'NAPS Apprenticeship',c:'tag-b'},{t:'Govt Stipend',c:'tag-o'}],
+       salary:'Apprenticeship: ₹7,000 – ₹12,000/month (Govt paid)', pct:15},
+      {yr:'Year 2–4', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'Skilled Worker — Industry Job',
+       desc:'Join manufacturing plants, power plants, Railways, automobile companies, construction firms as a certified skilled worker. Skilled trades are always in demand across India.',
+       tags:[{t:'Manufacturing',c:'tag-b'},{t:'Railways',c:'tag-g'},{t:'Construction',c:'tag-o'}],
+       salary:'Starting: ₹1.2 – ₹2.5 LPA', pct:20},
+      {yr:'Year 5–8', dot:'#a78bfa', border:'#a78bfa', label:'#a78bfa',
+       title:'Supervisor / Foreman + Gulf Opportunity',
+       desc:'With 3–5 years experience, become Supervisor or Foreman. This is also the time to apply for Gulf jobs — UAE, Qatar, Saudi Arabia have massive demand for skilled Indian tradesmen.',
+       tags:[{t:'Supervisor',c:'tag-p'},{t:'Gulf Jobs',c:'tag-o'},{t:'Foreman',c:'tag-b'}],
+       salary:'India: ₹2.5–5 LPA | Gulf countries: ₹8–18 LPA', pct:50},
+      {yr:'Year 10+', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'Master Tradesman / Contractor / Business Owner',
+       desc:'Become a Master Electrician, Master Welder, or start your own contracting business. ITI tradesmen with 10+ years experience and Gulf savings often become wealthy entrepreneurs.',
+       tags:[{t:'Master Tradesman',c:'tag-p'},{t:'Contractor',c:'tag-o'},{t:'Business Owner',c:'tag-g'}],
+       salary:'India: ₹5–12 LPA | Gulf Expert: ₹15–30 LPA | Own Business: Unlimited', pct:75},
+    ],
+    branches:[
+      {color:'#ef4444', title:'🏛️ Government Recruitment', items:['Railways Group D / Technician','Indian Army Soldier Tech','DRDO Multi-Tasking Staff','State Electricity Board Lineman']},
+      {color:'#10b981', title:'🌍 Gulf Countries', items:['UAE / Qatar / Saudi — huge demand','Visa & accommodation provided','Electricians: ₹12–20 LPA equiv.','Welders: ₹15–25 LPA in Gulf']},
+      {color:'#8b5cf6', title:'📚 Further Study', items:['Polytechnic Diploma after ITI','B.Tech Lateral Entry after Diploma','Craft Instructor Certificate','Advanced / Higher ITI trade']},
+      {color:'#f59e0b', title:'💼 Self Employment', items:['Electrical wiring contractor','AC service and repair shop','Welding / fabrication unit','Plumbing contractor']},
+    ]
+  },
+  voc:{
+    icon:'💻', title:'Vocational Courses', color:'#4c1d95', color2:'#a78bfa',
+    tag:'6m–2 yrs Vocational → Job / Freelancing → ₹8K/month to ₹50L+',
+    timeline:[
+      {yr:'Now → 6 months – 2 yrs', dot:'#fb923c', border:'#fb923c', label:'#fb923c',
+       title:'Choose Your Vocational Track',
+       desc:'Options: Computer Applications, Digital Marketing, Fashion Design, Agriculture, Healthcare, Beauty & Wellness, Auto Repair, Photography and 200+ more via AP Govt and NSDC.',
+       tags:[{t:'Computer',c:'tag-b'},{t:'Digital Marketing',c:'tag-o'},{t:'Healthcare',c:'tag-g'},{t:'Agriculture',c:'tag-p'}], salary:'', pct:0},
+      {yr:'Year 1', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'Certificate + First Job',
+       desc:'Computer courses → Data Entry, Office Assistant, BPO. Digital Marketing → Social Media roles. Healthcare → Hospital / Lab jobs. Agriculture → Farmer support roles.',
+       tags:[{t:'Data Entry',c:'tag-g'},{t:'BPO / Office',c:'tag-b'},{t:'Social Media',c:'tag-o'}],
+       salary:'Starting: ₹8,000 – ₹18,000/month', pct:20},
+      {yr:'Year 2–4', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'Skilled Professional + Free Online Certifications',
+       desc:'Add free certifications from Google (Analytics, Digital Marketing), Meta (Blueprint), HubSpot. These are recognized globally and multiply your salary significantly.',
+       tags:[{t:'Google Certified',c:'tag-b'},{t:'Meta Blueprint',c:'tag-p'},{t:'HubSpot',c:'tag-g'}],
+       salary:'₹2–5 LPA (job) | ₹3–15 LPA (freelancing on Fiverr/Upwork)', pct:35},
+      {yr:'Year 4–8', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'Senior Role / Agency Owner / Freelancer',
+       desc:'Digital marketers start agencies. Computer-trained people become freelancers serving clients worldwide. Fashion designers open boutiques. Agriculture-trained start agri-businesses.',
+       tags:[{t:'Agency Owner',c:'tag-p'},{t:'Freelancer',c:'tag-o'},{t:'Entrepreneur',c:'tag-g'}],
+       salary:'₹4–12 LPA (senior job) | ₹5–50 LPA (agency / freelancing)', pct:60},
+    ],
+    branches:[
+      {color:'#3b82f6', title:'💻 Computer & IT', items:['MS Office & Tally for Accounts','Web Design basics','Data Entry & Back Office','Cyber Cafe / Computer Centre owner']},
+      {color:'#8b5cf6', title:'📱 Digital Marketing', items:['Social Media Management','Google Ads & SEO','YouTube Content Creation','Freelancing on Fiverr / Upwork']},
+      {color:'#10b981', title:'🌾 Agriculture', items:['Modern farming techniques','Greenhouse / Polyhouse setup','Organic farming certification','Agri-business and trading']},
+      {color:'#ef4444', title:'🏥 Healthcare', items:['GNM Nursing (3 years)','ANM Nursing (2 years)','Pharmacy Assistant','Medical Lab Technician']},
+    ]
+  },
+  btech:{
+    icon:'🏗️', title:'B.Tech / B.E. Engineering', color:'#1e3a8a', color2:'#60a5fa',
+    tag:'4 yrs B.Tech → Engineer → ₹3.5L to ₹1Cr+ (India) | ₹50L–₹3Cr (Abroad)',
+    timeline:[
+      {yr:'After Intermediate', dot:'#fb923c', border:'#fb923c', label:'#fb923c',
+       title:'Entrance Exams — Get Your College Seat',
+       desc:'AP EAMCET for AP colleges. JEE Mains for NITs across India. JEE Advanced for IITs. Higher rank = better college = better placements. Even a good private college with strong skills works.',
+       tags:[{t:'AP EAMCET',c:'tag-o'},{t:'JEE Mains',c:'tag-b'},{t:'JEE Advanced IIT',c:'tag-p'}], salary:'', pct:0},
+      {yr:'Year 1–2', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'B.Tech Foundation — Start Building NOW',
+       desc:'Learn programming basics, engineering subjects, maths. Most importantly: START projects from Year 1. Create GitHub account. Join coding clubs. 90% of students waste these 2 years — don\'t.',
+       tags:[{t:'Programming',c:'tag-g'},{t:'GitHub Profile',c:'tag-b'},{t:'Coding Club',c:'tag-o'}], salary:'', pct:0},
+      {yr:'Year 3 — Critical Year', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'Internship + Specialization + Certifications',
+       desc:'Get your first internship (even unpaid is fine — it gives experience). Choose your specialization. Add cloud certifications (AWS/GCP free tier), NPTEL courses, Coursera certificates.',
+       tags:[{t:'First Internship',c:'tag-b'},{t:'AWS Cert',c:'tag-g'},{t:'NPTEL Course',c:'tag-o'}],
+       salary:'Internship: ₹10,000 – ₹80,000/month', pct:20},
+      {yr:'Year 4 — Placement Season', dot:'#a78bfa', border:'#a78bfa', label:'#a78bfa',
+       title:'Campus Placements — The Big Day',
+       desc:'Mass recruiters: TCS, Infosys, Wipro (₹3.5–7 LPA). Dream companies: Amazon, Microsoft, Google (₹20–60 LPA). Your projects, GitHub, and problem-solving skills determine the result.',
+       tags:[{t:'TCS / Wipro',c:'tag-b'},{t:'Amazon / Google',c:'tag-g'},{t:'Startups',c:'tag-o'}],
+       salary:'Mass Recruiter: ₹3.5–7 LPA | Product Company: ₹15–60 LPA', pct:45},
+      {yr:'Year 5–8', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'Senior Engineer — Switch to Grow Faster',
+       desc:'3 years of experience → Senior Engineer. Switch companies every 2–3 years to grow salary faster (switching = 30–80% salary hike vs 10% annual increment at same company).',
+       tags:[{t:'Senior Engineer',c:'tag-p'},{t:'Job Switch',c:'tag-o'},{t:'Specialize Deep',c:'tag-b'}],
+       salary:'₹12–40 LPA (India) | ₹60L–₹1.5Cr/year (abroad / remote)', pct:72},
+      {yr:'Year 10+', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'Tech Lead / Architect / CTO / Founder',
+       desc:'10 years in tech: Tech Lead, Principal Engineer, CTO, or Startup Founder. Indian engineers are in the top 10 most hired globally. The growth ceiling does not exist in tech.',
+       tags:[{t:'Tech Lead / CTO',c:'tag-g'},{t:'Startup Founder',c:'tag-o'},{t:'Principal Engg',c:'tag-b'}],
+       salary:'₹40–80 LPA (India) | ₹1–3 Crore/year (abroad / startup equity)', pct:95},
+    ],
+    branches:[
+      {color:'#3b82f6', title:'💻 Hot CS Specializations', items:['Artificial Intelligence & ML','Full Stack Web Dev (React/Node)','Data Science & Analytics','Cloud Computing AWS/Azure/GCP','Cybersecurity & Ethical Hacking','DevOps & Site Reliability Engineering']},
+      {color:'#f59e0b', title:'🏭 Core Engineering', items:['Mechanical → ISRO / Automobile','Civil → Infrastructure / Smart Cities','EEE → NTPC / Power Grid','ECE → VLSI / Embedded / Telecom']},
+      {color:'#8b5cf6', title:'🎓 Higher Studies', items:['GATE → M.Tech at IIT / NIT','GRE → MS in USA (₹60L+ salary)','CAT → MBA from IIM','PhD → Research & Academia']},
+      {color:'#10b981', title:'🚀 Entrepreneurship', items:['Build a tech startup','Freelancing ₹2–10 LPA extra','Open source contributions','Join startup for ESOP equity']},
+    ]
+  },
+  mbbs:{
+    icon:'🏥', title:'MBBS / Medical', color:'#065f46', color2:'#34d399',
+    tag:'5.5 yrs MBBS → PG Specialization → Doctor → ₹6L to ₹5Cr+',
+    timeline:[
+      {yr:'After Intermediate', dot:'#fb923c', border:'#fb923c', label:'#fb923c',
+       title:'NEET UG — Only Entrance for Medical in India',
+       desc:'One exam for all medical seats. Score 600+ for Government MBBS (almost free). 400–550 for private (₹5–20L/year). Study 10–14 hours/day for at least 1 year. Consistency beats talent.',
+       tags:[{t:'NEET UG',c:'tag-g'},{t:'600+ for Govt',c:'tag-o'},{t:'720 total marks',c:'tag-b'}], salary:'', pct:0},
+      {yr:'Year 1–5.5', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'MBBS — 5.5 Years including 1-Year Internship',
+       desc:'Study all branches of medicine. 1 year rotating internship across Surgery, Medicine, Paediatrics, OB-GYN, Orthopaedics and more. Government college fees: ₹10,000–₹50,000/year.',
+       tags:[{t:'Medicine / Surgery',c:'tag-g'},{t:'All Departments',c:'tag-b'},{t:'1-yr Internship',c:'tag-o'}],
+       salary:'Internship stipend: ₹15,000 – ₹40,000/month', pct:15},
+      {yr:'Year 6 — Doctor!', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'MBBS Doctor — Licensed to Practice in India',
+       desc:'Start at Government hospital PHC/CHC (job security + pension), Private hospital (higher pay), or own clinic. Government doctors in rural areas get free housing and allowances.',
+       tags:[{t:'Govt Hospital',c:'tag-b'},{t:'Private Hospital',c:'tag-g'},{t:'Own Clinic',c:'tag-o'}],
+       salary:'Govt: ₹60,000–₹1.2L/month | Private: ₹8–20 LPA', pct:50},
+      {yr:'Year 7–9', dot:'#a78bfa', border:'#a78bfa', label:'#a78bfa',
+       title:'MD / MS — Specialize via NEET PG',
+       desc:'Most sought specializations: Radiology (₹50L+ salary), Dermatology, Cardiology, Orthopaedics, Anaesthesia. 3-year PG from Government college = gold career path.',
+       tags:[{t:'NEET PG',c:'tag-p'},{t:'MD / MS',c:'tag-b'},{t:'High Demand',c:'tag-g'}],
+       salary:'PG Stipend: ₹40,000 – ₹1 Lakh/month', pct:60},
+      {yr:'Year 10+', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'Specialist — Among Top Earners in India',
+       desc:'Cardiologists, Neurosurgeons, Plastic Surgeons, Dermatologists. Top specialists earn more than most CEOs. The 10 years of hard work translates into lifelong financial security and social respect.',
+       tags:[{t:'Cardiologist',c:'tag-p'},{t:'Neurosurgeon',c:'tag-b'},{t:'Dermatologist',c:'tag-g'}],
+       salary:'₹30 LPA – ₹2–5 Crore/year for established specialists', pct:98},
+    ],
+    branches:[
+      {color:'#10b981', title:'🦷 Allied Medical Paths', items:['BDS — Dentist (5.5 yrs)','B.Pharmacy → M.Pharmacy','B.Sc Nursing → Abroad (high demand)','Physiotherapy (BPT 4.5 yrs)']},
+      {color:'#3b82f6', title:'🌍 Abroad Practice', items:['USMLE → USA (₹1–3Cr/year)','PLAB → UK Practice','AMC → Australia','DHA → Dubai / Gulf countries']},
+      {color:'#8b5cf6', title:'🔬 Research & Academia', items:['PhD in Medical Sciences','ICMR Research Fellowship','Professor at Medical College','Pharma / Biotech Research']},
+      {color:'#f59e0b', title:'🏥 Hospital Business', items:['Start own clinic / hospital','MBA Hospital Administration','Corporate hospital leadership','Telemedicine startup']},
+    ]
+  },
+  bsc:{
+    icon:'🔭', title:'B.Sc Degree', color:'#5b21b6', color2:'#a78bfa',
+    tag:'3 yrs B.Sc → M.Sc / Govt Jobs / Data Science → ₹4L to ₹60L+',
+    timeline:[
+      {yr:'After Intermediate', dot:'#fb923c', border:'#fb923c', label:'#fb923c',
+       title:'B.Sc Admission',
+       desc:'Choose specialization: B.Sc Maths, Physics, Chemistry, Computer Science, Biotechnology, Electronics, Agriculture. Government colleges offer excellent quality at very low fees.',
+       tags:[{t:'Maths / Physics',c:'tag-o'},{t:'CS / Biotech',c:'tag-b'},{t:'Agriculture',c:'tag-g'}], salary:'', pct:0},
+      {yr:'Year 1–3', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'B.Sc + Build Extra Skills',
+       desc:'B.Sc alone is competitive today. Add online certifications: Python for CS students, Data Analytics, Cloud basics, Research methods. These multiply your options significantly.',
+       tags:[{t:'Python / Coding',c:'tag-g'},{t:'Data Analytics',c:'tag-b'},{t:'Research Skills',c:'tag-p'}], salary:'', pct:0},
+      {yr:'Year 4–5', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'M.Sc + Government Exam Prep',
+       desc:'M.Sc at Government college (low fees). Simultaneously prepare for APPSC Group II, SSC, UGC NET for lectureship, or IIT JAM (very prestigious M.Sc at IITs).',
+       tags:[{t:'M.Sc',c:'tag-b'},{t:'UGC NET',c:'tag-p'},{t:'IIT JAM',c:'tag-g'}], salary:'', pct:0},
+      {yr:'Year 5–8', dot:'#a78bfa', border:'#a78bfa', label:'#a78bfa',
+       title:'Lecturer / Data Analyst / Research Fellow',
+       desc:'UGC NET → College Lecturer. APPSC Group II → Government Officer. B.Sc CS + certifications → Data Analyst in IT company. CSIR-JRF → Junior Research Fellow.',
+       tags:[{t:'College Lecturer',c:'tag-p'},{t:'Data Analyst',c:'tag-b'},{t:'Govt Officer',c:'tag-g'}],
+       salary:'Lecturer: ₹5–12 LPA | Data Analyst: ₹5–18 LPA | Govt: ₹4–8 LPA', pct:40},
+      {yr:'Year 8+', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'Professor / Senior Scientist / Data Leader',
+       desc:'PhD → Assistant Professor → Professor. Or Data Science path → Senior Data Scientist / ML Engineer with very high salaries in top tech companies.',
+       tags:[{t:'Professor / PhD',c:'tag-p'},{t:'Senior Data Sci',c:'tag-b'},{t:'Research Leader',c:'tag-g'}],
+       salary:'Professor: ₹8–20 LPA | Senior Data Scientist: ₹20–60 LPA', pct:70},
+    ],
+    branches:[
+      {color:'#8b5cf6', title:'🔬 Research Path', items:['CSIR-UGC NET → JRF Fellowship','ISRO / DRDO Scientist B','ICAR Research → Agriculture','DST / DBT Research Fellowship']},
+      {color:'#10b981', title:'🎓 Teaching Path', items:['TGT after B.Sc (School Teacher)','PGT after M.Sc','UGC NET → Degree Lecturer','PhD → College Professor']},
+      {color:'#3b82f6', title:'💻 Tech Path (B.Sc CS)', items:['Data Analyst → Data Scientist','Software Developer + certifications','Business Analyst in IT company','Cloud / AWS with certifications']},
+      {color:'#ef4444', title:'🏛️ Government Jobs', items:['APPSC Group II Science Officer','Drug Inspector (B.Sc Chemistry)','Forest Officer (B.Sc Biology)','Meteorologist (B.Sc Physics)']},
+    ]
+  },
+  bcom:{
+    icon:'📊', title:'B.Com / BBA', color:'#78350f', color2:'#fbbf24',
+    tag:'3 yrs B.Com/BBA → CA / Banking / MBA → Business Leader → ₹7L to ₹2Cr+',
+    timeline:[
+      {yr:'After Intermediate', dot:'#fb923c', border:'#fb923c', label:'#fb923c',
+       title:'B.Com or BBA Admission',
+       desc:'B.Com: Best for CA, Accounting, Banking careers. BBA: Best for MBA and Management. Start CA Foundation in Intermediate itself — do not wait for B.Com to begin.',
+       tags:[{t:'B.Com',c:'tag-o'},{t:'BBA',c:'tag-b'},{t:'CA Foundation',c:'tag-g'}], salary:'', pct:0},
+      {yr:'Year 1–3', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'Degree + CA / Banking Preparation',
+       desc:'Do B.Com while pursuing CA Inter + Articleship simultaneously. Or prepare for IBPS / SBI Bank PO exams. Or learn Tally, GST, Excel for immediate employment after degree.',
+       tags:[{t:'CA Articleship',c:'tag-g'},{t:'IBPS Prep',c:'tag-b'},{t:'Tally / GST',c:'tag-o'}],
+       salary:'CA Articleship: ₹10,000 – ₹25,000/month (Govt regulated)', pct:15},
+      {yr:'Year 4–6', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'CA Final / Bank PO Job / MBA',
+       desc:'Qualified CA is India\'s most respected finance qualification. Bank PO gives security + pension. MBA from IIM (via CAT) = highest corporate salary in India.',
+       tags:[{t:'CA Final',c:'tag-b'},{t:'Bank PO Job',c:'tag-g'},{t:'MBA IIM',c:'tag-p'}],
+       salary:'CA Fresh: ₹7–15 LPA | Bank PO: ₹8–12 LPA | IIM MBA: ₹15–50 LPA', pct:55},
+      {yr:'Year 8+', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'CA Partner / CFO / Business Leader',
+       desc:'Senior CA: Partner in CA firm or CFO of a company. MBAs: Business Head, VP, Country Manager. Commerce entrepreneurs run highly profitable businesses.',
+       tags:[{t:'CA Partner',c:'tag-p'},{t:'CFO / Finance Dir',c:'tag-b'},{t:'Business Head',c:'tag-o'}],
+       salary:'CA Partner: ₹25L–₹2Cr | CFO: ₹30L–₹1Cr | Own CA Firm: Unlimited', pct:90},
+    ],
+    branches:[
+      {color:'#f59e0b', title:'📈 CA / Accounts', items:['CA (ICAI) — Gold Standard','CMA — Cost Accountant','CS — Company Secretary','ACCA — International Finance']},
+      {color:'#3b82f6', title:'🏦 Banking', items:['IBPS PO / Clerk','SBI PO (most prestigious)','RBI Grade B Officer','SEBI / NABARD / IRDA']},
+      {color:'#8b5cf6', title:'📊 MBA Path', items:['CAT → IIM MBA','MAT / XAT → Other MBA','MBA Finance / Marketing / HR','Foreign MBA — US / UK / Europe']},
+      {color:'#10b981', title:'💼 Entrepreneurship', items:['Start a trading / retail business','Open CA / Tax Consultancy firm','E-commerce on Amazon / Flipkart','Real estate dealing & investment']},
+    ]
+  },
+  govt:{
+    icon:'📋', title:'Government Exams', color:'#7f1d1d', color2:'#f87171',
+    tag:'1–3 yrs Prep → Secure Govt Job for Life → ₹35K to ₹2.5L/month + Pension',
+    timeline:[
+      {yr:'After Intermediate', dot:'#fb923c', border:'#fb923c', label:'#fb923c',
+       title:'Choose Your Exam Target — Start Immediately',
+       desc:'UPSC for IAS/IPS (highest ambition). APPSC Group I/II for state services. SSC CGL for central govt. Railways for quick entry. Start preparation TODAY — every month counts.',
+       tags:[{t:'UPSC',c:'tag-o'},{t:'APPSC',c:'tag-b'},{t:'SSC CGL',c:'tag-g'},{t:'Railways',c:'tag-p'}], salary:'', pct:0},
+      {yr:'Year 1–3 — Preparation', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'Serious Preparation Phase',
+       desc:'Read NCERT books 6–12 for basics. The Hindu / Indian Express daily for current affairs. Standard books (Laxmikant for Polity, Bipin Chandra for History). Join test series. Many IAS toppers are from AP villages.',
+       tags:[{t:'NCERT Books',c:'tag-g'},{t:'Current Affairs',c:'tag-b'},{t:'Mock Test Series',c:'tag-o'}], salary:'', pct:0},
+      {yr:'After Selection', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'Training + First Posting',
+       desc:'IAS → LBSNAA Mussoorie (2 years training). IPS → SVP NPA Hyderabad. SSC officers → department-specific training. Then posted across India as an Officer.',
+       tags:[{t:'LBSNAA Training',c:'tag-b'},{t:'Academy Training',c:'tag-g'},{t:'First Posting',c:'tag-o'}],
+       salary:'Starting: ₹35,000 – ₹80,000/month + DA + HRA + Benefits', pct:50},
+      {yr:'Year 5–15', dot:'#a78bfa', border:'#a78bfa', label:'#a78bfa',
+       title:'Promotions — Rising Through the Ranks',
+       desc:'Structured promotion every 3–5 years. IAS officers become Sub-Collector, then District Collector. SSC officers become Senior Inspectors, Assistant Directors. Seniority + performance drives growth.',
+       tags:[{t:'District Collector',c:'tag-p'},{t:'Sub-Collector',c:'tag-b'},{t:'Assistant Director',c:'tag-g'}],
+       salary:'Senior Officer: ₹80,000 – ₹2.5 Lakh/month + perks', pct:75},
+      {yr:'Year 20–35', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'Top Bureaucrat + Full Lifetime Pension',
+       desc:'IAS Secretary, Chief Secretary, DGP. Government quarters, official car, security detail. Full pension (50% of last salary) + medical for life after retirement. Unmatched social respect.',
+       tags:[{t:'Chief Secretary',c:'tag-p'},{t:'DGP',c:'tag-b'},{t:'Full Pension',c:'tag-g'}],
+       salary:'₹2.5 Lakh/month + Perks. Pension after retirement: ₹1+ Lakh/month.', pct:95},
+    ],
+    branches:[
+      {color:'#ef4444', title:'🏛️ UPSC — Central Services', items:['IAS → District Collector → Secretary','IPS → SP → DGP','IFS → Indian Foreign Service','IRS → Income Tax / Customs Officer']},
+      {color:'#3b82f6', title:'🌐 APPSC — State Services', items:['Group I → Deputy Collector / DSP','Group II → Mandal Revenue Officer','Group III → Junior Assistants','Panchayat Secretary exam']},
+      {color:'#f59e0b', title:'⚡ Fast Entry — SSC & Railway', items:['SSC CGL → Income Tax Inspector','SSC CHSL → Lower Division Clerk','RRB NTPC → Station Master','RRB Group D → Tech / Maintainer']},
+      {color:'#8b5cf6', title:'🛡️ Defence Services', items:['NDA → Army / Navy / Air Force Officer','AFCAT → Air Force Officer','CDS → Combined Defence Services','SSB Interview preparation critical']},
+    ]
+  },
+  skill:{
+    icon:'🚀', title:'Skill Development', color:'#0e7490', color2:'#22d3ee',
+    tag:'3–6 months Skill → First Job → Senior Specialist → ₹1.5L to ₹1Cr+',
+    timeline:[
+      {yr:'After Intermediate', dot:'#fb923c', border:'#fb923c', label:'#fb923c',
+       title:'Choose ONE Skill Track and Go Deep',
+       desc:'Top tracks: Full Stack Web Dev, Data Science, Digital Marketing, UI/UX Design, Cloud Computing, Cybersecurity. Pick ONE — do not jump between topics. Depth beats breadth.',
+       tags:[{t:'Web Dev',c:'tag-o'},{t:'Data Science',c:'tag-b'},{t:'Digital Marketing',c:'tag-g'},{t:'Cloud',c:'tag-p'}], salary:'', pct:0},
+      {yr:'Month 1–6 — Learn', dot:'#4ade80', border:'#4ade80', label:'#4ade80',
+       title:'Intensive Free Learning — Build 3 Real Projects',
+       desc:'Free: freeCodeCamp, NPTEL, YouTube (best tutorials are free). Paid bootcamps: Masai School, Newton School, GUVI. Government: PMKVY free training. Build 3–5 real projects. Put everything on GitHub.',
+       tags:[{t:'freeCodeCamp',c:'tag-g'},{t:'NPTEL / YouTube',c:'tag-b'},{t:'3 Projects Done',c:'tag-o'}],
+       salary:'PMKVY stipend: ₹5,000–₹8,000/month during training', pct:10},
+      {yr:'Month 6–12 — Earn', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
+       title:'First Job / Internship / Freelance Income',
+       desc:'Apply for junior developer/analyst/marketer roles. Start freelancing on Fiverr or Upwork with even small projects. Build LinkedIn profile with all your projects. Even ₹500 first freelance job = proof you can do it.',
+       tags:[{t:'Junior Developer',c:'tag-b'},{t:'Fiverr / Upwork',c:'tag-g'},{t:'LinkedIn Active',c:'tag-o'}],
+       salary:'Freelancing: ₹5,000–₹50,000/month | Junior Job: ₹1.5–4 LPA', pct:25},
+      {yr:'Year 1–3 — Certify', dot:'#a78bfa', border:'#a78bfa', label:'#a78bfa',
+       title:'Industry Certifications — Multiply Your Value',
+       desc:'AWS Certified Developer/Solutions Architect. Google Analytics Certified. Meta Blueprint (Digital Marketing). Google UX Design (Coursera). These are free or low-cost and globally recognized.',
+       tags:[{t:'AWS Certified',c:'tag-p'},{t:'Google Cert',c:'tag-b'},{t:'Meta Blueprint',c:'tag-g'}],
+       salary:'₹4–12 LPA (job) | ₹5–30 LPA (freelancing)', pct:50},
+      {yr:'Year 4–7 — Lead', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
+       title:'Senior Specialist / Agency Owner / Remote Worker',
+       desc:'Senior Developer, Data Lead, Marketing Head. Or start your own digital agency serving businesses across India and worldwide. Many rural students now work remote for US/UK companies from home.',
+       tags:[{t:'Senior Dev / Lead',c:'tag-p'},{t:'Agency Owner',c:'tag-o'},{t:'Remote — US/UK',c:'tag-g'}],
+       salary:'₹10–40 LPA (senior) | ₹20–1 Crore (agency / remote global)', pct:80},
+    ],
+    branches:[
+      {color:'#3b82f6', title:'💻 Tech Skills (Highest Paid)', items:['Full Stack: React / Node.js','Data Science: Python / SQL / ML','Cloud: AWS / Azure / GCP Certified','Cybersecurity: Ethical Hacking / CEH']},
+      {color:'#8b5cf6', title:'🎨 Creative Skills', items:['UI/UX Design (Figma)','Video Editing (Premiere Pro)','Graphic Design (Canva / Photoshop)','Content Writing & Copywriting']},
+      {color:'#f59e0b', title:'📈 Business Skills', items:['Digital Marketing (SEO/SEM/Social)','E-commerce (Amazon / Meesho)','Stock Market Analysis','Real Estate Digital Marketing']},
+      {color:'#10b981', title:'🏛️ Free Govt Skill Schemes', items:['PMKVY — Free training + certificate','APSSDC — AP Skill Development','DDU-GKY — Rural youth skilling','Skill India Portal — 200+ courses free']},
+    ]
+  }
+};
+
+let curStage = '', curPathId = '';
+
+function showPaths(stage) {
+  curStage = stage;
+  document.getElementById('cStep1').style.display = 'none';
+  document.getElementById('cStep2').style.display = 'block';
+  document.getElementById('cStep2Label').textContent = stage === '10th' ? '🏫 Paths After 10th Class — Choose Your Path' : '🎓 Paths After Intermediate — Choose Your Path';
+  document.getElementById('cPathGrid').innerHTML = cPaths[stage].map(p => `
+    <div class="cpath-card fade-in" style="border-top:3px solid ${p.color}" onclick="showTree('${p.id}')">
+      <div class="cpath-icon">${p.icon}</div>
+      <div class="cpath-name" style="color:${p.color}">${p.name}</div>
+      <div class="cpath-sub">${p.sub}</div>
+      <div class="cpath-arrow" style="color:${p.color}">View Full Roadmap →</div>
+    </div>
+  `).join('');
+  document.getElementById('career').scrollIntoView({behavior:'smooth'});
+  observeFadeIns();
+}
+
+function showTree(pathId) {
+  curPathId = pathId;
+  const t = cTrees[pathId];
+  if (!t) return;
+  document.getElementById('cStep2').style.display = 'none';
+  document.getElementById('cStep3').style.display = 'block';
+  document.getElementById('cStep3Label').textContent = `${t.icon} ${t.title} — Full Career Roadmap`;
+
+  const tlHTML = t.timeline.map(item => `
+    <div class="ctl-item">
+      <div class="ctl-dot" style="background:${item.dot};border-color:${item.dot};box-shadow:0 0 0 4px ${item.dot}33;"></div>
+      <div class="ctl-year" style="color:${item.dot};">⏱ ${item.yr}</div>
+      <div class="ctl-card" style="border-left-color:${item.border};">
+        <h4>${item.title}</h4>
+        <p>${item.desc}</p>
+        <div class="ctl-tags">${item.tags.map(tg=>`<span class="ctl-tag ${tg.c}">${tg.t}</span>`).join('')}</div>
+        ${item.salary ? `
+          <div class="ctl-salary">
+            <div class="ctl-salary-label">💰 Earning Potential at This Stage</div>
+            <div class="ctl-salary-track"><div class="ctl-salary-fill" style="width:${item.pct}%"></div></div>
+            <div class="ctl-salary-amt">${item.salary}</div>
+          </div>` : ''}
+      </div>
+    </div>
+  `).join('');
+
+  const branchHTML = t.branches.map(b => `
+    <div class="cbranch-card" style="border-top:3px solid ${b.color}">
+      <h4 style="color:${b.color}">${b.title}</h4>
+      <ul>${b.items.map(i=>`<li style="--bc:${b.color}">${i}</li>`).join('')}</ul>
+    </div>
+  `).join('');
+
+  document.getElementById('cTreeWrap').innerHTML = `
+    <div class="ctree-header" style="background:linear-gradient(135deg,${t.color},${t.color2});">
+      <div class="th-icon">${t.icon}</div>
+      <div>
+        <h2>${t.title}</h2>
+        <p>${t.tag}</p>
+        <span class="ctree-badge">📅 Year-by-Year Roadmap Below</span>
+      </div>
+    </div>
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text2);margin-bottom:24px;">📅 Your Career Growth — Year by Year</h3>
+    <div class="ctimeline">${tlHTML}</div>
+    <h3 style="font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text2);margin-bottom:18px;margin-top:8px;">🌿 All Possible Branches from This Path</h3>
+    <div class="cbranch-grid">${branchHTML}</div>
+  `;
+
+  document.getElementById('career').scrollIntoView({behavior:'smooth'});
+}
+
+function goStep1() {
+  document.getElementById('cStep2').style.display = 'none';
+  document.getElementById('cStep1').style.display = 'block';
+  document.getElementById('career').scrollIntoView({behavior:'smooth'});
+}
+
+function goStep2() {
+  document.getElementById('cStep3').style.display = 'none';
+  document.getElementById('cStep2').style.display = 'block';
+  document.getElementById('career').scrollIntoView({behavior:'smooth'});
+}
+
+// ═══════════════════════════════════════════
+// RENDER RESOURCES
+// ═══════════════════════════════════════════
+function renderResources(filter) {
+  const cats = ['All', ...new Set(learningResources.map(r => r.cat))];
+  document.getElementById('resourceFilters').innerHTML = cats.map(c =>
+    `<button class="filter-btn ${c===filter?'active':''}" onclick="renderResources('${c}')">${c}</button>`
+  ).join('');
+  const data = filter === 'All' ? learningResources : learningResources.filter(r => r.cat === filter);
+  document.getElementById('resourceGrid').innerHTML = data.map(r => `
+    <div class="res-card fade-in">
+      <div class="res-header"><span class="res-icon">${r.icon}</span><div><div class="res-name">${r.name}</div><div class="res-cat">${r.cat}</div></div></div>
+      <div class="res-desc">${r.desc}</div>
+      <div class="stars">${'★'.repeat(Math.round(r.rating))}${'☆'.repeat(5-Math.round(r.rating))}</div>
+      <div class="res-audience">👤 ${r.audience}</div>
+      <a href="${r.link}" target="_blank" class="link-btn">Visit ${r.name} →</a>
+    </div>
+  `).join('');
+  observeFadeIns();
+}
+
+// ═══════════════════════════════════════════
+// RENDER SCHOLARSHIPS
+// ═══════════════════════════════════════════
+function renderScholarships(data) {
+  document.getElementById('scholarshipGrid').innerHTML = (data || scholarships).map(s => `
+    <div class="schol-card fade-in">
+      <div class="schol-header"><span class="schol-icon">${s.icon}</span><div><div class="schol-name">${s.name}</div><div class="schol-cat">${s.cat} Government</div></div></div>
+      <div class="schol-row"><strong>Eligibility</strong>${s.elig}</div>
+      <div class="schol-row"><strong>Benefits</strong>${s.benefits}</div>
+      <div class="schol-row"><strong>How to Apply</strong>${s.process}</div>
+      <div class="schol-row"><strong>Deadline</strong><span class="deadline">⚠ ${s.deadline}</span></div>
+      <a href="${s.link}" target="_blank" class="link-btn" style="margin-top:8px;">Apply Now →</a>
+    </div>
+  `).join('');
+  observeFadeIns();
+}
+
+// ── CLARIFICATION FOR SCHOLARSHIP FILTER ──
+function filterScholarships() {
+  const q = document.getElementById('scholSearch').value.toLowerCase();
+  const filtered = scholarships.filter(s =>
+    s.name.toLowerCase().includes(q) || s.cat.toLowerCase().includes(q) || s.elig.toLowerCase().includes(q)
+  );
+  document.getElementById('scholNoResult').style.display = filtered.length ? 'none' : 'block';
+  renderScholarships(filtered);
+}
+
+// ═══════════════════════════════════════════
+// RENDER CODING
+// ═══════════════════════════════════════════
+function renderCoding() {
+  document.getElementById('codingGrid').innerHTML = codingPlatforms.map(p => `
+    <div class="code-card fade-in">
+      <div style="font-size:2.5rem;margin-bottom:10px;">${p.icon}</div>
+      <div class="code-name">${p.name}</div>
+      <span class="difficulty-badge ${p.diffClass}">${p.diff}</span>
+      <p style="font-size:0.88rem;color:var(--text2);margin-bottom:14px;line-height:1.6;">${p.purpose}</p>
+      <ul style="list-style:none;margin-bottom:14px;">
+        ${p.benefits.map(b=>`<li style="font-size:0.82rem;color:var(--text2);padding:3px 0;padding-left:14px;position:relative;"><span style="position:absolute;left:0;color:var(--saffron);">✓</span>${b}</li>`).join('')}
+      </ul>
+      <div style="font-size:0.8rem;color:#4ade80;margin-bottom:14px;">🎯 Best for: ${p.bestFor}</div>
+      <a href="${p.link}" target="_blank" class="link-btn">Start on ${p.name} →</a>
+    </div>
+  `).join('');
+}
+
+// ═══════════════════════════════════════════
+// RENDER DIGITAL LITERACY
+// ═══════════════════════════════════════════
+function renderDigitalLiteracy() {
+  document.getElementById('digitalGrid').innerHTML = digitalLiteracy.map(d => `
+    <div class="dl-card fade-in" style="border-top:3px solid ${d.color}">
+      <div class="dl-icon">${d.icon}</div>
+      <div class="dl-title">${d.title}</div>
+      <ul class="dl-tips">${d.tips.map(t=>`<li>${t}</li>`).join('')}</ul>
+    </div>
+  `).join('');
+}
+
+// ═══════════════════════════════════════════
+// QUIZ
+// ═══════════════════════════════════════════
+let quizIdx = 0, quizScore = 0, selectedQuizAns = null;
+
+function renderQuiz() {
+  const wrap = document.getElementById('quizWrap');
+  if (quizIdx >= quizData.length) {
+    const pct = Math.round(quizScore / quizData.length * 100);
+    const msg = pct >= 75 ? "Excellent! You know AI very well 🎉" : pct >= 50 ? "Good start! Explore our AI Tools section to learn more." : "Do not worry! Check out the AI Tools section above — you will learn fast!";
+    wrap.innerHTML = `
+      <div class="success-state">
+        <div class="quiz-score-ring" style="background:conic-gradient(var(--saffron) ${pct*3.6}deg, var(--deep3) 0deg);">
+          <div class="quiz-score-inner"><span class="quiz-score-num">${quizScore}/${quizData.length}</span><span class="quiz-score-total">${pct}%</span></div>
+        </div>
+        <div class="success-title">Quiz Complete!</div>
+        <div class="success-text">${msg}</div>
+        <a href="#ai-tools" class="btn btn-primary">🚀 Explore AI Tools</a>
+        &nbsp;
+        <button class="btn btn-outline" onclick="restartQuiz()">🔁 Try Again</button>
+      </div>`;
+    return;
+  }
+  const q = quizData[quizIdx];
+  wrap.innerHTML = `
+    <div class="survey-step">Question ${quizIdx+1} of ${quizData.length}</div>
+    <div class="survey-progress"><div class="survey-progress-fill" style="width:${(quizIdx/quizData.length)*100}%"></div></div>
+    <div class="survey-q">${q.q}</div>
+    <div class="survey-options">
+      ${q.opts.map((o,i)=>`
+        <div class="survey-option" onclick="selectQuizAns(${i},this)">
+          <input type="radio" name="quiz"><label>${o}</label>
+        </div>`).join('')}
+    </div>
+    <div class="survey-nav">
+      <span></span>
+      <button class="btn btn-primary" onclick="nextQuiz()" id="quizNext" disabled>Next →</button>
+    </div>`;
+  selectedQuizAns = null;
+}
+
+function selectQuizAns(idx, el) {
+  document.querySelectorAll('#quizWrap .survey-option').forEach(o => o.classList.remove('selected'));
+  el.classList.add('selected');
+  selectedQuizAns = idx;
+  document.getElementById('quizNext').disabled = false;
+}
+
+function nextQuiz() {
+  if (selectedQuizAns === null) return;
+  if (selectedQuizAns === quizData[quizIdx].ans) quizScore++;
+  quizIdx++;
+  renderQuiz();
+}
+
+function restartQuiz() { quizIdx = 0; quizScore = 0; selectedQuizAns = null; renderQuiz(); }
+
+// ═══════════════════════════════════════════
+// NAV
+// ═══════════════════════════════════════════
+function toggleNav() { document.getElementById('mobileNav').classList.toggle('open'); }
+function closeNav() { document.getElementById('mobileNav').classList.remove('open'); }
+
+// ═══════════════════════════════════════════
+// STATS COUNTER
+// ═══════════════════════════════════════════
+function animateCounters() {
+  const targets = [
+    { el:'stat1', end:65, suffix:'%', duration:1800 },
+    { el:'stat2', end:80, suffix:'%', duration:2000 },
+    { el:'stat3', end:50, prefix:'₹', suffix:'K+', duration:1600 },
+    { el:'stat4', end:1, suffix:'M+', duration:1400 }
+  ];
+  targets.forEach(({ el, end, prefix='', suffix='', duration }) => {
+    const elem = document.getElementById(el);
+    let start = 0, step = end / (duration / 16);
+    const timer = setInterval(() => {
+      start += step;
+      if (start >= end) { start = end; clearInterval(timer); }
+      elem.textContent = prefix + Math.round(start) + suffix;
+    }, 16);
+  });
+}
+
+// ═══════════════════════════════════════════
+// FADE IN OBSERVER
+// ═══════════════════════════════════════════
+function observeFadeIns() {
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); observer.unobserve(e.target); } });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  document.querySelectorAll('.fade-in:not(.visible)').forEach(el => observer.observe(el));
+}
+
+let statsAnimated = false;
+new IntersectionObserver(entries => {
+  if (entries[0].isIntersecting && !statsAnimated) { statsAnimated = true; animateCounters(); }
+}, { threshold: 0.5 }).observe(document.querySelector('.stats-bar'));
+
+// ═══════════════════════════════════════════
+// INIT
+renderAITools();
+renderResources('All');
+renderScholarships();
+renderCoding();
+renderDigitalLiteracy();
+renderQuiz();
+setTimeout(observeFadeIns, 100);
+</script>
+
+<!-- ── CHATBOT ── -->
+<div id="owlBtn" onclick="toggleChat()" title="Ask Uday the Owl!">
+  <div class="owl-body">
+    <div class="owl-eyes"><div class="owl-eye"></div><div class="owl-eye"></div></div>
+    <div class="owl-beak">▼</div>
+  </div>
+  <div class="owl-label">Ask Uday!</div>
+  <div class="owl-ping"></div>
+</div>
+
+<!-- Chat Window -->
+<div id="chatWindow">
+  <div class="chat-header">
+    <div style="display:flex;align-items:center;gap:10px;">
+      <div class="chat-owl">🦉</div>
+      <div>
+        <div class="chat-title">Uday the Owl</div>
+        <div class="chat-status"><span class="chat-dot"></span> <span id="chatStatusText">AI Study Assistant</span></div>
+      </div>
+    </div>
+    <div style="display:flex;align-items:center;gap:6px;">
+      <button id="speakerBtn" onclick="toggleSpeaker()" title="Toggle voice reply" style="background:rgba(255,255,255,0.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;">🔊</button>
+      <button onclick="toggleChat()" class="chat-close">✕</button>
+    </div>
+  </div>
+
+  <!-- Language Selector -->
+  <div class="chat-lang-bar">
+    <span style="font-size:0.75rem;color:rgba(255,255,255,0.7);font-weight:600;">Language:</span>
+    <button id="langEN"  class="clang-btn active" onclick="setLang('en-IN','EN')">🇬🇧 English</button>
+    <button id="langTE"  class="clang-btn"        onclick="setLang('te-IN','TE')">🇮🇳 తెలుగు</button>
+    <button id="langHI"  class="clang-btn"        onclick="setLang('hi-IN','HI')">🇮🇳 हिंदी</button>
+  </div>
+
+  <div class="chat-messages" id="chatMessages">
+    <div class="chat-bubble bot">
+      <span class="bubble-icon">🦉</span>
+      <div class="bubble-text">
+        Hoo hoo! I'm <strong>Uday</strong>, your AI study owl! 🎓<br><br>
+        You can <strong>type</strong> or <strong>speak</strong> in English, తెలుగు, or हिंदी — I'll understand and reply in the same language!<br><br>
+        Ask me about careers, scholarships, AI tools, coding, or anything about your education! 🚀
+      </div>
+    </div>
+    <div class="chat-suggestions" id="chatSuggestions">
+      <button onclick="sendSuggestion('What are career options after 10th class?')">🎯 Career after 10th</button>
+      <button onclick="sendSuggestion('Which scholarships can I apply for in AP?')">🏆 AP Scholarships</button>
+      <button onclick="sendSuggestion('10వ తర్వాత నేను ఏమి చదవాలి?')">📚 తెలుగులో అడగండి</button>
+      <button onclick="sendSuggestion('10वीं के बाद क्या करें?')">🎓 हिंदी में पूछें</button>
+    </div>
+  </div>
+
+  <div id="voiceStatusBar" style="display:none;text-align:center;padding:6px 12px;font-size:0.78rem;font-weight:600;color:#ef4444;background:rgba(239,68,68,0.1);border-top:1px solid rgba(239,68,68,0.2);">
+    🎙️ Listening...
+  </div>
+
+  <div class="chat-input-wrap">
+    <input type="text" id="chatInput" placeholder="Type or speak your question..." onkeydown="if(event.key==='Enter')sendMessage()">
+    <button onclick="toggleVoice()" id="micBtn" title="Speak your question">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+    </button>
+    <button onclick="sendMessage()" id="chatSendBtn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+    </button>
+  </div>
+</div>
+
+<style>
+/* ── OWL BUTTON ── */
+#owlBtn{position:fixed;bottom:28px;right:28px;z-index:1000;display:flex;flex-direction:column;align-items:center;gap:4px;cursor:pointer;user-select:none;}
+.owl-body{width:62px;height:62px;background:linear-gradient(135deg,#FF6B2B,#ffd700);border-radius:50%;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(255,107,43,0.5);transition:transform 0.3s;position:relative;animation:owlFloat 3s ease-in-out infinite;}
+#owlBtn:hover .owl-body{transform:scale(1.12);}
+@keyframes owlFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+.owl-eyes{display:flex;gap:6px;margin-bottom:2px;}
+.owl-eye{width:13px;height:13px;background:#fff;border-radius:50%;position:relative;box-shadow:0 0 0 2px rgba(0,0,0,0.15);}
+.owl-eye::after{content:'';position:absolute;width:7px;height:7px;background:#1a1a1a;border-radius:50%;top:3px;left:3px;}
+.owl-beak{font-size:0.55rem;color:rgba(255,255,255,0.9);margin-top:-2px;}
+.owl-label{font-family:'Space Grotesk',sans-serif;font-size:0.68rem;font-weight:700;color:#fff;background:rgba(255,107,43,0.9);padding:2px 8px;border-radius:100px;white-space:nowrap;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+.owl-ping{position:absolute;top:-3px;right:-3px;width:14px;height:14px;background:#4ade80;border-radius:50%;border:2px solid #0F172A;animation:ping 2s infinite;}
+@keyframes ping{0%{box-shadow:0 0 0 0 rgba(74,222,128,0.6);}70%{box-shadow:0 0 0 8px rgba(74,222,128,0);}100%{box-shadow:0 0 0 0 rgba(74,222,128,0);}}
+
+/* ── CHAT WINDOW ── */
+#chatWindow{position:fixed;bottom:108px;right:28px;z-index:999;width:370px;max-height:560px;background:#1E293B;border:1px solid rgba(148,163,184,0.15);border-radius:20px;box-shadow:0 24px 64px rgba(0,0,0,0.5);display:none;flex-direction:column;overflow:hidden;animation:chatSlideUp 0.3s ease;}
+#chatWindow.open{display:flex;}
+@keyframes chatSlideUp{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+.chat-header{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;background:linear-gradient(135deg,#FF6B2B,#f97316);flex-shrink:0;}
+.chat-owl{font-size:1.8rem;}
+.chat-title{font-family:'Space Grotesk',sans-serif;font-size:0.95rem;font-weight:700;color:#fff;}
+.chat-status{font-size:0.72rem;color:rgba(255,255,255,0.85);display:flex;align-items:center;gap:5px;margin-top:2px;}
+.chat-dot{width:7px;height:7px;background:#4ade80;border-radius:50%;display:inline-block;animation:ping 2s infinite;}
+.chat-close{background:rgba(255,255,255,0.15);border:none;color:#fff;width:28px;height:28px;border-radius:50%;cursor:pointer;font-size:0.85rem;display:flex;align-items:center;justify-content:center;transition:background 0.2s;}
+.chat-close:hover{background:rgba(255,255,255,0.3);}
+
+/* Language bar */
+.chat-lang-bar{display:flex;align-items:center;gap:6px;padding:8px 12px;background:rgba(15,23,42,0.5);border-bottom:1px solid rgba(148,163,184,0.1);flex-shrink:0;flex-wrap:wrap;}
+.clang-btn{background:rgba(255,255,255,0.06);border:1.5px solid rgba(148,163,184,0.15);color:#94A3B8;font-family:'DM Sans',sans-serif;font-size:0.72rem;font-weight:700;padding:4px 10px;border-radius:100px;cursor:pointer;transition:all 0.2s;}
+.clang-btn.active{background:rgba(255,107,43,0.2);border-color:rgba(255,107,43,0.5);color:#FF8F60;}
+
+/* Messages */
+.chat-messages{flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:12px;}
+.chat-messages::-webkit-scrollbar{width:4px;}
+.chat-messages::-webkit-scrollbar-thumb{background:rgba(255,107,43,0.4);border-radius:2px;}
+.chat-bubble{display:flex;gap:8px;align-items:flex-start;max-width:94%;}
+.chat-bubble.bot{align-self:flex-start;}
+.chat-bubble.user{align-self:flex-end;flex-direction:row-reverse;}
+.bubble-icon{font-size:1.3rem;flex-shrink:0;margin-top:2px;}
+.bubble-text{font-size:0.84rem;line-height:1.65;padding:10px 14px;border-radius:14px;font-family:'DM Sans',sans-serif;}
+.chat-bubble.bot .bubble-text{background:#334155;color:#F1F5F9;border-radius:4px 14px 14px 14px;}
+.chat-bubble.user .bubble-text{background:linear-gradient(135deg,#FF6B2B,#f97316);color:#fff;border-radius:14px 4px 14px 14px;}
+.chat-suggestions{display:flex;flex-direction:column;gap:6px;margin-top:4px;}
+.chat-suggestions button{background:rgba(255,107,43,0.1);border:1px solid rgba(255,107,43,0.25);color:#FF8F60;font-family:'DM Sans',sans-serif;font-size:0.78rem;font-weight:600;padding:7px 12px;border-radius:8px;cursor:pointer;text-align:left;transition:all 0.2s;}
+.chat-suggestions button:hover{background:rgba(255,107,43,0.2);}
+.chat-typing{display:flex;gap:4px;align-items:center;padding:10px 14px;background:#334155;border-radius:4px 14px 14px 14px;width:fit-content;}
+.chat-typing span{width:7px;height:7px;background:#94A3B8;border-radius:50%;animation:typingBounce 1.2s infinite;}
+.chat-typing span:nth-child(2){animation-delay:0.2s;}
+.chat-typing span:nth-child(3){animation-delay:0.4s;}
+@keyframes typingBounce{0%,60%,100%{transform:translateY(0);}30%{transform:translateY(-6px);background:#FF6B2B;}}
+
+/* Speaking indicator */
+.speaking-indicator{display:flex;gap:3px;align-items:center;margin-top:6px;}
+.speaking-indicator span{width:4px;background:#4ade80;border-radius:2px;animation:soundWave 0.8s infinite;}
+.speaking-indicator span:nth-child(1){height:8px;animation-delay:0s;}
+.speaking-indicator span:nth-child(2){height:14px;animation-delay:0.1s;}
+.speaking-indicator span:nth-child(3){height:20px;animation-delay:0.2s;}
+.speaking-indicator span:nth-child(4){height:14px;animation-delay:0.3s;}
+.speaking-indicator span:nth-child(5){height:8px;animation-delay:0.4s;}
+@keyframes soundWave{0%,100%{transform:scaleY(0.5);}50%{transform:scaleY(1);}}
+
+/* Input */
+.chat-input-wrap{display:flex;gap:8px;padding:10px 12px;border-top:1px solid rgba(148,163,184,0.1);flex-shrink:0;}
+#chatInput{flex:1;background:#0F172A;border:1.5px solid rgba(148,163,184,0.15);color:#F1F5F9;font-family:'DM Sans',sans-serif;font-size:0.88rem;padding:10px 14px;border-radius:10px;outline:none;transition:border 0.2s;}
+#chatInput:focus{border-color:#FF6B2B;}
+#chatInput::placeholder{color:#64748B;}
+#micBtn{background:rgba(255,255,255,0.06);border:1.5px solid rgba(148,163,184,0.15);color:#94A3B8;width:40px;height:40px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:all 0.2s;}
+#micBtn:hover{border-color:#FF6B2B;color:#FF6B2B;}
+#micBtn.listening{background:rgba(239,68,68,0.15);border-color:#ef4444;color:#ef4444;animation:micPulse 1s infinite;}
+@keyframes micPulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,0.4);}50%{box-shadow:0 0 0 8px rgba(239,68,68,0);}}
+#chatSendBtn{background:linear-gradient(135deg,#FF6B2B,#f97316);border:none;color:#fff;width:40px;height:40px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity 0.2s;}
+#chatSendBtn:hover{opacity:0.88;}
+#chatSendBtn:disabled{opacity:0.4;cursor:not-allowed;}
+@media(max-width:420px){#chatWindow{width:calc(100vw - 20px);right:10px;bottom:100px;}#owlBtn{right:16px;bottom:16px;}}
+</style>
+
+<script>
+// ── GEMINI CHATBOT ──
+const GEMINI_KEY = 'AIzaSyDSKg6wzi1qa3YRCIIyjqYSXk-HxZCkxBk';
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_KEY}`;
+
+let currentLang = 'en-IN';
+let currentLangCode = 'EN';
+let speakerOn = true;
+let recognition = null;
+let isListening = false;
+let isSpeaking = false;
+let speechSynth = window.speechSynthesis;
+let chatHistory = [];
+
+// System prompt for Gemini
+const SYSTEM_PROMPT = `You are Uday, a friendly and wise AI owl mascot for VidyaUday — a free student empowerment platform for rural students in Andhra Pradesh, India.
+
+Your role: Help 10th class and Intermediate students with career guidance, scholarships, AI tools, coding, and education questions.
+
+VERY IMPORTANT LANGUAGE RULES:
+- If the user writes or speaks in Telugu, ALWAYS reply FULLY in Telugu (తెలుగు)
+- If the user writes or speaks in Hindi, ALWAYS reply FULLY in Hindi (हिंदी)  
+- If the user writes or speaks in English, reply in English
+- Detect language automatically from the user's message
+- Never mix languages in your reply
+
+Topics you know:
+- Career after 10th: MPC (B.Tech/Engineering), BiPC (MBBS/Medical), MEC (CA/Banking), CEC (IAS/Law), Polytechnic, ITI, Vocational
+- Career after Intermediate: B.Tech, MBBS, B.Sc, B.Com/BBA, Government Exams (UPSC/APPSC/SSC/Railways), Skill Development
+- Scholarships: AP Epass (cfms.ap.gov.in), National Scholarship Portal (scholarships.gov.in), INSPIRE, AICTE Pragati for girls, Post-Matric SC/ST
+- Free AI Tools: ChatGPT, Gemini, Canva, Gamma, GitHub, LinkedIn, Copilot, Notion, Perplexity, QuillBot
+- Free Learning: freeCodeCamp, Khan Academy, NPTEL, SWAYAM, GeeksforGeeks, Coursera, edX
+- Coding: LeetCode, HackerRank, CodeChef
+- Digital Skills: email, resume, LinkedIn profile
+
+Personality: Warm, encouraging owl mentor. Use emojis. Keep answers helpful and simple. Always motivate students. End with an actionable next step.`;
+
+// ── LANGUAGE CONTROL ──
+function setLang(langCode, btn) {
+  currentLang = langCode;
+  currentLangCode = btn;
+  document.querySelectorAll('.clang-btn').forEach(b => b.classList.remove('active'));
+  document.getElementById('lang' + btn).classList.add('active');
+  const placeholders = {
+    'EN': 'Type or speak your question...',
+    'TE': 'మీ ప్రశ్న టైప్ చేయండి లేదా మాట్లాడండి...',
+    'HI': 'अपना सवाल टाइप करें या बोलें...'
+  };
+  document.getElementById('chatInput').placeholder = placeholders[btn];
+}
+
+// ── SPEAKER TOGGLE ──
+function toggleSpeaker() {
+  speakerOn = !speakerOn;
+  document.getElementById('speakerBtn').textContent = speakerOn ? '🔊' : '🔇';
+  if (!speakerOn && speechSynth.speaking) speechSynth.cancel();
+}
+
+// ── CHAT CONTROLS ──
+function toggleChat() {
+  const win = document.getElementById('chatWindow');
+  win.classList.toggle('open');
+  if (win.classList.contains('open')) document.getElementById('chatInput').focus();
+}
+
+function sendSuggestion(text) {
+  document.getElementById('chatSuggestions')?.remove();
+  processMessage(text);
+}
+
+function sendMessage() {
+  const input = document.getElementById('chatInput');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  document.getElementById('chatSuggestions')?.remove();
+  processMessage(text);
+}
+
+function processMessage(text) {
+  addMessage(text, 'user');
+  getGeminiReply(text);
+}
+
+// ── MESSAGE DISPLAY ──
+function addMessage(text, role) {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = `chat-bubble ${role}`;
+  if (role === 'bot') {
+    div.innerHTML = `<span class="bubble-icon">🦉</span><div class="bubble-text">${text}</div>`;
+  } else {
+    div.innerHTML = `<div class="bubble-text">${text}</div>`;
+  }
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function showTyping() {
+  const msgs = document.getElementById('chatMessages');
+  const div = document.createElement('div');
+  div.className = 'chat-bubble bot';
+  div.id = 'typingIndicator';
+  div.innerHTML = `<span class="bubble-icon">🦉</span><div class="chat-typing"><span></span><span></span><span></span></div>`;
+  msgs.appendChild(div);
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+function removeTyping() {
+  document.getElementById('typingIndicator')?.remove();
+}
+
+// ── GEMINI API ──
+async function getGeminiReply(userMessage) {
+  const sendBtn = document.getElementById('chatSendBtn');
+  const input = document.getElementById('chatInput');
+  sendBtn.disabled = true;
+  input.disabled = true;
+  showTyping();
+
+  try {
+    const fullPrompt = SYSTEM_PROMPT + '\n\nStudent says: ' + userMessage + '\n\nUday replies:';
+
+    const response = await fetch(GEMINI_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        contents: [{
+          parts: [{ text: fullPrompt }]
+        }],
+        generationConfig: {
+          maxOutputTokens: 500,
+          temperature: 0.7
+        }
+      })
+    });
+
+    const data = await response.json();
+    removeTyping();
+
+    if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
+      let reply = data.candidates[0].content.parts[0].text;
+
+      const formatted = reply
+        .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
+        .replace(/\*(.*?)\*/g, '<em>$1</em>')
+        .replace(/\n\n/g, '<br><br>')
+        .replace(/\n/g, '<br>');
+
+      addMessage(formatted, 'bot');
+      if (speakerOn) speakReply(reply);
+
+    } else {
+      // Fallback to smart offline reply
+      const offline = generateOfflineReply(userMessage);
+      addMessage(offline, 'bot');
+      if (speakerOn) speakReply(offline.replace(/<[^>]+>/g, ''));
+    }
+  } catch (err) {
+    removeTyping();
+    // Always fallback to offline — never show error to student
+    const offline = generateOfflineReply(userMessage);
+    addMessage(offline, 'bot');
+    if (speakerOn) speakReply(offline.replace(/<[^>]+>/g, ''));
+  } finally {
+    sendBtn.disabled = false;
+    input.disabled = false;
+    input.focus();
+  }
+}
+
+// ── OFFLINE FALLBACK ──
+function generateOfflineReply(msg) {
+  const m = msg.toLowerCase();
+  const isTelugu = /[\u0C00-\u0C7F]/.test(msg);
+  const isHindi = /[\u0900-\u097F]/.test(msg);
+
+  if (/hi|hello|hey|namaste|నమస్కారం|హలో|नमस्ते/.test(m)) {
+    if (isTelugu) return `నమస్కారం! 🦉 నేను Uday, మీ AI చదువు owl!<br>10th తర్వాత career, scholarships, AI tools గురించి అడగండి!`;
+    if (isHindi) return `नमस्ते! 🦉 मैं Uday हूं, आपका AI अध्ययन उल्लू!<br>10वीं के बाद career, scholarships, AI tools के बारे में पूछें!`;
+    return `Hello! 🦉 I'm <strong>Uday</strong>, your AI study owl!<br><br>Ask me about careers after 10th or Intermediate, scholarships, AI tools, or coding! 😊`;
+  }
+  if (/10th|10వ|ssc|tenth|పదవ|10वीं/.test(m)) {
+    if (isTelugu) return `10th తర్వాత మీకు 5 paths ఉన్నాయి! 🎯<br><br>1️⃣ <strong>MPC</strong> — Engineering కోసం<br>2️⃣ <strong>BiPC</strong> — Medical కోసం<br>3️⃣ <strong>Polytechnic</strong> — 3 సంవత్సరాల diploma<br>4️⃣ <strong>ITI</strong> — Skilled trade<br>5️⃣ <strong>Vocational</strong> — Computer, Digital Marketing<br><br>పైన Career section చూడండి! 💪`;
+    if (isHindi) return `10वीं के बाद 5 रास्ते हैं! 🎯<br><br>1️⃣ <strong>MPC</strong> — Engineering के लिए<br>2️⃣ <strong>BiPC</strong> — Medical के लिए<br>3️⃣ <strong>Polytechnic</strong> — 3 साल डिप्लोमा<br>4️⃣ <strong>ITI</strong> — Skilled trade<br>5️⃣ <strong>Vocational</strong> — Computer, Digital Marketing<br><br>ऊपर Career section देखें! 💪`;
+    return `After 10th you have <strong>5 great paths!</strong> 🎯<br><br>1️⃣ <strong>MPC</strong> — For Engineering (EAMCET)<br>2️⃣ <strong>BiPC</strong> — For Medical (NEET)<br>3️⃣ <strong>Polytechnic</strong> — 3 year diploma, job ready fast<br>4️⃣ <strong>ITI</strong> — Electrician, Welder, high demand<br>5️⃣ <strong>Vocational</strong> — Computer, Digital Marketing<br><br>Check Career section above for full roadmaps! 💪`;
+  }
+  if (/intermediate|inter|12th|బాద|తర్వాత|इंटर/.test(m)) {
+    if (isTelugu) return `Intermediate తర్వాత 6 paths ఉన్నాయి! 🎓<br><br>1️⃣ B.Tech — Engineering<br>2️⃣ MBBS — Doctor<br>3️⃣ B.Sc — Science degree<br>4️⃣ B.Com/BBA — Commerce<br>5️⃣ Government Exams — UPSC, APPSC<br>6️⃣ Skill Development — 6 months job ready<br><br>Career section లో full details చూడండి!`;
+    if (isHindi) return `Intermediate के बाद 6 रास्ते हैं! 🎓<br><br>1️⃣ B.Tech — Engineering<br>2️⃣ MBBS — Doctor<br>3️⃣ B.Sc — Science<br>4️⃣ B.Com/BBA — Commerce<br>5️⃣ Government Exams — UPSC, SSC<br>6️⃣ Skill Development — 6 महीने में job`;
+    return `After Intermediate you have <strong>6 paths!</strong> 🎓<br><br>1️⃣ <strong>B.Tech</strong> — Engineering via EAMCET<br>2️⃣ <strong>MBBS</strong> — Doctor via NEET<br>3️⃣ <strong>B.Sc</strong> — Science degree<br>4️⃣ <strong>B.Com/BBA</strong> — Commerce & Banking<br>5️⃣ <strong>Govt Exams</strong> — UPSC, APPSC, SSC<br>6️⃣ <strong>Skill Dev</strong> — Job ready in 6 months!`;
+  }
+  if (/scholarship|స్కాలర్|epass|money|fee|छात्रवृत्ति/.test(m)) {
+    if (isTelugu) return `మీకు apply చేయగల scholarships: 🏆<br><br>1️⃣ <strong>AP Epass</strong> — Full fees + ₹12,000/year<br>2️⃣ <strong>Pre-Matric SC/ST</strong> — ₹2,250/month<br>3️⃣ <strong>Post-Matric</strong> — Full course fees<br>4️⃣ <strong>AICTE Pragati</strong> — Girls కోసం ₹50,000/year<br><br>Scholarships section లో apply links ఉన్నాయి! ⚡`;
+    if (isHindi) return `आपके लिए scholarships: 🏆<br><br>1️⃣ <strong>AP Epass</strong> — पूरी fees + ₹12,000/year<br>2️⃣ <strong>Pre-Matric SC/ST</strong> — ₹2,250/month<br>3️⃣ <strong>AICTE Pragati</strong> — लड़कियों के लिए ₹50,000/year<br><br>Scholarships section में apply links देखें! ⚡`;
+    return `Here are scholarships you can apply for NOW! 🏆<br><br>1️⃣ <strong>AP Epass</strong> — Full tuition + ₹12,000/year<br>2️⃣ <strong>Pre-Matric SC/ST/OBC</strong> — ₹2,250/month<br>3️⃣ <strong>Post-Matric</strong> — Full course fees<br>4️⃣ <strong>AICTE Pragati (Girls)</strong> — ₹50,000/year<br>5️⃣ <strong>INSPIRE</strong> — ₹80,000/year for top scorers<br><br>Check Scholarships section for apply links! ⚡`;
+  }
+  if (/ai|chatgpt|gemini|canva|tool|artificial/.test(m)) {
+    return `Top FREE AI tools for students! 🤖<br><br>🤖 <strong>ChatGPT</strong> — Ask anything, study helper<br>✨ <strong>Gemini</strong> — Upload textbook photo, ask questions<br>🎨 <strong>Canva</strong> — Make presentations & resumes<br>⚡ <strong>Gamma</strong> — AI creates slides in 60 seconds<br>✍️ <strong>QuillBot</strong> — Fix grammar, improve English<br><br>Check AI Tools section above for all 10 tools! 🚀`;
+  }
+  if (/coding|code|program|python|java|software/.test(m)) {
+    return `Start coding for FREE! 💻<br><br>🔥 <strong>freeCodeCamp</strong> — Best for beginners<br>🌐 <strong>W3Schools</strong> — HTML, CSS, JavaScript<br>🧠 <strong>GeeksforGeeks</strong> — DSA & placements<br>🟢 <strong>HackerRank</strong> — 30 Days of Code challenge<br><br>Start with HackerRank today — it's perfect for beginners! 🚀`;
+  }
+  if (/government|govt|upsc|appsc|ias|ssc|railway|ప్రభుత్వ|सरकारी/.test(m)) {
+    return `Government Jobs — most secure career! 🏛️<br><br>👑 <strong>UPSC</strong> → IAS/IPS (highest level)<br>🌐 <strong>APPSC Group I</strong> → Deputy Collector<br>🌐 <strong>APPSC Group II</strong> → Revenue Officer<br>⚡ <strong>SSC CGL</strong> → Central Govt Officer<br>🚂 <strong>Railways</strong> → Station Master, NTPC<br><br>Salary: ₹35,000 – ₹2.5 Lakh/month + pension! 💪`;
+  }
+  if (isTelugu) return `నమస్కారం! 🦉 మీరు టెలుగులో అడిగారు!<br><br>నేను సహాయం చేయగలను:<br>🎯 Career guidance<br>🏆 Scholarships<br>🤖 AI tools<br>💻 Free coding<br><br>ఏది కావాలో చెప్పండి!`;
+  if (isHindi) return `नमस्ते! 🦉 आपने हिंदी में पूछा!<br><br>मैं इनमें मदद कर सकता हूं:<br>🎯 Career guidance<br>🏆 Scholarships<br>🤖 AI tools<br>💻 Free coding<br><br>बताइए क्या चाहिए!`;
+  return `Hoo! 🦉 Great question! I can help you with:<br><br>🎯 Type <strong>"career after 10th"</strong> or <strong>"career after intermediate"</strong><br>🏆 Type <strong>"scholarship"</strong> for money opportunities<br>🤖 Type <strong>"AI tools"</strong> for free study tools<br>💻 Type <strong>"coding"</strong> to start programming<br>🏛️ Type <strong>"government jobs"</strong> for secure career info<br><br>What would you like to know? 😊`;
+}
+
+// ── TEXT TO SPEECH ──
+function speakReply(text) {
+  if (!speakerOn || !speechSynth) return;
+  if (speechSynth.speaking) speechSynth.cancel();
+
+  // Clean text for speech (remove HTML and markdown)
+  const clean = text
+    .replace(/<[^>]+>/g, '')
+    .replace(/\*\*/g, '')
+    .replace(/\*/g, '')
+    .replace(/#{1,6}\s/g, '')
+    .substring(0, 500); // limit speech length
+
+  const utterance = new SpeechSynthesisUtterance(clean);
+
+  // Set language for speech
+  const langMap = { 'en-IN': 'en-IN', 'te-IN': 'te-IN', 'hi-IN': 'hi-IN' };
+  utterance.lang = langMap[currentLang] || 'en-IN';
+  utterance.rate = 0.9;
+  utterance.pitch = 1.1;
+  utterance.volume = 1;
+
+  utterance.onstart = () => {
+    isSpeaking = true;
+    document.getElementById('speakerBtn').textContent = '🔈';
+  };
+  utterance.onend = () => {
+    isSpeaking = false;
+    document.getElementById('speakerBtn').textContent = '🔊';
+  };
+
+  speechSynth.speak(utterance);
+}
+
+// ── VOICE RECOGNITION ──
+function toggleVoice() {
+  if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+    const msg = currentLangCode === 'TE'
+      ? '❌ మీ browser లో voice support లేదు. Chrome use చేయండి!'
+      : currentLangCode === 'HI'
+      ? '❌ इस browser में voice support नहीं है। Chrome उपयोग करें!'
+      : '❌ Voice not supported. Please use Google Chrome!';
+    addMessage(msg, 'bot');
+    return;
+  }
+  isListening ? stopVoice() : startVoice();
+}
+
+function startVoice() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  recognition = new SpeechRecognition();
+  recognition.lang = currentLang;
+  recognition.continuous = false;
+  recognition.interimResults = true;
+
+  recognition.onstart = () => {
+    isListening = true;
+    document.getElementById('micBtn').classList.add('listening');
+    const statusBar = document.getElementById('voiceStatusBar');
+    const msgs = {
+      'EN': '🎙️ Listening... Speak your question now!',
+      'TE': '🎙️ వింటున్నాను... మీ ప్రశ్న మాట్లాడండి!',
+      'HI': '🎙️ सुन रहा हूं... अपना सवाल बोलें!'
+    };
+    statusBar.textContent = msgs[currentLangCode] || msgs['EN'];
+    statusBar.style.display = 'block';
+    if (speechSynth.speaking) speechSynth.cancel();
+  };
+
+  recognition.onresult = (e) => {
+    let transcript = '';
+    for (let i = e.resultIndex; i < e.results.length; i++) {
+      transcript += e.results[i][0].transcript;
+    }
+    document.getElementById('chatInput').value = transcript;
+    if (e.results[e.results.length - 1].isFinal) {
+      stopVoice();
+      if (transcript.trim()) {
+        setTimeout(() => {
+          document.getElementById('chatSuggestions')?.remove();
+          processMessage(transcript.trim());
+          document.getElementById('chatInput').value = '';
+        }, 300);
+      }
+    }
+  };
+
+  recognition.onerror = (e) => {
+    stopVoice();
+    let msg = '❌ Could not hear you. Try again!';
+    if (e.error === 'not-allowed') msg = currentLangCode === 'TE'
+      ? '❌ Microphone permission కావాలి. Browser settings లో allow చేయండి.'
+      : currentLangCode === 'HI'
+      ? '❌ Microphone की अनुमति चाहिए। Browser settings में allow करें।'
+      : '❌ Microphone blocked. Please allow microphone access in Chrome.';
+    else if (e.error === 'no-speech') msg = currentLangCode === 'TE'
+      ? '❌ మీ గొంతు వినపడలేదు. మళ్ళీ ప్రయత్నించండి!'
+      : currentLangCode === 'HI'
+      ? '❌ आवाज़ नहीं सुनाई दी। फिर से कोशिश करें!'
+      : '❌ No speech heard. Please try again!';
+    addMessage(msg, 'bot');
+  };
+
+  recognition.onend = () => stopVoice();
+  recognition.start();
+}
+
+function stopVoice() {
+  isListening = false;
+  document.getElementById('micBtn').classList.remove('listening');
+  document.getElementById('voiceStatusBar').style.display = 'none';
+  document.getElementById('chatInput').placeholder = currentLangCode === 'TE'
+    ? 'మీ ప్రశ్న టైప్ చేయండి లేదా మాట్లాడండి...'
+    : currentLangCode === 'HI'
+    ? 'अपना सवाल टाइप करें या बोलें...'
+    : 'Type or speak your question...';
+  if (recognition) { try { recognition.stop(); } catch(e) {} recognition = null; }
+}
+</script>
+</body>
+</html>
