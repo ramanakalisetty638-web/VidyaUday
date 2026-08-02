@@ -310,9 +310,39 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 .cbranch-card ul li{font-size:0.82rem;color:var(--text2);padding:4px 0;padding-left:14px;position:relative;border-bottom:1px solid rgba(255,255,255,0.04);}
 .cbranch-card ul li:last-child{border-bottom:none;}
 .cbranch-card ul li::before{content:'▸';position:absolute;left:0;font-size:0.7rem;}
-/* FADE IN */
-.fade-in{opacity:0;transform:translateY(24px);transition:opacity 0.6s,transform 0.6s;}
-.fade-in.visible{opacity:1;transform:translateY(0);}
+/* ── SCHOLARSHIP FORM ── */
+.schol-form-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:20px;padding:32px;max-width:860px;margin:0 auto;}
+.schol-form-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--card-border);}
+.schol-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
+.schol-field{display:flex;flex-direction:column;gap:6px;}
+.schol-field label{font-size:0.82rem;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.05em;}
+.schol-field input,.schol-field select{background:var(--deep2);border:1.5px solid var(--card-border);color:var(--text);font-family:var(--font-body);font-size:0.92rem;padding:11px 14px;border-radius:10px;outline:none;transition:border 0.2s;-webkit-appearance:none;appearance:none;}
+.schol-field input:focus,.schol-field select:focus{border-color:var(--saffron);}
+.schol-field input::placeholder{color:var(--text3);}
+.schol-submit-btn{width:100%;background:var(--saffron);color:#fff;font-family:var(--font-display);font-size:1rem;font-weight:700;padding:14px;border-radius:12px;border:none;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;justify-content:center;gap:8px;}
+.schol-submit-btn:hover{background:var(--saffron-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,43,0.4);}
+.schol-profile-bar{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px;}
+.schol-profile-info{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
+.schol-profile-tag{background:rgba(255,107,43,0.12);color:var(--saffron-light);font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:100px;}
+.schol-edit-btn{background:transparent;border:1.5px solid var(--card-border);color:var(--text2);font-family:var(--font-body);font-size:0.82rem;font-weight:600;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
+.schol-edit-btn:hover{border-color:var(--saffron);color:var(--saffron);}
+.schol-results-title{font-family:var(--font-display);font-size:1.15rem;font-weight:700;margin-bottom:20px;}
+.schol-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;transition:all 0.3s;display:flex;flex-direction:column;}
+.schol-card:hover{transform:translateY(-4px);}
+.schol-card.eligible{border-color:rgba(29,185,84,0.5);box-shadow:0 0 0 1px rgba(29,185,84,0.2);}
+.schol-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
+.schol-icon{font-size:2rem;flex-shrink:0;}
+.schol-name{font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:4px;}
+.schol-cat{font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--leaf);}
+.schol-row{font-size:0.83rem;color:var(--text2);margin-bottom:8px;}
+.schol-row strong{color:var(--text);display:block;font-weight:600;margin-bottom:2px;}
+.deadline{color:#fb923c;font-weight:600;}
+.search-wrap{position:relative;max-width:480px;margin-bottom:32px;}
+.search-wrap input{width:100%;background:var(--deep2);border:1.5px solid var(--card-border);color:var(--text);font-family:var(--font-body);font-size:0.95rem;padding:12px 16px 12px 44px;border-radius:12px;outline:none;transition:border 0.2s;}
+.search-wrap input:focus{border-color:var(--saffron);}
+.search-wrap input::placeholder{color:var(--text3);}
+.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:1.1rem;pointer-events:none;}
+@media(max-width:600px){.schol-form-grid{grid-template-columns:1fr;}}
 
 /* RESPONSIVE */
 @media(max-width:900px){
@@ -528,14 +558,100 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <section id="scholarships" class="bg-alt">
   <div class="max-w">
     <div class="section-tag">Scholarships</div>
-    <h2 class="section-title">Money Is Available — Apply for It</h2>
-    <p class="section-sub">Search government scholarships you're eligible for right now. Don't miss deadlines.</p>
-    <div class="search-wrap">
-      <span class="search-icon">🔍</span>
-      <input type="text" id="scholSearch" placeholder="Search by name or category..." oninput="filterScholarships()">
+    <h2 class="section-title">Find Scholarships You Qualify For</h2>
+    <p class="section-sub">Enter your details once — we'll show only the scholarships you are eligible for.</p>
+
+    <!-- PROFILE FORM -->
+    <div id="scholProfileForm">
+      <div class="schol-form-card">
+        <div class="schol-form-header">
+          <span style="font-size:2rem;">🏆</span>
+          <div>
+            <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;">Tell Us About Yourself</div>
+            <div style="font-size:0.82rem;color:var(--text2);margin-top:3px;">We'll match you with scholarships you can actually apply for</div>
+          </div>
+        </div>
+        <div class="schol-form-grid">
+          <div class="schol-field">
+            <label>Your Name</label>
+            <input type="text" id="sf_name" placeholder="Enter your name">
+          </div>
+          <div class="schol-field">
+            <label>Current Education</label>
+            <select id="sf_class">
+              <option value="">Select your class</option>
+              <option value="9">Class 9</option>
+              <option value="10">Class 10 (SSC)</option>
+              <option value="inter1">Intermediate 1st Year</option>
+              <option value="inter2">Intermediate 2nd Year</option>
+              <option value="degree">Degree / B.Tech / Engineering</option>
+              <option value="pg">Post Graduation</option>
+            </select>
+          </div>
+          <div class="schol-field">
+            <label>Caste Category</label>
+            <select id="sf_caste">
+              <option value="">Select category</option>
+              <option value="sc">SC (Scheduled Caste)</option>
+              <option value="st">ST (Scheduled Tribe)</option>
+              <option value="obc">OBC (Other Backward Class)</option>
+              <option value="minority">Minority (Muslim/Christian/Sikh/Buddhist/Jain)</option>
+              <option value="general">General / Open Category</option>
+            </select>
+          </div>
+          <div class="schol-field">
+            <label>Gender</label>
+            <select id="sf_gender">
+              <option value="">Select gender</option>
+              <option value="female">Female</option>
+              <option value="male">Male</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+          <div class="schol-field">
+            <label>Family Annual Income</label>
+            <select id="sf_income">
+              <option value="">Select income range</option>
+              <option value="below1">Below ₹1 Lakh</option>
+              <option value="1to2.5">₹1 Lakh – ₹2.5 Lakh</option>
+              <option value="2.5to8">₹2.5 Lakh – ₹8 Lakh</option>
+              <option value="above8">Above ₹8 Lakh</option>
+            </select>
+          </div>
+          <div class="schol-field">
+            <label>State</label>
+            <select id="sf_state">
+              <option value="">Select state</option>
+              <option value="ap">Andhra Pradesh</option>
+              <option value="ts">Telangana</option>
+              <option value="other">Other State</option>
+            </select>
+          </div>
+        </div>
+        <button class="schol-submit-btn" onclick="submitScholProfile()">
+          🔍 Find My Scholarships
+        </button>
+      </div>
     </div>
-    <div class="cards-grid" id="scholarshipGrid"></div>
-    <p id="scholNoResult" style="display:none;color:var(--text3);text-align:center;padding:40px;">No scholarships match your search.</p>
+
+    <!-- RESULTS SECTION -->
+    <div id="scholResults" style="display:none;">
+      <div class="schol-profile-bar" id="scholProfileBar"></div>
+      <div id="scholEligibleSection">
+        <h3 class="schol-results-title" id="scholResultsTitle"></h3>
+        <div class="cards-grid" id="scholarshipGrid"></div>
+        <p id="scholNoResult" style="display:none;color:var(--text3);text-align:center;padding:40px;font-size:1rem;">No scholarships match your profile right now. But check back — new schemes are added regularly!</p>
+      </div>
+      <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--card-border);">
+        <p style="font-size:0.85rem;color:var(--text3);margin-bottom:16px;">Showing all other scholarships for reference:</p>
+        <div class="search-wrap" style="max-width:400px;margin-bottom:20px;">
+          <span class="search-icon">🔍</span>
+          <input type="text" id="scholSearch" placeholder="Search all scholarships..." oninput="filterScholarships()">
+        </div>
+        <div class="cards-grid" id="scholarshipGridAll"></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -933,7 +1049,6 @@ function closeToolModal() {
   document.body.style.overflow = '';
 }
 
-// ── CLARIFICATION FOR MODAL CLICK ──
 function handleModalClick(e) {
   if (e.target === document.getElementById('toolModal')) closeToolModal();
 }
@@ -1072,7 +1187,7 @@ const cTrees = {
       {color:'#f59e0b', title:'📈 CA / Accounts', items:['CA (ICAI) — Gold Standard','CMA — Cost Accountant','CS — Company Secretary','ACCA — International Finance']},
       {color:'#3b82f6', title:'🏦 Banking & Finance', items:['IBPS PO / Clerk','SBI PO (most prestigious)','RBI Grade B Officer','SEBI / IRDA / NABARD']},
       {color:'#8b5cf6', title:'📊 MBA Path', items:['CAT → IIM MBA','MAT / XAT → Other MBA','MBA Finance / Marketing','Foreign MBA — US / UK']},
-      {color:'#ef4444', title:'🏛️ Govt Commerce Commerce Jobs', items:['Income Tax Officer (SSC CGL)','Audit Officer (CAG)','APPSC Group II Commerce','State Treasury / Accounts']},
+      {color:'#ef4444', title:'🏛️ Govt Commerce Jobs', items:['Income Tax Officer (SSC CGL)','Audit Officer (CAG)','APPSC Group II Commerce','State Treasury / Accounts']},
     ]
   },
   cec:{
@@ -1102,7 +1217,7 @@ const cTrees = {
       {color:'#06b6d4', title:'🏛️ Civil Services', items:['UPSC CSE → IAS / IPS / IFS','APPSC Group I → State Services','APPSC Group II → Deputy Collector','SSC CGL → Central Govt Officer']},
       {color:'#8b5cf6', title:'⚖️ Law Career', items:['5-yr BA LLB (Integrated)','District / High Court practice','Government Lawyer (PP)','Corporate Lawyer — highest paid']},
       {color:'#f97316', title:'📰 Journalism & Media', items:['Mass Communication degree','Digital journalist / Reporter','News anchor / Content Creator','Social media & YouTube career']},
-      {color:'#10b981', title:'🎓 Teaching & Research', items:['TET after B.Sc (School Teacher)','PGT after M.Sc','UGC NET → Degree Lecturer','PhD → College Professor']},
+      {color:'#10b981', title:'🎓 Teaching & Research', items:['TET → Govt School Teacher','PGT after PG degree','UGC NET → Degree College Lecturer','Professor after PhD']},
     ]
   },
   poly:{
@@ -1333,7 +1448,7 @@ const cTrees = {
       {yr:'Year 4–6', dot:'#38bdf8', border:'#38bdf8', label:'#38bdf8',
        title:'CA Final / Bank PO Job / MBA',
        desc:'Qualified CA is India\'s most respected finance qualification. Bank PO gives security + pension. MBA from IIM (via CAT) = highest corporate salary in India.',
-       tags:[{t:'CA Final',c:'tag-b'},{t:'Bank PO Job',c:'tag-g'},{t:'MBA IIM',c:'tag-p'}],
+       tags:[{t:'Qualified CA',c:'tag-b'},{t:'Bank PO Job',c:'tag-g'},{t:'MBA IIM',c:'tag-p'}],
        salary:'CA Fresh: ₹7–15 LPA | Bank PO: ₹8–12 LPA | IIM MBA: ₹15–50 LPA', pct:55},
       {yr:'Year 8+', dot:'#f472b6', border:'#f472b6', label:'#f472b6',
        title:'CA Partner / CFO / Business Leader',
@@ -1527,28 +1642,171 @@ function renderResources(filter) {
 // ═══════════════════════════════════════════
 // RENDER SCHOLARSHIPS
 // ═══════════════════════════════════════════
-function renderScholarships(data) {
-  document.getElementById('scholarshipGrid').innerHTML = (data || scholarships).map(s => `
-    <div class="schol-card fade-in">
-      <div class="schol-header"><span class="schol-icon">${s.icon}</span><div><div class="schol-name">${s.name}</div><div class="schol-cat">${s.cat} Government</div></div></div>
+// ═══════════════════════════════════════════
+// SCHOLARSHIP ELIGIBILITY SYSTEM
+// ═══════════════════════════════════════════
+
+// Eligibility rules for each scholarship
+const scholEligibility = {
+  'AP Epass Scholarship': p =>
+    p.state === 'ap' &&
+    ['below1','1to2.5'].includes(p.income) &&
+    ['9','10','inter1','inter2','degree','pg'].includes(p.class),
+
+  'Pre-Matric Scholarship SC/ST/OBC': p =>
+    ['sc','st','obc'].includes(p.caste) &&
+    ['9','10'].includes(p.class) &&
+    ['below1','1to2.5'].includes(p.income),
+
+  'Post-Matric Scholarship': p =>
+    ['sc','st'].includes(p.caste) &&
+    ['inter1','inter2','degree','pg'].includes(p.class) &&
+    ['below1','1to2.5'].includes(p.income),
+
+  'Jagannath Scholarship Minorities': p =>
+    p.caste === 'minority' &&
+    p.state === 'ap' &&
+    ['below1','1to2.5','2.5to8'].includes(p.income),
+
+  'AICTE Pragati for Girls': p =>
+    p.gender === 'female' &&
+    p.class === 'degree' &&
+    ['below1','1to2.5','2.5to8'].includes(p.income),
+
+  'INSPIRE Scholarship': p =>
+    ['inter1','inter2'].includes(p.class),
+};
+
+function submitScholProfile() {
+  const name   = document.getElementById('sf_name').value.trim();
+  const cls    = document.getElementById('sf_class').value;
+  const caste  = document.getElementById('sf_caste').value;
+  const gender = document.getElementById('sf_gender').value;
+  const income = document.getElementById('sf_income').value;
+  const state  = document.getElementById('sf_state').value;
+
+  if (!cls || !caste || !gender || !income || !state) {
+    alert('Please fill in all fields to find your matching scholarships!');
+    return;
+  }
+
+  const profile = { name, class: cls, caste, gender, income, state };
+
+  // Save to localStorage
+  localStorage.setItem('vidyauday_schol_profile', JSON.stringify(profile));
+
+  showScholResults(profile);
+}
+
+function showScholResults(profile) {
+  // Hide form, show results
+  document.getElementById('scholProfileForm').style.display = 'none';
+  document.getElementById('scholResults').style.display    = 'block';
+
+  // Profile bar
+  const classMap = {
+    '9':'Class 9','10':'Class 10','inter1':'Inter 1st Yr',
+    'inter2':'Inter 2nd Yr','degree':'Degree/B.Tech','pg':'Post Graduation'
+  };
+  const casteMap = {sc:'SC',st:'ST',obc:'OBC',minority:'Minority',general:'General'};
+  const incMap   = {
+    'below1':'< ₹1L','1to2.5':'₹1L–₹2.5L',
+    '2.5to8':'₹2.5L–₹8L','above8':'> ₹8L'
+  };
+  const stateMap = {ap:'Andhra Pradesh',ts:'Telangana',other:'Other State'};
+
+  document.getElementById('scholProfileBar').innerHTML = `
+    <div class="schol-profile-info">
+      <span style="font-size:1.2rem;">👤</span>
+      <strong style="color:var(--white);">${profile.name || 'Student'}</strong>
+      <span class="schol-profile-tag">${classMap[profile.class]}</span>
+      <span class="schol-profile-tag">${casteMap[profile.caste]}</span>
+      <span class="schol-profile-tag">${profile.gender}</span>
+      <span class="schol-profile-tag">${incMap[profile.income]}</span>
+      <span class="schol-profile-tag">${stateMap[profile.state]}</span>
+    </div>
+    <button class="schol-edit-btn" onclick="editScholProfile()">✏️ Edit Profile</button>
+  `;
+
+  // Find eligible scholarships
+  const eligible = scholarships.filter(s =>
+    scholEligibility[s.name] && scholEligibility[s.name](profile)
+  );
+  const others = scholarships.filter(s =>
+    !scholEligibility[s.name] || !scholEligibility[s.name](profile)
+  );
+
+  // Show eligible count
+  document.getElementById('scholResultsTitle').innerHTML =
+    eligible.length > 0
+      ? `✅ ${eligible.length} Scholarship${eligible.length>1?'s':''} Found for You! <span style="font-size:0.85rem;font-weight:400;color:var(--text2);">Based on your profile</span>`
+      : `😔 No exact matches found — but check all scholarships below`;
+
+  // Render eligible
+  document.getElementById('scholarshipGrid').innerHTML =
+    eligible.length > 0
+      ? eligible.map(s => scholCard(s, true)).join('')
+      : '';
+
+  document.getElementById('scholNoResult').style.display =
+    eligible.length === 0 ? 'block' : 'none';
+
+  // Render all others
+  document.getElementById('scholarshipGridAll').innerHTML =
+    others.map(s => scholCard(s, false)).join('');
+
+  observeFadeIns();
+}
+
+function scholCard(s, isEligible) {
+  return `
+    <div class="schol-card fade-in ${isEligible ? 'eligible' : ''}">
+      ${isEligible ? '<div style="background:rgba(29,185,84,0.15);color:#4ade80;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:100px;display:inline-block;margin-bottom:10px;">✅ You are Eligible!</div>' : ''}
+      <div class="schol-header">
+        <span class="schol-icon">${s.icon}</span>
+        <div>
+          <div class="schol-name">${s.name}</div>
+          <div class="schol-cat">${s.cat} Government</div>
+        </div>
+      </div>
       <div class="schol-row"><strong>Eligibility</strong>${s.elig}</div>
       <div class="schol-row"><strong>Benefits</strong>${s.benefits}</div>
       <div class="schol-row"><strong>How to Apply</strong>${s.process}</div>
       <div class="schol-row"><strong>Deadline</strong><span class="deadline">⚠ ${s.deadline}</span></div>
       <a href="${s.link}" target="_blank" class="link-btn" style="margin-top:8px;">Apply Now →</a>
-    </div>
-  `).join('');
-  observeFadeIns();
+    </div>`;
 }
 
-// ── CLARIFICATION FOR SCHOLARSHIP FILTER ──
+function editScholProfile() {
+  localStorage.removeItem('vidyauday_schol_profile');
+  document.getElementById('scholResults').style.display    = 'none';
+  document.getElementById('scholProfileForm').style.display = 'block';
+}
+
 function filterScholarships() {
   const q = document.getElementById('scholSearch').value.toLowerCase();
   const filtered = scholarships.filter(s =>
     s.name.toLowerCase().includes(q) || s.cat.toLowerCase().includes(q) || s.elig.toLowerCase().includes(q)
   );
-  document.getElementById('scholNoResult').style.display = filtered.length ? 'none' : 'block';
-  renderScholarships(filtered);
+  document.getElementById('scholarshipGridAll').innerHTML =
+    filtered.map(s => scholCard(s, false)).join('');
+}
+
+function renderScholarships() {
+  // Check localStorage for saved profile
+  const saved = localStorage.getItem('vidyauday_schol_profile');
+  if (saved) {
+    try {
+      const profile = JSON.parse(saved);
+      showScholResults(profile);
+      return;
+    } catch(e) {
+      localStorage.removeItem('vidyauday_schol_profile');
+    }
+  }
+  // First time — show form
+  document.getElementById('scholProfileForm').style.display = 'block';
+  document.getElementById('scholResults').style.display    = 'none';
 }
 
 // ═══════════════════════════════════════════
@@ -1838,7 +2096,7 @@ setTimeout(observeFadeIns, 100);
 <script>
 // ── GEMINI CHATBOT ──
 const GEMINI_KEY = 'AIzaSyDSKg6wzi1qa3YRCIIyjqYSXk-HxZCkxBk';
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${GEMINI_KEY}`;
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`;
 
 let currentLang = 'en-IN';
 let currentLangCode = 'EN';
@@ -1947,7 +2205,6 @@ function removeTyping() {
   document.getElementById('typingIndicator')?.remove();
 }
 
-// ── GEMINI API ──
 async function getGeminiReply(userMessage) {
   const sendBtn = document.getElementById('chatSendBtn');
   const input = document.getElementById('chatInput');
@@ -1955,55 +2212,47 @@ async function getGeminiReply(userMessage) {
   input.disabled = true;
   showTyping();
 
+  // Small delay to feel natural
+  await new Promise(r => setTimeout(r, 800 + Math.random() * 500));
+  removeTyping();
+
+  // Try Gemini API first, fallback to smart offline
   try {
-    const fullPrompt = SYSTEM_PROMPT + '\n\nStudent says: ' + userMessage + '\n\nUday replies:';
+    const res = await Promise.race([
+      fetch(GEMINI_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          contents: [{ parts: [{ text: SYSTEM_PROMPT + '\n\nStudent: ' + userMessage + '\nUday:' }] }],
+          generationConfig: { maxOutputTokens: 500, temperature: 0.7 }
+        })
+      }),
+      new Promise((_, reject) => setTimeout(() => reject('timeout'), 5000))
+    ]);
 
-    const response = await fetch(GEMINI_URL, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        contents: [{
-          parts: [{ text: fullPrompt }]
-        }],
-        generationConfig: {
-          maxOutputTokens: 500,
-          temperature: 0.7
-        }
-      })
-    });
-
-    const data = await response.json();
-    removeTyping();
-
-    if (data.candidates && data.candidates[0] && data.candidates[0].content && data.candidates[0].content.parts) {
-      let reply = data.candidates[0].content.parts[0].text;
-
+    const data = await res.json();
+    if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
+      const reply = data.candidates[0].content.parts[0].text;
       const formatted = reply
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-        .replace(/\*(.*?)\*/g, '<em>$1</em>')
         .replace(/\n\n/g, '<br><br>')
         .replace(/\n/g, '<br>');
-
       addMessage(formatted, 'bot');
       if (speakerOn) speakReply(reply);
-
-    } else {
-      // Fallback to smart offline reply
-      const offline = generateOfflineReply(userMessage);
-      addMessage(offline, 'bot');
-      if (speakerOn) speakReply(offline.replace(/<[^>]+>/g, ''));
+      sendBtn.disabled = false; input.disabled = false; input.focus();
+      return;
     }
-  } catch (err) {
-    removeTyping();
-    // Always fallback to offline — never show error to student
-    const offline = generateOfflineReply(userMessage);
-    addMessage(offline, 'bot');
-    if (speakerOn) speakReply(offline.replace(/<[^>]+>/g, ''));
-  } finally {
-    sendBtn.disabled = false;
-    input.disabled = false;
-    input.focus();
+  } catch (e) {
+    // Gemini unavailable — use offline
   }
+
+  // Smart offline reply — always works!
+  const reply = generateOfflineReply(userMessage);
+  addMessage(reply, 'bot');
+  if (speakerOn) speakReply(reply.replace(/<[^>]+>/g, ''));
+  sendBtn.disabled = false;
+  input.disabled = false;
+  input.focus();
 }
 
 // ── OFFLINE FALLBACK ──
@@ -2051,21 +2300,60 @@ function speakReply(text) {
   if (!speakerOn || !speechSynth) return;
   if (speechSynth.speaking) speechSynth.cancel();
 
-  // Clean text for speech (remove HTML and markdown)
-  const clean = text
-    .replace(/<[^>]+>/g, '')
-    .replace(/\*\*/g, '')
-    .replace(/\*/g, '')
-    .replace(/#{1,6}\s/g, '')
-    .substring(0, 500); // limit speech length
+  // Deep clean text — remove everything that sounds bad when read
+  let clean = text
+    .replace(/<[^>]+>/g, ' ')              // remove HTML tags
+    .replace(/&nbsp;/g, ' ')               // HTML entities
+    .replace(/&amp;/g, 'and')
+    .replace(/&lt;/g, '')
+    .replace(/&gt;/g, '')
+    .replace(/[\u{1F300}-\u{1FFFF}]/gu, '') // remove ALL emojis
+    .replace(/[\u2600-\u27BF]/g, '')        // remove symbols like ✅ ❌ ⚡ 🎯
+    .replace(/[\u2B00-\u2BFF]/g, '')        // more symbols
+    .replace(/\*\*(.*?)\*\*/g, '$1')        // bold markdown → just text
+    .replace(/\*(.*?)\*/g, '$1')            // italic markdown → just text
+    .replace(/#{1,6}\s/g, '')               // headings
+    .replace(/1️⃣|2️⃣|3️⃣|4️⃣|5️⃣|6️⃣|7️⃣|8️⃣|9️⃣|🔟/g, '') // number emojis
+    .replace(/→|←|↗|↘|▸|▶|●|•/g, ',')    // arrows/bullets → pause
+    .replace(/[₹$€£]/g, '')                // currency symbols
+    .replace(/\d+️⃣/g, '')                  // any numbered emojis
+    .replace(/\n+/g, '. ')                 // newlines → pause
+    .replace(/\s{2,}/g, ' ')              // multiple spaces → single
+    .replace(/\.\s*\./g, '.')              // double dots → single
+    .trim()
+    .substring(0, 400);                    // limit to 400 chars
+
+  if (!clean) return;
 
   const utterance = new SpeechSynthesisUtterance(clean);
 
-  // Set language for speech
-  const langMap = { 'en-IN': 'en-IN', 'te-IN': 'te-IN', 'hi-IN': 'hi-IN' };
-  utterance.lang = langMap[currentLang] || 'en-IN';
-  utterance.rate = 0.9;
-  utterance.pitch = 1.1;
+  // Pick best available voice
+  const voices = speechSynth.getVoices();
+
+  if (currentLang === 'te-IN') {
+    utterance.lang = 'te-IN';
+    const teVoice = voices.find(v => v.lang === 'te-IN' || v.lang.startsWith('te'));
+    if (teVoice) utterance.voice = teVoice;
+  } else if (currentLang === 'hi-IN') {
+    utterance.lang = 'hi-IN';
+    const hiVoice = voices.find(v => v.lang === 'hi-IN' || v.lang.startsWith('hi'));
+    if (hiVoice) utterance.voice = hiVoice;
+  } else {
+    utterance.lang = 'en-IN';
+    // Pick a natural sounding English voice — prefer Google voices
+    const preferred = [
+      voices.find(v => v.name.includes('Google') && v.lang.includes('en')),
+      voices.find(v => v.name.includes('Microsoft') && v.lang.includes('en')),
+      voices.find(v => v.lang === 'en-IN'),
+      voices.find(v => v.lang === 'en-US' && v.name.includes('Female')),
+      voices.find(v => v.lang.startsWith('en'))
+    ].find(Boolean);
+    if (preferred) utterance.voice = preferred;
+  }
+
+  // Natural, pleasant voice settings
+  utterance.rate = 0.88;    // slightly slower — clear and understandable
+  utterance.pitch = 1.05;   // natural pitch — not too high or robotic
   utterance.volume = 1;
 
   utterance.onstart = () => {
@@ -2076,8 +2364,18 @@ function speakReply(text) {
     isSpeaking = false;
     document.getElementById('speakerBtn').textContent = '🔊';
   };
+  utterance.onerror = () => {
+    isSpeaking = false;
+    document.getElementById('speakerBtn').textContent = '🔊';
+  };
 
-  speechSynth.speak(utterance);
+  // Small delay to let browser prepare
+  setTimeout(() => speechSynth.speak(utterance), 100);
+}
+
+// Load voices when available
+if (speechSynth.onvoiceschanged !== undefined) {
+  speechSynth.onvoiceschanged = () => speechSynth.getVoices();
 }
 
 // ── VOICE RECOGNITION ──
@@ -2164,6 +2462,7 @@ function stopVoice() {
     : 'Type or speak your question...';
   if (recognition) { try { recognition.stop(); } catch(e) {} recognition = null; }
 }
+</script>
 </script>
 </body>
 </html>
