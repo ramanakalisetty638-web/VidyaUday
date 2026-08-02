@@ -6,6 +6,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const path = require('path');
 require('dotenv').config();
 
 const app = express();
@@ -219,6 +220,17 @@ app.get('/api/dashboard', authMiddleware, async (req, res) => {
   } catch (err) {
     res.status(500).json({ error: err.message });
   }
+});
+
+// ─────────────────────────────────────────
+// SERVE STATIC FRONTEND
+// ─────────────────────────────────────────
+// Serve static files from the parent directory (project root)
+app.use(express.static(path.join(__dirname, '..')));
+
+// Route to serve the frontend index.html
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'index.html'));
 });
 
 // ─────────────────────────────────────────
