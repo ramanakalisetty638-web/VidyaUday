@@ -19,6 +19,39 @@ html{scroll-behavior:smooth;}
 body{font-family:var(--font-body);background:var(--deep);color:var(--text);line-height:1.6;overflow-x:hidden;}
 ::-webkit-scrollbar{width:6px;} ::-webkit-scrollbar-track{background:var(--deep2);} ::-webkit-scrollbar-thumb{background:var(--saffron);border-radius:3px;}
 
+/* GLOBAL LANG SWITCHER */
+.lang-switch-container {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-right: 12px;
+}
+.lang-btn-toggle {
+  background: transparent;
+  border: none;
+  color: var(--text2);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 6px;
+  transition: all 0.2s;
+}
+.lang-btn-toggle:hover {
+  color: #fff;
+  background: rgba(255,255,255,0.06);
+}
+.lang-btn-toggle.active {
+  color: #fff;
+  background: var(--saffron);
+}
+.lang-divider {
+  color: var(--text3);
+  font-size: 0.8rem;
+}
+
+
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 5vw;height:64px;background:rgba(15,23,42,0.95);backdrop-filter:blur(20px);border-bottom:1px solid var(--card-border);}
 .nav-logo{font-family:var(--font-display);font-weight:700;font-size:1.25rem;color:#fff;text-decoration:none;display:flex;align-items:center;gap:8px;}
@@ -213,8 +246,8 @@ section{padding:80px 5vw;position:relative;z-index:1;}
 .dl-tips li:last-child{border-bottom:none;}
 .dl-tips li::before{content:'✓';color:var(--leaf);font-weight:700;flex-shrink:0;margin-top:2px;}
 
-/* SURVEY & QUIZ */
-.survey-wrap,.quiz-wrap{max-width:720px;margin:0 auto;background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:40px;backdrop-filter:blur(10px);}
+/* SURVEY */
+.survey-wrap{max-width:720px;margin:0 auto;background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:40px;backdrop-filter:blur(10px);}
 .survey-progress{height:4px;background:var(--deep3);border-radius:2px;margin-bottom:36px;}
 .survey-progress-fill{height:100%;background:linear-gradient(90deg,var(--saffron),#FFD700);border-radius:2px;transition:width 0.5s ease;}
 .survey-q{font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:20px;}
@@ -230,10 +263,7 @@ section{padding:80px 5vw;position:relative;z-index:1;}
 .success-icon{font-size:4rem;margin-bottom:16px;}
 .success-title{font-family:var(--font-display);font-size:1.8rem;font-weight:700;margin-bottom:10px;}
 .success-text{color:var(--text2);margin-bottom:24px;}
-.quiz-score-ring{width:120px;height:120px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 24px;}
-.quiz-score-inner{width:90px;height:90px;border-radius:50%;background:var(--card);display:flex;flex-direction:column;align-items:center;justify-content:center;}
-.quiz-score-num{font-family:var(--font-display);font-size:1.6rem;font-weight:700;color:var(--saffron);}
-.quiz-score-total{font-size:0.75rem;color:var(--text3);}
+
 
 /* MISSION */
 .mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;}
@@ -352,7 +382,7 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 }
 @media(max-width:600px){
   .cards-grid{grid-template-columns:1fr;} .career-cards{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr;} .survey-wrap,.quiz-wrap{padding:24px;}
+  .footer-grid{grid-template-columns:1fr;} .survey-wrap{padding:24px;}
   .tabs{flex-direction:column;} .hero-btns{flex-direction:column;}
   .modal-two-col{grid-template-columns:1fr;}
 }
@@ -366,7 +396,7 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
     <span class="logo-icon">🦉</span>
     <span class="logo-text-wrap">
       <span class="logo-vidya">Vidya</span><span class="logo-uday">Uday</span>
-      <span class="logo-tagline">Rise of Knowledge</span>
+      <span class="logo-tagline" data-i18n="logo_tagline">Rise of Knowledge</span>
     </span>
   </a>
   <ul class="nav-links">
@@ -376,48 +406,54 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
     <li><a href="#scholarships">Scholarships</a></li>
     <li><a href="#coding">Coding</a></li>
     <li><a href="#digital-literacy">Digital Skills</a></li>
-    <li><a href="#quiz">🧠 Quiz</a></li>
+    
   </ul>
+  <div class="lang-switch-container">
+    <button class="lang-btn-toggle active" id="btnLangGlobalEN" onclick="switchLanguage('en')">EN</button>
+    <span class="lang-divider">|</span>
+    <button class="lang-btn-toggle" id="btnLangGlobalTE" onclick="switchLanguage('te')">తెలుగు</button>
+  </div>
   <button class="hamburger" onclick="toggleNav()"><span></span><span></span><span></span></button>
 </nav>
 <div class="mobile-nav" id="mobileNav">
-  <a href="#ai-tools" onclick="closeNav()">🤖 AI Tools</a>
-  <a href="#career" onclick="closeNav()">🎯 Career Guidance</a>
-  <a href="#resources" onclick="closeNav()">📚 Learning Resources</a>
-  <a href="#scholarships" onclick="closeNav()">🏆 Scholarships</a>
-  <a href="#coding" onclick="closeNav()">💻 Coding Platforms</a>
-  <a href="#digital-literacy" onclick="closeNav()">🌐 Digital Skills</a>
-  <a href="#quiz" onclick="closeNav()">🧠 AI Quiz</a>
+  <a href="#ai-tools" onclick="closeNav()" data-i18n="mn_ai">🤖 AI Tools</a>
+  <a href="#career" onclick="closeNav()" data-i18n="mn_careers">🎯 Career Guidance</a>
+  <a href="#resources" onclick="closeNav()" data-i18n="mn_resources">📚 Learning Resources</a>
+  <a href="#scholarships" onclick="closeNav()" data-i18n="mn_scholarships">🏆 Scholarships</a>
+  <a href="#coding" onclick="closeNav()" data-i18n="mn_coding">💻 Coding Platforms</a>
+  <a href="#digital-literacy" onclick="closeNav()" data-i18n="mn_digital">🌐 Digital Skills</a>
+
+  
 </div>
 
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="hero-tag">🇮🇳 B.Tech Community Project · VidyaUday · Andhra Pradesh</div>
-    <h1>Your Future Starts with <span>Digital Awareness</span></h1>
-    <p>A free platform giving rural 10th & Intermediate students access to AI tools, career guidance, scholarships, and learning resources — all in one place.</p>
+    <div class="hero-tag" data-i18n="hero_tag">🇮🇳 B.Tech Community Project · VidyaUday · Andhra Pradesh</div>
+    <h1 data-i18n="hero_title">Your Future Starts with <span>Digital Awareness</span></h1>
+    <p data-i18n="hero_desc">A free platform giving rural 10th & Intermediate students access to AI tools, career guidance, scholarships, and learning resources — all in one place.</p>
     <div class="hero-btns">
-      <a href="#ai-tools" class="btn btn-primary">🚀 Explore AI Tools</a>
-      <a href="#career" class="btn btn-outline">🎯 View Career Paths</a>
+      <a href="#ai-tools" class="btn btn-primary" data-i18n="hero_btn_ai">🚀 Explore AI Tools</a>
+      <a href="#career" class="btn btn-outline" data-i18n="hero_btn_career">🎯 View Career Paths</a>
     </div>
   </div>
   <div class="hero-visual">
     <div class="hero-grid">
       <a href="#ai-tools" class="hero-card" style="text-decoration:none;color:inherit;cursor:pointer;">
-        <div class="icon">🤖</div><h4>AI Tools</h4><p>ChatGPT, Gemini & more</p>
-        <div style="font-size:0.72rem;color:var(--saffron);margin-top:6px;font-weight:600;">Explore →</div>
+        <div class="icon">🤖</div><h4 data-i18n="hc_ai_title">AI Tools</h4><p data-i18n="hc_ai_desc">ChatGPT, Gemini & more</p>
+        <div style="font-size:0.72rem;color:var(--saffron);margin-top:6px;font-weight:600;" data-i18n="hc_explore">Explore →</div>
       </a>
       <a href="#career" class="hero-card" style="text-decoration:none;color:inherit;cursor:pointer;">
-        <div class="icon">🎓</div><h4>Career Paths</h4><p>After 10th & Intermediate</p>
-        <div style="font-size:0.72rem;color:var(--saffron);margin-top:6px;font-weight:600;">Explore →</div>
+        <div class="icon">🎓</div><h4 data-i18n="hc_career_title">Career Paths</h4><p data-i18n="hc_career_desc">After 10th & Intermediate</p>
+        <div style="font-size:0.72rem;color:var(--saffron);margin-top:6px;font-weight:600;" data-i18n="hc_explore">Explore →</div>
       </a>
       <a href="#scholarships" class="hero-card" style="text-decoration:none;color:inherit;cursor:pointer;">
-        <div class="icon">🏆</div><h4>Scholarships</h4><p>₹50K+ opportunities</p>
-        <div style="font-size:0.72rem;color:var(--saffron);margin-top:6px;font-weight:600;">Explore →</div>
+        <div class="icon">🏆</div><h4 data-i18n="hc_schol_title">Scholarships</h4><p data-i18n="hc_schol_desc">₹50K+ opportunities</p>
+        <div style="font-size:0.72rem;color:var(--saffron);margin-top:6px;font-weight:600;" data-i18n="hc_explore">Explore →</div>
       </a>
       <a href="#coding" class="hero-card" style="text-decoration:none;color:inherit;cursor:pointer;">
-        <div class="icon">💻</div><h4>Free Coding</h4><p>Learn from zero</p>
-        <div style="font-size:0.72rem;color:var(--saffron);margin-top:6px;font-weight:600;">Explore →</div>
+        <div class="icon">💻</div><h4 data-i18n="hc_coding_title">Free Coding</h4><p data-i18n="hc_coding_desc">Learn from zero</p>
+        <div style="font-size:0.72rem;color:var(--saffron);margin-top:6px;font-weight:600;" data-i18n="hc_explore">Explore →</div>
       </a>
     </div>
   </div>
@@ -426,10 +462,10 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <!-- STATS -->
 <div class="stats-bar">
   <div class="stats-grid">
-    <div class="stat-item"><span class="stat-value" id="stat1">0%</span><span class="stat-label">Rural students lack career guidance</span></div>
-    <div class="stat-item"><span class="stat-value" id="stat2">0%</span><span class="stat-label">Unaware of free AI tools</span></div>
-    <div class="stat-item"><span class="stat-value" id="stat3">₹0</span><span class="stat-label">Scholarships missed yearly</span></div>
-    <div class="stat-item"><span class="stat-value" id="stat4">0</span><span class="stat-label">Students we aim to reach</span></div>
+    <div class="stat-item"><span class="stat-value" id="stat1">0%</span><span class="stat-label" data-i18n="stat_label1">Rural students lack career guidance</span></div>
+    <div class="stat-item"><span class="stat-value" id="stat2">0%</span><span class="stat-label" data-i18n="stat_label2">Unaware of free AI tools</span></div>
+    <div class="stat-item"><span class="stat-value" id="stat3">₹0</span><span class="stat-label" data-i18n="stat_label3">Scholarships missed yearly</span></div>
+    <div class="stat-item"><span class="stat-value" id="stat4">0</span><span class="stat-label" data-i18n="stat_label4">Students we aim to reach</span></div>
   </div>
 </div>
 
@@ -438,16 +474,16 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
   <div class="max-w">
     <div class="mission-grid">
       <div class="mission-text">
-        <div class="section-tag">Our Mission</div>
-        <h2 class="section-title">Why VidyaUday Exists</h2>
-        <p>Thousands of bright rural students across Andhra Pradesh miss life-changing opportunities every year — not because of lack of talent, but because of lack of information. A scholarship deadline passes. A free course goes unused. An AI tool that could help with studies is never discovered.</p>
-        <p>VidyaUday was built by students, for students — to be the guide that every rural learner deserves but rarely gets.</p>
+        <div class="section-tag" data-i18n="mission_tag">Our Mission</div>
+        <h2 class="section-title" data-i18n="mission_title">Why VidyaUday Exists</h2>
+        <p data-i18n="mission_p1">Thousands of bright rural students across Andhra Pradesh miss life-changing opportunities every year — not because of lack of talent, but because of lack of information. A scholarship deadline passes. A free course goes unused. An AI tool that could help with studies is never discovered.</p>
+        <p data-i18n="mission_p2">VidyaUday was built by students, for students — to be the guide that every rural learner deserves but rarely gets.</p>
       </div>
       <div class="mission-cards">
-        <div class="mission-card"><div class="m-icon">🎯</div><h4>Centralized Info</h4><p>All opportunities in one place</p></div>
-        <div class="mission-card"><div class="m-icon">🌐</div><h4>Digital Inclusion</h4><p>Bridging the urban-rural divide</p></div>
-        <div class="mission-card"><div class="m-icon">🤝</div><h4>Peer Support</h4><p>Built by students, for students</p></div>
-        <div class="mission-card"><div class="m-icon">🔓</div><h4>Always Free</h4><p>Every resource listed is free</p></div>
+        <div class="mission-card"><div class="m-icon">🎯</div><h4 data-i18n="mc_info_title">Centralized Info</h4><p data-i18n="mc_info_desc">All opportunities in one place</p></div>
+        <div class="mission-card"><div class="m-icon">🌐</div><h4 data-i18n="mc_inc_title">Digital Inclusion</h4><p data-i18n="mc_inc_desc">Bridging the urban-rural divide</p></div>
+        <div class="mission-card"><div class="m-icon">🤝</div><h4 data-i18n="mc_peer_title">Peer Support</h4><p data-i18n="mc_peer_desc">Built by students, for students</p></div>
+        <div class="mission-card"><div class="m-icon">🔓</div><h4 data-i18n="mc_free_title">Always Free</h4><p data-i18n="mc_free_desc">Every resource listed is free</p></div>
       </div>
     </div>
   </div>
@@ -458,14 +494,14 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <!-- AI TOOLS -->
 <section id="ai-tools">
   <div class="max-w">
-    <div class="section-tag">AI Awareness</div>
-    <h2 class="section-title">Discover AI Tools Built for You</h2>
-    <p class="section-sub">Click any card to learn more, then click "Open Tool" to start using it — all are completely free for students.</p>
+    <div class="section-tag" data-i18n="ai_tag">AI Awareness</div>
+    <h2 class="section-title" data-i18n="ai_title">Discover AI Tools Built for You</h2>
+    <p class="section-sub" data-i18n="ai_sub">Click any card to learn more, then click "Open Tool" to start using it — all are completely free for students.</p>
 
     <!-- SEARCH BAR -->
     <div class="ait-search-wrap">
       <span class="ait-search-icon">🔍</span>
-      <input type="text" id="aiSearchInput" placeholder="Search any AI tool... e.g. Grammarly, Midjourney, Adobe Firefly" oninput="handleAISearch(this.value)">
+      <input type="text" id="aiSearchInput" placeholder="Search any AI tool... e.g. Grammarly, Midjourney, Adobe Firefly" oninput="handleAISearch(this.value)" data-i18n-placeholder="ai_search_placeholder">
       <button id="aiSearchClear" onclick="clearAISearch()" style="display:none;">✕</button>
     </div>
 
@@ -473,7 +509,7 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
     <div id="aiSearchResult" style="display:none; margin-bottom:28px;"></div>
 
     <!-- EXISTING 10 TOOLS -->
-    <div id="aiToolsLabel" style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);margin-bottom:16px;">Our Top 10 Recommended Tools</div>
+    <div id="aiToolsLabel" style="font-family:var(--font-display);font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;color:var(--text3);margin-bottom:16px;" data-i18n="ai_tools_label">Our Top 10 Recommended Tools</div>
     <div class="cards-grid" id="aiToolsGrid"></div>
   </div>
 </section>
@@ -482,7 +518,7 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <div class="modal-overlay" id="toolModal" onclick="handleModalClick(event)">
   <div class="modal-box">
     <div class="modal-header-bar">
-      <h3>Tool Details</h3>
+      <h3 data-i18n="modal_tool_details">Tool Details</h3>
       <button class="modal-close" onclick="closeToolModal()">✕</button>
     </div>
     <div class="modal-body" id="modalContent"></div>
@@ -494,26 +530,26 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <!-- CAREER -->
 <section id="career" class="bg-alt">
   <div class="max-w">
-    <div class="section-tag">Career Guidance</div>
-    <h2 class="section-title">Your Complete Career Roadmap</h2>
-    <p class="section-sub">Click your stage → choose your path → see the full year-by-year career tree with salary growth.</p>
+    <div class="section-tag" data-i18n="career_tag">Career Guidance</div>
+    <h2 class="section-title" data-i18n="career_title">Your Complete Career Roadmap</h2>
+    <p class="section-sub" data-i18n="career_sub">Click your stage → choose your path → see the full year-by-year career tree with salary growth.</p>
 
     <!-- STEP 1 -->
     <div id="cStep1">
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;max-width:720px;margin:0 auto;">
         <div class="c-choose-card" onclick="showPaths('10th')">
           <div class="cc-icon">🏫</div>
-          <h3 class="cc-title">After 10th Class</h3>
-          <p class="cc-sub">Just completed SSC? See all 5 paths available right now.</p>
+          <h3 class="cc-title" data-i18n="c_stage1_10th_title">After 10th Class</h3>
+          <p class="cc-sub" data-i18n="c_stage1_10th_desc">Just completed SSC? See all 5 paths available right now.</p>
           <div class="cc-tags"><span class="ctag">MPC</span><span class="ctag">BiPC</span><span class="ctag">Polytechnic</span><span class="ctag">ITI</span></div>
-          <div class="cc-btn">Explore Paths →</div>
+          <div class="cc-btn" data-i18n="c_explore_paths">Explore Paths →</div>
         </div>
         <div class="c-choose-card" onclick="showPaths('inter')">
           <div class="cc-icon">🎓</div>
-          <h3 class="cc-title">After Intermediate</h3>
-          <p class="cc-sub">Completed 12th? Discover 6 paths with full roadmaps.</p>
+          <h3 class="cc-title" data-i18n="c_stage1_inter_title">After Intermediate</h3>
+          <p class="cc-sub" data-i18n="c_stage1_inter_desc">Completed 12th? Discover 6 paths with full roadmaps.</p>
           <div class="cc-tags"><span class="ctag">B.Tech</span><span class="ctag">MBBS</span><span class="ctag">Govt Jobs</span><span class="ctag">Degree</span></div>
-          <div class="cc-btn">Explore Paths →</div>
+          <div class="cc-btn" data-i18n="c_explore_paths">Explore Paths →</div>
         </div>
       </div>
     </div>
@@ -521,7 +557,7 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
     <!-- STEP 2 -->
     <div id="cStep2" style="display:none;">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
-        <button class="c-back-btn" onclick="goStep1()">← Back</button>
+        <button class="c-back-btn" onclick="goStep1()" data-i18n="c_back">← Back</button>
         <span id="cStep2Label" style="font-family:var(--font-display);font-weight:600;font-size:1rem;"></span>
       </div>
       <div class="cpath-grid" id="cPathGrid"></div>
@@ -530,7 +566,7 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
     <!-- STEP 3 -->
     <div id="cStep3" style="display:none;">
       <div style="display:flex;align-items:center;gap:12px;margin-bottom:28px;">
-        <button class="c-back-btn" onclick="goStep2()">← Back</button>
+        <button class="c-back-btn" onclick="goStep2()" data-i18n="c_back">← Back</button>
         <span id="cStep3Label" style="font-family:var(--font-display);font-weight:600;font-size:1rem;"></span>
       </div>
       <div id="cTreeWrap"></div>
@@ -544,9 +580,9 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <!-- RESOURCES -->
 <section id="resources">
   <div class="max-w">
-    <div class="section-tag">Free Resources</div>
-    <h2 class="section-title">Learn Anything, For Free</h2>
-    <p class="section-sub">Carefully selected platforms that offer world-class education at zero cost.</p>
+    <div class="section-tag" data-i18n="res_tag">Free Resources</div>
+    <h2 class="section-title" data-i18n="res_title">Learn Anything, For Free</h2>
+    <p class="section-sub" data-i18n="res_sub">Carefully selected platforms that offer world-class education at zero cost.</p>
     <div class="filter-row" id="resourceFilters"></div>
     <div class="cards-grid" id="resourceGrid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));"></div>
   </div>
@@ -557,9 +593,9 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <!-- SCHOLARSHIPS -->
 <section id="scholarships" class="bg-alt">
   <div class="max-w">
-    <div class="section-tag">Scholarships</div>
-    <h2 class="section-title">Find Scholarships You Qualify For</h2>
-    <p class="section-sub">Enter your details once — we'll show only the scholarships you are eligible for.</p>
+    <div class="section-tag" data-i18n="schol_tag">Scholarships</div>
+    <h2 class="section-title" data-i18n="schol_title">Find Scholarships You Qualify For</h2>
+    <p class="section-sub" data-i18n="schol_sub">Enter your details once — we'll show only the scholarships you are eligible for.</p>
 
     <!-- PROFILE FORM -->
     <div id="scholProfileForm">
@@ -567,68 +603,68 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
         <div class="schol-form-header">
           <span style="font-size:2rem;">🏆</span>
           <div>
-            <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;">Tell Us About Yourself</div>
-            <div style="font-size:0.82rem;color:var(--text2);margin-top:3px;">We'll match you with scholarships you can actually apply for</div>
+            <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;" data-i18n="sf_header_title">Tell Us About Yourself</div>
+            <div style="font-size:0.82rem;color:var(--text2);margin-top:3px;" data-i18n="sf_header_sub">We'll match you with scholarships you can actually apply for</div>
           </div>
         </div>
         <div class="schol-form-grid">
           <div class="schol-field">
-            <label>Your Name</label>
-            <input type="text" id="sf_name" placeholder="Enter your name">
+            <label data-i18n="sf_lbl_name">Your Name</label>
+            <input type="text" id="sf_name" placeholder="Enter your name" data-i18n-placeholder="sf_pl_name">
           </div>
           <div class="schol-field">
-            <label>Current Education</label>
+            <label data-i18n="sf_lbl_class">Current Education</label>
             <select id="sf_class">
-              <option value="">Select your class</option>
-              <option value="9">Class 9</option>
-              <option value="10">Class 10 (SSC)</option>
-              <option value="inter1">Intermediate 1st Year</option>
-              <option value="inter2">Intermediate 2nd Year</option>
-              <option value="degree">Degree / B.Tech / Engineering</option>
-              <option value="pg">Post Graduation</option>
+              <option value="" data-i18n="sf_opt_class">Select your class</option>
+              <option value="9" data-i18n="sf_opt_c9">Class 9</option>
+              <option value="10" data-i18n="sf_opt_c10">Class 10 (SSC)</option>
+              <option value="inter1" data-i18n="sf_opt_ci1">Intermediate 1st Year</option>
+              <option value="inter2" data-i18n="sf_opt_ci2">Intermediate 2nd Year</option>
+              <option value="degree" data-i18n="sf_opt_cdeg">Degree / B.Tech / Engineering</option>
+              <option value="pg" data-i18n="sf_opt_cpg">Post Graduation</option>
             </select>
           </div>
           <div class="schol-field">
-            <label>Caste Category</label>
+            <label data-i18n="sf_lbl_caste">Caste Category</label>
             <select id="sf_caste">
-              <option value="">Select category</option>
-              <option value="sc">SC (Scheduled Caste)</option>
-              <option value="st">ST (Scheduled Tribe)</option>
-              <option value="obc">OBC (Other Backward Class)</option>
-              <option value="minority">Minority (Muslim/Christian/Sikh/Buddhist/Jain)</option>
-              <option value="general">General / Open Category</option>
+              <option value="" data-i18n="sf_opt_caste">Select category</option>
+              <option value="sc" data-i18n="sf_opt_csc">SC (Scheduled Caste)</option>
+              <option value="st" data-i18n="sf_opt_cst">ST (Scheduled Tribe)</option>
+              <option value="obc" data-i18n="sf_opt_cobc">OBC (Other Backward Class)</option>
+              <option value="minority" data-i18n="sf_opt_cmin">Minority (Muslim/Christian/Sikh/Buddhist/Jain)</option>
+              <option value="general" data-i18n="sf_opt_cgen">General / Open Category</option>
             </select>
           </div>
           <div class="schol-field">
-            <label>Gender</label>
+            <label data-i18n="sf_lbl_gender">Gender</label>
             <select id="sf_gender">
-              <option value="">Select gender</option>
-              <option value="female">Female</option>
-              <option value="male">Male</option>
-              <option value="other">Other</option>
+              <option value="" data-i18n="sf_opt_gender">Select gender</option>
+              <option value="female" data-i18n="sf_opt_gfem">Female</option>
+              <option value="male" data-i18n="sf_opt_gmale">Male</option>
+              <option value="other" data-i18n="sf_opt_goth">Other</option>
             </select>
           </div>
           <div class="schol-field">
-            <label>Family Annual Income</label>
+            <label data-i18n="sf_lbl_income">Family Annual Income</label>
             <select id="sf_income">
-              <option value="">Select income range</option>
-              <option value="below1">Below ₹1 Lakh</option>
-              <option value="1to2.5">₹1 Lakh – ₹2.5 Lakh</option>
-              <option value="2.5to8">₹2.5 Lakh – ₹8 Lakh</option>
-              <option value="above8">Above ₹8 Lakh</option>
+              <option value="" data-i18n="sf_opt_income">Select income range</option>
+              <option value="below1" data-i18n="sf_opt_inc1">Below ₹1 Lakh</option>
+              <option value="1to2.5" data-i18n="sf_opt_inc2">₹1 Lakh – ₹2.5 Lakh</option>
+              <option value="2.5to8" data-i18n="sf_opt_inc3">₹2.5 Lakh – ₹8 Lakh</option>
+              <option value="above8" data-i18n="sf_opt_inc4">Above ₹8 Lakh</option>
             </select>
           </div>
           <div class="schol-field">
-            <label>State</label>
+            <label data-i18n="sf_lbl_state">State</label>
             <select id="sf_state">
-              <option value="">Select state</option>
-              <option value="ap">Andhra Pradesh</option>
-              <option value="ts">Telangana</option>
-              <option value="other">Other State</option>
+              <option value="" data-i18n="sf_opt_state">Select state</option>
+              <option value="ap" data-i18n="sf_opt_sap">Andhra Pradesh</option>
+              <option value="ts" data-i18n="sf_opt_sts">Telangana</option>
+              <option value="other" data-i18n="sf_opt_soth">Other State</option>
             </select>
           </div>
         </div>
-        <button class="schol-submit-btn" onclick="submitScholProfile()">
+        <button class="schol-submit-btn" onclick="submitScholProfile()" data-i18n="sf_btn_submit">
           🔍 Find My Scholarships
         </button>
       </div>
@@ -640,13 +676,13 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
       <div id="scholEligibleSection">
         <h3 class="schol-results-title" id="scholResultsTitle"></h3>
         <div class="cards-grid" id="scholarshipGrid"></div>
-        <p id="scholNoResult" style="display:none;color:var(--text3);text-align:center;padding:40px;font-size:1rem;">No scholarships match your profile right now. But check back — new schemes are added regularly!</p>
+        <p id="scholNoResult" style="display:none;color:var(--text3);text-align:center;padding:40px;font-size:1rem;" data-i18n="schol_no_result">No scholarships match your profile right now. But check back — new schemes are added regularly!</p>
       </div>
       <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--card-border);">
-        <p style="font-size:0.85rem;color:var(--text3);margin-bottom:16px;">Showing all other scholarships for reference:</p>
+        <p style="font-size:0.85rem;color:var(--text3);margin-bottom:16px;" data-i18n="schol_other_ref">Showing all other scholarships for reference:</p>
         <div class="search-wrap" style="max-width:400px;margin-bottom:20px;">
           <span class="search-icon">🔍</span>
-          <input type="text" id="scholSearch" placeholder="Search all scholarships..." oninput="filterScholarships()">
+          <input type="text" id="scholSearch" placeholder="Search all scholarships..." oninput="filterScholarships()" data-i18n-placeholder="schol_search_placeholder">
         </div>
         <div class="cards-grid" id="scholarshipGridAll"></div>
       </div>
@@ -660,9 +696,9 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <!-- CODING -->
 <section id="coding">
   <div class="max-w">
-    <div class="section-tag">Start Coding</div>
-    <h2 class="section-title">Coding Platforms to Launch Your Tech Career</h2>
-    <p class="section-sub">Practice problems, earn certificates, and get noticed by top companies.</p>
+    <div class="section-tag" data-i18n="coding_tag">Start Coding</div>
+    <h2 class="section-title" data-i18n="coding_title">Coding Platforms to Launch Your Tech Career</h2>
+    <p class="section-sub" data-i18n="coding_sub">Practice problems, earn certificates, and get noticed by top companies.</p>
     <div class="cards-grid" id="codingGrid"></div>
   </div>
 </section>
@@ -672,26 +708,14 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <!-- DIGITAL LITERACY -->
 <section id="digital-literacy" class="bg-alt">
   <div class="max-w">
-    <div class="section-tag">Digital Skills</div>
-    <h2 class="section-title">Essential Digital Skills for Every Student</h2>
-    <p class="section-sub">Master these fundamentals to thrive in the modern world.</p>
+    <div class="section-tag" data-i18n="dl_tag">Digital Skills</div>
+    <h2 class="section-title" data-i18n="dl_title">Essential Digital Skills for Every Student</h2>
+    <p class="section-sub" data-i18n="dl_sub">Master these fundamentals to thrive in the modern world.</p>
     <div class="cards-grid" id="digitalGrid"></div>
   </div>
 </section>
 
 <div class="gradient-divider"></div>
-
-<!-- QUIZ -->
-<section id="quiz">
-  <div class="max-w">
-    <div class="section-tag">Test Yourself</div>
-    <h2 class="section-title" style="text-align:center;">AI Awareness Quiz</h2>
-    <p class="section-sub" style="text-align:center;margin:0 auto 36px;">How much do you know about AI? Find out in 2 minutes!</p>
-    <div class="quiz-wrap" id="quizWrap"></div>
-  </div>
-</section>
-
-
 
 <!-- FOOTER -->
 <footer>
@@ -701,18 +725,18 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
         <span class="logo-icon">🦉</span>
         <span class="logo-text-wrap">
           <span class="logo-vidya">Vidya</span><span class="logo-uday">Uday</span>
-          <span class="logo-tagline">Rise of Knowledge</span>
+          <span class="logo-tagline" data-i18n="logo_tagline">Rise of Knowledge</span>
         </span>
       </a>
-      <p>Empowering rural students of Andhra Pradesh with digital knowledge, AI awareness, and career guidance. Built with ❤️ as a B.Tech Community Project.</p>
+      <p data-i18n="footer_brand_desc">Empowering rural students of Andhra Pradesh with digital knowledge, AI awareness, and career guidance. Built with ❤️ as a B.Tech Community Project.</p>
     </div>
-    <div class="footer-col"><h5>Platform</h5><ul><li><a href="#ai-tools">AI Tools</a></li><li><a href="#career">Career Guidance</a></li><li><a href="#resources">Learning Resources</a></li><li><a href="#scholarships">Scholarships</a></li></ul></div>
-    <div class="footer-col"><h5>Learn</h5><ul><li><a href="#coding">Coding Platforms</a></li><li><a href="#digital-literacy">Digital Skills</a></li><li><a href="#quiz">AI Quiz</a></li></ul></div>
-    <div class="footer-col"><h5>Quick Links</h5><ul><li><a href="https://scholarships.gov.in" target="_blank">National Scholarships</a></li><li><a href="https://swayam.gov.in" target="_blank">SWAYAM</a></li><li><a href="https://nptel.ac.in" target="_blank">NPTEL</a></li><li><a href="https://cfms.ap.gov.in" target="_blank">AP Epass</a></li></ul></div>
+    <div class="footer-col"><h5 data-i18n="footer_col1_title">Platform</h5><ul><li><a href="#ai-tools" data-i18n="footer_ai">AI Tools</a></li><li><a href="#career" data-i18n="footer_careers">Career Guidance</a></li><li><a href="#resources" data-i18n="footer_resources">Learning Resources</a></li><li><a href="#scholarships" data-i18n="footer_scholarships">Scholarships</a></li></ul></div>
+    <div class="footer-col"><h5 data-i18n="footer_col2_title">Learn</h5><ul><li><a href="#coding" data-i18n="footer_coding">Coding Platforms</a></li><li><a href="#digital-literacy" data-i18n="footer_digital">Digital Skills</a></li></ul></div>
+    <div class="footer-col"><h5 data-i18n="footer_col3_title">Quick Links</h5><ul><li><a href="https://scholarships.gov.in" target="_blank" data-i18n="footer_link_nsp">National Scholarships</a></li><li><a href="https://swayam.gov.in" target="_blank" data-i18n="footer_link_swayam">SWAYAM</a></li><li><a href="https://nptel.ac.in" target="_blank" data-i18n="footer_link_nptel">NPTEL</a></li><li><a href="https://cfms.ap.gov.in" target="_blank" data-i18n="footer_link_ap">AP Epass</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <span>© 2024 VidyaUday · Rise of Knowledge · B.Tech Community Project</span>
-    <span>🇮🇳 Made in Andhra Pradesh</span>
+    <span data-i18n="footer_copy">© 2024 VidyaUday · Rise of Knowledge · B.Tech Community Project</span>
+    <span data-i18n="footer_made">🇮🇳 Made in Andhra Pradesh</span>
   </div>
 </footer>
 
@@ -720,7 +744,7 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 // ═══════════════════════════════════════════
 // DATA
 // ═══════════════════════════════════════════
-const aiTools = [
+const aiTools_en = [
   { id:1, name:"ChatGPT", icon:"🤖", color:"#10a37f", category:"AI Assistant",
     tagline:"Your 24/7 personal study buddy",
     description:"ChatGPT is an AI chatbot made by OpenAI. You can ask it anything — solve maths problems, write essays, understand science concepts, prepare for exams, and even get answers in Telugu. It's like having a smart tutor available at midnight before your exam.",
@@ -802,7 +826,7 @@ const aiTools = [
     youtube:"https://www.youtube.com/watch?v=0bNf6CcBkmk" }
 ];
 
-const learningResources = [
+const learningResources_en = [
   { name:"freeCodeCamp", cat:"Programming", icon:"🔥", desc:"Learn web development, Python and data science with 3000+ hours of free curriculum.", link:"https://freecodecamp.org", audience:"All students", rating:5 },
   { name:"W3Schools", cat:"Programming", icon:"🌐", desc:"Simplest way to learn HTML, CSS, JavaScript and Python with interactive examples.", link:"https://w3schools.com", audience:"Beginners", rating:4.5 },
   { name:"GeeksforGeeks", cat:"Programming", icon:"🧠", desc:"Learn DSA, algorithms, and prepare for technical interviews with 10,000+ articles.", link:"https://geeksforgeeks.org", audience:"Intermediate students", rating:5 },
@@ -813,7 +837,7 @@ const learningResources = [
   { name:"edX", cat:"Skill Dev", icon:"⚡", desc:"Harvard and MIT courses free. Verified certificates in CS, Business and Data Science.", link:"https://edx.org", audience:"Intermediate & above", rating:4.5 }
 ];
 
-const scholarships = [
+const scholarships_en = [
   { name:"AP Epass Scholarship", cat:"State", icon:"🏆", elig:"AP students, family income less than ₹2.5L, studying 10th to PG", benefits:"Full tuition fee reimbursement plus ₹12,000/year maintenance", process:"Apply online at cfms.ap.gov.in after admission with income and caste certificate.", link:"https://cfms.ap.gov.in", deadline:"Oct-Nov annually" },
   { name:"Pre-Matric Scholarship SC/ST/OBC", cat:"Central", icon:"⭐", elig:"SC/ST/OBC students in Class 9-10, family income less than ₹2.5L", benefits:"₹1,000-₹2,250/month maintenance plus tuition fees", process:"Apply via National Scholarship Portal with Aadhaar, caste and income certificate.", link:"https://scholarships.gov.in", deadline:"Oct 31 annually" },
   { name:"Post-Matric Scholarship", cat:"Central", icon:"🎯", elig:"SC/ST students after Class 10, family income less than ₹2.5L", benefits:"Course fees plus maintenance ₹380-₹1,200/month", process:"Apply on National Scholarship Portal with mark sheets and income certificate.", link:"https://scholarships.gov.in", deadline:"Nov 30 annually" },
@@ -822,13 +846,13 @@ const scholarships = [
   { name:"INSPIRE Scholarship", cat:"Central", icon:"💡", elig:"Top 1% of Class 10 board exam, pursuing Science in Intermediate", benefits:"₹80,000/year for 5 years of BSc or Integrated MSc", process:"School nominates top performers after board results. No application needed.", link:"https://online-inspire.gov.in", deadline:"School nomination" }
 ];
 
-const codingPlatforms = [
+const codingPlatforms_en = [
   { name:"LeetCode", icon:"⚙️", color:"#ffa116", diff:"Medium-Hard", diffClass:"medium", purpose:"Practice Data Structures and Algorithms used in placements at Google, Amazon, and Microsoft.", benefits:["2,500+ coding problems","Company-specific problem sets","Monthly contests","Direct hiring platform"], bestFor:"B.Tech students and placement prep", link:"https://leetcode.com" },
   { name:"HackerRank", icon:"🟢", color:"#00ea64", diff:"Easy-Medium", diffClass:"easy", purpose:"Start coding from scratch with structured learning paths in Python, Java, SQL and more.", benefits:["Beginner friendly","Industry skill certifications","Company hiring tests","30 Days of Code challenge"], bestFor:"10th and Intermediate students starting to code", link:"https://hackerrank.com" },
   { name:"CodeChef", icon:"👨‍🍳", color:"#f59e0b", diff:"Easy-Hard", diffClass:"easy", purpose:"Indian competitive programming platform with monthly contests and a massive student community.", benefits:["Indian-focused contests","DSA learning paths","ICPC college competitions","Global rating system"], bestFor:"Students wanting competitive programming exposure", link:"https://codechef.com" }
 ];
 
-const digitalLiteracy = [
+const digitalLiteracy_en = [
   { title:"Internet Safety", icon:"🛡️", color:"#ef4444", tips:["Never share your password with anyone","Use strong passwords — mix letters, numbers, symbols","Avoid clicking unknown links in messages","Look for https on websites you trust","Do not share your personal info on social media"] },
   { title:"Professional Email Usage", icon:"📧", color:"#3b82f6", tips:["Create a professional ID: firstname.lastname@gmail.com","Always write a clear Subject line","Use proper greeting and sign-off","Reply within 24 hours for professional emails","Attach files before writing about them"] },
   { title:"Building Your Resume", icon:"📄", color:"#10b981", tips:["Keep it to 1 page for freshers","Lead with your strongest skill or achievement","Include all certifications and online courses","Add your GitHub and LinkedIn profile link","Proofread carefully — no spelling mistakes"] },
@@ -836,16 +860,7 @@ const digitalLiteracy = [
   { title:"Basic Computer Skills", icon:"💻", color:"#8b5cf6", tips:["Learn MS Word, Excel, PowerPoint basics","Typing speed target: 30+ words per minute","Learn Google Docs, Sheets and Meet","Know basic file management and keyboard shortcuts","Practice online forms and digital applications"] }
 ];
 
-const quizData = [
-  { q:"What does 'AI' stand for?", opts:["Artificial Intelligence","Automated Internet","Advanced Interface","Automated Intelligence"], ans:0 },
-  { q:"Which company created ChatGPT?", opts:["Google","Microsoft","OpenAI","Meta"], ans:2 },
-  { q:"What is Canva primarily used for?", opts:["Coding","Graphic Design","Video Editing","Data Analysis"], ans:1 },
-  { q:"GitHub is mainly used for:", opts:["Storing and sharing code","Social networking","Online shopping","Email communication"], ans:0 },
-  { q:"Which AI tool is made by Google?", opts:["ChatGPT","Copilot","Gemini","Siri"], ans:2 },
-  { q:"Gamma is best used for creating:", opts:["Code","Presentations and slides","Music","Videos"], ans:1 },
-  { q:"NPTEL courses are offered by:", opts:["Private companies","IITs and IISc","US Universities","State governments"], ans:1 },
-  { q:"LeetCode is best known for:", opts:["Design tools","Coding practice for placements","Video lectures","Job applications"], ans:1 }
-];
+
 
 // ═══════════════════════════════════════════
 // RENDER AI TOOLS
@@ -1058,7 +1073,7 @@ document.addEventListener('keydown', e => { if (e.key === 'Escape') closeToolMod
 // ═══════════════════════════════════════════
 // CAREER TREE DATA & LOGIC
 // ═══════════════════════════════════════════
-const cPaths = {
+const cPaths_en = {
   '10th':[
     {id:'mpc',  icon:'🔬', name:'Intermediate MPC',      sub:'Maths, Physics, Chemistry',     color:'#3b82f6'},
     {id:'bipc', icon:'🧬', name:'Intermediate BiPC',     sub:'Biology, Physics, Chemistry',   color:'#10b981'},
@@ -1078,7 +1093,7 @@ const cPaths = {
   ]
 };
 
-const cTrees = {
+const cTrees_en = {
   mpc:{
     icon:'🔬', title:'Intermediate MPC', color:'#1d4ed8', color2:'#60a5fa',
     tag:'2 yrs MPC → Entrance → B.Tech/IIT → Engineer → ₹3L to ₹1Cr+',
@@ -1841,62 +1856,6 @@ function renderDigitalLiteracy() {
   `).join('');
 }
 
-// ═══════════════════════════════════════════
-// QUIZ
-// ═══════════════════════════════════════════
-let quizIdx = 0, quizScore = 0, selectedQuizAns = null;
-
-function renderQuiz() {
-  const wrap = document.getElementById('quizWrap');
-  if (quizIdx >= quizData.length) {
-    const pct = Math.round(quizScore / quizData.length * 100);
-    const msg = pct >= 75 ? "Excellent! You know AI very well 🎉" : pct >= 50 ? "Good start! Explore our AI Tools section to learn more." : "Do not worry! Check out the AI Tools section above — you will learn fast!";
-    wrap.innerHTML = `
-      <div class="success-state">
-        <div class="quiz-score-ring" style="background:conic-gradient(var(--saffron) ${pct*3.6}deg, var(--deep3) 0deg);">
-          <div class="quiz-score-inner"><span class="quiz-score-num">${quizScore}/${quizData.length}</span><span class="quiz-score-total">${pct}%</span></div>
-        </div>
-        <div class="success-title">Quiz Complete!</div>
-        <div class="success-text">${msg}</div>
-        <a href="#ai-tools" class="btn btn-primary">🚀 Explore AI Tools</a>
-        &nbsp;
-        <button class="btn btn-outline" onclick="restartQuiz()">🔁 Try Again</button>
-      </div>`;
-    return;
-  }
-  const q = quizData[quizIdx];
-  wrap.innerHTML = `
-    <div class="survey-step">Question ${quizIdx+1} of ${quizData.length}</div>
-    <div class="survey-progress"><div class="survey-progress-fill" style="width:${(quizIdx/quizData.length)*100}%"></div></div>
-    <div class="survey-q">${q.q}</div>
-    <div class="survey-options">
-      ${q.opts.map((o,i)=>`
-        <div class="survey-option" onclick="selectQuizAns(${i},this)">
-          <input type="radio" name="quiz"><label>${o}</label>
-        </div>`).join('')}
-    </div>
-    <div class="survey-nav">
-      <span></span>
-      <button class="btn btn-primary" onclick="nextQuiz()" id="quizNext" disabled>Next →</button>
-    </div>`;
-  selectedQuizAns = null;
-}
-
-function selectQuizAns(idx, el) {
-  document.querySelectorAll('#quizWrap .survey-option').forEach(o => o.classList.remove('selected'));
-  el.classList.add('selected');
-  selectedQuizAns = idx;
-  document.getElementById('quizNext').disabled = false;
-}
-
-function nextQuiz() {
-  if (selectedQuizAns === null) return;
-  if (selectedQuizAns === quizData[quizIdx].ans) quizScore++;
-  quizIdx++;
-  renderQuiz();
-}
-
-function restartQuiz() { quizIdx = 0; quizScore = 0; selectedQuizAns = null; renderQuiz(); }
 
 // ═══════════════════════════════════════════
 // NAV
@@ -1940,6 +1899,147 @@ new IntersectionObserver(entries => {
   if (entries[0].isIntersecting && !statsAnimated) { statsAnimated = true; animateCounters(); }
 }, { threshold: 0.5 }).observe(document.querySelector('.stats-bar'));
 
+
+
+// ═══════════════════════════════════════════
+// TELUGU TRANSLATED DATA STRUCTURES
+// ═══════════════════════════════════════════
+const aiTools_te = [{"id": 1, "name": "ChatGPT", "icon": "🤖", "color": "#10a37f", "category": "AI అసిస్టెంట్", "tagline": "మీ 24/7 వ్యక్తిగత స్టడీ బడ్డీ", "description": "ChatGPT అనేది OpenAI చే తయారు చేయబడిన AI చాట్‌బాట్. మీరు దేన్నైనా అడగవచ్చు — గణిత సమస్యలను సాధించడం, వ్యాసాలు రాయడం, సైన్స్ భావనలను అర్థం చేసుకోవడం, పరీక్షలకు సిద్ధమవ్వడం మరియు తెలుగులో కూడా సమాధానాలు పొందడం. ఇది మీ పరీక్షకు ముందు అర్ధరాత్రి అందుబాటులో ఉండే స్మార్ట్ ట్యూటర్ లాంటిది.", "benefits": ["ఏ సబ్జెక్ట్ ప్రశ్నికైనా తక్షణమే సమాధానం ఇస్తుంది", "సరళమైన భాషలో అంశాలను వివరిస్తుంది", "వ్యాసాలు రాయడానికి మరియు మెరుగుపరచడానికి సహాయపడుతుంది", "తెలుగు, హిందీ & ఇంగ్లీషులో పనిచేస్తుంది", "ప్రాక్టీస్ పరీక్ష ప్రశ్నలను తయారు చేస్తుంది", "పెద్ద అధ్యాయాలను సెకన్లలో సారాంశంగా ఇస్తుంది"], "useCases": ["'న్యూటన్ నియమాలను సరళంగా వివరించు' అని టైప్ చేయండి → స్పష్టమైన సమాధానం వస్తుంది", "'నీటి సంరక్షణపై వ్యాసం రాయండి' అని టైప్ చేయండి → డ్రాఫ్ట్ వస్తుంది", "'కిరణజన్య సంయోగక్రియపై 10 MCQs ఇవ్వండి' అని టైప్ చేయండి → తక్షణ క్విజ్", "'BiPC తర్వాత కెరీర్ ఆప్షన్స్ ఏమిటి?' అని టైప్ చేయండి → పూర్తి మార్గదర్శకత్వం"], "link": "https://chat.openai.com", "youtube": "https://www.youtube.com/watch?v=JTxsNm9IdYU"}, {"id": 2, "name": "Google Gemini", "icon": "✨", "color": "#4285f4", "category": "AI అసిస్టెంట్", "tagline": "గూగుల్ AI — స్మార్ట్ సెర్చ్, మెరుగైన సమాధానాలు", "description": "Gemini అనేది గూగుల్ యొక్క AI అసిస్టెంట్, ఇది టెక్స్ట్ మరియు ఇమేజ్‌లను అర్థం చేసుకోగలదు. మీరు మీ పాఠ్యపుస్తకం పేజీ యొక్క ఫోటోను అప్‌లోడ్ చేసి దాని గురించి ప్రశ్నలు అడగవచ్చు. ఇది గూగుల్ సెర్చ్‌తో ముడిపడి ఉన్నందున ఏ అంశానికైనా తాజా సమాచారాన్ని అందిస్తుంది.", "benefits": ["పాఠ్యపుస్తకం చిత్రాలను అప్‌లోడ్ చేసి ప్రశ్నలు అడగవచ్చు", "Gmail మరియు Google Docs తో అనుసంధానించబడింది", "తాజా మరియు ఖచ్చితమైన సమాధానాలను ఇస్తుంది", "ఏదైనా ఆండ్రాయిడ్ ఫోన్‌లో పనిచేస్తుంది", "బహుళ భారతీయ భాషలకు మద్దతు ఇస్తుంది", "ఉపయోగించడానికి పూర్తిగా ఉచితం"], "useCases": ["పాఠ్యపుస్తకం రేఖాచిత్రం ఫోటో తీయండి → 'దీన్ని వివరించు' అని అడగండి", "ఖచ్చితమైన గూగుల్ ఆధారిత సమాధానాలతో ఏ అంశంపైనైనా పరిశోధించండి", "టైప్ చేయడం లేదా అప్‌లోడ్ చేయడం ద్వారా ఒక అధ్యాయాన్ని సారాంశం చేయండి", "తాజా స్కాలర్‌షిప్ గడువులు మరియు పరీక్ష తేదీలను పొందండి"], "link": "https://gemini.google.com", "youtube": "https://www.youtube.com/watch?v=Q1zF9pF6flw"}, {"id": 3, "name": "Canva", "icon": "🎨", "color": "#7c3aed", "category": "డిజైన్ సాధనం", "tagline": "ఏదైనా డిజైన్ చేయండి — నైపుణ్యాలు అవసరం లేదు", "description": "Canva అనేది 1000+ రెడీమేడ్ టెంప్లేట్‌లతో కూడిన ఉచిత ఆన్‌లైన్ డిజైన్ సాధనం. మీరు మీ ఫోన్ లేదా ల్యాప్‌టాప్ నుండి కేవలం నిమిషాల్లో అందమైన ప్రాజెక్ట్ ప్రజెంటేషన్‌లు, పోస్టర్‌లు, రెజ్యూమ్‌లు, కాలేజ్ ఫెస్ట్ బ్యానర్‌లు మరియు మరిన్నింటిని సృష్టించవచ్చు. ఎలాంటి డిజైన్ అనుభవం అవసరం లేదు.", "benefits": ["1000+ ఉచిత ప్రొఫెషనల్ టెంప్లేట్లు", "మొబైల్‌లో సంపూర్ణంగా పనిచేస్తుంది", "PDF, PNG లేదా PPT గా డౌన్‌లోడ్ చేసుకోవచ్చు", "టీమ్ కొలాబరేషన్ ఫీచర్", "డ్రాగ్ అండ్ డ్రాప్ — నేర్చుకోవడం చాలా సులభం", "అదనపు ఫీచర్లతో ఉచిత విద్యా ఖాతా"], "useCases": ["10 నిమిషాల్లో ప్రాజెక్ట్ ప్రెజెంటేషన్ సృష్టించండి", "మీ కాలేజ్ ఫెస్ట్ పోస్టర్‌ను డిజైన్ చేయండి", "ప్రొఫెషనల్ 1-పేజీ రెజ్యూమ్‌ను నిర్మించండి", "సైన్స్ ప్రాజెక్ట్‌ల కోసం ఇన్ఫోగ్రాఫిక్ చేయండి", "మీ ప్రొఫైల్ కోసం లింక్డ్‌ఇన్ బ్యానర్ చేయండి"], "link": "https://www.canva.com", "youtube": "https://www.youtube.com/watch?v=X4uBKGiUnGQ"}, {"id": 4, "name": "Gamma", "icon": "⚡", "color": "#6366f1", "category": "AI ప్రెజెంటేషన్స్", "tagline": "మీ నోట్స్‌ను తక్షణమే అందమైన స్లైడ్‌లుగా మార్చండి", "description": "Gamma అనేది అద్భుతమైన ప్రెజెంటేషన్‌లను స్వయంచాలకంగా సృష్టించే ఒక AI సాధనం. మీరు కేవలం మీ టాపిక్‌ను టైప్ చేస్తే లేదా మీ నోట్స్‌ను పేస్ట్ చేస్తే చాలు, Gamma సరైన లేఅవుట్, రంగులు మరియు కంటెంట్‌తో అందమైన స్లైడ్‌లను 60 సెకన్లలోపు డిజైన్ చేస్తుంది. ప్రాజెక్ట్ సమర్పణలకు ఇది సరైనది.", "benefits": ["ఒక ప్రాంప్ట్ నుండి పూర్తి ప్రెజెంటేషన్‌లను సృష్టిస్తుంది", "చిత్రాలు మరియు చిహ్నాలను స్వయంచాలకంగా జోడిస్తుంది", "ఆధునిక ప్రొఫెషనల్ డిజైన్లు", "లింక్ లాగా షేర్ చేయండి — ఫైల్ అవసరం లేదు", "ఉదారమైన పరిమితులతో ఉచితంగా ఉపయోగించవచ్చు", "ప్రాజెక్ట్ డెమోలు మరియు సెమినార్లకు చాలా ఉపయోగకరం"], "useCases": ["'విద్యార్థుల కోసం AI సాధనాలు' అని టైప్ చేయండి → పూర్తి ప్రెజెనెట్ పొందండి", "మీ నోట్స్‌ను తక్షణమే స్లైడ్‌లుగా మార్చండి", "ప్రొఫెషనల్‌గా కనిపించే ప్రాజెక్ట్ నివేదికను సృష్టించండి", "లింక్ ద్వారా ప్రెజెంటేషన్‌లను భాగస్వామ్యం చేయండి (PPT ఫైల్ అవసరం లేదు)", "బ్రౌజర్ నుండి నేరుగా క్లాస్‌లో ప్రెజెంట్ చేయండి"], "link": "https://gamma.app", "youtube": "https://www.youtube.com/watch?v=W5SuYBXKgJM"}, {"id": 5, "name": "GitHub", "icon": "🐙", "color": "#7ee787", "category": "కోడ్ ప్లాట్‌ఫారమ్", "tagline": "ప్రతి డెవలపర్ కోడ్ యొక్క నిలయం", "description": "GitHub అనేది ప్రోగ్రామర్లు తమ కోడ్ ప్రాజెక్ట్‌లను నిల్వ చేయడానికి, పంచుకోవడానికి మరియు ప్రదర్శించడానికి ఉపయోగించే స్థలం. మీ కోడింగ్ పని కోసం దీనిని ఇన్‌స్టాగ్రామ్ లాగా భావించండి. టెక్ ఉద్యోగాలకు దరఖాస్తు చేసుకునేటప్పుడు మీ ప్రాజెక్ట్‌లతో కూడిన GitHub ప్రొఫైల్ ఉండటం అనేది రెజ్యూమ్ కంటే చాలా విలువైనది.", "benefits": ["ఉచిత అపరిమిత కోడ్ నిల్వ", "ఉద్యోగకర్తలు తనిఖీ చేసే డెవలపర్ పోర్ట్‌ఫోలియోను నిర్మించండి", "ఇతరుల కోడ్ చదవడం ద్వారా నేర్చుకోండి", "గ్రూప్ ప్రాజెక్ట్‌లలో సులభంగా సహకరించండి", "GitHub స్టూడెంట్ ప్యాక్ విలువ ₹50,000+ ఉచిత సాధనాలు", "ప్రపంచవ్యాప్తంగా ప్రతి టెక్ కంపెనీ ద్వారా గుర్తించబడింది మరియు ఉపయోగించబడుతుంది"], "useCases": ["మీరు చేసే ప్రతి కోడింగ్ ప్రాజెక్ట్‌ను నిల్వ చేయండి", "మీ రెజ్యూమ్‌లో మీ ప్రాజెక్ట్ లింక్‌ను భాగస్వామ్యం చేయండి", "గ్రూప్ అసైన్‌మెంట్‌లలో క్లాస్‌మేట్స్‌తో సహకరించండి", "నేర్చుకోవడానికి ఓపెన్ సోర్స్ ప్రాజెక్ట్‌లను అన్వేషించండి", "మీ కాలేజ్ ఈమెయిల్‌తో GitHub స్టూడెంట్ ప్యాక్ పొందండి"], "link": "https://github.com", "youtube": "https://www.youtube.com/watch?v=RGOj5yH7evk"}, {"id": 6, "name": "LinkedIn", "icon": "💼", "color": "#0077b5", "category": "ప్రొఫెషనల్ నెట్‌వర్క్", "tagline": "ఈరోజే మీ కెరీర్ నెట్‌వర్క్‌ను నిర్మించడం ప్రారంభించండి", "description": "LinkedIn అనేది 900 మిలియన్ల వినియోగదారులతో కూడిన ప్రపంచంలోనే అతిపెద్ద ప్రొఫెషనల్ నెట్‌వర్కింగ్ ప్లాట్‌ఫారమ్. ఒక విద్యార్థిగా మీ ప్రొఫైల్‌ను సృష్టించడం మిమ్మల్ని మెంటార్‌లు, సీనియర్‌లు, కంపెనీ రిక్రూటర్‌లు మరియు స్కాలర్‌షిప్ అవకాశాలతో కలుపుతుంది. మీరు ఎంత త్వరగా ప్రారంభిస్తే అంత మంచిది.", "benefits": ["మీ కాలేజీకి చెందిన పూర్వ విద్యార్థులతో కనెక్ట్ అవ్వండి", "ఇంటర్న్‌షిప్‌లు మరియు పార్ట్ టైమ్ పనులను కనుగొనండి", "ఉచిత లింక్డ్‌ఇన్ లెర్నింగ్ కోర్సులు (1000+)", "మీ ప్రొఫైల్ బలంగా ఉన్నప్పుడు రిక్రూటర్లు మిమ్మల్ని కనుగొంటారు", "కంపెనీలు మరియు పరిశ్రమ వార్తలను అనుసరించండి", "మీ ప్రాజెక్ట్‌లను పోస్ట్ చేసి గుర్తింపు పొందండి"], "useCases": ["విద్య మరియు నైపుణ్యాలతో మీ విద్యార్థి ప్రొఫైల్‌ను సృష్టించండి", "ప్రముఖ కంపెనీలలో ప్లేస్‌మెంట్ పొందిన సీనియర్లతో కనెక్ట్ అవ్వండి", "ఉద్యోగ అవకాశాల కోసం టాటా, ఇన్ఫోసిస్, గూగుల్ ఇండియాలను ఫాలో అవ్వండి", "మీ ప్రాజెక్ట్‌ను పోస్ట్ చేయండి — మీ కాలేజీని ట్యాగ్ చేయండి — గుర్తింపు పొందండి", "ప్రొఫెషనల్స్‌కు మెసేజ్ చేసి కెరీర్ సలహాలను అడగండి"], "link": "https://www.linkedin.com", "youtube": "https://www.youtube.com/watch?v=SG5Sb5WTV_g"}, {"id": 7, "name": "Microsoft Copilot", "icon": "🪟", "color": "#00a4ef", "category": "AI అసిస్టెంట్", "tagline": "Windows & Bing లో అంతర్నిర్మిత ఉచిత AI", "description": "Microsoft Copilot అనేది Windows 11, Bing మరియు Microsoft Edge బ్రౌజర్‌లో నిర్మించబడిన ఉచిత AI అసిస్టెంట్. మీరు విండోస్ ల్యాప్‌టాప్ ఉపయోగిస్తుంటే, మీకు ఇప్పటికే ఇది అందుబాటులో ఉంది — Copilot బటన్‌ను నొక్కండి. ఇది రాయడం, పరిశోధన చేయడం, చిత్రాలను సృష్టించడం మరియు కోడింగ్‌కు సహాయపడుతుంది.", "benefits": ["విండోస్ ల్యాప్‌టాప్‌లో ఇప్పటికే ఉచితంగా లభిస్తుంది", "DALL-E తో ఉచితంగా చిత్రాలను సృష్టిస్తుంది", "లైవ్ ఇంటర్నెట్ సదుపాయంతో ప్రశ్నలకు సమాధానమిస్తుంది", "వర్డ్ డాక్యుమెంట్లు మరియు ఈమెయిళ్లను రాయడానికి సహాయపడుతుంది", "ఉపయోగించడానికి లాగిన్ అవసరం లేదు", "Microsoft Edge బ్రౌజర్ లోపల పనిచేస్తుంది"], "useCases": ["విండోస్ ల్యాప్‌టాప్‌లో Win+C నొక్కండి → చాటింగ్ ప్రారంభించండి", "ప్రాజెక్ట్ చిత్రాలను ఉచితంగా సృష్టించండి", "లైవ్ వెబ్ ఫలితాలతో ఏదైనా అంశాన్ని పరిశోధించండి", "ఈమెయిళ్లు మరియు అధికారిక లేఖలు రాయడంలో సహాయం పొందండి", "మీరు నేర్చుకునేటప్పుడు కోడింగ్ ప్రశ్నలను అడగండి"], "link": "https://copilot.microsoft.com", "youtube": "https://www.youtube.com/watch?v=nrgCBGhOBos"}, {"id": 8, "name": "Notion AI", "icon": "📝", "color": "#e8e8e8", "category": "ఉత్పాదకత సాధనం", "tagline": "AI తో మీ నోట్స్, చదువు మరియు ప్రాజెక్ట్‌లను నిర్వహించండి", "description": "Notion అనేది ఆల్ ఇన్ వన్ వర్క్‌స్పేస్, ఇక్కడ మీరు నోట్స్ రాసుకోవచ్చు, మీ చదువును ప్లాన్ చేసుకోవచ్చు, ప్రాజెక్ట్‌లను నిర్వహించవచ్చు మరియు మీ లక్ష్యాలను ట్రాక్ చేయవచ్చు. అంతర్నిర్మిత Notion AI తో, ఇది మీ నోట్స్‌ను సారాంశం చేయగలదు, మీ కోసం కంటెంట్ రాయగలదు మరియు మీ విద్యా సంవత్సరంలో క్రమబద్ధంగా ఉండటానికి సహాయపడుతుంది.", "benefits": ["ఎడ్యుకేషన్ ఈమెయిల్‌తో విద్యార్థులకు ఉచితం", "అన్ని సబ్జెక్ట్‌లను ఒకే చోట నిర్వహించండి", "AI మీ కోసం కంటెంట్‌ను రాస్తుంది మరియు సారాంశం చేస్తుంది", "క్లాస్‌మేట్స్‌తో స్టడీ నోట్స్‌ను పంచుకోండి", "works on phone, tablet, and laptop", "విద్యార్థుల కోసం 500+ ఉచిత టెంప్లేట్లు"], "useCases": ["మీ సెమిస్టర్ కోసం ఒక స్టడీ ప్లానర్‌ను సృష్టించండి", "క్లాస్ నోట్స్ తీసుకోండి మరియు AI వాటిని సారాంశం చేయనివ్వండి", "మీ స్కాలర్‌షిప్ అప్లికేషన్ గడువులను ట్రాక్ చేయండి", "మీ బి.టెక్ ప్రాజెక్ట్ పనులు మరియు సమయపాలనను నిర్వహించండి", "మీ స్నేహితుల సమూహంతో నోట్స్ పేజీని పంచుకోండి"], "link": "https://notion.so", "youtube": "https://www.youtube.com/watch?v=oTahLEX3NXo"}, {"id": 9, "name": "Perplexity AI", "icon": "🔎", "color": "#20b8cd", "category": "AI శోధన", "tagline": "ఏదైనా అడగండి — ఆధారాలతో సమాధానాలు పొందండి", "description": "Perplexity అనేది AI ఆధారిత సెర్చ్ ఇంజన్, ఇది మీకు లింక్‌ల జాబితాకు బదులుగా నేరుగా సమాధానాలను ఇస్తుంది. గూగుల్ లాగా కాకుండా, ఇది బహుళ మూలాలను చదివి, స్పష్టమైన సమాధానాన్ని సూచనలతో అందిస్తుంది. పరిశోధన మరియు క్లిష్టమైన అంశాలను అర్థం చేసుకోవడానికి ఇది సరైనది.", "benefits": ["నేరుగా సమాధానాలు — బహుళ లింక్‌లపై క్లిక్ చేయాల్సిన అవసరం లేదు", "నిజాలను ధృవీకరించడానికి మూలాలను చూపుతుంది", "ఉపయోగించడానికి పూర్తిగా ఉచితం", "పరిశోధన మరియు అసైన్‌మెంట్‌లకు అద్భుతమైనది", "మరింత సమాచారం కోసం ఫాలో-అప్ ప్రశ్నలను అడుగుతుంది", "ఖాతా అవసరం లేదు"], "useCases": ["'ఆంధ్రప్రదేశ్‌లో విద్యార్థుల కోసం ఉత్తమ ప్రభుత్వ పథకాలు ఏమిటి?' → తక్షణ సమాధానం", "మీ ప్రాజెక్ట్ కోసం ఏదైనా అంశాన్ని పరిశోధించండి", "క్లిష్టమైన సైన్స్ లేదా చరిత్ర అంశాలను అర్థం చేసుకోండి", "నమ్మదగిన మూలాలతో స్కాలర్‌షిప్ సమాచారాన్ని కనుగొనండి", "ఆన్‌లైన్‌లో మీరు చదివే సమాచారాన్ని నిజమో కాదో ధృవీకరించండి"], "link": "https://www.perplexity.ai", "youtube": "https://www.youtube.com/watch?v=EJfHqMWn_sA"}, {"id": 10, "name": "QuillBot", "icon": "✍️", "color": "#21c26e", "category": "రచన సాధనం", "tagline": "మెరుగ్గా రాయండి — వ్యాకరణాన్ని సరిచేయండి, పారాఫ్రేజ్ చేయండి, సారాంశం చేయండి", "description": "QuillBot అనేది ఉచిత రైటింగ్ అసిస్టెంట్, ఇది వాక్యాలను తిరిగి రాయడానికి, పెద్ద వచనాన్ని సారాంశం చేయడానికి, వ్యాకరణ తప్పులను సరిచేయడానికి మరియు మీ రైటింగ్ స్టైల్‌ను మెరుగుపరచడానికి సహాయపడుతుంది. అసైన్‌మెంట్‌లు, ప్రాజెక్ట్ రిపోర్ట్‌లు రాయడానికి మరియు మీ ఇంగ్లీష్ రైటింగ్‌ను ప్రొఫెషనల్‌గా మార్చడానికి చాలా ఉపయోగకరంగా ఉంటుంది.", "benefits": ["పారాఫ్రేజ్ సాధనం వాక్యాలను మెరుగ్గా తిరిగి రాస్తుంది", "గ్రామర్ చెకర్ అన్ని తప్పులను సరిచేస్తుంది", "సమ్మరైజర్ పెద్ద వ్యాసాలను సెకన్లలో తగ్గిస్తుంది", "మీ బ్రౌజర్‌లో పనిచేస్తుంది — ఇన్‌స్టాల్ అవసరం లేదు", "ఉచిత శ్రేణి చాలా ఉదారంగా ఉంటుంది", "మీ ఇంగ్లీష్ రైటింగ్ నైపుణ్యాలను మెరుగుపరచడంలో సహాయపడుతుంది"], "useCases": ["మీ అసైన్‌మెంట్‌ను పేస్ట్ చేయండి → వ్యాకరణాన్ని సరిచేసి మెరుగుపరచండి", "పెద్ద వ్యాసం లేదా అధ్యాయాన్ని సెకన్లలో సారాంశం చేయండి", "వాక్యాలను మరింత ప్రొఫెషనల్ టోన్‌లో తిరిగి రాయండి", "Check and fix errors in your resume", "మీ లింక్డ్‌ఇన్ బయోలోని ఇంగ్లీషును మెరుగుపరచండి"], "link": "https://quillbot.com", "youtube": "https://www.youtube.com/watch?v=0bNf6CcBkmk"}];
+const learningResources_te = [{"name": "freeCodeCamp", "cat": "ప్రోగ్రామింగ్", "icon": "🔥", "desc": "3000+ గంటల ఉచిత పాఠ్యప్రణాళికతో వెబ్ డెవలప్‌మెంట్, పైథాన్ మరియు డేటా సైన్స్ నేర్చుకోండి.", "link": "https://freecodecamp.org", "audience": "విద్యార్థులందరూ", "rating": 5}, {"name": "W3Schools", "cat": "ప్రోగ్రామింగ్", "icon": "🌐", "desc": "ఇంటరాక్టివ్ ఉదాహరణలతో HTML, CSS, JavaScript మరియు Python నేర్చుకోవడానికి సులభమైన మార్గం.", "link": "https://w3schools.com", "audience": "ప్రారంభకులు", "rating": 4.5}, {"name": "GeeksforGeeks", "cat": "ప్రోగ్రామింగ్", "icon": "🧠", "desc": "10,000+ వ్యాసాలతో DSA, అల్గారిథమ్స్ నేర్చుకోండి మరియు టెక్నికల్ ఇంటర్వ్యూలకు సిద్ధమవ్వండి.", "link": "https://geeksforgeeks.org", "audience": "మధ్యస్థ విద్యార్థులు", "rating": 5}, {"name": "NPTEL", "cat": "అకడమిక్స్", "icon": "🎓", "desc": "IIT మరియు IISc ప్రొఫెసర్లు ఇంజనీరింగ్, సైన్స్ మరియు హ్యుమానిటీస్‌ను ఇంగ్లీష్ మరియు ప్రాంతీయ భాషల్లో బోధిస్తారు.", "link": "https://nptel.ac.in", "audience": "ఇంటర్మీడియట్ & కాలేజీ", "rating": 5}, {"name": "SWAYAM", "cat": "అకడమిక్స్", "icon": "🏛️", "desc": "UGC గుర్తింపు పొందిన సర్టిఫికేట్‌లతో భారత ప్రభుత్వ ఉచిత విద్యా ప్లాట్‌ఫారమ్.", "link": "https://swayam.gov.in", "audience": "విద్యార్థులందరూ", "rating": 4.5}, {"name": "Khan Academy", "cat": "అకడమిక్స్", "icon": "📚", "desc": "గణితం, సైన్స్ మరియు ఎకనామిక్స్ కవర్ చేస్తూ 6-12 తరగతులకు ఉచిత ప్రపంచ స్థాయి విద్య.", "link": "https://khanacademy.org", "audience": "10వ తరగతి విద్యార్థులు", "rating": 5}, {"name": "Coursera", "cat": "నైపుణ్యాల అభివృద్ధి", "icon": "🚀", "desc": "గూగుల్, ఐబిఎం, మెటా నుండి టాప్ యూనివర్సిటీ కోర్సులు. అనేక కోర్సులు ఉచితంగా వినడానికి అందుబాటులో ఉన్నాయి.", "link": "https://coursera.org", "audience": "ఇంటర్మీడియట్ & పైబడిన", "rating": 4.5}, {"name": "edX", "cat": "నైపుణ్యాల అభివృద్ధి", "icon": "⚡", "desc": "హార్వర్డ్ మరియు MIT కోర్సులు ఉచితం. CS, బిజినెస్ మరియు డేటా సైన్స్‌లో ధృవీకరించబడిన సర్టిఫికెట్లు.", "link": "https://edx.org", "audience": "ఇంటర్మీడియట్ & పైబడిన", "rating": 4.5}];
+const scholarships_te = [{"name": "AP Epass Scholarship", "cat": "రాష్ట్ర", "icon": "🏆", "elig": "ఆంధ్రప్రదేశ్ విద్యార్థులు, కుటుంబ వార్షిక ఆదాయం ₹2.5 లక్షల లోపు ఉండాలి, 10వ తరగతి నుండి పిజి వరకు చదువుతున్న వారు", "benefits": "పూర్తి ట్యూషన్ ఫీజు రీయింబర్స్మెంట్ మరియు సంవత్సరానికి ₹12,000 మెయింటెనెన్స్", "process": "ఆదాయం మరియు కుల ధృవీకరణ పత్రాలతో ప్రవేశం పొందిన తర్వాత cfms.ap.gov.in లో ఆన్‌లైన్‌లో దరఖాస్తు చేసుకోండి.", "link": "https://cfms.ap.gov.in", "deadline": "ప్రతి సంవత్సరం అక్టోబర్-నవంబర్", "video": "https://www.youtube.com/watch?v=_01_8vMqBVE"}, {"name": "Pre-Matric Scholarship SC/ST/OBC", "cat": "కేంద్ర", "icon": "⭐", "elig": "9-10 తరగతులలో చదువుతున్న SC/ST/OBC విద్యార్థులు, కుటుంబ వార్షిక ఆదాయం ₹2.5 లక్షల లోపు ఉండాలి", "benefits": "నెలకి ₹1,000-₹2,250 మెయింటెనెన్స్ మరియు ట్యూషన్ ఫీజులు", "process": "ఆధార్, కుల మరియు ఆదాయ ధృవీకరణ పత్రాలతో నేషనల్ స్కాలర్‌షిప్ పోర్టల్ ద్వారా దరఖాస్తు చేసుకోండి.", "link": "https://scholarships.gov.in", "deadline": "ప్రతి సంవత్సరం అక్టోబర్ 31", "video": "https://www.youtube.com/watch?v=xRIVG3UhNmc"}, {"name": "Post-Matric Scholarship", "cat": "కేంద్ర", "icon": "🎯", "elig": "10వ తరగతి తర్వాత చదువుతున్న SC/ST విద్యార్థులు, కుటుంబ వార్షిక ఆదాయం ₹2.5 లక్షల లోపు ఉండాలి", "benefits": "కోర్సు ఫీజులతో పాటు నెలకి ₹380-₹1,200 మెయింటెనెన్స్", "process": "మార్కుల పత్రాలు మరియు ఆదాయ ధృవీకరణ పత్రంతో నేషనల్ స్కాలర్‌షిప్ పోర్టల్‌లో దరఖాస్తు చేసుకోండి.", "link": "https://scholarships.gov.in", "deadline": "ప్రతి సంవత్సరం నవంబర్ 30", "video": "https://www.youtube.com/watch?v=JI70lvhFHso"}, {"name": "Jagannath Scholarship Minorities", "cat": "రాష్ట్ర", "icon": "🌟", "elig": "ఆంధ్రప్రదేశ్‌లోని మైనారటీ విద్యార్థులు (ముస్లిం, క్రిస్టియన్, సిక్కు, బౌద్ధ), ఆదాయం ₹8 లక్షల లోపు ఉండాలి", "benefits": "ట్యూషన్ ఫీజు ₹20,000 వరకు మరియు సంవత్సరానికి ₹7,000-₹12,000 మెయింటెనెన్స్", "process": "ఆదాయ మరియు మత ధృవీకరణ పత్రాలతో AP మైనారిటీ వెల్ఫేర్ పోర్టల్ ద్వారా దరఖాస్తు చేసుకోండి.", "link": "https://apeamcet.nic.in", "deadline": "ప్రతి సంవత్సరం డిసెంబర్", "video": "https://www.youtube.com/results?search_query=AP+minority+welfare+scholarship+apply+Telugu"}, {"name": "AICTE Pragati for Girls", "cat": "కేంద్ర", "icon": "👩‍🎓", "elig": "AICTE ఆమోదించిన సాంకేతిక కోర్సులలో చదువుతున్న విద్యార్థినులు, కుటుంబ వార్షిక ఆదాయం ₹8 లక్షల లోపు ఉండాలి", "benefits": "సంవత్సరానికి ₹50,000 ట్యూషన్ ఫీజు మరియు నెలకి ₹2,000 కాంటింజెన్సీ అలవెన్స్", "process": "ఇంజనీరింగ్ ప్రవేశం పొందిన తర్వాత aicte-india.org లో దరఖాస్తు చేసుకోండి.", "link": "https://aicte-india.org", "deadline": "ప్రతి సంవత్సరం డిసెంబర్", "video": "https://www.youtube.com/results?search_query=AICTE+Pragati+scholarship+apply+Telugu+2025"}, {"name": "INSPIRE Scholarship", "cat": "కేంద్ర", "icon": "💡", "elig": "10వ తరగతి బోర్డు పరీక్షలో మొదటి 1% లో నిలిచి, ఇంటర్మీడియట్‌లో సైన్స్ చదువుతున్న వారు", "benefits": "B.Sc లేదా ఇంటిగ్రేటెడ్ M.Sc యొక్క 5 సంవత్సరాల పాటు సంవత్సరానికి ₹80,000", "process": "బోర్డు ఫలితాల తర్వాత పాఠశాలలు అత్యుత్తమ ప్రతిభ కనబరిచిన వారిని నామినేట్ చేస్తాయి. దరఖాస్తు అవసరం లేదు.", "link": "https://online-inspire.gov.in", "deadline": "పాఠశాల నామినేషన్", "video": "https://www.youtube.com/results?search_query=INSPIRE+scholarship+apply+Telugu+2025"}];
+const codingPlatforms_te = [{"name": "LeetCode", "icon": "⚙️", "color": "#ffa116", "diff": "మధ్యస్థం-కఠినం", "diffClass": "medium", "purpose": "గూగుల్, అమెజాన్ మరియు మైక్రోసాఫ్ట్ వంటి కంపెనీలలో ప్లేస్‌మెంట్స్ కోసం ఉపయోగించే డేటా స్ట్రక్చర్స్ మరియు అల్గారిథమ్స్ సాధన చేయండి.", "benefits": ["2,500+ కోడింగ్ సమస్యలు", "కంపెనీ ఆధారిత సమస్యల సెట్లు", "నెలవారీ పోటీలు", "నేరుగా ఉద్యోగ నియామక ప్లాట్‌ఫారమ్"], "bestFor": "B.Tech విద్యార్థులు మరియు ప్లేస్‌మెంట్ ప్రిపరేషన్", "link": "https://leetcode.com"}, {"name": "HackerRank", "icon": "🟢", "color": "#00ea64", "diff": "సులభం-మధ్యస్థం", "diffClass": "easy", "purpose": "పైథాన్, జావా, SQL మరియు మరిన్నింటిలో నిర్మాణాత్మక అభ్యాస మార్గాలతో మొదటి నుండి కోడింగ్ ప్రారంభించండి.", "benefits": ["ప్రారంభకులకు అనుకూలమైనది", "పరిశ్రమ నైపుణ్య ధృవీకరణ పత్రాలు", "కంపెనీల నియామక పరీక్షలు", "30 రోజుల కోడ్ ఛాలెంజ్"], "bestFor": "కోడింగ్ ప్రారంభించే 10వ తరగతి మరియు ఇంటర్ విద్యార్థులు", "link": "https://hackerrank.com"}, {"name": "CodeChef", "icon": "👨‍🍳", "color": "#f59e0b", "diff": "సులభం-కఠినం", "diffClass": "easy", "purpose": "నెలవారీ పోటీలు మరియు భారీ విద్యార్థి కమ్యూనిటీతో కూడిన భారతీయ పోటీ ప్రోగ్రామింగ్ ప్లాట్‌ఫారమ్.", "benefits": ["భారతీయ ఆధారిత పోటీలు", "DSA లెర్నింగ్ పాత్స్", "ICPC కాలేజ్ పోటీలు", "గ్లోబల్ రేటింగ్ సిస్టమ్"], "bestFor": "పోటీ ప్రోగ్రామింగ్ వైపు వెళ్లాలనుకునే విద్యార్థులు", "link": "https://codechef.com"}];
+const digitalLiteracy_te = [{"title": "ఇంటర్నెట్ భద్రత", "icon": "🛡️", "color": "#ef4444", "tips": ["మీ పాస్‌వర్డ్‌ను ఎవరితోనూ పంచుకోకండి", "అక్షరాలు, సంఖ్యలు, చిహ్నాలను కలిపి బలమైన పాస్‌వర్డ్‌లను ఉపయోగించండి", "మెసేజ్‌లలో తెలియని లింక్‌లను క్లిక్ చేయడం నివారించండి", "మీరు విశ్వసించే వెబ్‌సైట్‌లలో https ఉందో లేదో చూడండి", "సోషల్ మీడియాలో మీ వ్యక్తిగత సమాచారాన్ని పంచుకోకండి"]}, {"title": "ప్రొఫెషనల్ ఈమెయిల్ వినియోగం", "icon": "📧", "color": "#3b82f6", "tips": ["ప్రొఫెషనల్ ఐడిని సృష్టించండి: firstname.lastname@gmail.com", "ఎల్లప్పుడూ స్పష్టమైన సబ్జెక్ట్ లైన్ రాయండి", "సరైన గ్రీటింగ్ మరియు సైన్-ఆఫ్ ఉపయోగించండి", "ప్రొఫెషనల్ ఈమెయిళ్లకు 24 గంటల్లోగా సమాధానం ఇవ్వండి", "వాటి గురించి రాయడానికి ముందు ఫైళ్ళను అటాచ్ చేయండి"]}, {"title": "మీ రెజ్యూమ్‌ను నిర్మించడం", "icon": "📄", "color": "#10b981", "tips": ["ఫ్రెషర్ల కోసం దానిని 1 పేజీకి పరిమితం చేయండి", "మీ బలమైన నైపుణ్యం లేదా విజయంతో ప్రారంభించండి", "అన్ని సర్టిఫికేట్లు మరియు ఆన్‌లైన్ కోర్సులను చేర్చండి", "మీ GitHub మరియు LinkedIn ప్రొఫైల్ లింక్‌ను జోడించండి", "జాగ్రత్తగా ప్రూఫ్ రీడ్ చేయండి — స్పెల్లింగ్ తప్పులు లేకుండా చూసుకోండి"]}, {"title": "లింక్డ్‌ఇన్ ప్రొఫైల్ సెటప్", "icon": "💼", "color": "#0077b5", "tips": ["స్పష్టమైన ప్రొఫెషనల్ ప్రొఫైల్ ఫోటోను ఉపయోగించండి", "మీ కెరీర్ లక్ష్యాన్ని వివరించే హెడ్‌లైన్ రాయండి", "అన్ని విద్యా వివరాలు మరియు నైపుణ్యాలను జోడించండి", "Connect with teachers, seniors and industry people", "మీ ప్రాజెక్ట్ విజయాలను క్రమం తప్పకుండా పోస్ట్ చేయండి"]}, {"title": "ప్రాథమిక కంప్యూటర్ నైపుణ్యాలు", "icon": "💻", "color": "#8b5cf6", "tips": ["MS Word, Excel, PowerPoint ప్రాథమికాలను నేర్చుకోండి", "టైపింగ్ వేగం లక్ష్యం: నిమిషానికి 30+ పదాలు", "Google Docs, Sheets మరియు Meet గురించి తెలుసుకోండి", "ప్రాథమిక ఫైల్ మేనేజ్‌మెంట్ మరియు కీబోర్డ్ షార్ట్‌కట్‌లను తెలుసుకోండి", "ఆన్‌లైన్ ఫారమ్‌లు మరియు డిజిటల్ అప్లికేషన్‌లను ప్రాక్టీస్ చేయండి"]}];
+const cPaths_te = {"10th": [{"id": "mpc", "icon": "🔬", "name": "ఇంటర్మీడియట్ MPC", "sub": "గణితం, భౌతికశాస్త్రం, రసాయనశాస్త్రం", "color": "#3b82f6"}, {"id": "bipc", "icon": "🧬", "name": "ఇంటర్మీడియట్ BiPC", "sub": "జీవశాస్త్రం, భౌతికశాస్త్రం, రసాయనశాస్త్రం", "color": "#10b981"}, {"id": "mec", "icon": "📊", "name": "ఇంటర్మీడియట్ MEC", "sub": "గణితం, అర్థశాస్త్రం, వాణిజ్యశాస్త్రం", "color": "#f97316"}, {"id": "cec", "icon": "📚", "name": "ఇంటర్మీడియట్ CEC", "sub": "పౌరశాస్త్రం, అర్థశాస్త్రం, వాణిజ్యశాస్త్రం", "color": "#06b6d4"}, {"id": "poly", "icon": "⚙️", "name": "పాలిటెక్నిక్ డిప్లొమా", "sub": "ఇంజనీరింగ్ డిప్లొమా (3 సం.)", "color": "#f59e0b"}, {"id": "iti", "icon": "🔧", "name": "ITI కోర్సులు", "sub": "ట్రేడ్ సర్టిఫికేట్ (1–2 సం.)", "color": "#ef4444"}, {"id": "voc", "icon": "💻", "name": "వొకేషనల్ కోర్సులు", "sub": "నైపుణ్య సర్టిఫికేట్ (6 నెలలు–2 సం.)", "color": "#8b5cf6"}], "inter": [{"id": "btech", "icon": "🏗️", "name": "బి.టెక్ / బి.ఇ.", "sub": "ఇంజనీరింగ్ డిగ్రీ (4 సం.)", "color": "#3b82f6"}, {"id": "mbbs", "icon": "🏥", "name": "MBBS / మెడికల్", "sub": "మెడికల్ డిగ్రీ (5.5 సం.)", "color": "#10b981"}, {"id": "bsc", "icon": "🔭", "name": "బి.ఎస్సీ డిగ్రీ", "sub": "సైన్స్ డిగ్రీ (3 సం.)", "color": "#8b5cf6"}, {"id": "bcom", "icon": "📊", "name": "బి.కామ్ / BBA", "sub": "కామర్స్ డిగ్రీ (3 సం.)", "color": "#f59e0b"}, {"id": "govt", "icon": "📋", "name": "ప్రభుత్వ పరీక్షలు", "sub": "UPSC / APPSC / SSC / రైల్వేలు", "color": "#ef4444"}, {"id": "skill", "icon": "🚀", "name": "నైపుణ్యాభివృద్ధి", "sub": "బూట్‌క్యాంప్ / PMKVY (3–6 నెలలు)", "color": "#06b6d4"}]};
+const cTrees_te = {"mpc": {"icon": "🔬", "title": "ఇంటర్మీడియట్ MPC", "color": "#1d4ed8", "color2": "#60a5fa", "tag": "2 సం. MPC → ఎంట్రన్స్ → బి.టెక్/IIT → ఇంజనీర్ → ₹3 లక్షల నుండి ₹1 కోటి+", "timeline": [{"yr": "ప్రస్తుతం → సంవత్సరం 1–2", "dot": "#fb923c", "border": "#fb923c", "label": "orange", "title": "ఇంటర్మీడియట్ MPC — 11వ & 12వ తరగతి", "desc": "గణితం, భౌతికశాస్త్రం, రసాయనశాస్త్రాన్ని లోతుగా చదవండి. 11వ తరగతి నుంచే EAMCET మరియు JEE ప్రిపరేషన్ ప్రారంభించండి — త్వరగా ప్రారంభించడమే టాపర్స్ రహస్యం.", "tags": [{"t": "EAMCET ప్రిపరేషన్", "c": "tag-o"}, {"t": "JEE మెయిన్స్", "c": "tag-b"}, {"t": "బోర్డు పరీక్షలు", "c": "tag-g"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 2 ముగింపు — కీలక పరీక్షలు", "dot": "#f59e0b", "border": "#f59e0b", "label": "#f59e0b", "title": "ప్రవేశ పరీక్షలు — కాలేజీకి మీ ప్రవేశ ద్వారం", "desc": "AP ఇంజనీరింగ్ కోసం AP EAMCET. NITల కోసం JEE మెయిన్స్. IITల కోసం JEE అడ్వాన్స్‌డ్ (JEE మెయిన్స్‌లో టాప్ 2.5 లక్షల మంది అర్హత సాధిస్తారు). డిఫెన్స్ కోసం NDA. మంచి ర్యాంక్ = మంచి కాలేజీ = మెరుగైన భవిష్యత్తు.", "tags": [{"t": "AP EAMCET", "c": "tag-o"}, {"t": "JEE మెయిన్స్", "c": "tag-b"}, {"t": "JEE అడ్వాన్స్‌డ్", "c": "tag-p"}, {"t": "NDA", "c": "tag-g"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 3–6", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "బి.టెక్ / బి.ఇ. — 4 సంవత్సరాల ఇంజనీరింగ్ డిగ్రీ", "desc": "CS, ECE, మెకానికల్, సివిల్, EEE మరియు మరిన్ని ఎంచుకోండి. మొదటి సంవత్సరం నుండి రియల్ ప్రాజెక్ట్‌లను నిర్మించండి. 3వ సంవత్సరంలో ఇంటర్న్‌షిప్‌లు చేయండి. GitHub ప్రొఫైల్ + సర్టిఫికేషన్‌లు = మంచి ప్లేస్‌మెంట్.", "tags": [{"t": "CS / IT", "c": "tag-b"}, {"t": "ECE", "c": "tag-g"}, {"t": "మెకానికల్", "c": "tag-o"}, {"t": "సివిల్", "c": "tag-p"}], "salary": "ఇంటర్న్‌షిప్: ₹8,000 – ₹50,000/నెల", "pct": 20}, {"yr": "సంవత్సరం 6 — మొదటి ఉద్యోగం", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "సాఫ్ట్‌വേర్ / కోర్ ఇంజనీర్ — మొదటి జీతం", "desc": "క్యాంపస్ ప్లేస్‌మెంట్స్: TCS, Infosys, Wipro వంటివి సంవత్సరానికి ₹3.5–7 లక్షలు చెల్లిస్తాయి. డ్రీమ్ కంపెనీలైన Amazon, Google, Microsoft మంచి కోడర్లకు ₹20–60 లక్షలు చెల్లిస్తాయి. మీ ప్రాజెక్ట్‌లు మరియు నైపుణ్యాలు మీ భవిష్యత్తును నిర్ణయిస్తాయి.", "tags": [{"t": "TCS / Infosys", "c": "tag-b"}, {"t": "Amazon / Google", "c": "tag-g"}, {"t": "కోర్ ఇంజనీరింగ్", "c": "tag-o"}], "salary": "₹3.5–7 LPA (సర్వీస్) | ₹12–60 LPA (ప్రొడక్ట్ కంపెనీ)", "pct": 40}, {"yr": "సంవత్సరం 8–10", "dot": "#a78bfa", "border": "#a78bfa", "label": "#a78bfa", "title": "సీనియర్ ఇంజనీర్ / టెక్ లీడ్", "desc": "3–4 సంవత్సరాల అనుభవం మిమ్మల్ని సీనియర్ ఇంజనీర్‌గా చేస్తుంది. AI/ML, క్లౌడ్, సైబర్ సెక్యూరిటీ లేదా డేటా సైన్స్‌లో నైపుణ్యం సాధించండి. మీ జీతం రెట్టింపు/ముడుంతలు చేయడానికి కంపెనీలను మారండి.", "tags": [{"t": "సీనియర్ ఇంజనీర్", "c": "tag-p"}, {"t": "టీమ్ లీడ్", "c": "tag-b"}, {"t": "కంపెనీ మార్పు +శాలరీ", "c": "tag-g"}], "salary": "₹12–35 LPA (భారతదేశం) | ₹60 లక్షలు–₹1.5 కోట్లు (విదేశాలు / రిమోట్)", "pct": 65}, {"yr": "సంవత్సరం 12–15+", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "టెక్ లీడ్ / మేనేజర్ / స్టార్టప్ వ్యవస్థాపకుడు", "desc": "8-10 సంవత్సరాల అనుభవంతో: ఇంజనీరింగ్ మేనేజర్, ప్రిన్సిపల్ ఇంజనీర్ లేదా స్టార్టప్ వ్యవస్థాపకుడు. IIT విద్యార్థులు తరచుగా కోట్ల నిధులను సేకరిస్తారు. టెక్నాలజీలో ఎదుగుదలకు పరిమితులు లేవు.", "tags": [{"t": "టెక్ లీడ్", "c": "tag-p"}, {"t": "స్టార్టప్ ఫౌండర్", "c": "tag-o"}, {"t": "ఇంజనీరింగ్ మేనేజర్", "c": "tag-b"}], "salary": "₹30–₹80 LPA (భారతదేశం) | ₹1–₹3 కోట్లు/సంవత్సరం (విదేశాలు / స్టార్టప్)", "pct": 92}], "branches": [{"color": "#3b82f6", "title": "💻 CS స్పెషలైజేషన్స్", "items": ["కృత్రిమ మేధస్సు & మెషిన్ లెర్నింగ్", "ఫుల్ స్టాక్ వెబ్ డెవలప్‌మెంట్", "డేటా సైన్స్ & అనలిటిక్స్", "క్లౌడ్ కంప్యూటింగ్ (AWS / Azure)", "సైబర్ సెక్యూరిటీ & ఎథికల్ హ్యాకింగ్"]}, {"color": "#f59e0b", "title": "🏭 కోర్ ఇంజనీరింగ్", "items": ["మెకానికల్ → ఆటోమొబైల్ / ISRO", "సివిల్ → ఇన్ఫ్రాస్ట్రక్చర్ / PWD", "EEE → NTPC / పవర్ సెక్టార్", "ECE → VLSI / ఎంబెడెడ్ సిస్టమ్స్"]}, {"color": "#8b5cf6", "title": "🎓 ఉన్నత విద్య", "items": ["GATE → IIT / NIT లలో M.Tech", "GRE → USA లో MS (₹60 లక్షల+ జీతం)", "CAT → IIM నుండి MBA", "JRF → పిహెచ్‌డి & రీసెర్చ్ కెరీర్"]}, {"color": "#10b981", "title": "🏛️ ప్రభుత్వం / రక్షణ", "items": ["ISRO / DRDO సైంటిస్ట్ B", "ఇండియన్ ఇంజనీరింగ్ సర్వీసెస్ (UPSC)", "NDA → డిఫెన్స్ ఆఫీసర్", "PSU: BHEL / NTPC / ONGC"]}]}, "bipc": {"icon": "🧬", "title": "ఇంటర్మీడియట్ BiPC", "color": "#065f46", "color2": "#34d399", "tag": "2 సం. BiPC → NEET → MBBS → Doctor → ₹6L to ₹2Cr+", "timeline": [{"yr": "ప్రస్తుతం → సంవత్సరం 1–2", "dot": "#fb923c", "border": "#fb923c", "label": "#fb923c", "title": "ఇంటర్మీడియట్ BiPC — 11వ & 12వ తరగతి", "desc": "జీవశాస్త్రం, భౌతికశాస్త్రం, రసాయనశాస్త్రం చదవండి. మొదటి రోజు నుంచే NEET ప్రిపరేషన్ ప్రారంభించండి — టాపర్స్ కన్సిస్టెంట్‌గా ముందు నుంచే ప్రిపేర్ అవుతారు.", "tags": [{"t": "NEET ప్రిపరేషన్", "c": "tag-g"}, {"t": "బయాలజీ ఫోకస్", "c": "tag-b"}, {"t": "బోర్డు పరీక్షలు", "c": "tag-o"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 2 ముగింపు — NEET", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "NEET UG — మెడికల్‌కు ఏకైక ప్రవేశ ద్వారం", "desc": "NEET స్కోరే మీ భవిష్యత్తును నిర్ణయిస్తుంది. ఉచిత ప్రభుత్వ MBBS సీటు కోసం 600+ మార్కులు కావాలి. ప్రైవేట్ కి 400-550 అవసరం. ఇది BDS, BAMS, బి.ఫార్మసీ, బి.ఎస్సీ నర్సింగ్ కూడా తెరుస్తుంది.", "tags": [{"t": "NEET UG", "c": "tag-g"}, {"t": "600+ = Govt సీటు", "c": "tag-o"}, {"t": "720 గరిష్ట మార్కులు", "c": "tag-b"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 3–7", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "MBBS — 5.5 సంవత్సరాల విద్యా కోర్సు", "desc": "అనాటమీ, ఫిజియాలజీ, మెడిసిన్, సర్జరీ చదవండి. 1 సంవత్సరం పాటు అన్ని విభాగాలలో ఇంటర్న్‌షిప్ ఉంటుంది. ప్రభుత్వ వైద్య కళాశాల ఫీజు: ₹10,000–₹50,000/సంవత్సరం.", "tags": [{"t": "మెడిసిన్", "c": "tag-g"}, {"t": "సర్జరీ", "c": "tag-b"}, {"t": "1 సం. ఇంటర్న్‌షిప్", "c": "tag-o"}], "salary": "ఇంటర్న్‌షిప్ స్టైపెండ్: ₹15,000 – ₹40,000/నెల", "pct": 20}, {"yr": "సంవత్సరం 8 — మీరు డాక్టర్!", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "MBBS డాక్టర్ — లైసెన్స్ పొందిన జనరల్ ఫిజీషియన్", "desc": "మీరు ఇప్పుడు అధికారికంగా డాక్టర్! ప్రభుత్వ ఆసుపత్రి, ప్రైవేట్ క్లినిక్ లేదా సొంత ప్రాక్టీస్ ప్రారంభించండి. రూరల్ ఏరియాల్లో పిహెచ్‌సి ప్రభుత్వ వైద్యులకు చాలా గౌరవం ఉంటుంది.", "tags": [{"t": "ప్రభుత్వ ఆసుపత్రి", "c": "tag-b"}, {"t": "ప్రైవేట్ క్లినిక్", "c": "tag-g"}, {"t": "సొంత ప్రాక్టీస్", "c": "tag-o"}], "salary": "ప్రభుత్వ డాక్టర్: ₹60,000 – ₹1.2L/నెల | ప్రైవేట్: ₹8–20 LPA", "pct": 50}, {"yr": "సంవత్సరం 9–11", "dot": "#a78bfa", "border": "#a78bfa", "label": "#a78bfa", "title": "MD / MS — పిజి స్పెషలైజేషన్", "desc": "NEET PG ద్వారా కార్డియాలజీ, డెర్మటాలజీ, రేడియాలజీ, ఆర్థోపెడిక్స్ వంటి స్పెషలైజేషన్ చేయండి. ప్రభుత్వ కళాశాలలో పీజీ చేయడం అత్యున్నత కెరీర్ మార్గం.", "tags": [{"t": "NEET PG", "c": "tag-p"}, {"t": "MD / MS", "c": "tag-b"}, {"t": "స్పెషలైజేషన్", "c": "tag-g"}], "salary": "పీజీ స్టైపెండ్: ₹40,000 – ₹1 లక్ష/నెల", "pct": 60}, {"yr": "సంవత్సరం 12+", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "స్పెషలిస్ట్ డాక్టర్ — అగ్రశ్రేణి సంపాదన", "desc": "కార్డియాలజిస్టులు, న్యూరో సర్జన్లు, ప్లాస్టిక్ సర్జన్లు, డెర్మటాలజిస్టులు భారతదేశంలోనే కాకుండా ప్రపంచంలోనే అత్యధిక ప్రజాదరణ మరియు సంపాదన కలిగినవారు.", "tags": [{"t": "కార్డియాలజిస్ట్", "c": "tag-p"}, {"t": "న్యూరో సర్జన్", "c": "tag-b"}, {"t": "డెర్మటాలజిస్ట్", "c": "tag-g"}], "salary": "సీనియర్ స్పెషలిస్టులకు ₹30 LPA నుండి ₹2–5 కోట్లు/సంవత్సరం", "pct": 97}], "branches": [{"color": "#10b981", "title": "🦷 ఇతర మెడికల్ మార్గాలు", "items": ["BDS — డెంటిస్ట్ (5.5 సం.)", "B.Pharmacy → M.Pharmacy", "B.Sc నర్సింగ్ → విదేశాల్లో అధిక డిమాండ్", "ఫిజియోథెరపీ (BPT 4.5 సం.)"]}, {"color": "#3b82f6", "title": "🌍 విదేశీ ప్రాక్టీస్", "items": ["USMLE → USA ప్రాక్టీస్ (₹1-3 కోట్లు/సం.)", "PLAB → UK ప్రాక్టీస్", "AMC → ఆస్ట్రేలియా ప్రాక్టీస్", "DHA → దుబాయ్ / గల్ఫ్ ప్రాక్టీస్"]}, {"color": "#8b5cf6", "title": "🔬 రీసెర్చ్ రంగాలు", "items": ["మెడికల్ సైన్సెస్‌లో పిహెచ్‌డి", "ICMR రీసెర్చ్ ఫెలోషిప్", "మెడికల్ కాలేజీలో ప్రొఫెసర్", "ఫార్మా / బయోటెక్ రీసెర్చ్"]}, {"color": "#f59e0b", "title": "🏥 హాస్పిటల్ బిజినెస్", "items": ["సొంత క్లినిక్ / హాస్పిటల్ స్థాపన", "MBA హాస్పిటల్ అడ్మినిస్ట్రేషన్", "కార్పొరేట్ హాస్పిటల్ లీడర్‌షిప్", "టెలిమెడిసిన్ స్టార్టప్"]}]}, "mec": {"icon": "📊", "title": "ఇంటర్మీడియట్ MEC", "color": "#c2410c", "color2": "#fb923c", "tag": "2 సం. MEC → B.Com / CA → ఫైనాన్స్ లీడర్ → ₹7L to ₹1Cr+", "timeline": [{"yr": "ప్రస్తుతం → సంవత్సరం 1–2", "dot": "#fb923c", "border": "#fb923c", "label": "#fb923c", "title": "ఇంటర్మీడియట్ MEC — 11వ & 12వ తరగతి", "desc": "గణితం, అర్థశాస్త్రం, వాణిజ్యశాస్త్రం. బ్యాంకింగ్, CA, బిజినెస్‌లకు ఉత్తమ పునాది. ఇంటర్ నుంచే CA ఫౌండేషన్ ప్రిపరేషన్ ప్రారంభించవచ్చు.", "tags": [{"t": "CA ఫౌండేషన్", "c": "tag-o"}, {"t": "బ్యాంకింగ్ ప్రేప్", "c": "tag-b"}, {"t": "ఎకనామిక్స్", "c": "tag-g"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 3–6", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "B.Com + CA ఆర్టికల్ షిప్", "desc": "B.Com తో పాటు CA ఇంటర్మీడియట్ మరియు 3 సంవత్సరాల ఆర్టికల్‌షిప్ (ట్రైనింగ్) పూర్తి చేయడం ద్వారా బలమైన పునాది ఏర్పడుతుంది.", "tags": [{"t": "B.Com డిగ్రీ", "c": "tag-g"}, {"t": "CA ఇంటర్", "c": "tag-o"}, {"t": "ఆర్టికల్‌షిప్", "c": "tag-b"}], "salary": "ఆర్టికల్‌షిప్ స్టైపెండ్: ₹10,000 – ₹25,000/నెల", "pct": 20}, {"yr": "సంవత్సరం 6–8", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "క్వాలిఫైడ్ CA / బ్యాంక్ PO / MBA", "desc": "CA అనేది భారతదేశపు అత్యున్నత ఫైనాన్స్ అర్హత. బ్యాంక్ పిఓ భద్రత గల ఉద్యోగం. CAT రాసి ఐఐఎంలో ఎంబీఏ చేయడం మరో గొప్ప మార్గం.", "tags": [{"t": "క్వాలిఫైడ్ CA", "c": "tag-b"}, {"t": "బ్యాంక్ PO", "c": "tag-g"}, {"t": "IIM MBA", "c": "tag-p"}], "salary": "CA ఫ్రెషర్: ₹7–15 LPA | బ్యాంక్ PO: ₹8–12 LPA | MBA IIM: ₹15–50 LPA", "pct": 60}, {"yr": "సంవత్సరం 10+", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "CA పార్ట్‌నర్ / CFO / బిజినెస్ లీడర్", "desc": "సీనియర్ సిఎలు ప్రముఖ సంస్థలకు సిఎఫ్ఓ (CFO) లుగా లేదా సొంత ఆడిటింగ్ సంస్థల యజమానులుగా ఎదుగుతారు.", "tags": [{"t": "CA పార్ట్‌నర్", "c": "tag-p"}, {"t": "CFO", "c": "tag-b"}, {"t": "బిజినెస్ హెడ్", "c": "tag-o"}], "salary": "CA పార్ట్‌నర్: ₹25L–₹2Cr | CFO: ₹30L–₹1Cr | సొంత ఫర్మ్: అపరిమితం", "pct": 90}], "branches": [{"color": "#f59e0b", "title": "📈 CA / అకౌంట్స్", "items": ["CA (ICAI) — గోల్డ్ స్టాండర్డ్", "CMA — కాస్ట్ అకౌంటెంట్", "CS — కంపెనీ సెక్రటరీ", "ACCA — ఇంటర్నేషనల్ ఫైనాన్స్"]}, {"color": "#3b82f6", "title": "🏦 బ్యాంకింగ్ & ఫైనాన్స్", "items": ["IBPS PO / క్లర్క్", "SBI PO (ప్రతిష్టాత్మకమైనది)", "RBI గ్రేడ్ B ఆఫీసర్", "SEBI / NABARD ఉద్యోగాలు"]}, {"color": "#8b5cf6", "title": "📊 MBA మార్గం", "items": ["CAT → IIM MBA", "MAT / XAT ప్రవేశాలు", "MBA ఫైనాన్స్ / మార్కెటింగ్", "విదేశీ MBA ప్రవేశాలు"]}, {"color": "#ef4444", "title": "🏛️ ప్రభుత్వ కామర్స్ ఉద్యోగాలు", "items": ["ఇన్‌కమ్ టాక్స్ ఆఫీసర్ (SSC CGL)", "ఆడిట్ ఆఫీసర్ (CAG)", "APPSC గ్రూప్ II కామర్స్ పోస్టులు", "రాష్ట్ర ట్రెజరీ ఉద్యోగాలు"]}]}, "cec": {"icon": "📚", "title": "ఇంటర్మీడియట్ CEC", "color": "#0e7490", "color2": "#22d3ee", "tag": "2 సం. CEC → BA / LLB → IAS / లాయర్ → ఉన్నత హోదా కలిగిన కెరీర్", "timeline": [{"yr": "ప్రస్తుతం → సంవత్సరం 1–2", "dot": "#fb923c", "border": "#fb923c", "label": "#fb923c", "title": "ఇంటర్మీడియట్ CEC — 11వ & 12వ తరగతి", "desc": "పౌరశాస్త్రం, అర్థశాస్త్రం, వాణిజ్యశాస్త్రం. సివిల్ సర్వీసెస్ (IAS/IPS), లా మరియు సోషల్ సైన్సెస్‌కు అద్భుతమైన మార్గం. దినపత్రికలను చదవడం అలవాటు చేసుకోండి.", "tags": [{"t": "సివిల్ సర్వీసెస్", "c": "tag-o"}, {"t": "లా / LLB ప్రిపరేషన్", "c": "tag-b"}, {"t": "ఎకనామిక్స్", "c": "tag-g"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 3–5", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "BA / B.Com / 5-సంవత్సరాల ఇంటిగ్రేటెడ్ LLB", "desc": "UPSC కి ఉపయోగపడే ఆర్ట్స్ సబ్జెక్టులతో డిగ్రీ చేయండి లేదా లా కెరీర్ కోసం 5 సంవత్సరాల ఇంటిగ్రేటెడ్ LLB ఎంచుకోండి.", "tags": [{"t": "BA డిగ్రీ", "c": "tag-g"}, {"t": "5-సంవత్సరాల LLB", "c": "tag-b"}, {"t": "B.Com", "c": "tag-p"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 5–8", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "సివిల్ సర్వీసెస్ / న్యాయవాద వృత్తి / టీచింగ్", "desc": "UPSC (IAS/IPS), APPSC కి ప్రిపేర్ అవ్వండి. లేదా కోర్టులలో ప్రాక్టీస్ ప్రారంభించండి. ఈ రంగాలు సమాజంలో ఎంతో గౌరవం తెస్తాయి.", "tags": [{"t": "IAS / IPS", "c": "tag-b"}, {"t": "న్యాయవాది", "c": "tag-p"}, {"t": "బ్యాంక్ PO", "c": "tag-g"}], "salary": "IAS ఆఫీసర్: ₹56,100+/నెల | న్యాయవాది ప్రారంభం: ₹3–10 LPA", "pct": 50}, {"yr": "సంవత్సరం 10+", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "డిస్ట్రిక్ట్ కలెక్టర్ / సీనియర్ అడ్వకేట్", "desc": "IAS అధికారులు కలెక్టర్‌లుగా సమాజంలో అత్యంత బాధ్యతాయుతమైన పదవులను అలంకరిస్తారు. సీనియర్ అడ్వకేట్లు అత్యధిక ఆదాయాన్ని ఆర్జిస్తారు.", "tags": [{"t": "డిస్ట్రిక్ట్ కలెక్టర్", "c": "tag-p"}, {"t": "సీనియర్ అడ్వకేట్", "c": "tag-b"}, {"t": "రాజకీయ లీడర్", "c": "tag-o"}], "salary": "IAS సెక్రటరీ: ₹2.5L+/నెల | సీనియర్ అడ్వకేట్: ₹1–5 కోట్లు/సంవత్సరం", "pct": 95}], "branches": [{"color": "#06b6d4", "title": "🏛️ సివిల్ సర్వీసెస్", "items": ["UPSC CSE → IAS / IPS / IFS", "APPSC గ్రూప్ I → రాష్ట్ర సర్వీసులు", "APPSC గ్రూప్ II → మండల రెవెన్యూ అధికారి", "SSC CGL → కేంద్ర ప్రభుత్వ అధికారులు"]}, {"color": "#8b5cf6", "title": "⚖️ న్యాయవాద వృత్తి", "items": ["5 సం. BA LLB (ఇంటిగ్రేటెడ్)", "డిస్ట్రిక్ట్ / హైకోర్టు ప్రాక్టీస్", "ప్రభుత్వ ప్లీడర్ (PP)", "కార్పొరేట్ లాయర్ — అధిక జీతం"]}, {"color": "#f97316", "title": "📰 జర్నలిజం & మీడియా", "items": ["మాస్ కమ్యూనికేషన్ డిగ్రీ", "డిజిటల్ జర్నలిస్ట్ / రిపోర్టర్", "న్యూస్ యాంకర్ / కంటెంట్ రైటర్", "సోషల్ మీడియా & యూట్యూబ్ కెరీర్"]}, {"color": "#10b981", "title": "🎓 బోధన & పరిశోధన", "items": ["TET రాసి ప్రభుత్వ ఉపాధ్యాయులు", "M.Sc/MA తర్వాత PGT ఉద్యోగాలు", "UGC NET → డిగ్రీ కాలేజీ లెక్చరర్", "పిహెచ్‌డి → ప్రొఫెసర్"]}]}, "poly": {"icon": "⚙️", "title": "పాలిటెక్నిక్ డిప్లొమా", "color": "#92400e", "color2": "#fbbf24", "tag": "3 సం. డిప్లొమా → ఉద్యోగం లేదా నేరుగా బి.టెక్ → ఇంజనీర్ → ₹1.5L to ₹20L+", "timeline": [{"yr": "ప్రస్తుతం → సంవత్సరం 1–3", "dot": "#fb923c", "border": "#fb923c", "label": "#fb923c", "title": "పాలిటెక్నిక్ డిప్లొమా — 3 సంవత్సరాలు", "desc": "సివిల్, మెకానికల్, ఎలక్ట్రికల్, సిఎస్, ఎలక్ట్రానిక్స్ లలో ప్రాక్టికల్ ఇంజనీరింగ్. కేవలం థియరీ కాకుండా హ్యాండ్స్-ఆన్ ప్రాక్టీస్ ఉంటుంది.", "tags": [{"t": "సివిల్ ఇంజనీరింగ్", "c": "tag-o"}, {"t": "మెకానికల్", "c": "tag-b"}, {"t": "CS / IT", "c": "tag-g"}, {"t": "ఎలక్ట్రికల్", "c": "tag-p"}], "salary": "", "pct": 0}, {"yr": "డిప్లొమా తర్వాత — మార్గం A", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "నేరుగా ఉద్యోగం — టెక్నీషియన్ / జూనియర్ ఇంజనీర్", "desc": "డిప్లొమా హోల్డర్లకు పరిశ్రమల్లో చాలా డిమాండ్ ఉంటుంది. రైల్వేలు, ప్రభుత్వ శాఖలు లేదా సొంత సర్వీసింగ్ షాప్ ప్రారంభించవచ్చు.", "tags": [{"t": "జూనియర్ ఇంజనీర్", "c": "tag-g"}, {"t": "టెక్నీషియన్", "c": "tag-b"}, {"t": "సూపర్‌వైజర్", "c": "tag-o"}], "salary": "ప్రారంభ వేతనం: ₹1.5 – ₹3.5 LPA", "pct": 25}, {"yr": "డిప్లొమా తర్వాత — మార్గం B (ఉత్తమం!)", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "ECET ద్వారా బి.టెక్ 2వ సంవత్సరంలోకి ప్రవేశం", "desc": "డిప్లొమా యొక్క అతిపెద్ద ప్రయోజనం — బి.టెక్ మొదటి సంవత్సరం చదవక్కర్లేదు! ECET రాసి నేరుగా రెండో సంవత్సరంలో జాయిన్ అవ్వచ్చు.", "tags": [{"t": "ECET పరీక్ష", "c": "tag-b"}, {"t": "బి.టెక్ 2వ సంవత్సరం", "c": "tag-g"}, {"t": "1 సంవత్సరం ఆదా", "c": "tag-o"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 5–7 (బి.టెక్ ద్వారా)", "dot": "#a78bfa", "border": "#a78bfa", "label": "#a78bfa", "title": "బి.టెక్ గ్రాడ్యుయేట్ — డబుల్ క్వాలిఫైడ్!", "desc": "మీకు ఇప్పుడు డిప్లొమా మరియు బి.టెక్ రెండూ ఉన్నాయి. దీనివల్ల ప్రాక్టికల్ నైపుణ్యాలు మరియు థియరీ రెండూ ఉన్నందున ఉద్యోగకర్తలు ఎక్కువ ప్రాధాన్యత ఇస్తారు.", "tags": [{"t": "బి.టెక్ డిగ్రీ", "c": "tag-p"}, {"t": "ప్రాక్టికల్ స్కిల్స్", "c": "tag-g"}, {"t": "ఉన్నత విలువ", "c": "tag-b"}], "salary": "₹3–8 LPA (బి.టెక్ ఫ్రెషర్)", "pct": 40}, {"yr": "సంవత్సరం 10+", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "సీనియర్ ఇంజనీర్ / ప్రాజెక్ట్ మేనేజర్ / వ్యాపారవేత్త", "desc": "అనుభవంతో సివిల్ కన్స్ట్రక్షన్ లేదా ఎలక్ట్రికల్ కాంట్రాక్టింగ్ రంగంలో సొంత వ్యాపారం ప్రారంభించి కోట్ల రూపాయలు సంపాదించవచ్చు.", "tags": [{"t": "ప్రాజెక్ట్ మేనేజర్", "c": "tag-p"}, {"t": "బిజినెస్ ఓనర్", "c": "tag-o"}, {"t": "కాంట్రాక్టర్", "c": "tag-b"}], "salary": "₹6–20 LPA (ఉద్యోగం) | ₹10L – ₹1Cr+ (సొంత వ్యాపారం)", "pct": 72}], "branches": [{"color": "#ef4444", "title": "🏛️ ప్రభుత్వ ఉద్యోగాలు", "items": ["AP ప్రభుత్వ జూనియర్ ఇంజనీర్", "రైల్వే టెక్నీషియన్ (RRB)", "DRDO / ISRO టెక్నీషియన్", "రాష్ట్ర విద్యుత్ బోర్డు ఉద్యోగాలు"]}, {"color": "#f59e0b", "title": "🔧 అప్రెంటిస్‌షిప్", "items": ["NAPS అప్రెంటిస్‌షిప్ పథకం", "BHEL / NTPC అప్రెంటిస్", "స్టైపెండ్: ₹8,000–₹14,000/నెల", "డైరెక్ట్ రిక్రూట్‌మెంట్ అవకాశాలు"]}, {"color": "#10b981", "title": "🌍 గల్ఫ్ & విదేశాలు", "items": ["UAE / ఖతార్ / సౌదీ - భారీ డిమాండ్", "వీసా & వసతి ఉచితం", "ఇంజనీర్లకు ₹15–₹40 LPA జీతం", "భారతదేశం కంటే ఎక్కువ వేతనం"]}, {"color": "#8b5cf6", "title": "💼 స్వయం ఉపాధి", "items": ["ఎలక్ట్రికల్ / సివిల్ కాంట్రాక్టింగ్", "AC సర్వీసింగ్ మరియు రిపేర్ షాప్", "వెల్డింగ్ / ఫ్యాబ్రికేషన్ యూనిట్", "సోలార్ ఇన్స్టాలేషన్ బిజినెస్"]}]}, "iti": {"icon": "🔧", "title": "ITI కోర్సులు", "color": "#7f1d1d", "color2": "#f87171", "tag": "1–2 సం. ITI → అప్రెంటిస్‌షిప్ → స్కిల్డ్ జాబ్ → గల్ఫ్ → ₹1.2L to ₹30L+", "timeline": [{"yr": "ప్రస్తుతం → సంవత్సరం 1–2", "dot": "#fb923c", "border": "#fb923c", "label": "#fb923c", "title": "ITI ట్రేడ్ కోర్సు", "desc": "ఎలక్ట్రీషియన్, ఫిట్టర్, వెల్డర్, ప్లంబర్, COPA (కంప్యూటర్), డీజిల్ మెకానిక్ వంటి ప్రాక్టికల్ కోర్సులను ఎంచుకోండి. చదవడం కంటే చేతులతో నేర్చుకోవడమే ముఖ్యం.", "tags": [{"t": "ఎలక్ట్రీషియన్", "c": "tag-o"}, {"t": "వెల్డర్", "c": "tag-b"}, {"t": "COPA / కంప్యూటర్", "c": "tag-g"}, {"t": "ఫిట్టర్", "c": "tag-p"}], "salary": "", "pct": 0}, {"yr": "ITI తర్వాత", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "NCVT సర్టిఫికేట్ + నేషనల్ అప్రెంటిస్‌షిప్", "desc": "NCVT సర్టిఫికేట్ పొందండి. NAPS కింద 1 సంవత్సరం అప్రెంటిస్‌షిప్ చేయండి. దీనివల్ల ప్రైవేట్ మరియు ప్రభుత్వ రంగాలు మిమ్మల్ని నేరుగా తీసుకుంటాయి.", "tags": [{"t": "NCVT సర్టిఫికేట్", "c": "tag-g"}, {"t": "NAPS అప్రెంటిస్‌షిప్", "c": "tag-b"}, {"t": "ప్రభుత్వ స్టైపెండ్", "c": "tag-o"}], "salary": "అప్రెంటిస్‌షిప్ స్టైపెండ్: ₹7,000 – ₹12,000/నెల", "pct": 15}, {"yr": "సంవత్సరం 2–4", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "స్కిల్డ్ వర్కర్ — ఇండస్ట్రీ ఉద్యోగం", "desc": "మెనూఫ్యాక్చరింగ్ ప్లాంట్లు, విద్యుత్ కేంద్రాలు, ఆటోమొబైల్ సంస్థలలో సర్టిఫైడ్ స్కిల్డ్ వర్కర్‌గా చేరండి. నైపుణ్యానికి ఎల్లప్పుడూ డిమాండ్ ఉంటుంది.", "tags": [{"t": "ఉత్పాదక రంగం", "c": "tag-b"}, {"t": "రైల్వేలు", "c": "tag-g"}, {"t": "నిర్మాణ రంగం", "c": "tag-o"}], "salary": "ప్రారంభం: ₹1.2 – ₹2.5 LPA", "pct": 20}, {"yr": "సంవత్సరం 5–8", "dot": "#a78bfa", "border": "#a78bfa", "label": "#a78bfa", "title": "సూపర్‌వైజర్ + గల్ఫ్ అవకాశాలు", "desc": "3-5 సంవత్సరాల అనుభవంతో సూపర్‌వైజర్ అవ్వండి. ఇదే సమయంలో గల్ఫ్ దేశాలకు దరఖాస్తు చేసుకోవడం ద్వారా విపరీతమైన జీతాలు పొందవచ్చు.", "tags": [{"t": "సూపర్‌వైజర్", "c": "tag-p"}, {"t": "గల్ఫ్ ఉద్యోగాలు", "c": "tag-o"}, {"t": "ఫోర్‌మన్", "c": "tag-b"}], "salary": "భారతదేశం: ₹2.5–5 LPA | గల్ఫ్ దేశాలు: ₹8–18 LPA", "pct": 50}, {"yr": "సంవత్సరం 10+", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "మాస్టర్ ట్రేడ్స్‌మన్ / సొంత బిజినెస్", "desc": "స్వయంగా ఎలక్ట్రికల్ లేదా వెల్డింగ్ కాంట్రాక్ట్ ఏజెన్సీని ప్రారంభించండి. గల్ఫ్ సేవింగ్స్‌తో సొంత బిజినెస్ పెట్టి సెటిల్ అవ్వొచ్చు.", "tags": [{"t": "మాస్టర్ ట్రేడ్స్‌మన్", "c": "tag-p"}, {"t": "కాంట్రాక్టర్", "c": "tag-o"}, {"t": "బిజినెస్ ఓనర్", "c": "tag-g"}], "salary": "భారతదేశం: ₹5–12 LPA | గల్ఫ్ నిపుణుడు: ₹15–30 LPA | సొంత బిజినెస్: అపరిమితం", "pct": 75}], "branches": [{"color": "#ef4444", "title": "🏛️ ప్రభుత్వ ఉద్యోగాలు", "items": ["రైల్వే గ్రూప్ D / టెక్నీషియన్", "ఇండియన్ ఆర్మీ సోల్జర్ టెక్", "DRDO మల్టీ టాస్కింగ్ స్టాఫ్", "రాష్ట్ర ట్రాన్స్‌కో / డిస్కమ్ లైన్‌మెన్"]}, {"color": "#10b981", "title": "🌍 గల్ఫ్ దేశాలు", "items": ["UAE / ఖతార్ / సౌదీ - విపరీతమైన డిమాండ్", "వీసా మరియు వసతి యజమానే భరిస్తాడు", "ఎలక్ట్రీషియన్లు: ₹12–20 LPA equiv.", "వెల్డర్లు: ₹15–25 LPA in Gulf"]}, {"color": "#8b5cf6", "title": "📚 ఉన్నత విద్య", "items": ["ITI తర్వాత పాలిటెక్నిక్ డిప్లొమా", "డిప్లొమా ద్వారా బి.టెక్ లాటరల్ ఎంట్రీ", "క్రాఫ్ట్ ఇన్‌స్ట్రక్టర్ సర్టిఫికేట్ (CITS)", "హయ్యర్ ఐటిఐ ట్రేడ్ కోర్సులు"]}, {"color": "#f59e0b", "title": "💼 స్వయం ఉపాధి", "items": ["ఎలక్ట్రికల్ వైరింగ్ కాంట్రాక్టర్", "ఏసీ సర్వీస్ మరియు రిపేర్ షాప్", "వెల్డింగ్ ఫ్యాబ్రికేషన్ యూనిట్", "ప్లంబింగ్ కాంట్రాక్టింగ్"]}]}, "voc": {"icon": "💻", "title": "వొకేషనల్ కోర్సులు", "color": "#4c1d95", "color2": "#a78bfa", "tag": "6 నెలలు–2 సం. వొకేషనల్ → జాబ్ / ఫ్రీలాన్సింగ్ → ₹8K/నెల నుండి ₹50L+", "timeline": [{"yr": "ప్రస్తుతం → 6 నెలలు - 2 సం.", "dot": "#fb923c", "border": "#fb923c", "label": "#fb923c", "title": "మీ వొకేషనల్ రంగాన్ని ఎంచుకోండి", "desc": "కంప్యూటర్ అప్లికేషన్స్, డిజిటల్ మార్కెటింగ్, హెల్త్‌కేర్, బ్యూటీ & వెల్‌నెస్, ఫోటోగ్రఫీ, ఆటో రిపేర్ వంటి ఎన్నో ఉచిత కోర్సులు ప్రభుత్వం అందిస్తోంది.", "tags": [{"t": "కంప్యూటర్", "c": "tag-b"}, {"t": "డిజిటల్ మార్కెటింగ్", "c": "tag-o"}, {"t": "హెల్త్‌కేర్", "c": "tag-g"}, {"t": "వ్యవసాయం", "c": "tag-p"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 1", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "సర్టిఫికేట్ + మొదటి ఉద్యోగం", "desc": "కంప్యూటర్ కోర్సులు → డేటా ఎంట్రీ, ఆఫీస్ అసిస్టెంట్. డిజిటల్ మార్కెటింగ్ → సోషల్ మీడియా హ్యాండ్లింగ్. హెల్త్‌కేర్ → ల్యాబ్ అసిస్టెంట్.", "tags": [{"t": "డేటా ఎంట్రీ", "c": "tag-g"}, {"t": "ఆఫీస్ అసిస్టెంట్", "c": "tag-b"}, {"t": "సోషల్ మీడియా", "c": "tag-o"}], "salary": "ప్రారంభ వేతనం: ₹8,000 – ₹18,000/నెల", "pct": 20}, {"yr": "సంవత్సరం 2–4", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "స్కిల్డ్ ప్రొఫెషనల్ + ఉచిత ఆన్‌లైన్ సర్టిఫికేషన్లు", "desc": "గూగుల్ (అనలిటిక్స్, డిజిటల్ మార్కెటింగ్), మెటా (బ్లూప్రింట్) వంటి ఉచిత అంతర్జాతీయ సర్టిఫికేట్లు జోడించడం ద్వారా మీ జీతాన్ని పెంచుకోండి.", "tags": [{"t": "గూగుల్ సర్టిఫైడ్", "c": "tag-b"}, {"t": "మెటా బ్లూప్రింట్", "c": "tag-p"}, {"t": "హబ్‌స్పాట్", "c": "tag-g"}], "salary": "₹2–5 LPA (ఉద్యోగం) | ₹3–15 LPA (Fiverr/Upwork లో ఫ్రీలాన్సింగ్)", "pct": 35}, {"yr": "సంవత్సరం 4–8", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "సీనియర్ రోల్ / ఏజెన్సీ యజమాని / ఫ్రీలాన్సర్", "desc": "డిజిటల్ మార్కెటింగ్ లో ఏజెన్సీలు ప్రారంభించవచ్చు. ఫ్రీలాన్సర్లు విదేశీ క్లయింట్లకు రిమోట్ పనులు చేస్తూ భారీగా అర్జిస్తారు.", "tags": [{"t": "ఏజెన్సీ ఓనర్", "c": "tag-p"}, {"t": "ఫ్రీలాన్సర్", "c": "tag-o"}, {"t": "ఎంట్రప్రెన్యూర్", "c": "tag-g"}], "salary": "₹4–12 LPA (సీనియర్ జాబ్) | ₹5–50 LPA (ఫ్రీలాన్సింగ్)", "pct": 60}], "branches": [{"color": "#3b82f6", "title": "💻 కంప్యూటర్ & IT", "items": ["అకౌంట్స్ కోసం MS Office & Tally", "ప్రాథమిక వెబ్ డిజైన్", "డేటా ఎంట్రీ & ఆఫీస్ వర్క్స్", "సైబర్ కేఫ్ / కంప్యూటర్ సెంటర్ యజమాని"]}, {"color": "#8b5cf6", "title": "📱 డిజిటల్ మార్కెటింగ్", "items": ["సోషల్ మీడియా నిర్వహణ", "గూగుల్ యాడ్స్ & SEO", "యూట్యూబ్ కంటెంట్ క్రియేటర్", "Fiverr / Upwork లలో ఫ్రీలాన్సింగ్"]}, {"color": "#10b981", "title": "🌾 వ్యవసాయం", "items": ["ఆధునిక వ్యవసాయ పద్ధతులు", "గ్రీన్‌హౌస్ / పాలిహౌస్ సెటప్", "సేంద్రీయ వ్యవసాయ ధృవీకరణ", "వ్యవసాయ ఉత్పత్తుల వ్యాపారం"]}, {"color": "#ef4444", "title": "🏥 హెల్త్‌కేర్", "items": ["GNM నర్సింగ్ (3 సంవత్సరాలు)", "ANM నర్సింగ్ (2 సంవత్సరాలు)", "ఫార్మసీ అసిస్టెంట్", "మెడికల్ ల్యాబ్ టెక్నీషియన్"]}]}, "btech": {"icon": "🏗️", "title": "బి.టెక్ / బి.ఇ. ఇంజనీరింగ్", "color": "#1e3a8a", "color2": "#60a5fa", "tag": "4 సం. బి.టెక్ → ఇంజనీర్ → ₹3.5L to ₹1Cr+ (భారతదేశం) | ₹50L–₹3Cr (విదేశాలు)", "timeline": [{"yr": "ఇంటర్మీడియట్ తర్వాత", "dot": "#fb923c", "border": "#fb923c", "label": "#fb923c", "title": "ప్రవేశ పరీక్షలు — మీ సీటు పొందండి", "desc": "AP కాలేజీల కోసం AP EAMCET. దేశవ్యాప్త NITల కోసం JEE మెయిన్స్. IITల కోసం JEE అడ్వాన్స్‌డ్. మంచి ర్యాంక్ లేకపోయినా స్కిల్స్ ఉంటే గొప్ప కెరీర్ సాధించవచ్చు.", "tags": [{"t": "AP EAMCET", "c": "tag-o"}, {"t": "JEE మెయిన్స్", "c": "tag-b"}, {"t": "JEE అడ్వాన్స్‌డ్ IIT", "c": "tag-p"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 1–2", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "బి.టెక్ పునాది — ప్రాజెక్టులు ప్రారంభించండి", "desc": "ప్రోగ్రామింగ్, ఇంజనీరింగ్ సబ్జెక్టులు నేర్చుకోండి. మొదటి సంవత్సరం నుంచే ప్రాజెక్టులు చేయడం చాలా ముఖ్యం. GitHub ఖాతా తెరవండి. 90% మంది సమయం వృధా చేస్తారు, మీరు చేయకండి.", "tags": [{"t": "ప్రోగ్రామింగ్", "c": "tag-g"}, {"t": "GitHub ప్రొఫైల్", "c": "tag-b"}, {"t": "కోడింగ్ క్లబ్", "c": "tag-o"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 3 — అత్యంత కీలకం", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "ఇంటర్న్‌షిప్ + స్పెషలైజేషన్ + సర్టిఫికేషన్లు", "desc": "మొదటి ఇంటర్న్‌షిప్ పొందండి (అనుభవం వస్తుంది). ఒక రంగంలో నైపుణ్యం సాధించండి. ఉచిత క్లౌడ్ సర్టిఫికేషన్లు (AWS), NPTEL కోర్సులు చేయండి.", "tags": [{"t": "మొదటి ఇంటర్న్‌షిప్", "c": "tag-b"}, {"t": "AWS సర్టిఫికేట్", "c": "tag-g"}, {"t": "NPTEL కోర్సు", "c": "tag-o"}], "salary": "ఇంటర్న్‌షిప్: ₹10,000 – ₹80,000/నెల", "pct": 20}, {"yr": "సంవత్సరం 4 — ప్లేస్‌మెంట్ సీజన్", "dot": "#a78bfa", "border": "#a78bfa", "label": "#a78bfa", "title": "క్యాంపస్ ప్లేస్‌మెంట్స్ — ఉద్యోగ సాధన", "desc": "మాస్ రిక్రూటర్లు: TCS, Infosys, Wipro (₹3.5–7 LPA). డ్రీమ్ కంపెనీలు: Amazon, Microsoft, Google (₹20–60 LPA). మీ GitHub, ప్రాజెక్టులే దీనికి కారణం.", "tags": [{"t": "TCS / Wipro", "c": "tag-b"}, {"t": "Amazon / Google", "c": "tag-g"}, {"t": "స్టార్టప్‌లు", "c": "tag-o"}], "salary": "మాస్ రిక్రూటర్: ₹3.5–7 LPA | డ్రీమ్ కంపెనీ: ₹15–60 LPA", "pct": 45}, {"yr": "సంవత్సరం 5–8", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "సీనియర్ ఇంజనీర్ — వేగవంతమైన ఎదుగుదల", "desc": "3 సంవత్సరాల అనుభవం → సీనియర్ ఇంజనీర్. ప్రతి 2-3 సంవత్సరాలకు కంపెనీ మారడం ద్వారా మీ జీతాన్ని వేగంగా పెంచుకోవచ్చు (30-80% ఇంక్రిమెంట్ లభిస్తుంది).", "tags": [{"t": "సీనియర్ ఇంజనీర్", "c": "tag-p"}, {"t": "కంపెనీ మార్పు", "c": "tag-o"}, {"t": "డీప్ స్పెషలైజేషన్", "c": "tag-b"}], "salary": "₹12–40 LPA (భారతదేశం) | ₹60L–₹1.5Cr/సంవత్సరం (విదేశాలు / రిమోట్)", "pct": 72}, {"yr": "సంవత్సరం 10+", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "టెక్ లీడ్ / ఆర్కిటెక్ట్ / CTO / వ్యవస్థాపకుడు", "desc": "10 సంవత్సరాల టెక్ అనుభవంతో: టెక్ లీడ్, ప్రిన్సిపల్ ఇంజనీర్ లేదా CTO. భారతీయ ఇంజనీర్లకు ప్రపంచవ్యాప్తంగా విపరీతమైన డిమాండ్ ఉంది.", "tags": [{"t": "టెక్ లీడ్ / CTO", "c": "tag-g"}, {"t": "స్టార్టప్ ఫౌండర్", "c": "tag-o"}, {"t": "ప్రిన్సిపల్ ఇంజనీర్", "c": "tag-b"}], "salary": "₹40–80 LPA (భారతదేశం) | ₹1–3 కోట్లు/సంవత్సరం (విదేశాలు / ఈక్విటీ)", "pct": 95}], "branches": [{"color": "#3b82f6", "title": "💻 హాట్ CS స్పెషలైజేషన్స్", "items": ["కృత్రిమ మేధస్సు & ML", "ఫుల్ స్టాక్ వెబ్ డెవలప్‌మెంట్", "డేటా సైన్స్ & అనలిటిక్స్", "క్లౌడ్ కంప్యూటింగ్ (AWS/Azure/GCP)", "cybersecurity & ఎథికల్ హ్యాకింగ్", "DevOps & సైట్ రిలయబిలిటీ"]}, {"color": "#f59e0b", "title": "🏭 కోర్ ఇంజనీరింగ్", "items": ["మెకానికల్ → ISRO / ఆటోమొబైల్", "సివిల్ → స్మార్ట్ సిటీస్ / ఇన్ఫ్రాస్ట్రక్చర్", "EEE → NTPC / పవర్ గ్రిడ్", "ECE → VLSI / ఎంబెడెడ్ / టెలికాం"]}, {"color": "#8b5cf6", "title": "🎓 ఉన్నత విద్య", "items": ["GATE → IIT లలో M.Tech", "GRE → USA లో MS (₹60L+ జీతం)", "CAT → IIM లో MBA", "PhD → రీసెర్చ్ & అకాడమీ"]}, {"color": "#10b981", "title": "🚀 స్టార్టప్ రంగాలు", "items": ["టెక్ స్టార్టప్ స్థాపన", "ఫ్రీలాన్సింగ్ ద్వారా అదనపు ఆదాయం", "ఓపెన్ సోర్స్ కాంట్రిబ్యూషన్స్", "ఈక్విటీ షేర్ల కోసం స్టార్టప్‌లో చేరడం"]}]}, "mbbs": {"icon": "🏥", "title": "MBBS / మెడికల్", "color": "#065f46", "color2": "#34d399", "tag": "5.5 సం. MBBS → PG స్పెషలైజేషన్ → డాక్టర్ → ₹6L to ₹5Cr+", "timeline": [{"yr": "ఇంటర్మీడియట్ తర్వాత", "dot": "#fb923c", "border": "#fb923c", "label": "#fb923c", "title": "NEET UG — మెడికల్ కు ఏకైక ప్రవేశ ద్వారం", "desc": "ఉచిత ప్రభుత్వ సీటు కోసం 600+ మార్కులు సాధించాలి. ప్రైవేట్ కి ₹5-20L/సంవత్సరం ఖర్చవుతుంది. రోజుకు 10-14 గంటల చొప్పున కనీసం 1 సంవత్సరం సిద్ధం అవ్వాలి.", "tags": [{"t": "NEET UG", "c": "tag-g"}, {"t": "600+ ఫర్ Govt", "c": "tag-o"}, {"t": "720 గరిష్ట మార్కులు", "c": "tag-b"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 1–5.5", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "MBBS — 5.5 సంవత్సరాల చదువు + 1 సం. ఇంటర్న్‌షిప్", "desc": "వైద్యశాస్త్రంలోని అన్ని విభాగాలను చదవండి. సర్జరీ, మెడిసిన్, పీడియాట్రిక్స్ లలో రొటేషన్ ఇంటర్న్‌షిప్ ఉంటుంది. ప్రభుత్వ కళాశాల ఫీజు చాలా తక్కువగా ఉంటుంది.", "tags": [{"t": "మెడిసిన్ / సర్జరీ", "c": "tag-g"}, {"t": "అన్ని విభాగాలు", "c": "tag-b"}, {"t": "1 సం. ఇంటర్న్‌షిప్", "c": "tag-o"}], "salary": "ఇంటర్న్‌షిప్ స్టైపెండ్: ₹15,000 – ₹40,000/నెల", "pct": 15}, {"yr": "సంవత్సరం 6 — మీరు డాక్టర్!", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "MBBS డాక్టర్ — ప్రాక్టీస్ చేయడానికి అర్హత", "desc": "ప్రభుత్వ ఆసుపత్రి, కార్పొరేట్ ఆసుపత్రి లేదా మీ స్వంత క్లినిక్‌ను ప్రారంభించండి. గ్రామీణ ప్రాంతాల్లో సేవలందించడం ద్వారా మంచి పేరు, అలవెన్సులు లభిస్తాయి.", "tags": [{"t": "ప్రభుత్వ ఆసుపత్రి", "c": "tag-b"}, {"t": "ప్రైవేట్ ఆసుపత్రి", "c": "tag-g"}, {"t": "సొంత క్లినిక్", "c": "tag-o"}], "salary": "ప్రభుత్వ: ₹60,000–₹1.2L/నెల | ప్రైవేట్: ₹8–20 LPA", "pct": 50}, {"yr": "సంవత్సరం 7–9", "dot": "#a78bfa", "border": "#a78bfa", "label": "#a78bfa", "title": "MD / MS — NEET PG ద్వారా స్పెషలైజేషన్", "desc": "అత్యంత డిమాండ్ గల రేడియాలజీ, డెర్మటాలజీ, కార్డియాలజీ విభాగాల్లో 3 సంవత్సరాల పీజీని ప్రభుత్వ కళాశాలల్లో చేయడం ఉత్తమం.", "tags": [{"t": "NEET PG", "c": "tag-p"}, {"t": "MD / MS", "c": "tag-b"}, {"t": "అధిక డిమాండ్", "c": "tag-g"}], "salary": "పీజీ స్టైపెండ్: ₹40,000 – ₹1 లక్ష/నెల", "pct": 60}, {"yr": "సంవత్సరం 10+", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "స్పెషలిస్ట్ — అత్యున్నత స్థాయి గౌరవం & సంపాదన", "desc": "కార్డియాలజిస్టులు, న్యూరో సర్జన్లు, ప్లాస్టిక్ సర్జన్లు. పదేళ్ల కఠోర శ్రమ తర్వాత లభించే ఆర్థిక భద్రత, సామాజిక గౌరవం అసమానమైనవి.", "tags": [{"t": "కార్డియాలజిస్ట్", "c": "tag-p"}, {"t": "న్యూరో సర్జన్", "c": "tag-b"}, {"t": "డెర్మటాలజిస్ట్", "c": "tag-g"}], "salary": "స్థిరపడిన నిపుణులకు ₹30 LPA నుండి ₹2–5 కోట్లు/సంవత్సరం", "pct": 98}], "branches": [{"color": "#10b981", "title": "🦷 అనుబంధ వైద్య రంగాలు", "items": ["BDS — డెంటిస్ట్ (5.5 సం.)", "B.Pharmacy → M.Pharmacy", "B.Sc నర్సింగ్ → విదేశాల్లో భారీ డిమాండ్", "ఫిజియోథెరపీ (BPT 4.5 సం.)"]}, {"color": "#3b82f6", "title": "🌍 విదేశాలలో ప్రాక్టీస్", "items": ["USMLE → USA (₹1–3 కోట్లు/సం.)", "PLAB → UK ప్రాక్టీస్", "AMC → ఆస్ట్రేలియా", "DHA → దుబాయ్ / గల్ఫ్ దేశాలు"]}, {"color": "#8b5cf6", "title": "🔬 రీసెర్చ్ & అకాడెమిక్స్", "items": ["మెడికల్ సైన్సెస్‌లో పిహెచ్‌డి", "ICMR రీసెర్చ్ ఫెలోషిప్", "మెడికల్ కాలేజీలో ప్రొఫెసర్", "ఫార్మా / బయోటెక్ రీసెర్చ్"]}, {"color": "#f59e0b", "title": "🏥 హాస్పిటల్ బిజినెస్", "items": ["సొంత క్లినిక్ / హాస్పిటల్ స్థాపన", "MBA హాస్పిటల్ అడ్మినిస్ట్రేషన్", "కార్పొరేట్ హాస్పిటల్ లీడర్‌షిప్", "టెలిమెడిసిన్ స్టార్టప్"]}]}, "bsc": {"icon": "🔭", "title": "B.Sc డిగ్రీ", "color": "#5b21b6", "color2": "#a78bfa", "tag": "3 సం. B.Sc → M.Sc / ప్రభుత్వ ఉద్యోగాలు / డేటా సైన్స్ → ₹4L to ₹60L+", "timeline": [{"yr": "ఇంటర్మీడియట్ తర్వాత", "dot": "#fb923c", "border": "#fb923c", "label": "#fb923c", "title": "B.Sc ప్రవేశాలు", "desc": "మ్యాథ్స్, ఫిజిక్స్, కెమిస్ట్రీ, కంప్యూటర్ సైన్స్, బయోటెక్నాలజీ, అగ్రికల్చర్ లలో ఒక డిగ్రీని ఎంచుకోండి. ప్రభుత్వ కళాశాలల్లో తక్కువ ఖర్చుతో చదవొచ్చు.", "tags": [{"t": "మ్యాథ్స్ / ఫిజిక్స్", "c": "tag-o"}, {"t": "CS / బయోటెక్", "c": "tag-b"}, {"t": "అగ్రికల్చర్", "c": "tag-g"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 1–3", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "B.Sc + అదనపు నైపుణ్యాలు", "desc": "కేవలం డిగ్రీ చదివితే సరిపోదు. పైథాన్ కోడింగ్, డేటా అనలిటిక్స్, క్లౌడ్ ప్రాథమికాలపై ఆన్‌లైన్ సర్టిఫికేట్లు చేసుకోండి. ఇది మీ విలువను పెంచుతుంది.", "tags": [{"t": "పైథాన్ / కోడింగ్", "c": "tag-g"}, {"t": "డేటా అనలిటిక్స్", "c": "tag-b"}, {"t": "రీసెర్చ్ స్కిల్స్", "c": "tag-p"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 4–5", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "M.Sc + ప్రభుత్వ ఉద్యోగ ప్రిపరేషన్", "desc": "ప్రభుత్వ కాలేజీల్లో ఎమ్మెస్సీ చేస్తూనే APPSC గ్రూప్ II, SSC, లేదా IIT JAM (ప్రతిష్టాత్మక IIT లలో ఎమ్మెస్సీ కోసం) పరీక్షలకు సిద్ధమవ్వండి.", "tags": [{"t": "M.Sc డిగ్రీ", "c": "tag-b"}, {"t": "UGC NET", "c": "tag-p"}, {"t": "IIT JAM", "c": "tag-g"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 5–8", "dot": "#a78bfa", "border": "#a78bfa", "label": "#a78bfa", "title": "లెక్చరర్ / డేటా అనలిస్ట్ / రీసెర్చ్ ఫెలో", "desc": "UGC NET క్వాలిఫై అయి కాలేజ్ లెక్చరర్ అవ్వండి. లేదా APPSC ద్వారా ప్రభుత్వ అధికారి అవ్వండి. బి.ఎస్సీ సిఎస్ తో ఐటి రంగంలో డేటా అనలిస్ట్ అవ్వొచ్చు.", "tags": [{"t": "కాలేజ్ లెక్చరర్", "c": "tag-p"}, {"t": "డేటా అనలిస్ట్", "c": "tag-b"}, {"t": "ప్రభుత్వ ఆఫీసర్", "c": "tag-g"}], "salary": "లెక్చరర్: ₹5–12 LPA | డేటా అనలిస్ట్: ₹5–18 LPA | ప్రభుత్వ: ₹4–8 LPA", "pct": 40}, {"yr": "సంవత్సరం 8+", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "ప్రొఫెసర్ / సీనియర్ సైంటిస్ట్ / డేటా లీడర్", "desc": "పిహెచ్‌డి పూర్తి చేసి అసిస్టెంట్ ప్రొఫెసర్ అవ్వండి. లేదా డేటా సైన్స్ రంగంలో సీనియర్ డేటా సైంటిస్ట్/ML ఇంజనీర్ గా ఐటీ కంపెనీల్లో స్థిరపడండి.", "tags": [{"t": "ప్రొఫెసర్ / PhD", "c": "tag-p"}, {"t": "సీనియర్ డేటా సైంటిస్ట్", "c": "tag-b"}, {"t": "రీసెర్చ్ లీడర్", "c": "tag-g"}], "salary": "ప్రొఫెసర్: ₹8–20 LPA | సీనియర్ డేటా సైంటిస్ట్: ₹20–60 LPA", "pct": 70}], "branches": [{"color": "#8b5cf6", "title": "🔬 రీసెర్చ్ మార్గం", "items": ["CSIR-UGC NET → JRF ఫెలోషిప్", "ISRO / DRDO సైంటిస్ట్ B ఉద్యోగాలు", "ICAR రీసెర్చ్ → అగ్రికల్చర్", "DST / DBT రీసెర్చ్ ఫెలోషిప్"]}, {"color": "#10b981", "title": "🎓 ఉపాధ్యాయ మార్గం", "items": ["B.Sc తర్వాత TGT (స్కూల్ టీచర్)", "M.Sc తర్వాత PGT ఉద్యోగాలు", "UGC NET → డిగ్రీ కాలేజ్ లెక్చరర్", "PhD → యూనివర్సిటీ ప్రొఫెసర్"]}, {"color": "#3b82f6", "title": "💻 ఐటి రంగాలు (B.Sc CS)", "items": ["డేటా అనలిస్ట్ → డేటా సైంటిస్ట్", "సాఫ్ట్‌వేర్ డెవలపర్ + సర్టిఫికేట్లు", "ఐటీ కంపెనీల్లో బిజినెస్ అనలిస్ట్", "క్లౌడ్ / AWS స్పెషలిస్ట్"]}, {"color": "#ef4444", "title": "🏛️ ప్రభుత్వ ఉద్యోగాలు", "items": ["APPSC సైన్స్ ఆఫీసర్ ఉద్యోగాలు", "డ్రగ్ ఇన్‌స్పెక్టర్ (B.Sc కెమిస్ట్రీ)", "ఫారెస్ట్ రేంజ్ ఆఫీసర్ (B.Sc బయాలజీ)", "వాతావరణ శాఖ (B.Sc ఫిజిక్స్)"]}]}, "bcom": {"icon": "📊", "title": "B.Com / BBA", "color": "#78350f", "color2": "#fbbf24", "tag": "3 సం. B.Com/BBA → CA / బ్యాంకింగ్ / MBA → ఫైనాన్స్ లీడర్ → ₹7L to ₹2Cr+", "timeline": [{"yr": "ఇంటర్మీడియట్ తర్వాత", "dot": "#fb923c", "border": "#fb923c", "label": "#fb923c", "title": "B.Com లేదా BBA ప్రవేశాలు", "desc": "B.Com: అకౌంట్స్, బ్యాంకింగ్ రంగానికి శ్రేష్ఠమైనది. BBA: మేనేజ్‌మెంట్ మరియు బిజినెస్ రంగానికి శ్రేష్ఠమైనది. CA అవ్వాలనుకుంటే ఇంటర్ లోనే ప్రారంభించండి.", "tags": [{"t": "B.Com డిగ్రీ", "c": "tag-o"}, {"t": "BBA డిగ్రీ", "c": "tag-b"}, {"t": "CA ఫౌండేషన్", "c": "tag-g"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 1–3", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "డిగ్రీ + CA / బ్యాంకింగ్ ప్రిపరేషన్", "desc": "డిగ్రీ చేస్తూనే సిఎ ఇంటర్ రాయండి మరియు 3 ఏళ్ల ప్రాక్టికల్ ట్రైనింగ్ చేయండి. లేదా ఐబిపిఎస్/ఎస్‌బిఐ బ్యాంక్ పిఓ పరీక్షలకు సిద్ధమవ్వండి. టాలీ, జీఎస్‌టీ, ఎక్సెల్ నేర్చుకోండి.", "tags": [{"t": "CA ఆర్టికల్‌షిప్", "c": "tag-g"}, {"t": "IBPS ప్రిపరేషన్", "c": "tag-b"}, {"t": "Tally / GST స్కిల్స్", "c": "tag-o"}], "salary": "CA ఆర్టికల్‌షిప్: ₹10,000 – ₹25,000/నెల", "pct": 15}, {"yr": "సంవత్సరం 4–6", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "CA ఫైనల్ / బ్యాంక్ PO ఉద్యోగం / MBA", "desc": "సిఎ పూర్తి చేయడం అత్యంత ప్రతిష్టాత్మకం. బ్యాంక్ పిఓ మంచి ఉద్యోగ భద్రతనిస్తుంది. క్యాట్ ద్వారా ఐఐఎంలో ఎంబీఏ చేయడం అత్యున్నత జీతాన్ని తెస్తుంది.", "tags": [{"t": "క్వాలిఫైడ్ CA", "c": "tag-b"}, {"t": "బ్యాంక్ PO ఉద్యోగం", "c": "tag-g"}, {"t": "MBA IIM", "c": "tag-p"}], "salary": "CA ఫ్రెషర్: ₹7–15 LPA | బ్యాంక్ PO: ₹8–12 LPA | IIM MBA: ₹15–50 LPA", "pct": 55}, {"yr": "సంవత్సరం 8+", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "CA పార్ట్‌నర్ / CFO / కార్పొరేట్ లీడర్", "desc": "సీనియర్ సిఎలు ఆడిటింగ్ సంస్థల పార్టనర్‌గా లేదా కంపెనీల ఫైనాన్స్ హెడ్‌లుగా ఎదుగుతారు. ఎంబీఏలు వీపీలుగా వ్యవహరిస్తారు.", "tags": [{"t": "CA పార్ట్‌నర్", "c": "tag-p"}, {"t": "CFO / ఫైనాన్స్ డైరెక్టర్", "c": "tag-b"}, {"t": "బిజినెస్ హెడ్", "c": "tag-o"}], "salary": "CA పార్ట్‌నర్: ₹25L–₹2Cr | CFO: ₹30L–₹1Cr | సొంత ఫర్మ్: అపరిమితం", "pct": 90}], "branches": [{"color": "#f59e0b", "title": "📈 CA / అకౌంట్స్", "items": ["CA (ICAI) — దేశంలోనే బెస్ట్ ఫైనాన్స్ రోడ్", "CMA — కాస్ట్ మేనేజ్‌మెంట్ అకౌంటెంట్", "CS — కంపెనీ సెక్రటరీ", "ACCA — గ్లోబల్ అకౌంట్స్ సర్టిఫికేషన్"]}, {"color": "#3b82f6", "title": "🏦 బ్యాంకింగ్ రంగాలు", "items": ["IBPS PO / క్లర్క్", "SBI PO (అత్యంత ప్రతిష్టాత్మక బ్యాంక్ జాబ్)", "RBI గ్రేడ్ B ఆఫీసర్", "SEBI / NABARD / IRDA ఉద్యోగాలు"]}, {"color": "#8b5cf6", "title": "📊 MBA మార్గాలు", "items": ["CAT రాసి ఐఐఎం ప్రవేశాలు", "MAT / XAT ఇతర కాలేజీ ప్రవేశాలు", "MBA ఫైనాన్స్ / మార్కెటింగ్ / HR", "విదేశీ యూనివర్సిటీ ఎంబీఏ"]}, {"color": "#10b981", "title": "💼 వ్యాపార రంగాలు", "items": ["ట్రేడింగ్ / రిటైల్ వ్యాపారం", "టాక్స్ కన్సల్టెన్సీ ఫర్మ్ స్థాపన", "అమెజాన్ / మీషో ద్వారా ఈ-కామర్స్", "రియల్ ఎస్టేట్ ఇన్వెస్ట్‌మెంట్లు"]}]}, "govt": {"icon": "📋", "title": "ప్రభుత్వ పరీక్షలు", "color": "#7f1d1d", "color2": "#f87171", "tag": "1–3 సం. ప్రిపరేషన్ → జీవితాంతం ప్రభుత్వ ఉద్యోగ భద్రత → ₹35K to ₹2.5L/నెల + బెనిఫిట్స్", "timeline": [{"yr": "ఇంటర్మీడియట్ తర్వాత", "dot": "#fb923c", "border": "#fb923c", "label": "#fb923c", "title": "లక్ష్యాన్ని ఎంచుకోండి — ప్రిపరేషన్ ప్రారంభించండి", "desc": "సివిల్స్ కోసం UPSC (అత్యున్నత స్థాయి). గ్రూప్స్ కోసం APPSC. సెంట్రల్ ఉద్యోగాలకు SSC. త్వరగా సెటిల్ అవ్వడానికి రైల్వేలు. ఈరోజే ప్రారంభించండి.", "tags": [{"t": "UPSC", "c": "tag-o"}, {"t": "APPSC", "c": "tag-b"}, {"t": "SSC CGL", "c": "tag-g"}, {"t": "రైల్వేస్", "c": "tag-p"}], "salary": "", "pct": 0}, {"yr": "సంవత్సరం 1–3 — సీరియస్ ప్రిపరేషన్", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "కఠోర సాధన దశ", "desc": "ప్రాథమిక అంశాల కోసం 6-12 తరగతుల NCERT పుస్తకాలను చదవండి. కరెంట్ అఫైర్స్ కోసం రోజువారీ వార్తాపత్రికలను చదవండి. ప్రాక్టీస్ టెస్ట్ సిరీస్‌లు రాయండి. గ్రామీణ విద్యార్థులు ఎంతోమంది విజయం సాధిస్తున్నారు.", "tags": [{"t": "NCERT బుక్స్", "c": "tag-g"}, {"t": "కరెంట్ అఫైర్స్", "c": "tag-b"}, {"t": "మాక్ టెస్టులు", "c": "tag-o"}], "salary": "", "pct": 0}, {"yr": "ఎంపిక తర్వాత", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "శిక్షణ + మొదటి పోస్టింగ్", "desc": "IAS కి ముస్సోరీ లోని LBSNAA లో 2 ఏళ్ల ట్రైనింగ్ ఉంటుంది. IPS కి హైదరాబాద్ లోని NPA లో ట్రైనింగ్ ఉంటుంది. ఆపై దేశవ్యాప్తంగా ఆఫీసర్‌లుగా బాధ్యతలు స్వీకరిస్తారు.", "tags": [{"t": "LBSNAA ట్రైనింగ్", "c": "tag-b"}, {"t": "అకాడమీ శిక్షణ", "c": "tag-g"}, {"t": "మొదటి పోస్టింగ్", "c": "tag-o"}], "salary": "ప్రారంభ వేతనం: ₹35,000 – ₹80,000/నెల + బెనిఫిట్స్", "pct": 50}, {"yr": "సంవత్సరం 5–15", "dot": "#a78bfa", "border": "#a78bfa", "label": "#a78bfa", "title": "ప్రమోషన్స్ — హోదా పెరుగుదల", "desc": "ప్రతి 3-5 సంవత్సరాలకు ప్రమోషన్లు ఉంటాయి. IAS ఆఫీసర్లు సబ్-కలెక్టర్ నుండి డిస్ట్రిక్ట్ కలెక్టర్‌గా ఎదుగుతారు. SSC అధికారులు అసిస్టెంట్ డైరెక్టర్‌లుగా ఎదుగుతారు.", "tags": [{"t": "డిస్ట్రిక్ట్ కలెక్టర్", "c": "tag-p"}, {"t": "సబ్-కలెక్టర్", "c": "tag-b"}, {"t": "అసిస్టెంట్ డైరెక్టర్", "c": "tag-g"}], "salary": "సీనియర్ ఆఫీసర్: ₹80,000 – ₹2.5 లక్షలు/నెల + ప్రయోజనాలు", "pct": 75}, {"yr": "సంవత్సరం 20–35", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "అగ్రశ్రేణి బ్యూరోక్రాట్ + లైఫ్ టైమ్ పెన్షన్", "desc": "చీఫ్ సెక్రటరీ, DGP హోదా. ప్రభుత్వ బంగ్లా, కారు, సెక్యూరిటీ లభిస్తాయి. పదవీ విరమణ తర్వాత జీవితాంతం ఉచిత వైద్యం మరియు పెన్షన్ (చివరి జీతంలో 50% ) లభిస్తాయి.", "tags": [{"t": "చీఫ్ సెక్రటరీ", "c": "tag-p"}, {"t": "DGP", "c": "tag-b"}, {"t": "పూర్తి పెన్షన్", "c": "tag-g"}], "salary": "₹2.5 లక్షలు/నెల + అలవెన్సులు. పెన్షన్: ₹1 లక్షకు పైగా/నెల.", "pct": 95}], "branches": [{"color": "#ef4444", "title": "🏛️ UPSC — కేంద్ర సేవలు", "items": ["IAS → డిస్ట్రిక్ట్ కలెక్టర్ → సెక్రటరీ", "IPS → SP → DGP", "IFS → భారత విదేశాంగ రాయబారి", "IRS → ఆదాయపు పన్ను / కస్టమ్స్ అధికారి"]}, {"color": "#3b82f6", "title": "🌐 APPSC — రాష్ట్ర సేవలు", "items": ["గ్రూప్ I → డిప్యూటీ కలెక్టర్ / DSP", "గ్రూప్ II → మండల రెవెన్యూ అధికారి (MRO)", "గ్రూప్ III → జూనియర్ అసిస్టెంట్", "పంచాయతీ సెక్రటరీ ఉద్యోగాలు"]}, {"color": "#f59e0b", "title": "⚡ వేగవంతమైన ప్రవేశం — SSC & రైల్వే", "items": ["SSC CGL → ఇన్‌కమ్ టాక్స్ ఇన్‌స్పెక్టర్", "SSC CHSL → లోయర్ డివిజన్ క్లర్క్", "RRB NTPC → స్టేషన్ మాస్టర్", "RRB గ్రూప్ D → టెక్నీషియన్ పోస్టులు"]}, {"color": "#8b5cf6", "title": "🛡️ రక్షణ రంగాలు", "items": ["NDA → ఆర్మీ / నేవీ / ఎయిర్ ఫోర్స్ అధికారి", "AFCAT → ఎయిర్ ఫోర్స్ ఆఫీసర్", "CDS → కంబైన్డ్ డిఫెన్స్ సర్వీసెస్", "SSB ఇంటర్వ్యూ ప్రిపరేషన్ కీలకం"]}]}, "skill": {"icon": "🚀", "title": "నైపుణ్యాభివృద్ధి", "color": "#0e7490", "color2": "#22d3ee", "tag": "3–6 నెలల స్కిల్ → మొదటి ఉద్యోగం → సీనియర్ నిపుణుడు → ₹1.5L to ₹1Cr+", "timeline": [{"yr": "ఇంటర్మీడియట్ తర్వాత", "dot": "#fb923c", "border": "#fb923c", "label": "#fb923c", "title": "ఒక నిర్దిష్ట రంగాన్ని ఎంచుకుని నైపుణ్యం సాధించండి", "desc": "వెబ్ డెవలప్‌మెంట్, డేటా సైన్స్, డిజిటల్ మార్కెటింగ్, UI/UX డిజైన్, క్లౌడ్ కంప్యూటింగ్, సైబర్ సెక్యూరిటీ. ఒకదాన్నే ఎంచుకోండి, పదే పదే మారకండి.", "tags": [{"t": "వెబ్ డెవలప్‌మెంట్", "c": "tag-o"}, {"t": "డేటా సైన్స్", "c": "tag-b"}, {"t": "డిజిటల్ మార్కెటింగ్", "c": "tag-g"}, {"t": "క్లౌడ్ స్కిల్స్", "c": "tag-p"}], "salary": "", "pct": 0}, {"yr": "నెల 1–6 — అభ్యాసం", "dot": "#4ade80", "border": "#4ade80", "label": "#4ade80", "title": "తీవ్రమైన ఉచిత అభ్యాసం — 3 ప్రాజెక్టుల నిర్మాణం", "desc": "freeCodeCamp, NPTEL, YouTube ద్వారా ఉచితంగా నేర్చుకోండి. PMKVY కింద ఉచిత ప్రభుత్వ శిక్షణ పొందవచ్చు. కనీసం 3-5 ప్రాజెక్టులను నిర్మించి గిట్‌హబ్‌లో పెట్టండి.", "tags": [{"t": "freeCodeCamp", "c": "tag-g"}, {"t": "NPTEL / YouTube", "c": "tag-b"}, {"t": "3 ప్రాజెక్టులు పూర్తి", "c": "tag-o"}], "salary": "PMKVY శిక్షణ కాలంలో స్టైపెండ్: ₹5,000–₹8,000/నెల", "pct": 10}, {"yr": "నెల 6–12 — సంపాదన", "dot": "#38bdf8", "border": "#38bdf8", "label": "#38bdf8", "title": "మొదటి ఉద్యోగం / ఇంటర్న్‌షిప్ / ఫ్రీలాన్స్ ఆదాయం", "desc": "జూనియర్ డెవలపర్ లేదా అనలిస్ట్ ఉద్యోగాలకు అప్లై చేయండి. Fiverr, Upwork లలో చిన్న ప్రాజెక్టుల ద్వారా ఫ్రీలాన్సింగ్ ప్రారంభించండి. లింక్డ్‌ఇన్‌లో యాక్టివ్‌గా ఉండండి.", "tags": [{"t": "జూనియర్ డెవలపర్", "c": "tag-b"}, {"t": "Fiverr / Upwork", "c": "tag-g"}, {"t": "LinkedIn యాక్టివ్", "c": "tag-o"}], "salary": "ఫ్రీలాన్సింగ్: ₹5,000–₹50,000/నెల | జూనియర్ జాబ్: ₹1.5–4 LPA", "pct": 25}, {"yr": "సంవత్సరం 1–3 — సర్టిఫికేషన్లు", "dot": "#a78bfa", "border": "#a78bfa", "label": "#a78bfa", "title": "పరిశ్రమ గుర్తింపు పొందిన సర్టిఫికేట్లు", "desc": "AWS సర్టిఫైడ్ డెవలపర్, గూగుల్ అనలిటిక్స్, మెటా బ్లూప్రింట్, గూగుల్ UX డిజైన్ (Coursera) వంటి గ్లోబల్ సర్టిఫికేట్లతో మీ నైపుణ్యాన్ని ధృవీకరించుకోండి.", "tags": [{"t": "AWS సర్టిఫైడ్", "c": "tag-p"}, {"t": "గూగుల్ సర్టిఫికెట్", "c": "tag-b"}, {"t": "మెటా బ్లూప్రింట్", "c": "tag-g"}], "salary": "₹4–12 LPA (జాబ్) | ₹5–30 LPA (ఫ్రీలాన్సింగ్)", "pct": 50}, {"yr": "సంవత్సరం 4–7 — లీడ్", "dot": "#f472b6", "border": "#f472b6", "label": "#f472b6", "title": "సీనియర్ స్పెషలిస్ట్ / సొంత ఏజెన్సీ / విదేశీ రిమోట్ ఉద్యోగం", "desc": "సీనియర్ డెవలపర్ లేదా డేటా లీడ్ అవ్వండి. లేదా సొంత డిజిటల్ ఏజెన్సీ ప్రారంభించండి. గ్రామీణ విద్యార్థులు ఇప్పుడు ఇంటి నుంచే విదేశీ కంపెనీలకి రిమోట్ పని చేస్తున్నారు.", "tags": [{"t": "సీనియర్ డెవలపర్", "c": "tag-p"}, {"t": "ఏజెన్సీ ఓనర్", "c": "tag-o"}, {"t": "విదేశీ రిమోట్ జాబ్", "c": "tag-g"}], "salary": "₹10–40 LPA (సీనియర్) | ₹20L – ₹1 కోటి (రిమోట్ గ్లోబల్ / ఏజెన్సీ)", "pct": 80}], "branches": [{"color": "#3b82f6", "title": "💻 టెక్ నైపుణ్యాలు (అత్యధిక వేతనం)", "items": ["ఫుల్ స్టాక్: React / Node.js", "డేటా సైన్స్: Python / SQL / ML", "క్లౌడ్: AWS / Azure సర్టిఫైడ్", "సైబర్ సెక్యూరిటీ: ఎథికల్ హ్యాకింగ్ / CEH"]}, {"color": "#8b5cf6", "title": "🎨 సృజనాత్మక నైపుణ్యాలు", "items": ["UI/UX డిజైన్ (Figma)", "వీడియో ఎడిటింగ్ (Premiere Pro)", "గ్రాఫిక్ డిజైన్ (Canva / Photoshop)", "కంటెంట్ రైటింగ్ & కాపీ రైటింగ్"]}, {"color": "#f59e0b", "title": "📈 బిజినెస్ స్కిల్స్", "items": ["డిజిటల్ మార్కెటింగ్ (SEO/SEM/Social)", "ఈ-కామర్స్ (Amazon / Meesho)", "స్టాక్ మార్కెట్ అనలిసిస్", "రియల్ ఎస్టేట్ డిజిటల్ మార్కెటింగ్"]}, {"color": "#10b981", "title": "🏛️ ప్రభుత్వ ఉచిత శిక్షణా పథకాలు", "items": ["PMKVY — ఉచిత శిక్షణ + సర్టిఫికేట్", "APSSDC — ఆంధ్రప్రదేశ్ నైపుణ్యాభివృద్ధి", "DDU-GKY — గ్రామీణ యువత శిక్షణ", "స్కిల్ ఇండియా పోర్టల్ — 200+ ఉచిత కోర్సులు"]}]}};
+
+// ═══════════════════════════════════════════
+// BILINGUAL LANGUAGE SYSTEM (ENGLISH & TELUGU)
+// ═══════════════════════════════════════════
+let aiTools = aiTools_en;
+let learningResources = learningResources_en;
+let scholarships = scholarships_en;
+let codingPlatforms = codingPlatforms_en;
+let digitalLiteracy = digitalLiteracy_en;
+let cPaths = cPaths_en;
+let cTrees = cTrees_en;
+let activeLanguage = 'en';
+let currentResourceFilter = 'All';
+
+const translations = {"en": {"nav_ai": "AI Tools", "nav_careers": "Careers", "nav_resources": "Resources", "nav_scholarships": "Scholarships", "nav_coding": "Coding", "nav_digital": "Digital Skills", "mn_ai": "🤖 AI Tools", "mn_careers": "🎯 Career Guidance", "mn_resources": "📚 Learning Resources", "mn_scholarships": "🏆 Scholarships", "mn_coding": "💻 Coding Platforms", "mn_digital": "🌐 Digital Skills", "hero_tag": "🇮🇳 B.Tech Community Project · VidyaUday · Andhra Pradesh", "hero_title": "Your Future Starts with <span>Digital Awareness</span>", "hero_desc": "A free platform giving rural 10th & Intermediate students access to AI tools, career guidance, scholarships, and learning resources — all in one place.", "hero_btn_ai": "🚀 Explore AI Tools", "hero_btn_career": "🎯 View Career Paths", "hc_ai_title": "AI Tools", "hc_ai_desc": "ChatGPT, Gemini & more", "hc_career_title": "Career Paths", "hc_career_desc": "After 10th & Intermediate", "hc_schol_title": "Scholarships", "hc_schol_desc": "₹50K+ opportunities", "hc_coding_title": "Free Coding", "hc_coding_desc": "Learn from zero", "hc_explore": "Explore →", "stat_label1": "Rural students lack career guidance", "stat_label2": "Unaware of free AI tools", "stat_label3": "Scholarships missed yearly", "stat_label4": "Students we aim to reach", "mission_tag": "Our Mission", "mission_title": "Why VidyaUday Exists", "mission_p1": "Thousands of bright rural students across Andhra Pradesh miss life-changing opportunities every year — not because of lack of talent, but because of lack of information. A scholarship deadline passes. A free course goes unused. An AI tool that could help with studies is never discovered.", "mission_p2": "VidyaUday was built by students, for students — to be the guide that every rural learner deserves but rarely gets.", "mc_info_title": "Centralized Info", "mc_info_desc": "All opportunities in one place", "mc_inc_title": "Digital Inclusion", "mc_inc_desc": "Bridging the urban-rural divide", "mc_peer_title": "Peer Support", "mc_peer_desc": "Built by students, for students", "mc_free_title": "Always Free", "mc_free_desc": "Every resource listed is free", "ai_tag": "AI Awareness", "ai_title": "Discover AI Tools Built for You", "ai_sub": "Click any card to learn more, then click \"Open Tool\" to start using it — all are completely free for students.", "ai_search_placeholder": "Search any AI tool... e.g. Grammarly, Midjourney, Adobe Firefly", "ai_tools_label": "Our Top 10 Recommended Tools", "career_tag": "Career Guidance", "career_title": "Your Complete Career Roadmap", "career_sub": "Click your stage → choose your path → see the full year-by-year career tree with salary growth.", "c_stage1_10th_title": "After 10th Class", "c_stage1_10th_desc": "Just completed SSC? See all 5 paths available right now.", "c_explore_paths": "Explore Paths →", "c_stage1_inter_title": "After Intermediate", "c_stage1_inter_desc": "Completed 12th? Discover 6 paths with full roadmaps.", "c_back": "← Back", "res_tag": "Free Resources", "res_title": "Learn Anything, For Free", "res_sub": "Carefully selected platforms that offer world-class education at zero cost.", "schol_tag": "Scholarships", "schol_title": "Find Scholarships You Qualify For", "schol_sub": "Enter your details once — we'll show only the scholarships you are eligible for.", "sf_header_title": "Tell Us About Yourself", "sf_header_sub": "We'll match you with scholarships you can actually apply for", "sf_lbl_name": "Your Name", "sf_pl_name": "Enter your name", "sf_lbl_class": "Current Education", "sf_opt_class": "Select your class", "sf_opt_c9": "Class 9", "sf_opt_c10": "Class 10 (SSC)", "sf_opt_ci1": "Intermediate 1st Year", "sf_opt_ci2": "Intermediate 2nd Year", "sf_opt_cdeg": "Degree / B.Tech / Engineering", "sf_opt_cpg": "Post Graduation", "sf_lbl_caste": "Caste Category", "sf_opt_caste": "Select category", "sf_opt_csc": "SC (Scheduled Caste)", "sf_opt_cst": "ST (Scheduled Tribe)", "sf_opt_cobc": "OBC (Other Backward Class)", "sf_opt_cmin": "Minority (Muslim/Christian/Sikh/Buddhist/Jain)", "sf_opt_cgen": "General / Open Category", "sf_lbl_gender": "Gender", "sf_opt_gender": "Select gender", "sf_opt_gfem": "Female", "sf_opt_gmale": "Male", "sf_opt_goth": "Other", "sf_lbl_income": "Family Annual Income", "sf_opt_income": "Select income range", "sf_opt_inc1": "Below ₹1 Lakh", "sf_opt_inc2": "₹1 Lakh – ₹2.5 Lakh", "sf_opt_inc3": "₹2.5 Lakh – ₹8 Lakh", "sf_opt_inc4": "Above ₹8 Lakh", "sf_lbl_state": "State", "sf_opt_state": "Select state", "sf_opt_sap": "Andhra Pradesh", "sf_opt_sts": "Telangana", "sf_opt_soth": "Other State", "sf_btn_submit": "🔍 Find My Scholarships", "schol_no_result": "No scholarships match your profile right now. But check back — new schemes are added regularly!", "schol_other_ref": "Showing all other scholarships for reference:", "schol_search_placeholder": "Search all scholarships...", "coding_tag": "Start Coding", "coding_title": "Coding Platforms to Launch Your Tech Career", "coding_sub": "Practice problems, earn certificates, and get noticed by top companies.", "dl_tag": "Digital Skills", "dl_title": "Essential Digital Skills for Every Student", "dl_sub": "Master these fundamentals to thrive in the modern world.", "logo_tagline": "Rise of Knowledge", "footer_brand_desc": "Empowering rural students of Andhra Pradesh with digital knowledge, AI awareness, and career guidance. Built with ❤️ as a B.Tech Community Project.", "footer_col1_title": "Platform", "footer_ai": "AI Tools", "footer_careers": "Career Guidance", "footer_resources": "Learning Resources", "footer_scholarships": "Scholarships", "footer_col2_title": "Learn", "footer_coding": "Coding Platforms", "footer_digital": "Digital Skills", "footer_col3_title": "Quick Links", "footer_link_nsp": "National Scholarships", "footer_link_swayam": "SWAYAM", "footer_link_nptel": "NPTEL", "footer_link_ap": "AP Epass", "footer_copy": "© 2024 VidyaUday · Rise of Knowledge · B.Tech Community Project", "footer_made": "🇮🇳 Made in Andhra Pradesh", "chat_title": "Uday the Owl", "chat_status": "AI Study Assistant", "chat_welcome": "Hoo hoo! I'm <strong>Uday</strong>, your AI study owl! 🎓<br><br>You can <strong>type</strong> or <strong>speak</strong> in English, తెలుగు, or हिंदी — I'll understand and reply in the same language!<br><br>Ask me about careers, scholarships, AI tools, coding, or anything about your education! 🚀", "modal_tool_details": "Tool Details"}, "te": {"nav_ai": "AI సాధనాలు", "nav_careers": "కెరీర్ మార్గాలు", "nav_resources": "ఉచిత వనరులు", "nav_scholarships": "స్కాలర్‌షిప్‌లు", "nav_coding": "కోడింగ్", "nav_digital": "డిజిటల్ స్కిల్స్", "mn_ai": "🤖 AI సాధనాలు", "mn_careers": "🎯 కెరీర్ మార్గదర్శకత్వం", "mn_resources": "📚 లెర్నింగ్ రిసోర్సెస్", "mn_scholarships": "🏆 స్కాలర్‌షిప్‌లు", "mn_coding": "💻 కోడింగ్ ప్లాట్‌ఫారమ్‌లు", "mn_digital": "🌐 డిజిటల్ నైపుణ్యాలు", "hero_tag": "🇮🇳 బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్ · విద్యాఉదయ్ · ఆంధ్రప్రదేశ్", "hero_title": "మీ భవిష్యత్తు <span>డిజిటల్ అవగాహన</span>తో ప్రారంభమవుతుంది", "hero_desc": "గ్రామీణ 10వ తరగతి మరియు ఇంటర్మీడియట్ విద్యార్థులకు AI సాధనాలు, కెరీర్ మార్గదర్శకత్వం, స్కాలర్‌షిప్‌లు మరియు లెర్నింగ్ రిసోర్స్‌లను ఒకే చోట అందించే ఉచిత ప్లాట్‌ఫారమ్.", "hero_btn_ai": "🚀 AI సాధనాలను అన్వేషించండి", "hero_btn_career": "🎯 కెరీర్ మార్గాలను చూడండి", "hc_ai_title": "AI సాధనాలు", "hc_ai_desc": "ChatGPT, Gemini మరియు ఇతరమైనవి", "hc_career_title": "కెరీర్ మార్గాలు", "hc_career_desc": "10వ తరగతి & ఇంటర్మీడియట్ తర్వాత", "hc_schol_title": "స్కాలర్‌షిప్‌లు", "hc_schol_desc": "₹50వేలకు పైగా అవకాశాలు", "hc_coding_title": "ఉచిత కోడింగ్", "hc_coding_desc": "మొదటి నుండి నేర్చుకోండి", "hc_explore": "అన్వేషించండి →", "stat_label1": "గ్రామీణ విద్యార్థులకు కెరీర్ మార్గదర్శకత్వం లేదు", "stat_label2": "ఉచిత AI సాధనాల గురించి అవగాహన లేదు", "stat_label3": "ఏటా కోల్పోతున్న స్కాలర్‌షిప్‌లు", "stat_label4": "మేము చేరుకోవాలనుకుంటున్న విద్యార్థులు", "mission_tag": "మా లక్ష్యం", "mission_title": "విద్యాఉదయ్ ఎందుకు అవసరం", "mission_p1": "ఆంధ్రప్రదేశ్‌లోని వేలాది మంది ప్రతిభావంతులైన గ్రామీణ విద్యార్థులు ప్రతి సంవత్సరం జీవితాన్ని మార్చే అవకాశాలను కోల్పోతున్నారు — ప్రతిభ లేకపోవడం వల్ల కాదు, సమాచారం లేకపోవడం వల్ల. స్కాలర్‌షిప్ గడువు ముగుస్తుంది. ఉచిత కోర్సు ఉపయోగించబడదు. చదువుకు సహాయపడే AI సాధనం కనుగొనబడదు.", "mission_p2": "విద్యాఉదయ్ విద్యార్థుల కోసం, విద్యార్థుల చేత నిర్మించబడింది — ప్రతి గ్రామీణ విద్యార్థికి అర్హమైన కానీ అరుదుగా లభించే మార్గదర్శిగా నిలవడానికి.", "mc_info_title": "కేంద్రీకృత సమాచారం", "mc_info_desc": "అన్ని అవకాశాలు ఒకే చోట", "mc_inc_title": "డిజిటల్ సమ్మిళితం", "mc_inc_desc": "పట్టణ-గ్రామీణ విభజనను తగ్గించడం", "mc_peer_title": "తోటివారి మద్దతు", "mc_peer_desc": "విద్యార్థుల చేత, విద్యార్థుల కోసం నిర్మించబడింది", "mc_free_title": "ఎల్లప్పుడూ ఉచితం", "mc_free_desc": "లిస్ట్ చేయబడిన ప్రతి వనరు ఉచితం", "ai_tag": "AI అవగాహన", "ai_title": "మీ కోసం రూపొందించిన AI సాధనాలను కనుగొనండి", "ai_sub": "మరింత తెలుసుకోవడానికి ఏదైనా కార్డ్‌పై క్లిక్ చేయండి, ఆపై ఉపయోగించడం ప్రారంభించడానికి \"Open Tool\" క్లిక్ చేయండి — ఇవన్నీ విద్యార్థులకు పూర్తిగా ఉచితం.", "ai_search_placeholder": "ఏదైనా AI సాధనాన్ని శోధించండి... ఉదా. Grammarly, Midjourney, Adobe Firefly", "ai_tools_label": "మా టాప్ 10 సిఫార్సు చేసిన సాధనాలు", "career_tag": "కెరీర్ మార్గదర్శకత్వం", "career_title": "మీ పూర్తి కెరీర్ రోడ్‌మ్యాప్", "career_sub": "మీ దశను క్లిక్ చేయండి → మీ మార్గాన్ని ఎంచుకోండి → జీతం వృద్ధితో కూడిన పూర్తి కెరీర్ రోడ్‌మ్యాప్‌ను చూడండి.", "c_stage1_10th_title": "10వ తరగతి తర్వాత", "c_stage1_10th_desc": "SSC పూర్తి చేసారా? ప్రస్తుతం అందుబాటులో ఉన్న 5 మార్గాలను చూడండి.", "c_explore_paths": "మార్గాలను అన్వేషించండి →", "c_stage1_inter_title": "ఇంటర్మీడియట్ తర్వాత", "c_stage1_inter_desc": "12వ తరగతి పూర్తి చేసారా? పూర్తి రోడ్‌మ్యాప్‌లతో 6 మార్గాలను కనుగొనండి.", "c_back": "← వెనుకకు", "res_tag": "ఉచిత వనరులు", "res_title": "ఏదైనా ఉచితంగా నేర్చుకోండి", "res_sub": "సున్నా ఖర్చుతో ప్రపంచ స్థాయి విద్యను అందించే జాగ్రత్తగా ఎంపిక చేసిన ప్లాట్‌ఫారమ్‌లు.", "schol_tag": "స్కాలర్‌షిప్‌లు", "schol_title": "మీరు అర్హత సాధించే స్కాలర్‌షిప్‌లను కనుగొనండి", "schol_sub": "మీ వివరాలను ఒకసారి నమోదు చేయండి — మేము మీకు అర్హత ఉన్న స్కాలర్‌షిప్‌లను మాత్రమే చూపిస్తాము.", "sf_header_title": "మీ గురించి మాకు చెప్పండి", "sf_header_sub": "మీరు దరఖాస్తు చేసుకోగల స్కాలర్‌షిప్‌లతో మేము మిమ్మల్ని మ్యాచ్ చేస్తాము", "sf_lbl_name": "మీ పేరు", "sf_pl_name": "మీ పేరును నమోదు చేయండి", "sf_lbl_class": "ప్రస్తుత విద్య", "sf_opt_class": "మీ తరగతిని ఎంచుకోండి", "sf_opt_c9": "9వ తరగతి", "sf_opt_c10": "10వ తరగతి (SSC)", "sf_opt_ci1": "ఇంటర్మీడియట్ మొదటి సంవత్సరం", "sf_opt_ci2": "ఇంటర్మీడియట్ రెండవ సంవత్సరం", "sf_opt_cdeg": "డిగ్రీ / బి.టెక్ / ఇంజనీరింగ్", "sf_opt_cpg": "పోస్ట్ గ్రాడ్యుయేషన్", "sf_lbl_caste": "కుల వర్గం", "sf_opt_caste": "వర్గాన్ని ఎంచుకోండి", "sf_opt_csc": "SC (షెడ్యూల్డ్ కులం)", "sf_opt_cst": "ST (షెడ్యూల్డ్ తెగ)", "sf_opt_cobc": "OBC (ఇతర వెనుకబడిన తరగతి)", "sf_opt_cmin": "మైనారిటీ (ముస్లిం/క్రిస్టియన్/సిక్కు/బౌద్ధ/జైన్)", "sf_opt_cgen": "జనరల్ / ఓపెన్ కేటగిరీ", "sf_lbl_gender": "లింగం", "sf_opt_gender": "లింగాన్ని ఎంచుకోండి", "sf_opt_gfem": "స్త్రీ", "sf_opt_gmale": "పురుషుడు", "sf_opt_goth": "ఇతర", "sf_lbl_income": "कुटुంబ వార్షిక ఆదాయం", "sf_opt_income": "ఆదాయ పరిధిని ఎంచుకోండి", "sf_opt_inc1": "₹1 లక్ష లోపు", "sf_opt_inc2": "₹1 లక్ష – ₹2.5 లక్షలు", "sf_opt_inc3": "₹2.5 లక్షలు – ₹8 లక్షలు", "sf_opt_inc4": "₹8 లక్షల పైన", "sf_lbl_state": "రాష్ట్రం", "sf_opt_state": "రాష్ట్రాన్ని ఎంచుకోండి", "sf_opt_sap": "ఆంధ్రప్రదేశ్", "sf_opt_sts": "తెలంగాణ", "sf_opt_soth": "ఇతర రాష్ట్రం", "sf_btn_submit": "🔍 నా స్కాలర్‌షిప్‌లను కనుగొనండి", "schol_no_result": "ప్రస్తుతానికి మీ ప్రొఫైల్‌కు సరిపోయే స్కాలర్‌షిప్‌లు లేవు. కానీ మళ్లీ తనిఖీ చేయండి — కొత్త పథకాలు క్రమం తప్పకుండా జోడించబడతాయి!", "schol_other_ref": "సూచన కోసం మిగిలిన అన్ని స్కాలర్‌షిప్‌లను చూపుతోంది:", "schol_search_placeholder": "అన్ని స్కాలర్‌షిప్‌లను శోధించండి...", "coding_tag": "కోడింగ్ ప్రారంభించండి", "coding_title": "మీ టెక్ కెరీర్‌ను ప్రారంభించడానికి కోడింగ్ ప్లాట్‌ఫారమ్‌లు", "coding_sub": "సమస్యలను సాధన చేయండి, సర్టిఫికేట్‌లను పొందండి మరియు ప్రముఖ కంపెనీల దృష్టిని ఆకర్షించండి.", "dl_tag": "డిజిటల్ నైపుణ్యాలు", "dl_title": "ప్రతి విద్యార్థికి అవసరమైన డిజిటల్ నైపుణ్యాలు", "dl_sub": "ఆధునిక ప్రపంచంలో రాణించడానికి ఈ ప్రాథమిక అంశాలలో నైపుణ్యం సాధించండి.", "logo_tagline": "నాలెడ్జ్ రైజ్", "footer_brand_desc": "ఆంధ్రప్రదేశ్ గ్రామీణ విద్యార్థులకు డిజిటల్ జ్ఞానం, AI అవగాహన మరియు కెరీర్ మార్గదర్శకత్వంతో సాధికారత కల్పించడం. బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్‌గా ❤️ తో నిర్మించబడింది.", "footer_col1_title": "ప్లాట్‌ఫారమ్", "footer_ai": "AI సాధనాలు", "footer_careers": "కెరీర్ మార్గదర్శకత్వం", "footer_resources": "లెర్నింగ్ రిసోర్సెస్", "footer_scholarships": "స్కాలర్‌షిప్‌లు", "footer_col2_title": "నేర్చుకోండి", "footer_coding": "కోడింగ్ ప్లాట్‌ఫారమ్‌లు", "footer_digital": "డిజిటల్ నైపుణ్యాలు", "footer_col3_title": "త్వరిత లింకులు", "footer_link_nsp": "నేషనల్ స్కాలర్‌షిప్ పోర్టల్", "footer_link_swayam": "స్వయం (SWAYAM)", "footer_link_nptel": "NPTEL", "footer_link_ap": "AP ఈపాస్", "footer_copy": "© 2024 విద్యాఉదయ్ · నాలెడ్జ్ రైజ్ · బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్", "footer_made": "🇮🇳 ఆంధ్రప్రదేశ్‌లో తయారు చేయబడింది", "chat_title": "ఉదయ్ ది ఔల్", "chat_status": "AI స్టడీ అసిస్టెంట్", "chat_welcome": "హూ హూ! నేను మీ AI స్టడీ ఔల్ <strong>ఉదయ్</strong>ని! 🎓<br><br>మీరు ఇంగ్లీష్, తెలుగు లేదా హిందీలో <strong>టైప్ చేయవచ్చు</strong> లేదా <strong>మాట్లాడవచ్చు</strong> — నేను అర్థం చేసుకుని అదే భాషలో సమాధానం ఇస్తాను!<br><br>కెరీర్, స్కాలర్‌షిప్‌లు, AI సాధనాలు, కోడింగ్ లేదా మీ చదువుకు సంబంధించిన ఏదైనా నన్ను అడగండి! 🚀", "modal_tool_details": "సాధనం వివరాలు"}};
+
+function applyStaticTranslations(lang) {
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    if (translations[lang] && translations[lang][key]) {
+      el.innerHTML = translations[lang][key];
+    }
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    if (translations[lang] && translations[lang][key]) {
+      el.placeholder = translations[lang][key];
+    }
+  });
+}
+
+function switchLanguage(lang) {
+  activeLanguage = lang;
+  
+  if (lang === 'te') {
+    aiTools = aiTools_te;
+    learningResources = learningResources_te;
+    scholarships = scholarships_te;
+    codingPlatforms = codingPlatforms_te;
+    digitalLiteracy = digitalLiteracy_te;
+    cPaths = cPaths_te;
+    cTrees = cTrees_te;
+  } else {
+    aiTools = aiTools_en;
+    learningResources = learningResources_en;
+    scholarships = scholarships_en;
+    codingPlatforms = codingPlatforms_en;
+    digitalLiteracy = digitalLiteracy_en;
+    cPaths = cPaths_en;
+    cTrees = cTrees_en;
+  }
+  
+  applyStaticTranslations(lang);
+  
+  // Re-render Dynamic Content
+  renderAITools();
+  
+  // Re-render resources, mapping index to translated category
+  const filterBtns = Array.from(document.querySelectorAll('#resourceFilters .filter-btn'));
+  let activeIndex = filterBtns.findIndex(btn => btn.classList.contains('active'));
+  if (activeIndex === -1) activeIndex = 0;
+  const newCats = ['All', ...new Set(learningResources.map(r => r.cat))];
+  const newFilterName = newCats[activeIndex] || 'All';
+  renderResources(newFilterName);
+  
+  renderCoding();
+  renderDigitalLiteracy();
+  
+  // Scholarships profile updates
+  const saved = localStorage.getItem('vidyauday_schol_profile');
+  if (saved) {
+    try {
+      const profile = JSON.parse(saved);
+      showScholResults(profile);
+    } catch(e) {
+      renderScholarships();
+    }
+  } else {
+    renderScholarships();
+  }
+  
+  // Career Path state re-rendering
+  if (document.getElementById('cStep2').style.display === 'block') {
+    showPaths(curStage);
+  } else if (document.getElementById('cStep3').style.display === 'block') {
+    showTree(curPathId);
+  }
+  
+  // Sync Chatbot
+  if (lang === 'te') {
+    setLang('te-IN', 'TE');
+  } else {
+    setLang('en-IN', 'EN');
+  }
+  
+  const welcomeTextEl = document.querySelector('[data-i18n="chat_welcome"]');
+  if (welcomeTextEl) {
+    welcomeTextEl.innerHTML = translations[lang]['chat_welcome'];
+  }
+  
+  const suggestionsContainer = document.getElementById('chatSuggestions');
+  if (suggestionsContainer) {
+    if (lang === 'te') {
+      suggestionsContainer.innerHTML = `
+        <button onclick="sendSuggestion('10వ తరగతి తర్వాత కెరీర్ ఆప్షన్స్ ఏమిటి?')">🎯 10వ తర్వాత కెరీర్</button>
+        <button onclick="sendSuggestion('ఆంధ్రప్రదేశ్‌లో నేను ఏ స్కాలర్‌షిప్‌లకు దరఖాస్తు చేసుకోవచ్చు?')">🏆 AP స్కాలర్‌షిప్‌లు</button>
+        <button onclick="sendSuggestion('What are career options after 10th class?')">📚 Ask in English</button>
+        <button onclick="sendSuggestion('10वीं के बाद क्या करें?')">🎓 हिंदी में पूछें</button>
+      `;
+    } else {
+      suggestionsContainer.innerHTML = `
+        <button onclick="sendSuggestion('What are career options after 10th class?')">🎯 Career after 10th</button>
+        <button onclick="sendSuggestion('Which scholarships can I apply for in AP?')">🏆 AP Scholarships</button>
+        <button onclick="sendSuggestion('10వ తర్వాత నేను ఏమి చదవాలి?')">📚 తెలుగులో అడగండి</button>
+        <button onclick="sendSuggestion('10वीं के बाद क्या करें?')">🎓 हिंदी में पूछें</button>
+      `;
+    }
+  }
+  
+  // Update toggle buttons active class
+  if (lang === 'te') {
+    document.getElementById('btnLangGlobalTE').classList.add('active');
+    document.getElementById('btnLangGlobalEN').classList.remove('active');
+  } else {
+    document.getElementById('btnLangGlobalEN').classList.add('active');
+    document.getElementById('btnLangGlobalTE').classList.remove('active');
+  }
+}
+
 // ═══════════════════════════════════════════
 // INIT
 renderAITools();
@@ -1947,7 +2047,6 @@ renderResources('All');
 renderScholarships();
 renderCoding();
 renderDigitalLiteracy();
-renderQuiz();
 setTimeout(observeFadeIns, 100);
 </script>
 
@@ -1967,8 +2066,8 @@ setTimeout(observeFadeIns, 100);
     <div style="display:flex;align-items:center;gap:10px;">
       <div class="chat-owl">🦉</div>
       <div>
-        <div class="chat-title">Uday the Owl</div>
-        <div class="chat-status"><span class="chat-dot"></span> <span id="chatStatusText">AI Study Assistant</span></div>
+        <div class="chat-title" data-i18n="chat_title">Uday the Owl</div>
+        <div class="chat-status"><span class="chat-dot"></span> <span id="chatStatusText" data-i18n="chat_status">AI Study Assistant</span></div>
       </div>
     </div>
     <div style="display:flex;align-items:center;gap:6px;">
@@ -1988,7 +2087,7 @@ setTimeout(observeFadeIns, 100);
   <div class="chat-messages" id="chatMessages">
     <div class="chat-bubble bot">
       <span class="bubble-icon">🦉</span>
-      <div class="bubble-text">
+      <div class="bubble-text" data-i18n="chat_welcome">
         Hoo hoo! I'm <strong>Uday</strong>, your AI study owl! 🎓<br><br>
         You can <strong>type</strong> or <strong>speak</strong> in English, తెలుగు, or हिंदी — I'll understand and reply in the same language!<br><br>
         Ask me about careers, scholarships, AI tools, coding, or anything about your education! 🚀
