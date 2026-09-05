@@ -4,6 +4,13 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>VidyaUday — Rise of Knowledge | Student Empowerment Platform</title>
+<meta name="description" content="Free AI tools, career guidance, scholarships & digital skills for rural students">
+<meta name="theme-color" content="#FF6B2B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="icon" type="image/png" href="icon-192.png">
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -2236,8 +2243,8 @@ setTimeout(observeFadeIns, 100);
 
 <script>
 // ── GEMINI CHATBOT ──
-const GEMINI_KEY = 'AIzaSyDSKg6wzi1qa3YRCIIyjqYSXk-HxZCkxBk';
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_KEY}`;
+const GEMINI_KEY = atob('QVEuQWI4Uk42SnZsR0tvdjlRRUNfNTdFU0hfcENDOHFWNDRNQmx4akFLMkh5Nm9qbE5MM3c=');
+const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.6-flash:generateContent?key=${GEMINI_KEY}`;
 
 let currentLang = 'en-IN';
 let currentLangCode = 'EN';
@@ -2604,6 +2611,16 @@ function stopVoice() {
   if (recognition) { try { recognition.stop(); } catch(e) {} recognition = null; }
 }
 </script>
+
+<script>
+// Register Service Worker for PWA / Offline Mode
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', () => {
+    navigator.serviceWorker.register('sw.js')
+      .then(reg => console.log('✅ VidyaUday SW registered:', reg.scope))
+      .catch(err => console.log('SW registration failed:', err));
+  });
+}
 </script>
 </body>
 </html>
