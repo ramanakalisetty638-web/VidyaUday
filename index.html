@@ -2360,9 +2360,11 @@ async function getGeminiReply(userMessage) {
   input.disabled = true;
   showTyping();
 
-  // Small delay to feel natural
-  await new Promise(r => setTimeout(r, 800 + Math.random() * 500));
-  removeTyping();
+  // Add user message to conversation history
+  chatHistory.push({ role: 'user', parts: [{ text: userMessage }] });
+
+  // Keep only last 10 turns to avoid token overflow
+  if (chatHistory.length > 20) chatHistory = chatHistory.slice(-20);
 
   // Try Gemini API first, fallback to smart offline
   try {
@@ -2371,16 +2373,20 @@ async function getGeminiReply(userMessage) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          contents: [{ parts: [{ text: SYSTEM_PROMPT + '\n\nStudent: ' + userMessage + '\nUday:' }] }],
-          generationConfig: { maxOutputTokens: 500, temperature: 0.7 }
+          system_instruction: { parts: [{ text: SYSTEM_PROMPT }] },
+          contents: chatHistory,
+          generationConfig: { maxOutputTokens: 1024, temperature: 0.7 }
         })
       }),
-      new Promise((_, reject) => setTimeout(() => reject('timeout'), 5000))
+      new Promise((_, reject) => setTimeout(() => reject('timeout'), 12000))
     ]);
 
     const data = await res.json();
     if (data.candidates?.[0]?.content?.parts?.[0]?.text) {
       const reply = data.candidates[0].content.parts[0].text;
+      // Add bot reply to conversation history
+      chatHistory.push({ role: 'model', parts: [{ text: reply }] });
+      removeTyping();
       const formatted = reply
         .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
         .replace(/\n\n/g, '<br><br>')
@@ -2392,8 +2398,10 @@ async function getGeminiReply(userMessage) {
     }
   } catch (e) {
     // Gemini unavailable — use offline
+    console.log('Gemini API error:', e);
   }
 
+  removeTyping();
   // Smart offline reply — always works!
   const reply = generateOfflineReply(userMessage);
   addMessage(reply, 'bot');
