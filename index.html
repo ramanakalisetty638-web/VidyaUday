@@ -381,17 +381,120 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:1.1rem;pointer-events:none;}
 @media(max-width:600px){.schol-form-grid{grid-template-columns:1fr;}}
 
-/* RESPONSIVE */
+/* ═══════════════════════════════════════ */
+/* RESPONSIVE — TABLET (max-width: 900px) */
+/* ═══════════════════════════════════════ */
 @media(max-width:900px){
   .nav-links{display:none;} .hamburger{display:flex;}
-  .hero-visual{display:none;} .stats-grid{grid-template-columns:repeat(2,1fr);}
+  .hero{flex-direction:column;min-height:auto;padding:80px 5vw 40px;gap:30px;}
+  .hero-visual{position:relative;right:auto;top:auto;transform:none;width:100%;max-width:500px;margin:0 auto;}
+  .hero-grid{gap:12px;}
+  .hero-content{max-width:100%;}
+  .stats-grid{grid-template-columns:repeat(2,1fr);gap:16px;}
   .footer-grid{grid-template-columns:1fr 1fr;} .mission-grid{grid-template-columns:1fr;}
+  .modal-box{max-width:95vw;max-height:92vh;}
+  section{padding:60px 5vw;}
 }
-@media(max-width:600px){
-  .cards-grid{grid-template-columns:1fr;} .career-cards{grid-template-columns:1fr;}
-  .footer-grid{grid-template-columns:1fr;} .survey-wrap{padding:24px;}
-  .tabs{flex-direction:column;} .hero-btns{flex-direction:column;}
+
+/* ═══════════════════════════════════════ */
+/* RESPONSIVE — MOBILE (max-width: 768px) */
+/* ═══════════════════════════════════════ */
+@media(max-width:768px){
+  .hero h1{font-size:2rem;}
+  .hero p{font-size:0.92rem;margin-bottom:24px;}
+  .hero-tag{font-size:0.68rem;padding:5px 10px;}
+  .hero-btns{gap:10px;}
+  .btn{font-size:0.88rem;padding:11px 22px;}
+  .hero-card{padding:14px;}
+  .hero-card .icon{font-size:1.6rem;margin-bottom:4px;}
+  .hero-card h4{font-size:0.8rem;}
+  .hero-card p{font-size:0.68rem;}
+  .section-title{font-size:1.6rem;}
+  .section-sub{font-size:0.88rem;margin-bottom:32px;}
+  .stat-value{font-size:1.8rem;}
+  .stat-label{font-size:0.75rem;}
+  .tabs{flex-wrap:wrap;gap:6px;margin-bottom:24px;}
+  .tab-btn{font-size:0.82rem;padding:8px 16px;}
+  .filter-row{gap:6px;}
+  .filter-btn{font-size:0.75rem;padding:6px 12px;}
+  .modal-body{padding:16px;}
+  .modal-tool-header{flex-direction:column;text-align:center;}
+  .modal-tool-name{font-size:1.2rem;}
   .modal-two-col{grid-template-columns:1fr;}
+  .c-choose-card{padding:20px;}
+  .cc-icon{font-size:2.2rem;}
+  .cc-title{font-size:1.1rem;}
+  .survey-wrap{padding:24px 16px;}
+  .schol-form-card{padding:20px;}
+  .schol-form-header{flex-direction:column;text-align:center;gap:8px;}
+  .footer-grid{grid-template-columns:1fr;gap:24px;}
+  .footer-bottom{flex-direction:column;text-align:center;}
+  .lang-switch-container{margin-right:4px;gap:3px;}
+  .lang-btn-toggle{font-size:0.75rem;padding:3px 6px;}
+}
+
+/* ═══════════════════════════════════════ */
+/* RESPONSIVE — SMALL MOBILE (max-width: 600px) */
+/* ═══════════════════════════════════════ */
+@media(max-width:600px){
+  .hero{padding:72px 4vw 30px;}
+  .hero h1{font-size:1.7rem;margin-bottom:14px;}
+  .hero p{font-size:0.88rem;margin-bottom:20px;}
+  .hero-grid{grid-template-columns:1fr 1fr;gap:10px;}
+  .hero-card{padding:12px;}
+  .cards-grid{grid-template-columns:1fr;}
+  .career-cards{grid-template-columns:1fr;}
+  .cards-grid-5{grid-template-columns:1fr;}
+  .tabs{flex-direction:column;align-items:stretch;}
+  .tab-btn{text-align:center;}
+  .hero-btns{flex-direction:column;}
+  .hero-btns .btn{width:100%;justify-content:center;}
+  .stats-bar{padding:24px 4vw;}
+  section{padding:48px 4vw;}
+  .tool-card{padding:18px;}
+  .tool-icon-big{font-size:2.2rem;}
+  .tool-name{font-size:1.05rem;}
+  .tool-actions{flex-direction:column;}
+  .tool-btn-info,.tool-btn-open{text-align:center;justify-content:center;}
+  .schol-card{padding:16px;}
+  .schol-name{font-size:0.9rem;}
+  .schol-row{font-size:0.78rem;}
+  .schol-btn-row{flex-direction:column;}
+  .schol-btn-row a{text-align:center;justify-content:center;width:100%;}
+  .code-card{padding:18px;}
+  .code-name{font-size:1.1rem;}
+  .dl-card{padding:16px;}
+  .survey-wrap{padding:20px 12px;border-radius:14px;}
+  .mission-cards{grid-template-columns:1fr;}
+  .modal-box{border-radius:14px;max-height:95vh;}
+  .modal-header-bar{padding:12px 16px;border-radius:14px 14px 0 0;}
+  .modal-icon{width:52px;height:52px;font-size:2.2rem;}
+  .ait-search-wrap input{font-size:0.88rem;padding:12px 42px 12px 42px;}
+  nav{padding:0 3vw;height:56px;}
+  .logo-vidya,.logo-uday{font-size:0.95rem;}
+  .logo-tagline{font-size:0.42rem;}
+  .logo-icon{font-size:1.3rem;}
+  .mobile-nav{top:56px;padding:12px 4vw;}
+  .mobile-nav a{font-size:0.88rem;padding:10px 0;}
+  .schol-profile-bar{flex-direction:column;gap:8px;text-align:center;}
+  .schol-profile-info{flex-wrap:wrap;justify-content:center;}
+  .schol-profile-tag{font-size:0.68rem;}
+}
+
+/* ═══════════════════════════════════════ */
+/* RESPONSIVE — VERY SMALL (max-width: 380px) */
+/* ═══════════════════════════════════════ */
+@media(max-width:380px){
+  .hero h1{font-size:1.45rem;}
+  .hero p{font-size:0.82rem;}
+  .hero-card{padding:10px;}
+  .hero-card h4{font-size:0.72rem;}
+  .hero-card p{font-size:0.62rem;}
+  .section-title{font-size:1.35rem;}
+  .btn{font-size:0.82rem;padding:10px 18px;}
+  .stat-value{font-size:1.5rem;}
+  nav{padding:0 2.5vw;}
+  .logo-vidya,.logo-uday{font-size:0.85rem;}
 }
 
 /* YOUTUBE BUTTON */
@@ -2235,7 +2338,8 @@ setTimeout(observeFadeIns, 100);
 #chatSendBtn{background:linear-gradient(135deg,#FF6B2B,#f97316);border:none;color:#fff;width:40px;height:40px;border-radius:10px;cursor:pointer;display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:opacity 0.2s;}
 #chatSendBtn:hover{opacity:0.88;}
 #chatSendBtn:disabled{opacity:0.4;cursor:not-allowed;}
-@media(max-width:420px){#chatWindow{width:calc(100vw - 20px);right:10px;bottom:100px;}#owlBtn{right:16px;bottom:16px;}}
+@media(max-width:600px){#chatWindow{width:calc(100vw - 16px);right:8px;bottom:90px;height:65vh;}#owlBtn{right:14px;bottom:14px;width:52px;height:52px;font-size:1.4rem;}.chat-header{padding:10px 12px;}.clang-btn{font-size:0.7rem;padding:3px 7px;}.chat-input-wrap{padding:8px 10px;gap:6px;}#chatInput{font-size:0.82rem;padding:8px 10px;}#micBtn,#chatSendBtn{width:36px;height:36px;}}
+@media(max-width:420px){#chatWindow{width:calc(100vw - 10px);right:5px;bottom:80px;}#owlBtn{right:12px;bottom:12px;}}
 
 /* YOUTUBE BUTTON */
 .yt-btn:hover{opacity:0.85;transform:translateY(-1px);}
