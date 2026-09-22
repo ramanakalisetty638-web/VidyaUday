@@ -80,9 +80,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero::before{display:none;}
 .hero::after{display:none;}
 .hero-content{max-width:640px;position:relative;z-index:1;}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--saffron-glow);border:1px solid rgba(255,107,43,0.3);color:var(--saffron-light);padding:6px 14px;border-radius:100px;font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:24px;}
+.hero-tag{display:block;font-size:0.75rem;font-weight:500;letter-spacing:0.06em;text-transform:uppercase;color:var(--text3);margin-bottom:20px;}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;line-height:1.15;margin-bottom:20px;color:#fff;}
-.hero h1 span{background:linear-gradient(135deg,var(--saffron),#FFD700);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
+.hero h1 span{color:var(--saffron);}
+.hero h1 span::after{content:'|';color:var(--saffron);animation:blink 0.8s step-end infinite;margin-left:2px;font-weight:300;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:0;}}
 .hero p{font-size:1.05rem;color:var(--text2);max-width:520px;margin-bottom:36px;}
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
 .btn{font-family:var(--font-body);font-weight:600;font-size:0.95rem;padding:13px 28px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
@@ -583,12 +585,12 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <!-- HERO -->
 <section class="hero" id="home">
   <div class="hero-content">
-    <div class="hero-tag" data-i18n="hero_tag">🇮🇳 B.Tech Community Project · VidyaUday · Andhra Pradesh</div>
-    <h1 data-i18n="hero_title">Your Future Starts with <span>Digital Awareness</span></h1>
-    <p data-i18n="hero_desc">A free platform giving rural 10th & Intermediate students access to AI tools, career guidance, scholarships, and learning resources — all in one place.</p>
+    <div class="hero-tag" data-i18n="hero_tag">B.Tech Community Project · VidyaUday · Andhra Pradesh</div>
+    <h1 data-i18n="hero_title">Your Future Starts with <span id="heroTyping">Digital Awareness</span></h1>
+    <p data-i18n="hero_desc">Helping rural 10th and Intermediate students discover career paths, find scholarships, learn AI tools, and build digital skills — completely free.</p>
     <div class="hero-btns">
-      <a href="#ai-tools" class="btn btn-primary" data-i18n="hero_btn_ai">🚀 Explore AI Tools</a>
-      <a href="#career" class="btn btn-outline" data-i18n="hero_btn_career">🎯 View Career Paths</a>
+      <a href="#ai-tools" class="btn btn-primary" data-i18n="hero_btn_ai">Explore AI Tools</a>
+      <a href="#career" class="btn btn-outline" data-i18n="hero_btn_career">View Career Paths</a>
     </div>
   </div>
   <div class="hero-visual">
@@ -2799,6 +2801,37 @@ function stopVoice() {
 </script>
 
 <script>
+
+// ── HERO TYPING ANIMATION ──
+(function() {
+  const words = ['Digital Awareness', 'Right Guidance', 'Free Education', 'Smart Choices'];
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  const el = document.getElementById('heroTyping');
+  if (!el) return;
+  function type() {
+    const current = words[wordIndex];
+    if (isDeleting) {
+      el.textContent = current.substring(0, charIndex - 1);
+      charIndex--;
+    } else {
+      el.textContent = current.substring(0, charIndex + 1);
+      charIndex++;
+    }
+    let delay = isDeleting ? 40 : 80;
+    if (!isDeleting && charIndex === current.length) {
+      delay = 2000;
+      isDeleting = true;
+    } else if (isDeleting && charIndex === 0) {
+      isDeleting = false;
+      wordIndex = (wordIndex + 1) % words.length;
+      delay = 400;
+    }
+    setTimeout(type, delay);
+  }
+  setTimeout(type, 1500);
+})();
 
 // ── LANDING PAGE ──
 let landingLang = 'en';
