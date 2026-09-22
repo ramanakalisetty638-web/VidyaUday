@@ -77,8 +77,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 
 /* HERO */
 .hero{min-height:100vh;display:flex;align-items:center;padding:100px 5vw 60px;position:relative;overflow:hidden;}
-.hero::before{content:'';position:absolute;top:-200px;right:-100px;width:600px;height:600px;background:radial-gradient(circle,rgba(255,107,43,0.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
-.hero::after{content:'';position:absolute;bottom:-200px;left:-100px;width:500px;height:500px;background:radial-gradient(circle,rgba(29,185,84,0.1) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+.hero::before{display:none;}
+.hero::after{display:none;}
 .hero-content{max-width:640px;position:relative;z-index:1;}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;background:var(--saffron-glow);border:1px solid rgba(255,107,43,0.3);color:var(--saffron-light);padding:6px 14px;border-radius:100px;font-size:0.78rem;font-weight:600;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:24px;}
 .hero h1{font-family:var(--font-display);font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;line-height:1.15;margin-bottom:20px;color:#fff;}
@@ -87,14 +87,14 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-btns{display:flex;gap:14px;flex-wrap:wrap;}
 .btn{font-family:var(--font-body);font-weight:600;font-size:0.95rem;padding:13px 28px;border-radius:10px;border:none;cursor:pointer;text-decoration:none;transition:all 0.25s;display:inline-flex;align-items:center;gap:8px;}
 .btn-primary{background:var(--saffron);color:#fff;}
-.btn-primary:hover{background:var(--saffron-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,43,0.4);}
+.btn-primary:hover{background:var(--saffron-light);transform:translateY(-1px);box-shadow:0 4px 12px rgba(255,107,43,0.25);}
 .btn-outline{background:transparent;color:var(--text);border:1.5px solid var(--card-border);}
 .btn-outline:hover{border-color:var(--text3);background:rgba(255,255,255,0.05);transform:translateY(-2px);}
 .hero-visual{position:absolute;right:5vw;top:50%;transform:translateY(-50%);width:min(42vw,460px);}
-.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;animation:float 6s ease-in-out infinite;}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
 @keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-16px);}}
-.hero-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:20px;backdrop-filter:blur(10px);transition:all 0.25s;}
-.hero-card:hover{transform:translateY(-4px);border-color:rgba(255,107,43,0.4);box-shadow:0 8px 24px rgba(0,0,0,0.3);}
+.hero-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:20px;transition:all 0.25s;}
+.hero-card:hover{transform:translateY(-2px);border-color:rgba(255,107,43,0.25);box-shadow:0 4px 12px rgba(0,0,0,0.2);}
 .hero-card .icon{font-size:2rem;margin-bottom:8px;}
 .hero-card h4{font-family:var(--font-display);font-size:0.9rem;font-weight:600;margin-bottom:4px;}
 .hero-card p{font-size:0.75rem;color:var(--text2);}
@@ -123,11 +123,11 @@ section{padding:80px 5vw;position:relative;z-index:1;}
 /* ── AI TOOL CARD ── */
 .tool-card{
   background:var(--card);border:1px solid var(--card-border);
-  border-radius:var(--radius);padding:26px;backdrop-filter:blur(10px);
+  border-radius:var(--radius);padding:26px;
   transition:all 0.3s;position:relative;overflow:hidden;cursor:pointer;
 }
-.tool-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--accent,var(--saffron));}
-.tool-card:hover{transform:translateY(-6px);border-color:rgba(255,107,43,0.35);box-shadow:0 20px 50px rgba(0,0,0,0.35);}
+.tool-card::before{display:none;}
+.tool-card:hover{transform:translateY(-3px);border-color:rgba(255,107,43,0.25);box-shadow:0 8px 20px rgba(0,0,0,0.2);}
 .tool-card-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:14px;}
 .tool-icon-big{font-size:2.8rem;line-height:1;}
 .free-badge{font-size:0.68rem;font-weight:700;text-transform:uppercase;letter-spacing:0.08em;background:rgba(29,185,84,0.15);color:#4ade80;padding:4px 10px;border-radius:100px;white-space:nowrap;}
@@ -160,7 +160,7 @@ section{padding:80px 5vw;position:relative;z-index:1;}
 .modal-list li{font-size:0.84rem;color:var(--text2);padding:5px 0;padding-left:16px;position:relative;border-bottom:1px solid rgba(255,255,255,0.04);}
 .modal-list li:last-child{border-bottom:none;}
 .modal-list li::before{position:absolute;left:0;}
-.modal-list.check li::before{content:'✓';color:#4ade80;font-weight:700;}
+.modal-list.check li::before{content:'–';color:var(--saffron-light);font-weight:400;}
 .modal-list.arrow li::before{content:'→';color:var(--saffron);}
 .modal-open-btn{display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;font-family:var(--font-display);font-size:1rem;font-weight:700;padding:15px 28px;border-radius:12px;text-decoration:none;width:100%;transition:opacity 0.2s;}
 .modal-open-btn:hover{opacity:0.85;}
@@ -172,8 +172,8 @@ section{padding:80px 5vw;position:relative;z-index:1;}
 .tab-btn.active{background:var(--saffron);border-color:var(--saffron);color:#fff;}
 .career-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:18px;}
 .career-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;transition:all 0.3s;position:relative;}
-.career-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:3px;background:var(--accent,var(--saffron));border-radius:0 0 var(--radius) var(--radius);}
-.career-card:hover{transform:translateY(-5px);box-shadow:0 12px 36px rgba(0,0,0,0.3);}
+.career-card::after{display:none;}
+.career-card:hover{transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,0.2);}
 .career-icon{font-size:2rem;margin-bottom:10px;}
 .career-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;margin-bottom:4px;}
 .career-duration{font-size:0.78rem;color:var(--text3);font-weight:500;margin-bottom:10px;}
@@ -251,10 +251,10 @@ section{padding:80px 5vw;position:relative;z-index:1;}
 .dl-tips{list-style:none;}
 .dl-tips li{font-size:0.83rem;color:var(--text2);padding:5px 0;border-bottom:1px solid rgba(255,255,255,0.05);display:flex;gap:8px;align-items:flex-start;}
 .dl-tips li:last-child{border-bottom:none;}
-.dl-tips li::before{content:'✓';color:var(--leaf);font-weight:700;flex-shrink:0;margin-top:2px;}
+.dl-tips li::before{content:'–';color:var(--saffron-light);font-weight:400;flex-shrink:0;margin-top:2px;}
 
 /* SURVEY */
-.survey-wrap{max-width:720px;margin:0 auto;background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:40px;backdrop-filter:blur(10px);}
+.survey-wrap{max-width:720px;margin:0 auto;background:var(--card);border:1px solid var(--card-border);border-radius:20px;padding:40px;}
 .survey-progress{height:4px;background:var(--deep3);border-radius:2px;margin-bottom:36px;}
 .survey-progress-fill{height:100%;background:linear-gradient(90deg,var(--saffron),#FFD700);border-radius:2px;transition:width 0.5s ease;}
 .survey-q{font-family:var(--font-display);font-size:1.1rem;font-weight:600;margin-bottom:20px;}
@@ -497,11 +497,52 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
   .logo-vidya,.logo-uday{font-size:0.85rem;}
 }
 
+
+/* ═══════════════════════════════════ */
+/* LANDING / SPLASH PAGE              */
+/* ═══════════════════════════════════ */
+.landing-page{position:fixed;inset:0;z-index:9999;background:var(--deep);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;transition:opacity 0.6s ease,transform 0.6s ease;}
+.landing-page.hide{opacity:0;transform:scale(1.05);pointer-events:none;}
+.landing-owl{font-size:4.5rem;margin-bottom:16px;animation:landOwl 2s ease-in-out infinite;}
+@keyframes landOwl{0%,100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}}
+.landing-title{font-family:var(--font-display);font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;margin-bottom:2px;}
+.landing-title .saffron{color:var(--saffron);}
+.landing-tagline{font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);margin-bottom:28px;}
+.landing-desc{font-size:0.95rem;color:var(--text2);max-width:480px;margin:0 auto 32px;line-height:1.6;}
+.landing-lang-title{font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:12px;}
+.landing-lang-row{display:flex;gap:12px;justify-content:center;margin-bottom:36px;}
+.landing-lang-btn{font-family:var(--font-body);font-size:1rem;font-weight:600;padding:12px 32px;border-radius:10px;border:1.5px solid var(--card-border);background:transparent;color:var(--text2);cursor:pointer;transition:all 0.2s;}
+.landing-lang-btn:hover{border-color:var(--saffron);color:var(--saffron);}
+.landing-lang-btn.selected{background:var(--saffron);border-color:var(--saffron);color:#fff;}
+.landing-enter{font-family:var(--font-body);font-size:1rem;font-weight:700;padding:14px 40px;border-radius:10px;border:none;background:var(--saffron);color:#fff;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em;}
+.landing-enter:hover{background:var(--saffron-light);}
+.landing-footer{position:absolute;bottom:20px;font-size:0.72rem;color:var(--text3);}
+.landing-footer a{color:var(--text3);text-decoration:underline;margin:0 6px;}
+.landing-footer a:hover{color:var(--saffron);}
+@media(max-width:600px){.landing-owl{font-size:3.5rem;}.landing-desc{font-size:0.85rem;}.landing-lang-btn{padding:10px 24px;font-size:0.9rem;}.landing-enter{padding:12px 32px;font-size:0.92rem;}}
+
 /* YOUTUBE BUTTON */
 .yt-btn:hover{opacity:0.85;transform:translateY(-1px);}
 </style>
 </head>
 <body>
+
+<!-- LANDING PAGE -->
+<div class="landing-page" id="landingPage">
+  <div class="landing-owl">🦉</div>
+  <div class="landing-title">Vidya<span class="saffron">Uday</span></div>
+  <div class="landing-tagline">Rise of Knowledge</div>
+  <p class="landing-desc">Free AI tools, career guidance, scholarships, and digital skills for rural 10th &amp; Intermediate students in Andhra Pradesh &amp; Telangana.</p>
+  <div class="landing-lang-title">Choose your language</div>
+  <div class="landing-lang-row">
+    <button class="landing-lang-btn selected" onclick="selectLandingLang('en')" id="landEn">English</button>
+    <button class="landing-lang-btn" onclick="selectLandingLang('te')" id="landTe">తెలుగు</button>
+  </div>
+  <button class="landing-enter" onclick="enterSite()" id="landingEnterBtn">Get Started</button>
+  <div class="landing-footer">
+    <a href="#tos" onclick="enterSite()">Terms of Service</a> | <a href="#privacy" onclick="enterSite()">Privacy Policy</a>
+  </div>
+</div>
 
 <!-- NAV -->
 <nav>
@@ -855,6 +896,15 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
     <span data-i18n="footer_copy">© 2024 VidyaUday · Rise of Knowledge · B.Tech Community Project</span>
     <span data-i18n="footer_made">🇮🇳 Made in Andhra Pradesh</span>
   </div>
+
+<!-- TOS & Privacy -->
+<div id="tos" style="padding:40px 5vw;max-width:800px;margin:0 auto;">
+  <h3 style="font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:12px;color:#fff;">Terms of Service</h3>
+  <p style="font-size:0.82rem;color:var(--text2);line-height:1.7;margin-bottom:24px;">VidyaUday is a free, non-commercial educational platform built as a B.Tech community project. All information provided is for educational guidance only. We do not guarantee scholarship eligibility or career outcomes. External links redirect to third-party websites which have their own terms. Use of the AI chatbot (Uday) is subject to Google Gemini's usage policies. By using this site, you agree to these terms.</p>
+  <h3 id="privacy" style="font-family:var(--font-display);font-size:1.2rem;font-weight:700;margin-bottom:12px;color:#fff;">Privacy Policy</h3>
+  <p style="font-size:0.82rem;color:var(--text2);line-height:1.7;">VidyaUday does not collect, store, or share any personal data on servers. Scholarship search preferences are saved locally on your device (localStorage) and never transmitted. The AI chatbot processes messages through Google's Gemini API — refer to Google's privacy policy for details. No cookies are used for tracking. No analytics or third-party trackers are embedded.</p>
+</div>
+
 </footer>
 
 <script>
@@ -2341,6 +2391,30 @@ setTimeout(observeFadeIns, 100);
 @media(max-width:600px){#chatWindow{width:calc(100vw - 16px);right:8px;bottom:90px;height:65vh;}#owlBtn{right:14px;bottom:14px;width:52px;height:52px;font-size:1.4rem;}.chat-header{padding:10px 12px;}.clang-btn{font-size:0.7rem;padding:3px 7px;}.chat-input-wrap{padding:8px 10px;gap:6px;}#chatInput{font-size:0.82rem;padding:8px 10px;}#micBtn,#chatSendBtn{width:36px;height:36px;}}
 @media(max-width:420px){#chatWindow{width:calc(100vw - 10px);right:5px;bottom:80px;}#owlBtn{right:12px;bottom:12px;}}
 
+
+/* ═══════════════════════════════════ */
+/* LANDING / SPLASH PAGE              */
+/* ═══════════════════════════════════ */
+.landing-page{position:fixed;inset:0;z-index:9999;background:var(--deep);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:20px;transition:opacity 0.6s ease,transform 0.6s ease;}
+.landing-page.hide{opacity:0;transform:scale(1.05);pointer-events:none;}
+.landing-owl{font-size:4.5rem;margin-bottom:16px;animation:landOwl 2s ease-in-out infinite;}
+@keyframes landOwl{0%,100%{transform:rotate(-3deg);}50%{transform:rotate(3deg);}}
+.landing-title{font-family:var(--font-display);font-size:clamp(2rem,6vw,3.2rem);font-weight:700;color:#fff;margin-bottom:2px;}
+.landing-title .saffron{color:var(--saffron);}
+.landing-tagline{font-size:0.8rem;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;color:var(--text3);margin-bottom:28px;}
+.landing-desc{font-size:0.95rem;color:var(--text2);max-width:480px;margin:0 auto 32px;line-height:1.6;}
+.landing-lang-title{font-size:0.75rem;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--text3);margin-bottom:12px;}
+.landing-lang-row{display:flex;gap:12px;justify-content:center;margin-bottom:36px;}
+.landing-lang-btn{font-family:var(--font-body);font-size:1rem;font-weight:600;padding:12px 32px;border-radius:10px;border:1.5px solid var(--card-border);background:transparent;color:var(--text2);cursor:pointer;transition:all 0.2s;}
+.landing-lang-btn:hover{border-color:var(--saffron);color:var(--saffron);}
+.landing-lang-btn.selected{background:var(--saffron);border-color:var(--saffron);color:#fff;}
+.landing-enter{font-family:var(--font-body);font-size:1rem;font-weight:700;padding:14px 40px;border-radius:10px;border:none;background:var(--saffron);color:#fff;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em;}
+.landing-enter:hover{background:var(--saffron-light);}
+.landing-footer{position:absolute;bottom:20px;font-size:0.72rem;color:var(--text3);}
+.landing-footer a{color:var(--text3);text-decoration:underline;margin:0 6px;}
+.landing-footer a:hover{color:var(--saffron);}
+@media(max-width:600px){.landing-owl{font-size:3.5rem;}.landing-desc{font-size:0.85rem;}.landing-lang-btn{padding:10px 24px;font-size:0.9rem;}.landing-enter{padding:12px 32px;font-size:0.92rem;}}
+
 /* YOUTUBE BUTTON */
 .yt-btn:hover{opacity:0.85;transform:translateY(-1px);}
 </style>
@@ -2725,6 +2799,24 @@ function stopVoice() {
 </script>
 
 <script>
+
+// ── LANDING PAGE ──
+let landingLang = 'en';
+function selectLandingLang(lang) {
+  landingLang = lang;
+  document.getElementById('landEn').classList.toggle('selected', lang === 'en');
+  document.getElementById('landTe').classList.toggle('selected', lang === 'te');
+  document.getElementById('landingEnterBtn').textContent = lang === 'te' ? 'ప్రారంభించండి' : 'Get Started';
+}
+function enterSite() {
+  const lp = document.getElementById('landingPage');
+  lp.classList.add('hide');
+  setTimeout(function() { lp.style.display = 'none'; }, 600);
+  if (landingLang === 'te' && typeof switchLanguage === 'function') {
+    setTimeout(function() { switchLanguage('te'); }, 300);
+  }
+}
+
 // Register Service Worker for PWA / Offline Mode
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => {
