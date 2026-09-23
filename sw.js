@@ -1,5 +1,5 @@
-// VidyaUday Service Worker v3 — Offline Mode
-const CACHE_NAME = 'vidyauday-v3';
+// VidyaUday Service Worker v4 — Offline Mode
+const CACHE_NAME = 'vidyauday-v4';
 
 // Only cache LOCAL files (cross-origin fonts will be cached on first fetch)
 const CORE_URLS = [
