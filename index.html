@@ -218,21 +218,52 @@ section{padding:80px 5vw;position:relative;z-index:1;}
 .career-options li{font-size:0.8rem;color:var(--text2);padding:3px 0;padding-left:14px;position:relative;}
 .career-options li::before{content:'▸';position:absolute;left:0;color:var(--accent,var(--saffron));font-size:0.7rem;}
 
-/* RESOURCE CARD */
-.filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:32px;}
+/* ── SECTION 4: FREE RESOURCES (10TH & INTER FOCUS) ── */
+.res-view-container{animation:fadeIn 0.25s ease-in-out;}
+.filter-row{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:26px;}
 .filter-btn{background:var(--deep2);border:1.5px solid var(--card-border);color:var(--text2);font-family:var(--font-body);font-size:0.82rem;font-weight:500;padding:7px 16px;border-radius:100px;cursor:pointer;transition:all 0.2s;}
 .filter-btn.active,.filter-btn:hover{background:var(--saffron);border-color:var(--saffron);color:#fff;}
-.res-card{background:var(--card);border:1px solid var(--card-border);border-radius:12px;padding:20px;transition:all 0.25s;display:flex;flex-direction:column;gap:10px;}
-.res-card:hover{border-color:rgba(14,165,233,0.4);transform:translateY(-3px);}
-.res-header{display:flex;align-items:center;gap:10px;}
-.res-icon{font-size:1.6rem;}
-.res-name{font-family:var(--font-display);font-size:0.95rem;font-weight:700;}
+.res-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:14px;padding:22px;transition:all 0.25s;display:flex;flex-direction:column;gap:12px;position:relative;}
+.res-card:hover{border-color:var(--saffron);transform:translateY(-3px);box-shadow:0 12px 30px rgba(0,0,0,0.3);}
+.res-header{display:flex;align-items:center;gap:12px;}
+.res-icon{font-size:1.8rem;line-height:1;}
+.res-name{font-family:var(--font-display);font-size:1.02rem;font-weight:700;color:var(--text);}
 .res-cat{font-size:0.7rem;text-transform:uppercase;font-weight:700;letter-spacing:0.08em;color:var(--sky);}
-.res-desc{font-size:0.82rem;color:var(--text2);line-height:1.5;flex:1;}
-.res-audience{font-size:0.75rem;color:var(--text3);}
+.res-badges-wrap{display:flex;flex-wrap:wrap;gap:6px;}
+.res-badge{font-size:0.68rem;font-weight:700;padding:3px 9px;border-radius:6px;letter-spacing:0.02em;}
+.res-badge.govt{background:rgba(16,185,129,0.15);color:#34d399;border:1px solid rgba(16,185,129,0.3);}
+.res-badge.telugu{background:rgba(255,107,43,0.15);color:var(--saffron-light);border:1px solid rgba(255,107,43,0.3);}
+.res-badge.free{background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.3);}
+.res-desc{font-size:0.84rem;color:var(--text2);line-height:1.55;flex:1;}
+.res-audience{font-size:0.75rem;color:var(--text3);display:flex;align-items:center;gap:5px;}
 .stars{color:#fbbf24;font-size:0.85rem;}
-.link-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,107,43,0.1);border:1px solid rgba(255,107,43,0.25);color:var(--saffron-light);font-size:0.82rem;font-weight:600;padding:8px 16px;border-radius:8px;text-decoration:none;transition:all 0.2s;margin-top:4px;}
-.link-btn:hover{background:var(--saffron);color:#fff;}
+.link-btn{display:inline-flex;align-items:center;justify-content:center;gap:6px;background:rgba(255,107,43,0.1);border:1px solid rgba(255,107,43,0.25);color:var(--saffron-light);font-family:var(--font-display);font-size:0.84rem;font-weight:600;padding:9px 16px;border-radius:8px;text-decoration:none;transition:all 0.2s;margin-top:auto;}
+.link-btn:hover{background:var(--saffron);color:#fff;box-shadow:0 4px 12px rgba(255,107,43,0.3);}
+
+/* DOWNLOAD HUB CARDS (VIEW 2) */
+.dl-hub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-bottom:24px;}
+.dl-hub-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:14px;padding:24px;display:flex;flex-direction:column;gap:14px;transition:all 0.25s;}
+.dl-hub-card:hover{border-color:var(--sky);box-shadow:0 12px 30px rgba(0,0,0,0.3);}
+.dl-hub-header{display:flex;align-items:flex-start;gap:14px;}
+.dl-hub-icon{font-size:2.2rem;line-height:1;}
+.dl-hub-title{font-family:var(--font-display);font-size:1.05rem;font-weight:700;color:var(--text);margin-bottom:4px;}
+.dl-hub-sub{font-size:0.82rem;color:var(--text2);line-height:1.45;}
+.dl-action-links{display:flex;flex-direction:column;gap:8px;margin-top:auto;}
+.dl-btn{display:flex;align-items:center;justify-content:space-between;background:var(--deep2);border:1px solid var(--card-border);color:var(--text);font-size:0.82rem;font-weight:600;padding:10px 14px;border-radius:8px;text-decoration:none;transition:all 0.2s;}
+.dl-btn:hover{background:rgba(14,165,233,0.15);border-color:var(--sky);color:#38bdf8;}
+.dl-btn span:last-child{color:var(--sky);font-size:0.9rem;}
+.dl-tip-banner{background:rgba(16,185,129,0.08);border:1px solid rgba(16,185,129,0.25);border-radius:12px;padding:14px 20px;display:flex;align-items:center;gap:12px;font-size:0.84rem;color:#34d399;}
+
+/* QUICK SUBJECT FINDER (VIEW 3) */
+.sub-finder-wrap{max-width:920px;margin:0 auto;}
+.sub-finder-search-box{display:flex;align-items:center;gap:12px;background:var(--deep2);border:1.5px solid var(--card-border);border-radius:12px;padding:12px 18px;margin-bottom:18px;transition:all 0.25s;}
+.sub-finder-search-box:focus-within{border-color:var(--saffron);box-shadow:0 0 16px rgba(255,107,43,0.25);}
+.sub-finder-icon{font-size:1.2rem;color:var(--text3);}
+.sub-finder-search-box input{background:transparent;border:none;outline:none;color:var(--text);font-family:var(--font-body);font-size:0.95rem;width:100%;}
+.sub-quick-tags{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:18px;}
+.sub-tag-btn{background:var(--card);border:1px solid var(--card-border);color:var(--text2);font-family:var(--font-body);font-size:0.8rem;font-weight:600;padding:7px 14px;border-radius:100px;cursor:pointer;transition:all 0.2s;}
+.sub-tag-btn:hover,.sub-tag-btn.active{background:var(--saffron);border-color:var(--saffron);color:#fff;}
+.sub-results-header{font-family:var(--font-display);font-size:0.9rem;font-weight:700;color:var(--text2);margin-bottom:16px;text-align:center;}
 
 /* ── VIDYAUDAY ANIMATED LOGO ── */
 .nav-logo{ text-decoration:none; display:flex; align-items:center; gap:10px; }
@@ -988,10 +1019,48 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <section id="resources">
   <div class="max-w">
     <div class="section-tag" data-i18n="res_tag">Free Resources</div>
-    <h2 class="section-title" data-i18n="res_title">Learn Anything, For Free</h2>
-    <p class="section-sub" data-i18n="res_sub">Carefully selected platforms that offer world-class education at zero cost.</p>
-    <div class="filter-row" id="resourceFilters"></div>
-    <div class="cards-grid" id="resourceGrid" style="grid-template-columns:repeat(auto-fill,minmax(260px,1fr));"></div>
+    <h2 class="section-title" data-i18n="res_title">10th & Intermediate Free Learning Hub</h2>
+    <p class="section-sub" data-i18n="res_sub">Curated free platforms, 1-click textbooks, previous exam papers, and instant subject search.</p>
+
+    <!-- EXCLUSIVE VIEW SWITCHER -->
+    <div class="c-mode-switcher-wrap">
+      <div class="c-mode-switcher">
+        <button class="c-mode-btn active" id="resTabPlatforms" onclick="switchResourceView('platforms')">
+          <span>📚</span> <span id="lblResTabPlatforms">Top Free Platforms</span>
+        </button>
+        <button class="c-mode-btn" id="resTabDownloads" onclick="switchResourceView('downloads')">
+          <span>📥</span> <span id="lblResTabDownloads">1-Click Books & Papers</span>
+        </button>
+        <button class="c-mode-btn" id="resTabSearch" onclick="switchResourceView('search')">
+          <span>🔍</span> <span id="lblResTabSearch">Quick Subject Finder</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- VIEW 1: PLATFORMS (Active by default) -->
+    <div id="resViewPlatforms" class="res-view-container">
+      <div class="filter-row" id="resourceFilters"></div>
+      <div class="cards-grid" id="resourceGrid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));"></div>
+    </div>
+
+    <!-- VIEW 2: 1-CLICK BOOKS & QUESTION PAPERS HUB (Hidden by default) -->
+    <div id="resViewDownloads" class="res-view-container" style="display:none;">
+      <div id="resDownloadsContent"></div>
+    </div>
+
+    <!-- VIEW 3: QUICK SUBJECT FINDER (Hidden by default) -->
+    <div id="resViewSearch" class="res-view-container" style="display:none;">
+      <div class="sub-finder-wrap">
+        <div class="sub-finder-search-box">
+          <span class="sub-finder-icon">🔍</span>
+          <input type="text" id="subSearchInput" placeholder="Search by subject (e.g. Maths, Physics, Chemistry, Biology, English, EAMCET)..." oninput="handleSubjectSearch(this.value)">
+        </div>
+        <div class="sub-quick-tags" id="subQuickTags"></div>
+        <div id="subSearchResultsCount" class="sub-results-header"></div>
+        <div id="subSearchResults" class="cards-grid" style="grid-template-columns:repeat(auto-fill,minmax(280px,1fr));"></div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1247,14 +1316,150 @@ const aiTools_en = [
 ];
 
 const learningResources_en = [
-  { name:"freeCodeCamp", cat:"Programming", icon:"🔥", desc:"Learn web development, Python and data science with 3000+ hours of free curriculum.", link:"https://freecodecamp.org", audience:"All students", rating:5 },
-  { name:"W3Schools", cat:"Programming", icon:"🌐", desc:"Simplest way to learn HTML, CSS, JavaScript and Python with interactive examples.", link:"https://w3schools.com", audience:"Beginners", rating:4.5 },
-  { name:"GeeksforGeeks", cat:"Programming", icon:"🧠", desc:"Learn DSA, algorithms, and prepare for technical interviews with 10,000+ articles.", link:"https://geeksforgeeks.org", audience:"Intermediate students", rating:5 },
-  { name:"NPTEL", cat:"Academic", icon:"🎓", desc:"IIT and IISc professors teach Engineering, Science and Humanities in English and regional languages.", link:"https://nptel.ac.in", audience:"Intermediate & College", rating:5 },
-  { name:"SWAYAM", cat:"Academic", icon:"🏛️", desc:"Government of India free education platform with UGC-recognized certifications.", link:"https://swayam.gov.in", audience:"All students", rating:4.5 },
-  { name:"Khan Academy", cat:"Academic", icon:"📚", desc:"Free world-class education for Class 6-12 covering Maths, Science and Economics.", link:"https://khanacademy.org", audience:"10th class students", rating:5 },
-  { name:"Coursera", cat:"Skill Dev", icon:"🚀", desc:"Top university courses from Google, IBM, Meta. Many free to audit.", link:"https://coursera.org", audience:"Intermediate & above", rating:4.5 },
-  { name:"edX", cat:"Skill Dev", icon:"⚡", desc:"Harvard and MIT courses free. Verified certificates in CS, Business and Data Science.", link:"https://edx.org", audience:"Intermediate & above", rating:4.5 }
+  {
+    id: "diksha",
+    name: "DIKSHA Portal",
+    cat: "10th Class (SSC)",
+    icon: "🏛️",
+    desc: "Official Govt portal with AP & TS State Board textbooks, QR code video lessons, and bilingual chapters.",
+    badges: [{ text: "Govt Official", type: "govt" }, { text: "Telugu & English", type: "telugu" }, { text: "100% Free", type: "free" }],
+    audience: "AP & TS 10th & Inter Students",
+    subjects: ["maths", "science", "physics", "chemistry", "biology", "social", "telugu", "english"],
+    rating: 5,
+    link: "https://diksha.gov.in"
+  },
+  {
+    id: "epathshala",
+    name: "ePathshala (NCERT)",
+    cat: "10th Class (SSC)",
+    icon: "📖",
+    desc: "Free official NCERT digital textbooks, audio lessons, flipbooks, and notes for Classes 9 to 12.",
+    badges: [{ text: "Govt Official", type: "govt" }, { text: "NCERT Free PDFs", type: "free" }],
+    audience: "10th SSC & CBSE Students",
+    subjects: ["maths", "science", "physics", "chemistry", "biology", "social"],
+    rating: 5,
+    link: "https://epathshala.nic.in"
+  },
+  {
+    id: "khanacademy",
+    name: "Khan Academy India",
+    cat: "10th Class (SSC)",
+    icon: "📐",
+    desc: "World-class bite-sized video lessons and unlimited practice for 10th & Inter Maths and Science with zero ads.",
+    badges: [{ text: "100% Free Forever", type: "free" }, { text: "Self-Paced", type: "govt" }],
+    audience: "10th & Inter Science Students",
+    subjects: ["maths", "physics", "chemistry", "biology"],
+    rating: 5,
+    link: "https://www.khanacademy.org"
+  },
+  {
+    id: "nta_abhyas",
+    name: "National Test Abhyas (NTA)",
+    cat: "Entrance Exams",
+    icon: "🎯",
+    desc: "Official Ministry of Education app with 100% free daily full mock tests for JEE, NEET, and entrance exams.",
+    badges: [{ text: "Govt Official", type: "govt" }, { text: "Free Mock Tests", type: "free" }],
+    audience: "Inter MPC & BiPC Aspirants",
+    subjects: ["eamcet", "jee", "neet", "physics", "chemistry", "maths", "biology"],
+    rating: 5,
+    link: "https://www.nta.ac.in/abhyas"
+  },
+  {
+    id: "physics_wallah",
+    name: "Physics Wallah Foundation",
+    cat: "Entrance Exams",
+    icon: "⚡",
+    desc: "Free conceptual YouTube lectures and foundational notes for 10th Board, Inter MPC/BiPC, and EAMCET.",
+    badges: [{ text: "Free YouTube", type: "telugu" }, { text: "Board + EAMCET", type: "govt" }],
+    audience: "10th & Inter Science Students",
+    subjects: ["physics", "chemistry", "maths", "biology", "eamcet"],
+    rating: 5,
+    link: "https://www.youtube.com/@PhysicsWallah"
+  },
+  {
+    id: "swayam_prabha",
+    name: "Swayam Prabha DTH",
+    cat: "Intermediate (+2)",
+    icon: "📺",
+    desc: "34 educational TV channels broadcasting 24/7 lectures by IIT professors for high school and intermediate (+2).",
+    badges: [{ text: "Govt Channel", type: "govt" }, { text: "24/7 Free TV", type: "free" }],
+    audience: "Intermediate MPC, BiPC, CEC",
+    subjects: ["physics", "chemistry", "maths", "commerce", "arts"],
+    rating: 4.5,
+    link: "https://swayamprabha.gov.in"
+  },
+  {
+    id: "bieap_portal",
+    name: "AP & TS Board Paper Hub",
+    cat: "10th Class (SSC)",
+    icon: "📝",
+    desc: "Official board exam model question papers, previous 5 years' solved papers, and blueprints for SSC and Inter.",
+    badges: [{ text: "Govt Board", type: "govt" }, { text: "Previous Papers", type: "free" }],
+    audience: "10th SSC & Inter Candidates",
+    subjects: ["maths", "physics", "chemistry", "biology", "social", "english", "telugu"],
+    rating: 5,
+    link: "https://bie.ap.gov.in"
+  },
+  {
+    id: "duolingo",
+    name: "Duolingo Spoken English",
+    cat: "English & Skills",
+    icon: "🦉",
+    desc: "Fun, 5-minute gamified daily lessons to build everyday spoken English vocabulary and speaking confidence.",
+    badges: [{ text: "Gamified Fun", type: "telugu" }, { text: "Mobile Friendly", type: "free" }],
+    audience: "Vernacular & Rural Students",
+    subjects: ["english", "spoken english", "grammar"],
+    rating: 5,
+    link: "https://www.duolingo.com"
+  },
+  {
+    id: "bbc_english",
+    name: "BBC Learning English",
+    cat: "English & Skills",
+    icon: "🗣️",
+    desc: "Practical everyday English grammar, pronunciation, and vocabulary specially helpful for rural school students.",
+    badges: [{ text: "World-Class", type: "govt" }, { text: "Audio & Video", type: "free" }],
+    audience: "High School & College Beginners",
+    subjects: ["english", "spoken english", "grammar"],
+    rating: 4.5,
+    link: "https://www.bbc.co.uk/learningenglish"
+  },
+  {
+    id: "ndli",
+    name: "National Digital Library (NDLI)",
+    cat: "Intermediate (+2)",
+    icon: "🏛️",
+    desc: "National digital library by IIT Kharagpur with millions of free school textbooks, model papers, and guides.",
+    badges: [{ text: "Govt of India", type: "govt" }, { text: "Digital Library", type: "free" }],
+    audience: "10th, Inter & Degree Students",
+    subjects: ["maths", "physics", "chemistry", "biology", "commerce", "literature"],
+    rating: 5,
+    link: "https://ndl.iitkgp.ac.in"
+  },
+  {
+    id: "w3schools",
+    name: "W3Schools (Coding Starter)",
+    cat: "English & Skills",
+    icon: "💻",
+    desc: "The simplest, interactive platform to experiment with basic HTML, CSS, and Python code directly in your browser.",
+    badges: [{ text: "Interactive Code", type: "telugu" }, { text: "Beginner Friendly", type: "free" }],
+    audience: "Curious School & College Beginners",
+    subjects: ["coding", "python", "html", "computer"],
+    rating: 4.5,
+    link: "https://www.w3schools.com"
+  },
+  {
+    id: "swayam_portal",
+    name: "SWAYAM Central Portal",
+    cat: "Intermediate (+2)",
+    icon: "📜",
+    desc: "Free foundation certificate courses designed by NIOS, NCERT, and top Indian universities for +2 students.",
+    badges: [{ text: "Govt of India", type: "govt" }, { text: "Free Certificates", type: "free" }],
+    audience: "Inter 1st & 2nd Year Students",
+    subjects: ["science", "commerce", "arts", "economics"],
+    rating: 4.5,
+    link: "https://swayam.gov.in"
+  }
 ];
 
 const scholarships_en = [
@@ -3532,24 +3737,306 @@ function goStep2() {
 
 
 // ═══════════════════════════════════════════
-// RENDER RESOURCES
+// SECTION 4: FREE RESOURCES SYSTEM (EXCLUSIVE VIEWS)
 // ═══════════════════════════════════════════
+let currentResourceView = 'platforms';
+let currentResourceFilter = 'All';
+let currentSubjectTag = 'All';
+
+function switchResourceView(mode) {
+  currentResourceView = mode;
+  const isTe = activeLanguage === 'te';
+  
+  // Update switcher tabs
+  const tabP = document.getElementById('resTabPlatforms');
+  const tabD = document.getElementById('resTabDownloads');
+  const tabS = document.getElementById('resTabSearch');
+  if (tabP) tabP.classList.toggle('active', mode === 'platforms');
+  if (tabD) tabD.classList.toggle('active', mode === 'downloads');
+  if (tabS) tabS.classList.toggle('active', mode === 'search');
+  
+  // Exclusive display toggle (remaining views completely hidden)
+  const viewP = document.getElementById('resViewPlatforms');
+  const viewD = document.getElementById('resViewDownloads');
+  const viewS = document.getElementById('resViewSearch');
+  if (viewP) viewP.style.display = mode === 'platforms' ? 'block' : 'none';
+  if (viewD) viewD.style.display = mode === 'downloads' ? 'block' : 'none';
+  if (viewS) viewS.style.display = mode === 'search' ? 'block' : 'none';
+  
+  if (mode === 'platforms') {
+    renderResources(currentResourceFilter);
+  } else if (mode === 'downloads') {
+    renderResourceDownloads();
+  } else if (mode === 'search') {
+    renderSubjectFinder(currentSubjectTag, '');
+  }
+}
+
 function renderResources(filter) {
-  const cats = ['All', ...new Set(learningResources.map(r => r.cat))];
-  document.getElementById('resourceFilters').innerHTML = cats.map(c =>
-    `<button class="filter-btn ${c===filter?'active':''}" onclick="renderResources('${c}')">${c}</button>`
-  ).join('');
-  const data = filter === 'All' ? learningResources : learningResources.filter(r => r.cat === filter);
-  document.getElementById('resourceGrid').innerHTML = data.map(r => `
-    <div class="res-card fade-in">
-      <div class="res-header"><span class="res-icon">${r.icon}</span><div><div class="res-name">${r.name}</div><div class="res-cat">${r.cat}</div></div></div>
-      <div class="res-desc">${r.desc}</div>
-      <div class="stars">${'★'.repeat(Math.round(r.rating))}${'☆'.repeat(5-Math.round(r.rating))}</div>
-      <div class="res-audience">👤 ${r.audience}</div>
-      <a href="${r.link}" target="_blank" class="link-btn">Visit ${r.name} →</a>
-    </div>
-  `).join('');
+  currentResourceFilter = filter || (activeLanguage === 'te' ? 'అన్నీ' : 'All');
+  const isTe = activeLanguage === 'te';
+  const allLabel = isTe ? 'అన్నీ' : 'All';
+  
+  // Category chips
+  const uniqueCats = Array.from(new Set(learningResources.map(r => r.cat)));
+  const cats = [allLabel, ...uniqueCats];
+  
+  const filtersEl = document.getElementById('resourceFilters');
+  if (filtersEl) {
+    filtersEl.innerHTML = cats.map(c => {
+      const isActive = c === currentResourceFilter || (currentResourceFilter === 'All' && c === allLabel);
+      return `<button class="filter-btn ${isActive ? 'active' : ''}" onclick="renderResources('${c}')">${c}</button>`;
+    }).join('');
+  }
+  
+  const data = (currentResourceFilter === 'All' || currentResourceFilter === allLabel)
+    ? learningResources
+    : learningResources.filter(r => r.cat === currentResourceFilter);
+    
+  const gridEl = document.getElementById('resourceGrid');
+  if (gridEl) {
+    gridEl.innerHTML = data.map(r => {
+      const badgesHtml = (r.badges || []).map(b => `<span class="res-badge ${b.type}">${b.text}</span>`).join('');
+      const actionText = isTe ? `ప్లాట్‌ఫారమ్‌ను చూడండి ↗` : `Visit Platform ↗`;
+      return `
+        <div class="res-card fade-in">
+          <div class="res-header">
+            <span class="res-icon">${r.icon}</span>
+            <div>
+              <div class="res-name">${r.name}</div>
+              <div class="res-cat">${r.cat}</div>
+            </div>
+          </div>
+          ${badgesHtml ? `<div class="res-badges-wrap">${badgesHtml}</div>` : ''}
+          <div class="res-desc">${r.desc}</div>
+          <div class="res-audience">👤 ${r.audience}</div>
+          <a href="${r.link}" target="_blank" rel="noopener noreferrer" class="link-btn">${actionText}</a>
+        </div>
+      `;
+    }).join('');
+  }
   observeFadeIns();
+}
+
+function renderResourceDownloads() {
+  const container = document.getElementById('resDownloadsContent');
+  if (!container) return;
+  const isTe = activeLanguage === 'te';
+  
+  const hubs = isTe ? [
+    {
+      icon: "📘",
+      title: "AP & TS స్టేట్ బోర్డ్ పాఠ్యపుస్తకాలు (9వ & 10వ తరగతి)",
+      sub: "తెలుగు మరియు ఇంగ్లీష్ మీడియం అన్ని సబ్జెక్టుల అధికారిక ప్రభుత్వ SCERT PDF పుస్తకాలు.",
+      links: [
+        { label: "AP SCERT 10వ తరగతి పుస్తకాలు (PDF)", url: "https://apsert.gov.in" },
+        { label: "TS SCERT 10వ తరగతి పుస్తకాలు (PDF)", url: "https://scert.telangana.gov.in" },
+        { label: "NCERT 9-10వ తరగతి పుస్తకాలు (అధికారికం)", url: "https://ncert.nic.in/textbook.php" }
+      ]
+    },
+    {
+      icon: "📗",
+      title: "ఇంటర్మీడియట్ 1st & 2nd ఇయర్ పాఠ్యపుస్తకాలు & స్టడీ మెటీరియల్స్",
+      sub: "BIEAP & TSBIE తెలుగు అకాడమీ MPC, BiPC, CEC, HEC పాఠ్యపుస్తకాలు & రివిజన్ నోట్స్.",
+      links: [
+        { label: "BIEAP ఇంటర్మీడియట్ స్టడీ మెటీరియల్స్", url: "https://bie.ap.gov.in" },
+        { label: "TSBIE ఇంటర్ డిజిటల్ మెటీరియల్స్", url: "https://tsbie.cgg.gov.in" },
+        { label: "NCERT 11 & 12వ తరగతి సైన్స్ & కామర్స్", url: "https://ncert.nic.in/textbook.php" }
+      ]
+    },
+    {
+      icon: "📝",
+      title: "10వ SSC & ఇంటర్ గత 5 సంవత్సరాల బోర్డ్ పరీక్ష పేపర్లు",
+      sub: "పబ్లిక్ పరీక్ష మోడల్ పేపర్లు, ప్రశ్నల వెయిటేజ్ బ్లూప్రింట్లు మరియు పరిష్కారాలు.",
+      links: [
+        { label: "AP SSC (10వ తరగతి) గత పరీక్ష పేపర్లు", url: "https://bse.ap.gov.in" },
+        { label: "BIEAP ఇంటర్ 1st & 2nd ఇయర్ పేపర్లు", url: "https://bie.ap.gov.in" },
+        { label: "TS SSC & ఇంటర్ మాదిరి ప్రశ్న పత్రాలు", url: "https://bse.telangana.gov.in" }
+      ]
+    },
+    {
+      icon: "🎯",
+      title: "EAPCET / POLYCET / NEET ఉచిత సిలబస్ & మోడల్ పేపర్లు",
+      sub: "పాలిటెక్నిక్, ఇంజనీరింగ్ & అగ్రికల్చర్ ప్రవేశ పరీక్షల సిలబస్ మరియు ప్రాక్టీస్ ప్రశ్నలు.",
+      links: [
+        { label: "AP POLYCET సిలబస్ & గత పేపర్లు", url: "https://polycetap.nic.in" },
+        { label: "AP EAPCET అధికారిక మోడల్ పేపర్లు", url: "https://cets.apsche.ap.gov.in" },
+        { label: "NTA NEET & JEE అభ్యాస్ మాక్ పేపర్లు", url: "https://www.nta.ac.in/Downloads" }
+      ]
+    }
+  ] : [
+    {
+      icon: "📘",
+      title: "AP & TS State Board Textbooks (Class 9 & 10)",
+      sub: "Official Government SCERT free PDF textbooks for all subjects in Telugu & English mediums.",
+      links: [
+        { label: "AP SCERT Class 10 All Subjects (PDF)", url: "https://apsert.gov.in" },
+        { label: "TS SCERT Class 10 Textbooks (PDF)", url: "https://scert.telangana.gov.in" },
+        { label: "NCERT Class 9-10 Official Books (PDF)", url: "https://ncert.nic.in/textbook.php" }
+      ]
+    },
+    {
+      icon: "📗",
+      title: "Intermediate 1st & 2nd Year Textbooks & Notes",
+      sub: "BIEAP & TSBIE Telugu Akademi textbooks, syllabus blueprints & revision notes for MPC, BiPC, CEC.",
+      links: [
+        { label: "BIEAP Inter Official Study Materials", url: "https://bie.ap.gov.in" },
+        { label: "TSBIE Inter Digital Materials Portal", url: "https://tsbie.cgg.gov.in" },
+        { label: "NCERT Class 11 & 12 Science & Commerce", url: "https://ncert.nic.in/textbook.php" }
+      ]
+    },
+    {
+      icon: "📝",
+      title: "10th SSC & Inter Previous 5 Years Board Papers",
+      sub: "Official public exam solved question papers, chapter-wise weightage blueprints and keys.",
+      links: [
+        { label: "AP SSC (10th) Past Board Exam Papers", url: "https://bse.ap.gov.in" },
+        { label: "BIEAP Inter 1st & 2nd Year Question Papers", url: "https://bie.ap.gov.in" },
+        { label: "TS SSC & Inter Model Question Papers", url: "https://bse.telangana.gov.in" }
+      ]
+    },
+    {
+      icon: "🎯",
+      title: "EAPCET, POLYCET & NEET Free Model Papers",
+      sub: "Official entrance exam syllabi, blueprints, and chapter-wise practice tests with answers.",
+      links: [
+        { label: "AP POLYCET Syllabus & Model Papers", url: "https://polycetap.nic.in" },
+        { label: "AP EAPCET Official Engineering Papers", url: "https://cets.apsche.ap.gov.in" },
+        { label: "NTA NEET & JEE Official Mock Papers", url: "https://www.nta.ac.in/Downloads" }
+      ]
+    }
+  ];
+
+  const bannerText = isTe
+    ? `💡 <strong>ధృవీకరించబడిన ప్రభుత్వ పోర్టల్స్:</strong> అన్ని లింకులు నేరుగా అధికారిక ప్రభుత్వ విద్యా సర్వర్లకు (SCERT, BIEAP, BSE, NTA) అనుసంధానించబడి ఉంటాయి. ఎలాంటి రిజిస్ట్రేషన్ లేదా రుసుము లేకుండా ఉచితంగా డౌన్‌లోడ్ చేసుకోవచ్చు.`
+    : `💡 <strong>Verified Official Govt Portals:</strong> All links connect straight to official education portals (SCERT, BIEAP, BSE, NTA). Free downloads with zero login or fees required.`;
+
+  container.innerHTML = `
+    <div class="dl-hub-grid">
+      ${hubs.map(h => `
+        <div class="dl-hub-card fade-in">
+          <div class="dl-hub-header">
+            <span class="dl-hub-icon">${h.icon}</span>
+            <div>
+              <div class="dl-hub-title">${h.title}</div>
+              <div class="dl-hub-sub">${h.sub}</div>
+            </div>
+          </div>
+          <div class="dl-action-links">
+            ${h.links.map(l => `
+              <a href="${l.url}" target="_blank" rel="noopener noreferrer" class="dl-btn">
+                <span>📄 ${l.label}</span>
+                <span>↗</span>
+              </a>
+            `).join('')}
+          </div>
+        </div>
+      `).join('')}
+    </div>
+    <div class="dl-tip-banner fade-in">
+      <span>🛡️</span>
+      <div>${bannerText}</div>
+    </div>
+  `;
+  observeFadeIns();
+}
+
+const subjectTagList = [
+  { id: "all", en: "All Subjects", te: "అన్ని సబ్జెక్టులు", key: "all" },
+  { id: "maths", en: "📐 Maths", te: "📐 గణితం (Maths)", key: "maths" },
+  { id: "physics", en: "⚡ Physics", te: "⚡ భౌతిక శాస్త్రం (Physics)", key: "physics" },
+  { id: "chemistry", en: "🧪 Chemistry", te: "🧪 రసాయన శాస్త్రం (Chemistry)", key: "chemistry" },
+  { id: "biology", en: "🧬 Biology", te: "🧬 జీవశాస్త్రం (Biology)", key: "biology" },
+  { id: "english", en: "🗣️ Spoken English", te: "🗣️ స్పోకెన్ ఇంగ్లీష్", key: "english" },
+  { id: "entrance", en: "🎯 EAMCET / POLYCET Prep", te: "🎯 EAMCET / POLYCET ప్రిపరేషన్", key: "eamcet" },
+  { id: "coding", en: "💻 Computer & Coding", te: "💻 కంప్యూటర్ & కోడింగ్", key: "coding" }
+];
+
+function renderSubjectFinder(selectedTag, query) {
+  currentSubjectTag = selectedTag || 'all';
+  const isTe = activeLanguage === 'te';
+  
+  // Render quick subject tags
+  const tagsEl = document.getElementById('subQuickTags');
+  if (tagsEl) {
+    tagsEl.innerHTML = subjectTagList.map(t => {
+      const active = t.id === currentSubjectTag ? 'active' : '';
+      const label = isTe ? t.te : t.en;
+      return `<button class="sub-tag-btn ${active}" onclick="selectSubjectTag('${t.id}')">${label}</button>`;
+    }).join('');
+  }
+  
+  // Filter resources
+  const q = (query || '').trim().toLowerCase();
+  let matched = learningResources;
+  
+  if (currentSubjectTag !== 'all') {
+    const targetKey = subjectTagList.find(t => t.id === currentSubjectTag)?.key || currentSubjectTag;
+    matched = matched.filter(r => (r.subjects || []).includes(targetKey) || (r.cat || '').toLowerCase().includes(targetKey));
+  }
+  
+  if (q) {
+    matched = matched.filter(r => 
+      r.name.toLowerCase().includes(q) ||
+      r.desc.toLowerCase().includes(q) ||
+      (r.subjects || []).some(s => s.toLowerCase().includes(q)) ||
+      r.cat.toLowerCase().includes(q)
+    );
+  }
+  
+  const countEl = document.getElementById('subSearchResultsCount');
+  if (countEl) {
+    const subjectName = isTe
+      ? (subjectTagList.find(t => t.id === currentSubjectTag)?.te || 'సబ్జెక్ట్')
+      : (subjectTagList.find(t => t.id === currentSubjectTag)?.en || 'Subject');
+    countEl.innerHTML = isTe
+      ? `🎯 <strong>${subjectName}</strong> కోసం ${matched.length} ఉచిత లెర్నింగ్ వనరులు కనుగొనబడ్డాయి:`
+      : `🎯 Found <strong>${matched.length}</strong> free learning resources for <strong>${subjectName}</strong>:`;
+  }
+  
+  const resultsEl = document.getElementById('subSearchResults');
+  if (resultsEl) {
+    if (matched.length === 0) {
+      resultsEl.innerHTML = `
+        <div style="grid-column:1/-1;text-align:center;padding:40px 20px;color:var(--text3);">
+          <div style="font-size:2.5rem;margin-bottom:10px;">🔍</div>
+          <div>${isTe ? 'ఈ శోధనకు సరిపోయే వనరులు కనుగొనబడలేదు. దయచేసి వేరే పదాన్ని ప్రయత్నించండి.' : 'No resources matched your search. Please try another subject.'}</div>
+        </div>
+      `;
+    } else {
+      resultsEl.innerHTML = matched.map(r => {
+        const badgesHtml = (r.badges || []).map(b => `<span class="res-badge ${b.type}">${b.text}</span>`).join('');
+        const actionText = isTe ? `సబ్జెక్ట్ చదవండి ↗` : `Study Subject ↗`;
+        return `
+          <div class="res-card fade-in">
+            <div class="res-header">
+              <span class="res-icon">${r.icon}</span>
+              <div>
+                <div class="res-name">${r.name}</div>
+                <div class="res-cat">${r.cat}</div>
+              </div>
+            </div>
+            ${badgesHtml ? `<div class="res-badges-wrap">${badgesHtml}</div>` : ''}
+            <div class="res-desc">${r.desc}</div>
+            <div class="res-audience">👤 ${r.audience}</div>
+            <a href="${r.link}" target="_blank" rel="noopener noreferrer" class="link-btn">${actionText}</a>
+          </div>
+        `;
+      }).join('');
+    }
+  }
+  observeFadeIns();
+}
+
+function selectSubjectTag(tagId) {
+  currentSubjectTag = tagId;
+  const input = document.getElementById('subSearchInput');
+  const q = input ? input.value : '';
+  renderSubjectFinder(tagId, q);
+}
+
+function handleSubjectSearch(val) {
+  renderSubjectFinder(currentSubjectTag, val);
 }
 
 // ═══════════════════════════════════════════
@@ -3803,7 +4290,152 @@ if (statsBarEl) {
 // TELUGU TRANSLATED DATA STRUCTURES
 // ═══════════════════════════════════════════
 const aiTools_te = [{"id": 1, "name": "ChatGPT", "icon": "🤖", "color": "#10a37f", "category": "AI అసిస్టెంట్", "tagline": "మీ 24/7 వ్యక్తిగత స్టడీ బడ్డీ", "description": "ChatGPT అనేది OpenAI చే తయారు చేయబడిన AI చాట్‌బాట్. మీరు దేన్నైనా అడగవచ్చు — గణిత సమస్యలను సాధించడం, వ్యాసాలు రాయడం, సైన్స్ భావనలను అర్థం చేసుకోవడం, పరీక్షలకు సిద్ధమవ్వడం మరియు తెలుగులో కూడా సమాధానాలు పొందడం. ఇది మీ పరీక్షకు ముందు అర్ధరాత్రి అందుబాటులో ఉండే స్మార్ట్ ట్యూటర్ లాంటిది.", "benefits": ["ఏ సబ్జెక్ట్ ప్రశ్నికైనా తక్షణమే సమాధానం ఇస్తుంది", "సరళమైన భాషలో అంశాలను వివరిస్తుంది", "వ్యాసాలు రాయడానికి మరియు మెరుగుపరచడానికి సహాయపడుతుంది", "తెలుగు, హిందీ & ఇంగ్లీషులో పనిచేస్తుంది", "ప్రాక్టీస్ పరీక్ష ప్రశ్నలను తయారు చేస్తుంది", "పెద్ద అధ్యాయాలను సెకన్లలో సారాంశంగా ఇస్తుంది"], "useCases": ["'న్యూటన్ నియమాలను సరళంగా వివరించు' అని టైప్ చేయండి → స్పష్టమైన సమాధానం వస్తుంది", "'నీటి సంరక్షణపై వ్యాసం రాయండి' అని టైప్ చేయండి → డ్రాఫ్ట్ వస్తుంది", "'కిరణజన్య సంయోగక్రియపై 10 MCQs ఇవ్వండి' అని టైప్ చేయండి → తక్షణ క్విజ్", "'BiPC తర్వాత కెరీర్ ఆప్షన్స్ ఏమిటి?' అని టైప్ చేయండి → పూర్తి మార్గదర్శకత్వం"], "link": "https://chat.openai.com", "youtube": "https://www.youtube.com/watch?v=JTxsNm9IdYU"}, {"id": 2, "name": "Google Gemini", "icon": "✨", "color": "#4285f4", "category": "AI అసిస్టెంట్", "tagline": "గూగుల్ AI — స్మార్ట్ సెర్చ్, మెరుగైన సమాధానాలు", "description": "Gemini అనేది గూగుల్ యొక్క AI అసిస్టెంట్, ఇది టెక్స్ట్ మరియు ఇమేజ్‌లను అర్థం చేసుకోగలదు. మీరు మీ పాఠ్యపుస్తకం పేజీ యొక్క ఫోటోను అప్‌లోడ్ చేసి దాని గురించి ప్రశ్నలు అడగవచ్చు. ఇది గూగుల్ సెర్చ్‌తో ముడిపడి ఉన్నందున ఏ అంశానికైనా తాజా సమాచారాన్ని అందిస్తుంది.", "benefits": ["పాఠ్యపుస్తకం చిత్రాలను అప్‌లోడ్ చేసి ప్రశ్నలు అడగవచ్చు", "Gmail మరియు Google Docs తో అనుసంధానించబడింది", "తాజా మరియు ఖచ్చితమైన సమాధానాలను ఇస్తుంది", "ఏదైనా ఆండ్రాయిడ్ ఫోన్‌లో పనిచేస్తుంది", "బహుళ భారతీయ భాషలకు మద్దతు ఇస్తుంది", "ఉపయోగించడానికి పూర్తిగా ఉచితం"], "useCases": ["పాఠ్యపుస్తకం రేఖాచిత్రం ఫోటో తీయండి → 'దీన్ని వివరించు' అని అడగండి", "ఖచ్చితమైన గూగుల్ ఆధారిత సమాధానాలతో ఏ అంశంపైనైనా పరిశోధించండి", "టైప్ చేయడం లేదా అప్‌లోడ్ చేయడం ద్వారా ఒక అధ్యాయాన్ని సారాంశం చేయండి", "తాజా స్కాలర్‌షిప్ గడువులు మరియు పరీక్ష తేదీలను పొందండి"], "link": "https://gemini.google.com", "youtube": "https://www.youtube.com/watch?v=Q1zF9pF6flw"}, {"id": 3, "name": "Canva", "icon": "🎨", "color": "#7c3aed", "category": "డిజైన్ సాధనం", "tagline": "ఏదైనా డిజైన్ చేయండి — నైపుణ్యాలు అవసరం లేదు", "description": "Canva అనేది 1000+ రెడీమేడ్ టెంప్లేట్‌లతో కూడిన ఉచిత ఆన్‌లైన్ డిజైన్ సాధనం. మీరు మీ ఫోన్ లేదా ల్యాప్‌టాప్ నుండి కేవలం నిమిషాల్లో అందమైన ప్రాజెక్ట్ ప్రజెంటేషన్‌లు, పోస్టర్‌లు, రెజ్యూమ్‌లు, కాలేజ్ ఫెస్ట్ బ్యానర్‌లు మరియు మరిన్నింటిని సృష్టించవచ్చు. ఎలాంటి డిజైన్ అనుభవం అవసరం లేదు.", "benefits": ["1000+ ఉచిత ప్రొఫెషనల్ టెంప్లేట్లు", "మొబైల్‌లో సంపూర్ణంగా పనిచేస్తుంది", "PDF, PNG లేదా PPT గా డౌన్‌లోడ్ చేసుకోవచ్చు", "టీమ్ కొలాబరేషన్ ఫీచర్", "డ్రాగ్ అండ్ డ్రాప్ — నేర్చుకోవడం చాలా సులభం", "అదనపు ఫీచర్లతో ఉచిత విద్యా ఖాతా"], "useCases": ["10 నిమిషాల్లో ప్రాజెక్ట్ ప్రెజెంటేషన్ సృష్టించండి", "మీ కాలేజ్ ఫెస్ట్ పోస్టర్‌ను డిజైన్ చేయండి", "ప్రొఫెషనల్ 1-పేజీ రెజ్యూమ్‌ను నిర్మించండి", "సైన్స్ ప్రాజెక్ట్‌ల కోసం ఇన్ఫోగ్రాఫిక్ చేయండి", "మీ ప్రొఫైల్ కోసం లింక్డ్‌ఇన్ బ్యానర్ చేయండి"], "link": "https://www.canva.com", "youtube": "https://www.youtube.com/watch?v=X4uBKGiUnGQ"}, {"id": 4, "name": "Gamma", "icon": "⚡", "color": "#6366f1", "category": "AI ప్రెజెంటేషన్స్", "tagline": "మీ నోట్స్‌ను తక్షణమే అందమైన స్లైడ్‌లుగా మార్చండి", "description": "Gamma అనేది అద్భుతమైన ప్రెజెంటేషన్‌లను స్వయంచాలకంగా సృష్టించే ఒక AI సాధనం. మీరు కేవలం మీ టాపిక్‌ను టైప్ చేస్తే లేదా మీ నోట్స్‌ను పేస్ట్ చేస్తే చాలు, Gamma సరైన లేఅవుట్, రంగులు మరియు కంటెంట్‌తో అందమైన స్లైడ్‌లను 60 సెకన్లలోపు డిజైన్ చేస్తుంది. ప్రాజెక్ట్ సమర్పణలకు ఇది సరైనది.", "benefits": ["ఒక ప్రాంప్ట్ నుండి పూర్తి ప్రెజెంటేషన్‌లను సృష్టిస్తుంది", "చిత్రాలు మరియు చిహ్నాలను స్వయంచాలకంగా జోడిస్తుంది", "ఆధునిక ప్రొఫెషనల్ డిజైన్లు", "లింక్ లాగా షేర్ చేయండి — ఫైల్ అవసరం లేదు", "ఉదారమైన పరిమితులతో ఉచితంగా ఉపయోగించవచ్చు", "ప్రాజెక్ట్ డెమోలు మరియు సెమినార్లకు చాలా ఉపయోగకరం"], "useCases": ["'విద్యార్థుల కోసం AI సాధనాలు' అని టైప్ చేయండి → పూర్తి ప్రెజెనెట్ పొందండి", "మీ నోట్స్‌ను తక్షణమే స్లైడ్‌లుగా మార్చండి", "ప్రొఫెషనల్‌గా కనిపించే ప్రాజెక్ట్ నివేదికను సృష్టించండి", "లింక్ ద్వారా ప్రెజెంటేషన్‌లను భాగస్వామ్యం చేయండి (PPT ఫైల్ అవసరం లేదు)", "బ్రౌజర్ నుండి నేరుగా క్లాస్‌లో ప్రెజెంట్ చేయండి"], "link": "https://gamma.app", "youtube": "https://www.youtube.com/watch?v=W5SuYBXKgJM"}, {"id": 5, "name": "GitHub", "icon": "🐙", "color": "#7ee787", "category": "కోడ్ ప్లాట్‌ఫారమ్", "tagline": "ప్రతి డెవలపర్ కోడ్ యొక్క నిలయం", "description": "GitHub అనేది ప్రోగ్రామర్లు తమ కోడ్ ప్రాజెక్ట్‌లను నిల్వ చేయడానికి, పంచుకోవడానికి మరియు ప్రదర్శించడానికి ఉపయోగించే స్థలం. మీ కోడింగ్ పని కోసం దీనిని ఇన్‌స్టాగ్రామ్ లాగా భావించండి. టెక్ ఉద్యోగాలకు దరఖాస్తు చేసుకునేటప్పుడు మీ ప్రాజెక్ట్‌లతో కూడిన GitHub ప్రొఫైల్ ఉండటం అనేది రెజ్యూమ్ కంటే చాలా విలువైనది.", "benefits": ["ఉచిత అపరిమిత కోడ్ నిల్వ", "ఉద్యోగకర్తలు తనిఖీ చేసే డెవలపర్ పోర్ట్‌ఫోలియోను నిర్మించండి", "ఇతరుల కోడ్ చదవడం ద్వారా నేర్చుకోండి", "గ్రూప్ ప్రాజెక్ట్‌లలో సులభంగా సహకరించండి", "GitHub స్టూడెంట్ ప్యాక్ విలువ ₹50,000+ ఉచిత సాధనాలు", "ప్రపంచవ్యాప్తంగా ప్రతి టెక్ కంపెనీ ద్వారా గుర్తించబడింది మరియు ఉపయోగించబడుతుంది"], "useCases": ["మీరు చేసే ప్రతి కోడింగ్ ప్రాజెక్ట్‌ను నిల్వ చేయండి", "మీ రెజ్యూమ్‌లో మీ ప్రాజెక్ట్ లింక్‌ను భాగస్వామ్యం చేయండి", "గ్రూప్ అసైన్‌మెంట్‌లలో క్లాస్‌మేట్స్‌తో సహకరించండి", "నేర్చుకోవడానికి ఓపెన్ సోర్స్ ప్రాజెక్ట్‌లను అన్వేషించండి", "మీ కాలేజ్ ఈమెయిల్‌తో GitHub స్టూడెంట్ ప్యాక్ పొందండి"], "link": "https://github.com", "youtube": "https://www.youtube.com/watch?v=RGOj5yH7evk"}, {"id": 6, "name": "LinkedIn", "icon": "💼", "color": "#0077b5", "category": "ప్రొఫెషనల్ నెట్‌వర్క్", "tagline": "ఈరోజే మీ కెరీర్ నెట్‌వర్క్‌ను నిర్మించడం ప్రారంభించండి", "description": "LinkedIn అనేది 900 మిలియన్ల వినియోగదారులతో కూడిన ప్రపంచంలోనే అతిపెద్ద ప్రొఫెషనల్ నెట్‌వర్కింగ్ ప్లాట్‌ఫారమ్. ఒక విద్యార్థిగా మీ ప్రొఫైల్‌ను సృష్టించడం మిమ్మల్ని మెంటార్‌లు, సీనియర్‌లు, కంపెనీ రిక్రూటర్‌లు మరియు స్కాలర్‌షిప్ అవకాశాలతో కలుపుతుంది. మీరు ఎంత త్వరగా ప్రారంభిస్తే అంత మంచిది.", "benefits": ["మీ కాలేజీకి చెందిన పూర్వ విద్యార్థులతో కనెక్ట్ అవ్వండి", "ఇంటర్న్‌షిప్‌లు మరియు పార్ట్ టైమ్ పనులను కనుగొనండి", "ఉచిత లింక్డ్‌ఇన్ లెర్నింగ్ కోర్సులు (1000+)", "మీ ప్రొఫైల్ బలంగా ఉన్నప్పుడు రిక్రూటర్లు మిమ్మల్ని కనుగొంటారు", "కంపెనీలు మరియు పరిశ్రమ వార్తలను అనుసరించండి", "మీ ప్రాజెక్ట్‌లను పోస్ట్ చేసి గుర్తింపు పొందండి"], "useCases": ["విద్య మరియు నైపుణ్యాలతో మీ విద్యార్థి ప్రొఫైల్‌ను సృష్టించండి", "ప్రముఖ కంపెనీలలో ప్లేస్‌మెంట్ పొందిన సీనియర్లతో కనెక్ట్ అవ్వండి", "ఉద్యోగ అవకాశాల కోసం టాటా, ఇన్ఫోసిస్, గూగుల్ ఇండియాలను ఫాలో అవ్వండి", "మీ ప్రాజెక్ట్‌ను పోస్ట్ చేయండి — మీ కాలేజీని ట్యాగ్ చేయండి — గుర్తింపు పొందండి", "ప్రొఫెషనల్స్‌కు మెసేజ్ చేసి కెరీర్ సలహాలను అడగండి"], "link": "https://www.linkedin.com", "youtube": "https://www.youtube.com/watch?v=SG5Sb5WTV_g"}, {"id": 7, "name": "Microsoft Copilot", "icon": "🪟", "color": "#00a4ef", "category": "AI అసిస్టెంట్", "tagline": "Windows & Bing లో అంతర్నిర్మిత ఉచిత AI", "description": "Microsoft Copilot అనేది Windows 11, Bing మరియు Microsoft Edge బ్రౌజర్‌లో నిర్మించబడిన ఉచిత AI అసిస్టెంట్. మీరు విండోస్ ల్యాప్‌టాప్ ఉపయోగిస్తుంటే, మీకు ఇప్పటికే ఇది అందుబాటులో ఉంది — Copilot బటన్‌ను నొక్కండి. ఇది రాయడం, పరిశోధన చేయడం, చిత్రాలను సృష్టించడం మరియు కోడింగ్‌కు సహాయపడుతుంది.", "benefits": ["విండోస్ ల్యాప్‌టాప్‌లో ఇప్పటికే ఉచితంగా లభిస్తుంది", "DALL-E తో ఉచితంగా చిత్రాలను సృష్టిస్తుంది", "లైవ్ ఇంటర్నెట్ సదుపాయంతో ప్రశ్నలకు సమాధానమిస్తుంది", "వర్డ్ డాక్యుమెంట్లు మరియు ఈమెయిళ్లను రాయడానికి సహాయపడుతుంది", "ఉపయోగించడానికి లాగిన్ అవసరం లేదు", "Microsoft Edge బ్రౌజర్ లోపల పనిచేస్తుంది"], "useCases": ["విండోస్ ల్యాప్‌టాప్‌లో Win+C నొక్కండి → చాటింగ్ ప్రారంభించండి", "ప్రాజెక్ట్ చిత్రాలను ఉచితంగా సృష్టించండి", "లైవ్ వెబ్ ఫలితాలతో ఏదైనా అంశాన్ని పరిశోధించండి", "ఈమెయిళ్లు మరియు అధికారిక లేఖలు రాయడంలో సహాయం పొందండి", "మీరు నేర్చుకునేటప్పుడు కోడింగ్ ప్రశ్నలను అడగండి"], "link": "https://copilot.microsoft.com", "youtube": "https://www.youtube.com/watch?v=nrgCBGhOBos"}, {"id": 8, "name": "Notion AI", "icon": "📝", "color": "#e8e8e8", "category": "ఉత్పాదకత సాధనం", "tagline": "AI తో మీ నోట్స్, చదువు మరియు ప్రాజెక్ట్‌లను నిర్వహించండి", "description": "Notion అనేది ఆల్ ఇన్ వన్ వర్క్‌స్పేస్, ఇక్కడ మీరు నోట్స్ రాసుకోవచ్చు, మీ చదువును ప్లాన్ చేసుకోవచ్చు, ప్రాజెక్ట్‌లను నిర్వహించవచ్చు మరియు మీ లక్ష్యాలను ట్రాక్ చేయవచ్చు. అంతర్నిర్మిత Notion AI తో, ఇది మీ నోట్స్‌ను సారాంశం చేయగలదు, మీ కోసం కంటెంట్ రాయగలదు మరియు మీ విద్యా సంవత్సరంలో క్రమబద్ధంగా ఉండటానికి సహాయపడుతుంది.", "benefits": ["ఎడ్యుకేషన్ ఈమెయిల్‌తో విద్యార్థులకు ఉచితం", "అన్ని సబ్జెక్ట్‌లను ఒకే చోట నిర్వహించండి", "AI మీ కోసం కంటెంట్‌ను రాస్తుంది మరియు సారాంశం చేస్తుంది", "క్లాస్‌మేట్స్‌తో స్టడీ నోట్స్‌ను పంచుకోండి", "works on phone, tablet, and laptop", "విద్యార్థుల కోసం 500+ ఉచిత టెంప్లేట్లు"], "useCases": ["మీ సెమిస్టర్ కోసం ఒక స్టడీ ప్లానర్‌ను సృష్టించండి", "క్లాస్ నోట్స్ తీసుకోండి మరియు AI వాటిని సారాంశం చేయనివ్వండి", "మీ స్కాలర్‌షిప్ అప్లికేషన్ గడువులను ట్రాక్ చేయండి", "మీ బి.టెక్ ప్రాజెక్ట్ పనులు మరియు సమయపాలనను నిర్వహించండి", "మీ స్నేహితుల సమూహంతో నోట్స్ పేజీని పంచుకోండి"], "link": "https://notion.so", "youtube": "https://www.youtube.com/watch?v=oTahLEX3NXo"}, {"id": 9, "name": "Perplexity AI", "icon": "🔎", "color": "#20b8cd", "category": "AI శోధన", "tagline": "ఏదైనా అడగండి — ఆధారాలతో సమాధానాలు పొందండి", "description": "Perplexity అనేది AI ఆధారిత సెర్చ్ ఇంజన్, ఇది మీకు లింక్‌ల జాబితాకు బదులుగా నేరుగా సమాధానాలను ఇస్తుంది. గూగుల్ లాగా కాకుండా, ఇది బహుళ మూలాలను చదివి, స్పష్టమైన సమాధానాన్ని సూచనలతో అందిస్తుంది. పరిశోధన మరియు క్లిష్టమైన అంశాలను అర్థం చేసుకోవడానికి ఇది సరైనది.", "benefits": ["నేరుగా సమాధానాలు — బహుళ లింక్‌లపై క్లిక్ చేయాల్సిన అవసరం లేదు", "నిజాలను ధృవీకరించడానికి మూలాలను చూపుతుంది", "ఉపయోగించడానికి పూర్తిగా ఉచితం", "పరిశోధన మరియు అసైన్‌మెంట్‌లకు అద్భుతమైనది", "మరింత సమాచారం కోసం ఫాలో-అప్ ప్రశ్నలను అడుగుతుంది", "ఖాతా అవసరం లేదు"], "useCases": ["'ఆంధ్రప్రదేశ్‌లో విద్యార్థుల కోసం ఉత్తమ ప్రభుత్వ పథకాలు ఏమిటి?' → తక్షణ సమాధానం", "మీ ప్రాజెక్ట్ కోసం ఏదైనా అంశాన్ని పరిశోధించండి", "క్లిష్టమైన సైన్స్ లేదా చరిత్ర అంశాలను అర్థం చేసుకోండి", "నమ్మదగిన మూలాలతో స్కాలర్‌షిప్ సమాచారాన్ని కనుగొనండి", "ఆన్‌లైన్‌లో మీరు చదివే సమాచారాన్ని నిజమో కాదో ధృవీకరించండి"], "link": "https://www.perplexity.ai", "youtube": "https://www.youtube.com/watch?v=EJfHqMWn_sA"}, {"id": 10, "name": "QuillBot", "icon": "✍️", "color": "#21c26e", "category": "రచన సాధనం", "tagline": "మెరుగ్గా రాయండి — వ్యాకరణాన్ని సరిచేయండి, పారాఫ్రేజ్ చేయండి, సారాంశం చేయండి", "description": "QuillBot అనేది ఉచిత రైటింగ్ అసిస్టెంట్, ఇది వాక్యాలను తిరిగి రాయడానికి, పెద్ద వచనాన్ని సారాంశం చేయడానికి, వ్యాకరణ తప్పులను సరిచేయడానికి మరియు మీ రైటింగ్ స్టైల్‌ను మెరుగుపరచడానికి సహాయపడుతుంది. అసైన్‌మెంట్‌లు, ప్రాజెక్ట్ రిపోర్ట్‌లు రాయడానికి మరియు మీ ఇంగ్లీష్ రైటింగ్‌ను ప్రొఫెషనల్‌గా మార్చడానికి చాలా ఉపయోగకరంగా ఉంటుంది.", "benefits": ["పారాఫ్రేజ్ సాధనం వాక్యాలను మెరుగ్గా తిరిగి రాస్తుంది", "గ్రామర్ చెకర్ అన్ని తప్పులను సరిచేస్తుంది", "సమ్మరైజర్ పెద్ద వ్యాసాలను సెకన్లలో తగ్గిస్తుంది", "మీ బ్రౌజర్‌లో పనిచేస్తుంది — ఇన్‌స్టాల్ అవసరం లేదు", "ఉచిత శ్రేణి చాలా ఉదారంగా ఉంటుంది", "మీ ఇంగ్లీష్ రైటింగ్ నైపుణ్యాలను మెరుగుపరచడంలో సహాయపడుతుంది"], "useCases": ["మీ అసైన్‌మెంట్‌ను పేస్ట్ చేయండి → వ్యాకరణాన్ని సరిచేసి మెరుగుపరచండి", "పెద్ద వ్యాసం లేదా అధ్యాయాన్ని సెకన్లలో సారాంశం చేయండి", "వాక్యాలను మరింత ప్రొఫెషనల్ టోన్‌లో తిరిగి రాయండి", "Check and fix errors in your resume", "మీ లింక్డ్‌ఇన్ బయోలోని ఇంగ్లీషును మెరుగుపరచండి"], "link": "https://quillbot.com", "youtube": "https://www.youtube.com/watch?v=0bNf6CcBkmk"}];
-const learningResources_te = [{"name": "freeCodeCamp", "cat": "ప్రోగ్రామింగ్", "icon": "🔥", "desc": "3000+ గంటల ఉచిత పాఠ్యప్రణాళికతో వెబ్ డెవలప్‌మెంట్, పైథాన్ మరియు డేటా సైన్స్ నేర్చుకోండి.", "link": "https://freecodecamp.org", "audience": "విద్యార్థులందరూ", "rating": 5}, {"name": "W3Schools", "cat": "ప్రోగ్రామింగ్", "icon": "🌐", "desc": "ఇంటరాక్టివ్ ఉదాహరణలతో HTML, CSS, JavaScript మరియు Python నేర్చుకోవడానికి సులభమైన మార్గం.", "link": "https://w3schools.com", "audience": "ప్రారంభకులు", "rating": 4.5}, {"name": "GeeksforGeeks", "cat": "ప్రోగ్రామింగ్", "icon": "🧠", "desc": "10,000+ వ్యాసాలతో DSA, అల్గారిథమ్స్ నేర్చుకోండి మరియు టెక్నికల్ ఇంటర్వ్యూలకు సిద్ధమవ్వండి.", "link": "https://geeksforgeeks.org", "audience": "మధ్యస్థ విద్యార్థులు", "rating": 5}, {"name": "NPTEL", "cat": "అకడమిక్స్", "icon": "🎓", "desc": "IIT మరియు IISc ప్రొఫెసర్లు ఇంజనీరింగ్, సైన్స్ మరియు హ్యుమానిటీస్‌ను ఇంగ్లీష్ మరియు ప్రాంతీయ భాషల్లో బోధిస్తారు.", "link": "https://nptel.ac.in", "audience": "ఇంటర్మీడియట్ & కాలేజీ", "rating": 5}, {"name": "SWAYAM", "cat": "అకడమిక్స్", "icon": "🏛️", "desc": "UGC గుర్తింపు పొందిన సర్టిఫికేట్‌లతో భారత ప్రభుత్వ ఉచిత విద్యా ప్లాట్‌ఫారమ్.", "link": "https://swayam.gov.in", "audience": "విద్యార్థులందరూ", "rating": 4.5}, {"name": "Khan Academy", "cat": "అకడమిక్స్", "icon": "📚", "desc": "గణితం, సైన్స్ మరియు ఎకనామిక్స్ కవర్ చేస్తూ 6-12 తరగతులకు ఉచిత ప్రపంచ స్థాయి విద్య.", "link": "https://khanacademy.org", "audience": "10వ తరగతి విద్యార్థులు", "rating": 5}, {"name": "Coursera", "cat": "నైపుణ్యాల అభివృద్ధి", "icon": "🚀", "desc": "గూగుల్, ఐబిఎం, మెటా నుండి టాప్ యూనివర్సిటీ కోర్సులు. అనేక కోర్సులు ఉచితంగా వినడానికి అందుబాటులో ఉన్నాయి.", "link": "https://coursera.org", "audience": "ఇంటర్మీడియట్ & పైబడిన", "rating": 4.5}, {"name": "edX", "cat": "నైపుణ్యాల అభివృద్ధి", "icon": "⚡", "desc": "హార్వర్డ్ మరియు MIT కోర్సులు ఉచితం. CS, బిజినెస్ మరియు డేటా సైన్స్‌లో ధృవీకరించబడిన సర్టిఫికెట్లు.", "link": "https://edx.org", "audience": "ఇంటర్మీడియట్ & పైబడిన", "rating": 4.5}];
+const learningResources_te = [
+  {
+    id: "diksha",
+    name: "దీక్ష పోర్టల్ (DIKSHA)",
+    cat: "10వ తరగతి (SSC)",
+    icon: "🏛️",
+    desc: "AP & TS స్టేట్ బోర్డ్ డిజిటల్ పాఠ్యపుస్తకాలు, QR కోడ్ వీడియో పాఠాలు మరియు తెలుగు మాధ్యమ పాఠ్యాంశాలకు అధికారిక పోర్టల్.",
+    badges: [{ text: "ప్రభుత్వ పోర్టల్", type: "govt" }, { text: "తెలుగు & ఇంగ్లీష్", type: "telugu" }, { text: "100% ఉచితం", type: "free" }],
+    audience: "AP & TS 10వ & ఇంటర్ విద్యార్థులు",
+    subjects: ["maths", "science", "physics", "chemistry", "biology", "social", "telugu", "english"],
+    rating: 5,
+    link: "https://diksha.gov.in"
+  },
+  {
+    id: "epathshala",
+    name: "ఈ-పాఠశాల (ePathshala NCERT)",
+    cat: "10వ తరగతి (SSC)",
+    icon: "📖",
+    desc: "9 నుండి 12వ తరగతులకు ఉచిత అధికారిక NCERT డిజిటల్ పుస్తకాలు, ఆడియో పాఠాలు మరియు ఇంటరాక్టివ్ స్టడీ మెటీరియల్స్.",
+    badges: [{ text: "ప్రభుత్వ పోర్టల్", type: "govt" }, { text: "NCERT ఉచిత PDFలు", type: "free" }],
+    audience: "10వ SSC & CBSE విద్యార్థులు",
+    subjects: ["maths", "science", "physics", "chemistry", "biology", "social"],
+    rating: 5,
+    link: "https://epathshala.nic.in"
+  },
+  {
+    id: "khanacademy",
+    name: "ఖాన్ అకాడమీ ఇండియా",
+    cat: "10వ తరగతి (SSC)",
+    icon: "📐",
+    desc: "10వ తరగతి & ఇంటర్ మ్యాథ్స్, సైన్స్ కోసం యాడ్స్ లేని ఉచిత ప్రపంచ స్థాయి వీడియో పాఠాలు మరియు ప్రాక్టీస్ ప్రశ్నలు.",
+    badges: [{ text: "ఎల్లప్పుడూ ఉచితం", type: "free" }, { text: "స్వీయ అధ్యయనం", type: "govt" }],
+    audience: "10వ & ఇంటర్ సైన్స్ విద్యార్థులు",
+    subjects: ["maths", "physics", "chemistry", "biology"],
+    rating: 5,
+    link: "https://www.khanacademy.org"
+  },
+  {
+    id: "nta_abhyas",
+    name: "నేషనల్ టెస్ట్ అభ్యాస్ (NTA)",
+    cat: "ప్రవేశ పరీక్షలు",
+    icon: "🎯",
+    desc: "JEE, NEET మరియు ప్రవేశ పరీక్షల కోసం ప్రతిరోజూ పూర్తి ఉచిత మాక్ టెస్ట్‌లను అందించే విద్యా మంత్రిత్వ శాఖ అధికారిక యాప్.",
+    badges: [{ text: "ప్రభుత్వ యాప్", type: "govt" }, { text: "ఉచిత మాక్ టెస్ట్‌లు", type: "free" }],
+    audience: "ఇంటర్ MPC & BiPC ఆస్పిరెంట్స్",
+    subjects: ["eamcet", "jee", "neet", "physics", "chemistry", "maths", "biology"],
+    rating: 5,
+    link: "https://www.nta.ac.in/abhyas"
+  },
+  {
+    id: "physics_wallah",
+    name: "ఫిజిక్స్ వాలా ఫౌండేషన్",
+    cat: "ప్రవేశ పరీక్షలు",
+    icon: "⚡",
+    desc: "10వ బోర్డ్, ఇంటర్ MPC & BiPC మరియు EAMCET కొరకు సులభమైన శైలిలో ఉచిత యూట్యూబ్ లెక్చర్స్ మరియు కాన్సెప్ట్ నోట్స్.",
+    badges: [{ text: "ఉచిత యూట్యూబ్", type: "telugu" }, { text: "బోర్డ్ + EAMCET", type: "govt" }],
+    audience: "10వ & ఇంటర్ సైన్స్ విద్యార్థులు",
+    subjects: ["physics", "chemistry", "maths", "biology", "eamcet"],
+    rating: 5,
+    link: "https://www.youtube.com/@PhysicsWallah"
+  },
+  {
+    id: "swayam_prabha",
+    name: "స్వయం ప్రభ DTH ఛానెల్స్",
+    cat: "ఇంటర్మీడియట్ (+2)",
+    icon: "📺",
+    desc: "హైస్కూల్ మరియు ఇంటర్ విద్యార్థుల కోసం IIT ప్రొఫెసర్ల బోధనలతో 24/7 ఉచితంగా ప్రసారమయ్యే 34 విద్యా TV ఛానెల్‌లు.",
+    badges: [{ text: "ప్రభుత్వ ఛానెల్", type: "govt" }, { text: "24/7 ఉచిత TV", type: "free" }],
+    audience: "ఇంటర్ MPC, BiPC, CEC",
+    subjects: ["physics", "chemistry", "maths", "commerce", "arts"],
+    rating: 4.5,
+    link: "https://swayamprabha.gov.in"
+  },
+  {
+    id: "bieap_portal",
+    name: "AP & TS బోర్డ్ పేపర్స్ హబ్",
+    cat: "10వ తరగతి (SSC)",
+    icon: "📝",
+    desc: "10వ తరగతి SSC మరియు ఇంటర్మీడియట్ గత 5 సంవత్సరాల పబ్లిక్ బోర్డ్ పరీక్ష పేపర్లు, మోడల్ పేపర్లు మరియు బ్లూప్రింట్లు.",
+    badges: [{ text: "బోర్డ్ అధికారికం", type: "govt" }, { text: "గత పేపర్లు", type: "free" }],
+    audience: "10వ SSC & ఇంటర్ బోర్డ్ విద్యార్థులు",
+    subjects: ["maths", "physics", "chemistry", "biology", "social", "english", "telugu"],
+    rating: 5,
+    link: "https://bie.ap.gov.in"
+  },
+  {
+    id: "duolingo",
+    name: "డుయోలింగో (స్పోకెన్ ఇంగ్లీష్)",
+    cat: "ఇంగ్లీష్ & స్కిల్స్",
+    icon: "🦉",
+    desc: "రోజూ 5 నిమిషాల గేమిఫైడ్ పాఠాలతో ఇంగ్లీష్ మాట్లాడే భయాన్ని పోగొట్టి, పదజాలం మరియు వాక్య నిర్మాణాన్ని పెంచే ఉచిత యాప్.",
+    badges: [{ text: "సరదా నేర్చుకోవడం", type: "telugu" }, { text: "మొబైల్ యాప్", type: "free" }],
+    audience: "తెలుగు మాధ్యమ & గ్రామీణ విద్యార్థులు",
+    subjects: ["english", "spoken english", "grammar"],
+    rating: 5,
+    link: "https://www.duolingo.com"
+  },
+  {
+    id: "bbc_english",
+    name: "BBC లెర్నింగ్ ఇంగ్లీష్",
+    cat: "ఇంగ్లీష్ & స్కిల్స్",
+    icon: "🗣️",
+    desc: "ఇంగ్లీష్ మీడియంలోకి అడుగుపెడుతున్న గ్రామీణ విద్యార్థులకు వ్యాకరణం, సరైన ఉచ్చారణ మరియు రోజువారీ సంభాషణల మార్గదర్శి.",
+    badges: [{ text: "ప్రపంచ స్థాయి", type: "govt" }, { text: "ఆడియో & వీడియో", type: "free" }],
+    audience: "హైస్కూల్ & కాలేజ్ ప్రారంభకులు",
+    subjects: ["english", "spoken english", "grammar"],
+    rating: 4.5,
+    link: "https://www.bbc.co.uk/learningenglish"
+  },
+  {
+    id: "ndli",
+    name: "నేషనల్ డిజిటల్ లైబ్రరీ (NDLI)",
+    cat: "ఇంటర్మీడియట్ (+2)",
+    icon: "🏛️",
+    desc: "IIT ఖరగ్‌పూర్ వారి జాతీయ డిజిటల్ లైబ్రరీ — లక్షలాది ఉచిత పాఠ్యపుస్తకాలు, మాదిరి పేపర్లు మరియు రిఫరెన్స్ గైడ్స్.",
+    badges: [{ text: "భారత ప్రభుత్వం", type: "govt" }, { text: "డిజిటల్ లైబ్రరీ", type: "free" }],
+    audience: "10వ, ఇంటర్ & డిగ్రీ విద్యార్థులు",
+    subjects: ["maths", "physics", "chemistry", "biology", "commerce", "literature"],
+    rating: 5,
+    link: "https://ndl.iitkgp.ac.in"
+  },
+  {
+    id: "w3schools",
+    name: "W3Schools (కోడింగ్ ప్రారంభం)",
+    cat: "ఇంగ్లీష్ & స్కిల్స్",
+    icon: "💻",
+    desc: "ఎలాంటి సాఫ్ట్‌వేర్ లేకుండా నేరుగా బ్రౌజర్‌లోనే బేసిక్ HTML, CSS, పైథాన్ కోడ్ రాసి టెస్ట్ చేయడానికి అత్యంత సులభమైన ప్లాట్‌ఫారమ్.",
+    badges: [{ text: "ఇంటరాక్టివ్ కోడ్", type: "telugu" }, { text: "బిగినర్ ఫ్రెండ్లీ", type: "free" }],
+    audience: "ఆసక్తిగల విద్యార్థులు & ప్రారంభకులు",
+    subjects: ["coding", "python", "html", "computer"],
+    rating: 4.5,
+    link: "https://www.w3schools.com"
+  },
+  {
+    id: "swayam_portal",
+    name: "స్వయం (SWAYAM పోర్టల్)",
+    cat: "ఇంటర్మీడియట్ (+2)",
+    icon: "📜",
+    desc: "NIOS, NCERT మరియు టాప్ వర్సిటీలచే +2 సైన్స్, కామర్స్ మరియు ఆర్ట్స్ విద్యార్థుల కోసం రూపొందించిన ఉచిత సర్టిఫికేట్ కోర్సులు.",
+    badges: [{ text: "భారత ప్రభుత్వం", type: "govt" }, { text: "ఉచిత సర్టిఫికెట్లు", type: "free" }],
+    audience: "ఇంటర్ 1st & 2nd ఇయర్ విద్యార్థులు",
+    subjects: ["science", "commerce", "arts", "economics"],
+    rating: 4.5,
+    link: "https://swayam.gov.in"
+  }
+];
 const scholarships_te = [
   { name:"AP జగనన్న విద్యా దీవెన", cat:"రాష్ట్రం", icon:"🏆", elig:"AP లో SC/ST/BC/EBC/కాపు/మైనారిటీ విద్యార్థులు, కుటుంబ ఆదాయం ≤ ₹2.5L, ఇంటర్ నుండి PG వరకు కన్వీనర్ కోటా", benefits:"100% ట్యూషన్ ఫీజు రీయింబర్స్‌మెంట్ - అమ్మ బ్యాంక్ ఖాతాలోకి క్వార్టర్లీ జమ", process:"కన్వీనర్ కోటా అడ్మిషన్ → జ్ఞానభూమి పోర్టల్‌లో కాలేజ్ నమోదు → గ్రామ సచివాలయంలో బయోమెట్రిక్ eKYC → జిల్లా సంక్షేమ అధికారి మంజూరు", link:"https://jnanabhumi.ap.gov.in", deadline:"అక్టో–జన ప్రతి సంవత్సరం", youtube:"https://www.youtube.com/watch?v=FqG1d5K2C8A", eligRules:{ castes:["sc","st","obc","minority"], gender:"all", classes:["inter1","inter2","degree","pg"], incomeMax:"1to2.5", states:["ap"] } },
   { name:"AP జగనన్న వసతి దీవెన", cat:"రాష్ట్రం", icon:"🏠", elig:"AP లో SC/ST/BC/EBC/మైనారిటీ విద్యార్థులు, ఆదాయం ≤ ₹2.5L, హాస్టల్ & భోజన ఖర్చుల కోసం", benefits:"₹10,000–₹20,000/సంవత్సరం హాస్టల్ మరియు మెస్ ఛార్జీల కోసం (ITI: ₹10K, డిప్లొమా: ₹15K, డిగ్రీ/B.Tech: ₹20K)", process:"జ్ఞానభూమి రిజిస్ట్రేషన్‌తో జతచేయబడింది - విద్యా దీవెన బయోమెట్రిక్ eKYC సమయంలో వెరిఫై", link:"https://jnanabhumi.ap.gov.in", deadline:"అక్టో–జన ప్రతి సంవత్సరం", youtube:"https://www.youtube.com/watch?v=uWp1zY-VdYI", eligRules:{ castes:["sc","st","obc","minority"], gender:"all", classes:["inter1","inter2","degree","pg"], incomeMax:"1to2.5", states:["ap"] } },
@@ -3842,9 +4474,8 @@ let digitalLiteracy = digitalLiteracy_en;
 let cPaths = cPaths_en;
 let cTrees = cTrees_en;
 let activeLanguage = 'en';
-let currentResourceFilter = 'All';
 
-const translations = {"en":{"nav_ai":"AI Tools","nav_careers":"Careers","nav_resources":"Resources","nav_scholarships":"Scholarships","nav_coding":"Coding","nav_digital":"Digital Skills","mn_ai":"🤖 AI Tools","mn_careers":"🎯 Career Guidance","mn_resources":"📚 Learning Resources","mn_scholarships":"🏆 Scholarships","mn_coding":"💻 Coding Platforms","mn_digital":"🌐 Digital Skills","hero_tag":"🇮🇳 B.Tech Community Project · VidyaUday · Andhra Pradesh","hero_title":"Your Future Starts with <span id=\"heroTyping\">Digital Awareness</span>","hero_desc":"A free platform giving rural 10th & Intermediate students access to AI tools, career guidance, scholarships, and learning resources — all in one place.","hero_btn_ai":"🚀 Explore AI Tools","hero_btn_career":"🎯 View Career Paths","hc_ai_title":"AI Tools","hc_ai_desc":"ChatGPT, Gemini & more","hc_career_title":"Career Paths","hc_career_desc":"After 10th & Intermediate","hc_schol_title":"Scholarships","hc_schol_desc":"₹50K+ opportunities","hc_coding_title":"Free Coding","hc_coding_desc":"Learn from zero","hc_explore":"Explore →","stat_label1":"Rural students lack career guidance","stat_label2":"Unaware of free AI tools","stat_label3":"Scholarships missed yearly","stat_label4":"Students we aim to reach","mission_tag":"Our Mission","mission_title":"Why VidyaUday Exists","mission_p1":"Thousands of bright rural students across Andhra Pradesh miss life-changing opportunities every year — not because of lack of talent, but because of lack of information. A scholarship deadline passes. A free course goes unused. An AI tool that could help with studies is never discovered.","mission_p2":"VidyaUday was built by students, for students — to be the guide that every rural learner deserves but rarely gets.","mc_info_title":"Centralized Info","mc_info_desc":"All opportunities in one place","mc_inc_title":"Digital Inclusion","mc_inc_desc":"Bridging the urban-rural divide","mc_peer_title":"Peer Support","mc_peer_desc":"Built by students, for students","mc_free_title":"Always Free","mc_free_desc":"Every resource listed is free","ai_tag":"AI Awareness","ai_title":"Discover AI Tools Built for You","ai_finder_title":"🎯 What do you want to accomplish today?","ai_prompts_title":"💡 Ready-to-Use Student Prompts","ai_prompts_sub":"Copy any prompt and paste it directly into ChatGPT or Google Gemini to get instant, student-friendly answers.","ai_sub":"Click any card to learn more, then click \"Open Tool\" to start using it — all are completely free for students.","ai_search_placeholder":"Search any AI tool... e.g. Grammarly, Midjourney, Adobe Firefly","ai_tools_label":"Our Top 10 Recommended Tools","career_tag":"Career Guidance","career_title":"Your Complete Career Roadmap & AI Outlook","career_sub":"Click your stage → choose your path → see the full year-by-year milestone journey with salary growth & AI impact reality check.","c_stage1_10th_title":"After 10th Class","c_stage1_10th_desc":"Just completed SSC? See all 5 paths available right now.","c_explore_paths":"Explore Paths →","c_stage1_inter_title":"After Intermediate","c_stage1_inter_desc":"Completed 12th? Discover 6 paths with full roadmaps.","c_back":"← Back","res_tag":"Free Resources","res_title":"Learn Anything, For Free","res_sub":"Carefully selected platforms that offer world-class education at zero cost.","schol_tag":"Scholarships","schol_title":"Find Scholarships You Qualify For","schol_sub":"Enter your details once — we'll show only the scholarships you are eligible for.","sf_header_title":"Tell Us About Yourself","sf_header_sub":"We'll match you with scholarships you can actually apply for","sf_lbl_name":"Your Name","sf_lbl_age":"Your Age","sf_pl_age":"Enter your age","sf_pl_name":"Enter your name","sf_lbl_class":"Current Education","sf_opt_class":"Select your class","sf_opt_c9":"Class 9","sf_opt_c10":"Class 10 (SSC)","sf_opt_ci1":"Intermediate 1st Year","sf_opt_ci2":"Intermediate 2nd Year","sf_opt_cdeg":"Degree / B.Tech / Engineering","sf_opt_cpg":"Post Graduation","sf_lbl_caste":"Caste Category","sf_opt_caste":"Select category","sf_opt_csc":"SC (Scheduled Caste)","sf_opt_cst":"ST (Scheduled Tribe)","sf_opt_cobc":"OBC (Other Backward Class)","sf_opt_cmin":"Minority (Muslim/Christian/Sikh/Buddhist/Jain)","sf_opt_cgen":"General / Open Category","sf_lbl_gender":"Gender","sf_opt_gender":"Select gender","sf_opt_gfem":"Female","sf_opt_gmale":"Male","sf_opt_goth":"Other","sf_lbl_income":"Family Annual Income","sf_opt_income":"Select income range","sf_opt_inc1":"Below ₹1 Lakh","sf_opt_inc2":"₹1 Lakh – ₹2.5 Lakh","sf_opt_inc3":"₹2.5 Lakh – ₹8 Lakh","sf_opt_inc4":"Above ₹8 Lakh","sf_lbl_state":"State","sf_opt_state":"Select state","sf_opt_sap":"Andhra Pradesh","sf_opt_sts":"Telangana","sf_opt_soth":"Other State","sf_btn_submit":"🔍 Find My Scholarships","schol_no_result":"No scholarships match your profile right now. But check back — new schemes are added regularly!","schol_other_ref":"Showing all other scholarships for reference:","schol_search_placeholder":"Search all scholarships...","coding_tag":"Start Coding","coding_title":"Coding Platforms to Launch Your Tech Career","coding_sub":"Practice problems, earn certificates, and get noticed by top companies.","dl_tag":"Digital Skills","dl_title":"Essential Digital Skills for Every Student","dl_sub":"Master these fundamentals to thrive in the modern world.","logo_tagline":"Rise of Knowledge","footer_brand_desc":"Empowering rural students of Andhra Pradesh with digital knowledge, AI awareness, and career guidance. Built with ❤️ as a B.Tech Community Project.","footer_col1_title":"Platform","footer_ai":"AI Tools","footer_careers":"Career Guidance","footer_resources":"Learning Resources","footer_scholarships":"Scholarships","footer_col2_title":"Learn","footer_coding":"Coding Platforms","footer_digital":"Digital Skills","footer_col3_title":"Quick Links","footer_link_nsp":"National Scholarships","footer_link_swayam":"SWAYAM","footer_link_nptel":"NPTEL","footer_link_ap":"AP Epass","footer_copy":"© 2024 VidyaUday · Rise of Knowledge · B.Tech Community Project","footer_made":"🇮🇳 Made in Andhra Pradesh","chat_title":"Uday the Owl","chat_status":"AI Study Assistant","chat_welcome":"Hoo hoo! I'm <strong>Uday</strong>, your AI study owl! 🎓<br><br>You can <strong>type</strong> or <strong>speak</strong> in English, తెలుగు, or हिंदी — I'll understand and reply in the same language!<br><br>Ask me about careers, scholarships, AI tools, coding, or anything about your education! 🚀","modal_tool_details":"Tool Details"},"te":{"nav_ai":"AI సాధనాలు","nav_careers":"కెరీర్ మార్గాలు","nav_resources":"ఉచిత వనరులు","nav_scholarships":"స్కాలర్‌షిప్‌లు","nav_coding":"కోడింగ్","nav_digital":"డిజిటల్ స్కిల్స్","mn_ai":"🤖 AI సాధనాలు","mn_careers":"🎯 కెరీర్ మార్గదర్శకత్వం","mn_resources":"📚 లెర్నింగ్ రిసోర్సెస్","mn_scholarships":"🏆 స్కాలర్‌షిప్‌లు","mn_coding":"💻 కోడింగ్ ప్లాట్‌ఫారమ్‌లు","mn_digital":"🌐 డిజిటల్ నైపుణ్యాలు","hero_tag":"🇮🇳 బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్ · విద్యాఉదయ్ · ఆంధ్రప్రదేశ్","hero_title":"మీ భవిష్యత్తు <span id=\"heroTyping\">డిజిటల్ అవగాహన</span>తో ప్రారంభమవుతుంది","hero_desc":"గ్రామీణ 10వ తరగతి మరియు ఇంటర్మీడియట్ విద్యార్థులకు AI సాధనాలు, కెరీర్ మార్గదర్శకత్వం, స్కాలర్‌షిప్‌లు మరియు లెర్నింగ్ రిసోర్స్‌లను ఒకే చోట అందించే ఉచిత ప్లాట్‌ఫారమ్.","hero_btn_ai":"🚀 AI సాధనాలను అన్వేషించండి","hero_btn_career":"🎯 కెరీర్ మార్గాలను చూడండి","hc_ai_title":"AI సాధనాలు","hc_ai_desc":"ChatGPT, Gemini మరియు ఇతరమైనవి","hc_career_title":"కెరీర్ మార్గాలు","hc_career_desc":"10వ తరగతి & ఇంటర్మీడియట్ తర్వాత","hc_schol_title":"స్కాలర్‌షిప్‌లు","hc_schol_desc":"₹50వేలకు పైగా అవకాశాలు","hc_coding_title":"ఉచిత కోడింగ్","hc_coding_desc":"మొదటి నుండి నేర్చుకోండి","hc_explore":"అన్వేషించండి →","stat_label1":"గ్రామీణ విద్యార్థులకు కెరీర్ మార్గదర్శకత్వం లేదు","stat_label2":"ఉచిత AI సాధనాల గురించి అవగాహన లేదు","stat_label3":"ఏటా కోల్పోతున్న స్కాలర్‌షిప్‌లు","stat_label4":"మేము చేరుకోవాలనుకుంటున్న విద్యార్థులు","mission_tag":"మా లక్ష్యం","mission_title":"విద్యాఉదయ్ ఎందుకు అవసరం","mission_p1":"ఆంధ్రప్రదేశ్‌లోని వేలాది మంది ప్రతిభావంతులైన గ్రామీణ విద్యార్థులు ప్రతి సంవత్సరం జీవితాన్ని మార్చే అవకాశాలను కోల్పోతున్నారు — ప్రతిభ లేకపోవడం వల్ల కాదు, సమాచారం లేకపోవడం వల్ల. స్కాలర్‌షిప్ గడువు ముగుస్తుంది. ఉచిత కోర్సు ఉపయోగించబడదు. చదువుకు సహాయపడే AI సాధనం కనుగొనబడదు.","mission_p2":"విద్యాఉదయ్ విద్యార్థుల కోసం, విద్యార్థుల చేత నిర్మించబడింది — ప్రతి గ్రామీణ విద్యార్థికి అర్హమైన కానీ అరుదుగా లభించే మార్గదర్శిగా నిలవడానికి.","mc_info_title":"కేంద్రీకృత సమాచారం","mc_info_desc":"అన్ని అవకాశాలు ఒకే చోట","mc_inc_title":"డిజిటల్ సమ్మిళితం","mc_inc_desc":"పట్టణ-గ్రామీణ విభజనను తగ్గించడం","mc_peer_title":"తోటివారి మద్దతు","mc_peer_desc":"విద్యార్థుల చేత, విద్యార్థుల కోసం నిర్మించబడింది","mc_free_title":"ఎల్లప్పుడూ ఉచితం","mc_free_desc":"లిస్ట్ చేయబడిన ప్రతి వనరు ఉచితం","ai_tag":"AI అవగాహన","ai_title":"మీ కోసం రూపొందించిన AI సాధనాలను కనుగొనండి","ai_finder_title":"🎯 ఈరోజు మీరు ఏమి చేయాలనుకుంటున్నారు?","ai_prompts_title":"💡 విద్యార్థుల కోసం రెడీమేడ్ స్టడీ ప్రాంప్ట్‌లు","ai_prompts_sub":"ఏదైనా ప్రాంప్ట్‌ను కాపీ చేసి ChatGPT లేదా Google Gemini లో పేస్ట్ చేయండి — తక్షణమే విద్యార్థికి సరిపడే సమాధానం పొందండి.","ai_sub":"మరింత తెలుసుకోవడానికి ఏదైనా కార్డ్‌పై క్లిక్ చేయండి, ఆపై ఉపయోగించడం ప్రారంభించడానికి \"Open Tool\" క్లిక్ చేయండి — ఇవన్నీ విద్యార్థులకు పూర్తిగా ఉచితం.","ai_search_placeholder":"ఏదైనా AI సాధనాన్ని శోధించండి... ఉదా. Grammarly, Midjourney, Adobe Firefly","ai_tools_label":"మా టాప్ 10 సిఫార్సు చేసిన సాధనాలు","career_tag":"కెరీర్ మార్గదర్శకత్వం","career_title":"మీ పూర్తి కెరీర్ రోడ్‌మ్యాప్ & AI విశ్లేషణ","career_sub":"మీ దశను ఎంచుకోండి → మీ మార్గాన్ని ఎంచుకోండి → జీతం వృద్ధితో కూడిన పూర్తి కెరీర్ రోడ్‌మ్యాప్ మరియు AI విశ్లేషణను చూడండి.","c_stage1_10th_title":"10వ తరగతి తర్వాత","c_stage1_10th_desc":"SSC పూర్తి చేసారా? ప్రస్తుతం అందుబాటులో ఉన్న 5 మార్గాలను చూడండి.","c_explore_paths":"మార్గాలను అన్వేషించండి →","c_stage1_inter_title":"ఇంటర్మీడియట్ తర్వాత","c_stage1_inter_desc":"12వ తరగతి పూర్తి చేసారా? పూర్తి రోడ్‌మ్యాప్‌లతో 6 మార్గాలను కనుగొనండి.","c_back":"← వెనుకకు","res_tag":"ఉచిత వనరులు","res_title":"ఏదైనా ఉచితంగా నేర్చుకోండి","res_sub":"సున్నా ఖర్చుతో ప్రపంచ స్థాయి విద్యను అందించే జాగ్రత్తగా ఎంపిక చేసిన ప్లాట్‌ఫారమ్‌లు.","schol_tag":"స్కాలర్‌షిప్‌లు","schol_title":"మీరు అర్హత సాధించే స్కాలర్‌షిప్‌లను కనుగొనండి","schol_sub":"మీ వివరాలను ఒకసారి నమోదు చేయండి — మేము మీకు అర్హత ఉన్న స్కాలర్‌షిప్‌లను మాత్రమే చూపిస్తాము.","sf_header_title":"మీ గురించి మాకు చెప్పండి","sf_header_sub":"మీరు దరఖాస్తు చేసుకోగల స్కాలర్‌షిప్‌లతో మేము మిమ్మల్ని మ్యాచ్ చేస్తాము","sf_lbl_name":"మీ పేరు","sf_pl_name":"మీ పేరును నమోదు చేయండి","sf_lbl_class":"ప్రస్తుత విద్య","sf_opt_class":"మీ తరగతిని ఎంచుకోండి","sf_opt_c9":"9వ తరగతి","sf_opt_c10":"10వ తరగతి (SSC)","sf_opt_ci1":"ఇంటర్మీడియట్ మొదటి సంవత్సరం","sf_opt_ci2":"ఇంటర్మీడియట్ రెండవ సంవత్సరం","sf_opt_cdeg":"డిగ్రీ / బి.టెక్ / ఇంజనీరింగ్","sf_opt_cpg":"పోస్ట్ గ్రాడ్యుయేషన్","sf_lbl_caste":"కుల వర్గం","sf_opt_caste":"వర్గాన్ని ఎంచుకోండి","sf_opt_csc":"SC (షెడ్యూల్డ్ కులం)","sf_opt_cst":"ST (షెడ్యూల్డ్ తెగ)","sf_opt_cobc":"OBC (ఇతర వెనుకబడిన తరగతి)","sf_opt_cmin":"మైనారిటీ (ముస్లిం/క్రిస్టియన్/సిక్కు/బౌద్ధ/జైన్)","sf_opt_cgen":"జనరల్ / ఓపెన్ కేటగిరీ","sf_lbl_gender":"లింగం","sf_opt_gender":"లింగాన్ని ఎంచుకోండి","sf_opt_gfem":"స్త్రీ","sf_opt_gmale":"పురుషుడు","sf_opt_goth":"ఇతర","sf_lbl_income":"कुटुంబ వార్షిక ఆదాయం","sf_opt_income":"ఆదాయ పరిధిని ఎంచుకోండి","sf_opt_inc1":"₹1 లక్ష లోపు","sf_opt_inc2":"₹1 లక్ష – ₹2.5 లక్షలు","sf_opt_inc3":"₹2.5 లక్షలు – ₹8 లక్షలు","sf_opt_inc4":"₹8 లక్షల పైన","sf_lbl_state":"రాష్ట్రం","sf_opt_state":"రాష్ట్రాన్ని ఎంచుకోండి","sf_opt_sap":"ఆంధ్రప్రదేశ్","sf_opt_sts":"తెలంగాణ","sf_opt_soth":"ఇతర రాష్ట్రం","sf_btn_submit":"🔍 నా స్కాలర్‌షిప్‌లను కనుగొనండి","schol_no_result":"ప్రస్తుతానికి మీ ప్రొఫైల్‌కు సరిపోయే స్కాలర్‌షిప్‌లు లేవు. కానీ మళ్లీ తనిఖీ చేయండి — కొత్త పథకాలు క్రమం తప్పకుండా జోడించబడతాయి!","schol_other_ref":"సూచన కోసం మిగిలిన అన్ని స్కాలర్‌షిప్‌లను చూపుతోంది:","schol_search_placeholder":"అన్ని స్కాలర్‌షిప్‌లను శోధించండి...","coding_tag":"కోడింగ్ ప్రారంభించండి","coding_title":"మీ టెక్ కెరీర్‌ను ప్రారంభించడానికి కోడింగ్ ప్లాట్‌ఫారమ్‌లు","coding_sub":"సమస్యలను సాధన చేయండి, సర్టిఫికేట్‌లను పొందండి మరియు ప్రముఖ కంపెనీల దృష్టిని ఆకర్షించండి.","dl_tag":"డిజిటల్ నైపుణ్యాలు","dl_title":"ప్రతి విద్యార్థికి అవసరమైన డిజిటల్ నైపుణ్యాలు","dl_sub":"ఆధునిక ప్రపంచంలో రాణించడానికి ఈ ప్రాథమిక అంశాలలో నైపుణ్యం సాధించండి.","logo_tagline":"నాలెడ్జ్ రైజ్","footer_brand_desc":"ఆంధ్రప్రదేశ్ గ్రామీణ విద్యార్థులకు డిజిటల్ జ్ఞానం, AI అవగాహన మరియు కెరీర్ మార్గదర్శకత్వంతో సాధికారత కల్పించడం. బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్‌గా ❤️ తో నిర్మించబడింది.","footer_col1_title":"ప్లాట్‌ఫారమ్","footer_ai":"AI సాధనాలు","footer_careers":"కెరీర్ మార్గదర్శకత్వం","footer_resources":"లెర్నింగ్ రిసోర్సెస్","footer_scholarships":"స్కాలర్‌షిప్‌లు","footer_col2_title":"నేర్చుకోండి","footer_coding":"కోడింగ్ ప్లాట్‌ఫారమ్‌లు","footer_digital":"డిజిటల్ నైపుణ్యాలు","footer_col3_title":"త్వరిత లింకులు","footer_link_nsp":"నేషనల్ స్కాలర్‌షిప్ పోర్టల్","footer_link_swayam":"స్వయం (SWAYAM)","footer_link_nptel":"NPTEL","footer_link_ap":"AP ఈపాస్","footer_copy":"© 2024 విద్యాఉదయ్ · నాలెడ్జ్ రైజ్ · బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్","footer_made":"🇮🇳 ఆంధ్రప్రదేశ్‌లో తయారు చేయబడింది","chat_title":"ఉదయ్ ది ఔల్","chat_status":"AI స్టడీ అసిస్టెంట్","chat_welcome":"హూ హూ! నేను మీ AI స్టడీ ఔల్ <strong>ఉదయ్</strong>ని! 🎓<br><br>మీరు ఇంగ్లీష్, తెలుగు లేదా హిందీలో <strong>టైప్ చేయవచ్చు</strong> లేదా <strong>మాట్లాడవచ్చు</strong> — నేను అర్థం చేసుకుని అదే భాషలో సమాధానం ఇస్తాను!<br><br>కెరీర్, స్కాలర్‌షిప్‌లు, AI సాధనాలు, కోడింగ్ లేదా మీ చదువుకు సంబంధించిన ఏదైనా నన్ను అడగండి! 🚀","modal_tool_details":"సాధనం వివరాలు"}};
+const translations = {"en":{"nav_ai":"AI Tools","nav_careers":"Careers","nav_resources":"Resources","nav_scholarships":"Scholarships","nav_coding":"Coding","nav_digital":"Digital Skills","mn_ai":"🤖 AI Tools","mn_careers":"🎯 Career Guidance","mn_resources":"📚 Learning Resources","mn_scholarships":"🏆 Scholarships","mn_coding":"💻 Coding Platforms","mn_digital":"🌐 Digital Skills","hero_tag":"🇮🇳 B.Tech Community Project · VidyaUday · Andhra Pradesh","hero_title":"Your Future Starts with <span id=\"heroTyping\">Digital Awareness</span>","hero_desc":"A free platform giving rural 10th & Intermediate students access to AI tools, career guidance, scholarships, and learning resources — all in one place.","hero_btn_ai":"🚀 Explore AI Tools","hero_btn_career":"🎯 View Career Paths","hc_ai_title":"AI Tools","hc_ai_desc":"ChatGPT, Gemini & more","hc_career_title":"Career Paths","hc_career_desc":"After 10th & Intermediate","hc_schol_title":"Scholarships","hc_schol_desc":"₹50K+ opportunities","hc_coding_title":"Free Coding","hc_coding_desc":"Learn from zero","hc_explore":"Explore →","stat_label1":"Rural students lack career guidance","stat_label2":"Unaware of free AI tools","stat_label3":"Scholarships missed yearly","stat_label4":"Students we aim to reach","mission_tag":"Our Mission","mission_title":"Why VidyaUday Exists","mission_p1":"Thousands of bright rural students across Andhra Pradesh miss life-changing opportunities every year — not because of lack of talent, but because of lack of information. A scholarship deadline passes. A free course goes unused. An AI tool that could help with studies is never discovered.","mission_p2":"VidyaUday was built by students, for students — to be the guide that every rural learner deserves but rarely gets.","mc_info_title":"Centralized Info","mc_info_desc":"All opportunities in one place","mc_inc_title":"Digital Inclusion","mc_inc_desc":"Bridging the urban-rural divide","mc_peer_title":"Peer Support","mc_peer_desc":"Built by students, for students","mc_free_title":"Always Free","mc_free_desc":"Every resource listed is free","ai_tag":"AI Awareness","ai_title":"Discover AI Tools Built for You","ai_finder_title":"🎯 What do you want to accomplish today?","ai_prompts_title":"💡 Ready-to-Use Student Prompts","ai_prompts_sub":"Copy any prompt and paste it directly into ChatGPT or Google Gemini to get instant, student-friendly answers.","ai_sub":"Click any card to learn more, then click \"Open Tool\" to start using it — all are completely free for students.","ai_search_placeholder":"Search any AI tool... e.g. Grammarly, Midjourney, Adobe Firefly","ai_tools_label":"Our Top 10 Recommended Tools","career_tag":"Career Guidance","career_title":"Your Complete Career Roadmap & AI Outlook","career_sub":"Click your stage → choose your path → see the full year-by-year milestone journey with salary growth & AI impact reality check.","c_stage1_10th_title":"After 10th Class","c_stage1_10th_desc":"Just completed SSC? See all 5 paths available right now.","c_explore_paths":"Explore Paths →","c_stage1_inter_title":"After Intermediate","c_stage1_inter_desc":"Completed 12th? Discover 6 paths with full roadmaps.","c_back":"← Back","res_tag":"Free Resources","res_title":"10th & Intermediate Free Learning Hub","res_sub":"Curated free platforms, 1-click textbooks, previous exam papers, and instant subject search.","schol_tag":"Scholarships","schol_title":"Find Scholarships You Qualify For","schol_sub":"Enter your details once — we'll show only the scholarships you are eligible for.","sf_header_title":"Tell Us About Yourself","sf_header_sub":"We'll match you with scholarships you can actually apply for","sf_lbl_name":"Your Name","sf_lbl_age":"Your Age","sf_pl_age":"Enter your age","sf_pl_name":"Enter your name","sf_lbl_class":"Current Education","sf_opt_class":"Select your class","sf_opt_c9":"Class 9","sf_opt_c10":"Class 10 (SSC)","sf_opt_ci1":"Intermediate 1st Year","sf_opt_ci2":"Intermediate 2nd Year","sf_opt_cdeg":"Degree / B.Tech / Engineering","sf_opt_cpg":"Post Graduation","sf_lbl_caste":"Caste Category","sf_opt_caste":"Select category","sf_opt_csc":"SC (Scheduled Caste)","sf_opt_cst":"ST (Scheduled Tribe)","sf_opt_cobc":"OBC (Other Backward Class)","sf_opt_cmin":"Minority (Muslim/Christian/Sikh/Buddhist/Jain)","sf_opt_cgen":"General / Open Category","sf_lbl_gender":"Gender","sf_opt_gender":"Select gender","sf_opt_gfem":"Female","sf_opt_gmale":"Male","sf_opt_goth":"Other","sf_lbl_income":"Family Annual Income","sf_opt_income":"Select income range","sf_opt_inc1":"Below ₹1 Lakh","sf_opt_inc2":"₹1 Lakh – ₹2.5 Lakh","sf_opt_inc3":"₹2.5 Lakh – ₹8 Lakh","sf_opt_inc4":"Above ₹8 Lakh","sf_lbl_state":"State","sf_opt_state":"Select state","sf_opt_sap":"Andhra Pradesh","sf_opt_sts":"Telangana","sf_opt_soth":"Other State","sf_btn_submit":"🔍 Find My Scholarships","schol_no_result":"No scholarships match your profile right now. But check back — new schemes are added regularly!","schol_other_ref":"Showing all other scholarships for reference:","schol_search_placeholder":"Search all scholarships...","coding_tag":"Start Coding","coding_title":"Coding Platforms to Launch Your Tech Career","coding_sub":"Practice problems, earn certificates, and get noticed by top companies.","dl_tag":"Digital Skills","dl_title":"Essential Digital Skills for Every Student","dl_sub":"Master these fundamentals to thrive in the modern world.","logo_tagline":"Rise of Knowledge","footer_brand_desc":"Empowering rural students of Andhra Pradesh with digital knowledge, AI awareness, and career guidance. Built with ❤️ as a B.Tech Community Project.","footer_col1_title":"Platform","footer_ai":"AI Tools","footer_careers":"Career Guidance","footer_resources":"Learning Resources","footer_scholarships":"Scholarships","footer_col2_title":"Learn","footer_coding":"Coding Platforms","footer_digital":"Digital Skills","footer_col3_title":"Quick Links","footer_link_nsp":"National Scholarships","footer_link_swayam":"SWAYAM","footer_link_nptel":"NPTEL","footer_link_ap":"AP Epass","footer_copy":"© 2024 VidyaUday · Rise of Knowledge · B.Tech Community Project","footer_made":"🇮🇳 Made in Andhra Pradesh","chat_title":"Uday the Owl","chat_status":"AI Study Assistant","chat_welcome":"Hoo hoo! I'm <strong>Uday</strong>, your AI study owl! 🎓<br><br>You can <strong>type</strong> or <strong>speak</strong> in English, తెలుగు, or हिंदी — I'll understand and reply in the same language!<br><br>Ask me about careers, scholarships, AI tools, coding, or anything about your education! 🚀","modal_tool_details":"Tool Details"},"te":{"nav_ai":"AI సాధనాలు","nav_careers":"కెరీర్ మార్గాలు","nav_resources":"ఉచిత వనరులు","nav_scholarships":"స్కాలర్‌షిప్‌లు","nav_coding":"కోడింగ్","nav_digital":"డిజిటల్ స్కిల్స్","mn_ai":"🤖 AI సాధనాలు","mn_careers":"🎯 కెరీర్ మార్గదర్శకత్వం","mn_resources":"📚 లెర్నింగ్ రిసోర్సెస్","mn_scholarships":"🏆 స్కాలర్‌షిప్‌లు","mn_coding":"💻 కోడింగ్ ప్లాట్‌ఫారమ్‌లు","mn_digital":"🌐 డిజిటల్ నైపుణ్యాలు","hero_tag":"🇮🇳 బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్ · విద్యాఉదయ్ · ఆంధ్రప్రదేశ్","hero_title":"మీ భవిష్యత్తు <span id=\"heroTyping\">డిజిటల్ అవగాహన</span>తో ప్రారంభమవుతుంది","hero_desc":"గ్రామీణ 10వ తరగతి మరియు ఇంటర్మీడియట్ విద్యార్థులకు AI సాధనాలు, కెరీర్ మార్గదర్శకత్వం, స్కాలర్‌షిప్‌లు మరియు లెర్నింగ్ రిసోర్స్‌లను ఒకే చోట అందించే ఉచిత ప్లాట్‌ఫారమ్.","hero_btn_ai":"🚀 AI సాధనాలను అన్వేషించండి","hero_btn_career":"🎯 కెరీర్ మార్గాలను చూడండి","hc_ai_title":"AI సాధనాలు","hc_ai_desc":"ChatGPT, Gemini మరియు ఇతరమైనవి","hc_career_title":"కెరీర్ మార్గాలు","hc_career_desc":"10వ తరగతి & ఇంటర్మీడియట్ తర్వాత","hc_schol_title":"స్కాలర్‌షిప్‌లు","hc_schol_desc":"₹50వేలకు పైగా అవకాశాలు","hc_coding_title":"ఉచిత కోడింగ్","hc_coding_desc":"మొదటి నుండి నేర్చుకోండి","hc_explore":"అన్వేషించండి →","stat_label1":"గ్రామీణ విద్యార్థులకు కెరీర్ మార్గదర్శకత్వం లేదు","stat_label2":"ఉచిత AI సాధనాల గురించి అవగాహన లేదు","stat_label3":"ఏటా కోల్పోతున్న స్కాలర్‌షిప్‌లు","stat_label4":"మేము చేరుకోవాలనుకుంటున్న విద్యార్థులు","mission_tag":"మా లక్ష్యం","mission_title":"విద్యాఉదయ్ ఎందుకు అవసరం","mission_p1":"ఆంధ్రప్రదేశ్‌లోని వేలాది మంది ప్రతిభావంతులైన గ్రామీణ విద్యార్థులు ప్రతి సంవత్సరం జీవితాన్ని మార్చే అవకాశాలను కోల్పోతున్నారు — ప్రతిభ లేకపోవడం వల్ల కాదు, సమాచారం లేకపోవడం వల్ల. స్కాలర్‌షిప్ గడువు ముగుస్తుంది. ఉచిత కోర్సు ఉపయోగించబడదు. చదువుకు సహాయపడే AI సాధనం కనుగొనబడదు.","mission_p2":"విద్యాఉదయ్ విద్యార్థుల కోసం, విద్యార్థుల చేత నిర్మించబడింది — ప్రతి గ్రామీణ విద్యార్థికి అర్హమైన కానీ అరుదుగా లభించే మార్గదర్శిగా నిలవడానికి.","mc_info_title":"కేంద్రీకృత సమాచారం","mc_info_desc":"అన్ని అవకాశాలు ఒకే చోట","mc_inc_title":"డిజిటల్ సమ్మిళితం","mc_inc_desc":"పట్టణ-గ్రామీణ విభజనను తగ్గించడం","mc_peer_title":"తోటివారి మద్దతు","mc_peer_desc":"విద్యార్థుల చేత, విద్యార్థుల కోసం నిర్మించబడింది","mc_free_title":"ఎల్లప్పుడూ ఉచితం","mc_free_desc":"లిస్ట్ చేయబడిన ప్రతి వనరు ఉచితం","ai_tag":"AI అవగాహన","ai_title":"మీ కోసం రూపొందించిన AI సాధనాలను కనుగొనండి","ai_finder_title":"🎯 ఈరోజు మీరు ఏమి చేయాలనుకుంటున్నారు?","ai_prompts_title":"💡 విద్యార్థుల కోసం రెడీమేడ్ స్టడీ ప్రాంప్ట్‌లు","ai_prompts_sub":"ఏదైనా ప్రాంప్ట్‌ను కాపీ చేసి ChatGPT లేదా Google Gemini లో పేస్ట్ చేయండి — తక్షణమే విద్యార్థికి సరిపడే సమాధానం పొందండి.","ai_sub":"మరింత తెలుసుకోవడానికి ఏదైనా కార్డ్‌పై క్లిక్ చేయండి, ఆపై ఉపయోగించడం ప్రారంభించడానికి \"Open Tool\" క్లిక్ చేయండి — ఇవన్నీ విద్యార్థులకు పూర్తిగా ఉచితం.","ai_search_placeholder":"ఏదైనా AI సాధనాన్ని శోధించండి... ఉదా. Grammarly, Midjourney, Adobe Firefly","ai_tools_label":"మా టాప్ 10 సిఫార్సు చేసిన సాధనాలు","career_tag":"కెరీర్ మార్గదర్శకత్వం","career_title":"మీ పూర్తి కెరీర్ రోడ్‌మ్యాప్ & AI విశ్లేషణ","career_sub":"మీ దశను ఎంచుకోండి → మీ మార్గాన్ని ఎంచుకోండి → జీతం వృద్ధితో కూడిన పూర్తి కెరీర్ రోడ్‌మ్యాప్ మరియు AI విశ్లేషణను చూడండి.","c_stage1_10th_title":"10వ తరగతి తర్వాత","c_stage1_10th_desc":"SSC పూర్తి చేసారా? ప్రస్తుతం అందుబాటులో ఉన్న 5 మార్గాలను చూడండి.","c_explore_paths":"మార్గాలను అన్వేషించండి →","c_stage1_inter_title":"ఇంటర్మీడియట్ తర్వాత","c_stage1_inter_desc":"12వ తరగతి పూర్తి చేసారా? పూర్తి రోడ్‌మ్యాప్‌లతో 6 మార్గాలను కనుగొనండి.","c_back":"← వెనుకకు","res_tag":"ఉచిత వనరులు","res_title":"10వ & ఇంటర్మీడియట్ ఉచిత లెర్నింగ్ హబ్","res_sub":"ఎంపిక చేసిన ఉచిత ప్లాట్‌ఫారమ్‌లు, 1-క్లిక్ పాఠ్యపుస్తకాలు, గత పరీక్ష పేపర్లు మరియు తక్షణ సబ్జెక్ట్ శోధన.","schol_tag":"స్కాలర్‌షిప్‌లు","schol_title":"మీరు అర్హత సాధించే స్కాలర్‌షిప్‌లను కనుగొనండి","schol_sub":"మీ వివరాలను ఒకసారి నమోదు చేయండి — మేము మీకు అర్హత ఉన్న స్కాలర్‌షిప్‌లను మాత్రమే చూపిస్తాము.","sf_header_title":"మీ గురించి మాకు చెప్పండి","sf_header_sub":"మీరు దరఖాస్తు చేసుకోగల స్కాలర్‌షిప్‌లతో మేము మిమ్మల్ని మ్యాచ్ చేస్తాము","sf_lbl_name":"మీ పేరు","sf_pl_name":"మీ పేరును నమోదు చేయండి","sf_lbl_class":"ప్రస్తుత విద్య","sf_opt_class":"మీ తరగతిని ఎంచుకోండి","sf_opt_c9":"9వ తరగతి","sf_opt_c10":"10వ తరగతి (SSC)","sf_opt_ci1":"ఇంటర్మీడియట్ మొదటి సంవత్సరం","sf_opt_ci2":"ఇంటర్మీడియట్ రెండవ సంవత్సరం","sf_opt_cdeg":"డిగ్రీ / బి.టెక్ / ఇంజనీరింగ్","sf_opt_cpg":"పోస్ట్ గ్రాడ్యుయేషన్","sf_lbl_caste":"కుల వర్గం","sf_opt_caste":"వర్గాన్ని ఎంచుకోండి","sf_opt_csc":"SC (షెడ్యూల్డ్ కులం)","sf_opt_cst":"ST (షెడ్యూల్డ్ తెగ)","sf_opt_cobc":"OBC (ఇతర వెనుకబడిన తరగతి)","sf_opt_cmin":"మైనారిటీ (ముస్లిం/క్రిస్టియన్/సిక్కు/బౌద్ధ/జైన్)","sf_opt_cgen":"జనరల్ / ఓపెన్ కేటగిరీ","sf_lbl_gender":"లింగం","sf_opt_gender":"లింగాన్ని ఎంచుకోండి","sf_opt_gfem":"స్త్రీ","sf_opt_gmale":"పురుషుడు","sf_opt_goth":"ఇతర","sf_lbl_income":"कुटुంబ వార్షిక ఆదాయం","sf_opt_income":"ఆదాయ పరిధిని ఎంచుకోండి","sf_opt_inc1":"₹1 లక్ష లోపు","sf_opt_inc2":"₹1 లక్ష – ₹2.5 లక్షలు","sf_opt_inc3":"₹2.5 లక్షలు – ₹8 లక్షలు","sf_opt_inc4":"₹8 లక్షల పైన","sf_lbl_state":"రాష్ట్రం","sf_opt_state":"రాష్ట్రాన్ని ఎంచుకోండి","sf_opt_sap":"ఆంధ్రప్రదేశ్","sf_opt_sts":"తెలంగాణ","sf_opt_soth":"ఇతర రాష్ట్రం","sf_btn_submit":"🔍 నా స్కాలర్‌షిప్‌లను కనుగొనండి","schol_no_result":"ప్రస్తుతానికి మీ ప్రొఫైల్‌కు సరిపోయే స్కాలర్‌షిప్‌లు లేవు. కానీ మళ్లీ తనిఖీ చేయండి — కొత్త పథకాలు క్రమం తప్పకుండా జోడించబడతాయి!","schol_other_ref":"సూచన కోసం మిగిలిన అన్ని స్కాలర్‌షిప్‌లను చూపుతోంది:","schol_search_placeholder":"అన్ని స్కాలర్‌షిప్‌లను శోధించండి...","coding_tag":"కోడింగ్ ప్రారంభించండి","coding_title":"మీ టెక్ కెరీర్‌ను ప్రారంభించడానికి కోడింగ్ ప్లాట్‌ఫారమ్‌లు","coding_sub":"సమస్యలను సాధన చేయండి, సర్టిఫికేట్‌లను పొందండి మరియు ప్రముఖ కంపెనీల దృష్టిని ఆకర్షించండి.","dl_tag":"డిజిటల్ నైపుణ్యాలు","dl_title":"ప్రతి విద్యార్థికి అవసరమైన డిజిటల్ నైపుణ్యాలు","dl_sub":"ఆధునిక ప్రపంచంలో రాణించడానికి ఈ ప్రాథమిక అంశాలలో నైపుణ్యం సాధించండి.","logo_tagline":"నాలెడ్జ్ రైజ్","footer_brand_desc":"ఆంధ్రప్రదేశ్ గ్రామీణ విద్యార్థులకు డిజిటల్ జ్ఞానం, AI అవగాహన మరియు కెరీర్ మార్గదర్శకత్వంతో సాధికారత కల్పించడం. బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్‌గా ❤️ తో నిర్మించబడింది.","footer_col1_title":"ప్లాట్‌ఫారమ్","footer_ai":"AI సాధనాలు","footer_careers":"కెరీర్ మార్గదర్శకత్వం","footer_resources":"లెర్నింగ్ రిసోర్సెస్","footer_scholarships":"స్కాలర్‌షిప్‌లు","footer_col2_title":"నేర్చుకోండి","footer_coding":"కోడింగ్ ప్లాట్‌ఫారమ్‌లు","footer_digital":"డిజిటల్ నైపుణ్యాలు","footer_col3_title":"త్వరిత లింకులు","footer_link_nsp":"నేషనల్ స్కాలర్‌షిప్ పోర్టల్","footer_link_swayam":"స్వయం (SWAYAM)","footer_link_nptel":"NPTEL","footer_link_ap":"AP ఈపాస్","footer_copy":"© 2024 విద్యాఉదయ్ · నాలెడ్జ్ రైజ్ · బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్","footer_made":"🇮🇳 ఆంధ్రప్రదేశ్‌లో తయారు చేయబడింది","chat_title":"ఉదయ్ ది ఔల్","chat_status":"AI స్టడీ అసిస్టెంట్","chat_welcome":"హూ హూ! నేను మీ AI స్టడీ ఔల్ <strong>ఉదయ్</strong>ని! 🎓<br><br>మీరు ఇంగ్లీష్, తెలుగు లేదా హిందీలో <strong>టైప్ చేయవచ్చు</strong> లేదా <strong>మాట్లాడవచ్చు</strong> — నేను అర్థం చేసుకుని అదే భాషలో సమాధానం ఇస్తాను!<br><br>కెరీర్, స్కాలర్‌షిప్‌లు, AI సాధనాలు, కోడింగ్ లేదా మీ చదువుకు సంబంధించిన ఏదైనా నన్ను అడగండి! 🚀","modal_tool_details":"సాధనం వివరాలు"}};
 
 function applyStaticTranslations(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -3920,13 +4551,28 @@ function switchLanguage(lang) {
   }
   renderStudentPrompts();
   
-  // Re-render resources, mapping index to translated category
-  const filterBtns = Array.from(document.querySelectorAll('#resourceFilters .filter-btn'));
-  let activeIndex = filterBtns.findIndex(btn => btn.classList.contains('active'));
-  if (activeIndex === -1) activeIndex = 0;
-  const newCats = ['All', ...new Set(learningResources.map(r => r.cat))];
-  const newFilterName = newCats[activeIndex] || 'All';
-  renderResources(newFilterName);
+  // Update Resource Section Mode Switcher labels
+  const tabResP = document.getElementById('lblResTabPlatforms');
+  const tabResD = document.getElementById('lblResTabDownloads');
+  const tabResS = document.getElementById('lblResTabSearch');
+  if (tabResP) tabResP.textContent = lang === 'te' ? 'టాప్ ఉచిత ప్లాట్‌ఫారమ్‌లు' : 'Top Free Platforms';
+  if (tabResD) tabResD.textContent = lang === 'te' ? '1-క్లిక్ పుస్తకాలు & పేపర్లు' : '1-Click Books & Papers';
+  if (tabResS) tabResS.textContent = lang === 'te' ? 'త్వరిత సబ్జెక్ట్ ఫైండర్' : 'Quick Subject Finder';
+
+  // Re-render resources according to current active view
+  if (currentResourceView === 'platforms') {
+    const filterBtns = Array.from(document.querySelectorAll('#resourceFilters .filter-btn'));
+    let activeIndex = filterBtns.findIndex(btn => btn.classList.contains('active'));
+    if (activeIndex === -1) activeIndex = 0;
+    const allLabel = lang === 'te' ? 'అన్నీ' : 'All';
+    const newCats = [allLabel, ...new Set(learningResources.map(r => r.cat))];
+    const newFilterName = newCats[activeIndex] || allLabel;
+    renderResources(newFilterName);
+  } else if (currentResourceView === 'downloads') {
+    renderResourceDownloads();
+  } else if (currentResourceView === 'search') {
+    renderSubjectFinder(currentSubjectTag, '');
+  }
   
   renderCoding();
   renderDigitalLiteracy();
@@ -3998,6 +4644,8 @@ renderAIGoals();
 renderAITools();
 renderStudentPrompts();
 renderResources('All');
+renderResourceDownloads();
+renderSubjectFinder();
 renderScholarships();
 renderCoding();
 renderDigitalLiteracy();
