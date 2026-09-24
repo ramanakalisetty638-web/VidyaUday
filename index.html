@@ -329,6 +329,16 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 .footer-bottom{border-top:1px solid var(--card-border);padding-top:24px;display:flex;justify-content:space-between;align-items:center;color:var(--text3);font-size:0.8rem;max-width:1200px;margin:0 auto;flex-wrap:wrap;gap:12px;}
 
 /* ── CAREER SECTION & ROADMAP ── */
+/* Mode Switcher Tabs */
+.c-mode-switcher-wrap{display:flex;justify-content:center;margin-bottom:30px;}
+.c-mode-switcher{display:inline-flex;background:var(--deep2);border:1.5px solid var(--card-border);border-radius:14px;padding:5px;gap:6px;box-shadow:0 8px 24px rgba(0,0,0,0.25);flex-wrap:wrap;justify-content:center;}
+.c-mode-btn{background:transparent;border:none;color:var(--text2);font-family:var(--font-display);font-size:0.92rem;font-weight:700;padding:10px 20px;border-radius:10px;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;}
+.c-mode-btn:hover{color:var(--text);background:rgba(255,255,255,0.05);}
+.c-mode-btn.active{background:var(--saffron);color:#fff;box-shadow:0 4px 16px rgba(255,107,43,0.35);}
+
+.c-view-container{animation:fadeIn 0.25s ease-in-out;}
+
+/* Stage Choose Cards (Step 1) */
 .c-choose-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:20px;padding:32px 28px;cursor:pointer;transition:all 0.3s;text-align:center;position:relative;overflow:hidden;display:flex;flex-direction:column;justify-content:space-between;}
 .c-choose-card:hover{border-color:var(--saffron);transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,0.35);}
 .cc-stage-badge{position:absolute;top:16px;right:16px;background:rgba(255,107,43,0.12);color:var(--saffron-light);font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:100px;letter-spacing:0.04em;}
@@ -362,115 +372,158 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 .cpath-arrow{font-size:0.8rem;font-weight:700;}
 
 /* Tree Header Card */
-.ctree-header{border-radius:20px;padding:28px 32px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:0 20px 40px rgba(0,0,0,0.3);flex-wrap:wrap;}
-.th-content{display:flex;align-items:center;gap:20px;flex:1;min-width:280px;}
-.th-icon{font-size:3.5rem;flex-shrink:0;}
-.ctree-header h2{font-family:var(--font-display);font-size:1.6rem;font-weight:800;color:#fff;margin-bottom:6px;line-height:1.2;}
-.th-tagline{font-size:0.92rem;color:rgba(255,255,255,0.92);line-height:1.4;}
+.ctree-header{border-radius:20px;padding:26px 30px;margin-bottom:24px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:0 20px 40px rgba(0,0,0,0.3);flex-wrap:wrap;}
+.th-content{display:flex;align-items:center;gap:20px;flex:1;min-width:260px;}
+.th-icon{font-size:3.2rem;flex-shrink:0;}
+.ctree-header h2{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:4px;line-height:1.2;}
+.th-tagline{font-size:0.88rem;color:rgba(255,255,255,0.92);line-height:1.4;}
 .th-badge-row{display:flex;gap:8px;margin-bottom:8px;flex-wrap:wrap;}
 .ctree-badge-tag{background:rgba(255,255,255,0.2);backdrop-filter:blur(6px);color:#fff;font-size:0.75rem;font-weight:700;padding:3px 12px;border-radius:100px;display:inline-block;}
 .th-quick-stats{display:flex;gap:12px;flex-wrap:wrap;}
-.th-stat-pill{background:rgba(0,0,0,0.25);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);padding:10px 16px;border-radius:12px;display:flex;flex-direction:column;gap:3px;min-width:140px;}
-.th-stat-lbl{font-size:0.72rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.04em;}
-.th-stat-val{font-size:0.95rem;font-weight:700;color:#fff;}
+.th-stat-pill{background:rgba(0,0,0,0.25);backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.15);padding:8px 14px;border-radius:12px;display:flex;flex-direction:column;gap:2px;min-width:130px;}
+.th-stat-lbl{font-size:0.7rem;color:rgba(255,255,255,0.75);text-transform:uppercase;letter-spacing:0.04em;}
+.th-stat-val{font-size:0.92rem;font-weight:700;color:#fff;}
 
-/* 🤖 AI Impact Card */
-.c-ai-impact-card{background:linear-gradient(145deg,rgba(30,41,59,0.7),rgba(15,23,42,0.85));border:1.5px solid rgba(59,130,246,0.35);border-radius:20px;padding:26px 28px;margin-bottom:36px;box-shadow:0 12px 30px rgba(0,0,0,0.3);position:relative;overflow:hidden;}
-.c-ai-impact-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#3b82f6,#10b981,#8b5cf6);}
-.c-ai-impact-header{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-bottom:18px;flex-wrap:wrap;}
-.c-ai-title-group{display:flex;align-items:center;gap:14px;}
-.c-ai-icon-bubble{width:46px;height:46px;border-radius:14px;background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);display:flex;align-items:center;justify-content:center;font-size:1.6rem;flex-shrink:0;}
-.c-ai-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:4px;}
-.c-ai-subtitle{font-size:0.84rem;color:var(--text2);}
-.c-ai-resilience-badge{display:flex;align-items:center;gap:10px;background:var(--deep2);border:1.5px solid;padding:8px 16px;border-radius:14px;}
-.c-ai-score-num{font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:#4ade80;}
-.c-ai-score-label{font-size:0.75rem;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.04em;}
-.c-ai-risk-tag{font-size:0.75rem;font-weight:700;padding:3px 10px;border-radius:100px;margin-left:4px;}
+/* 🤖 SIMPLIFIED 1-GLANCE AI IMPACT CARD */
+.c-ai-impact-card-simple{background:linear-gradient(145deg,rgba(30,41,59,0.7),rgba(15,23,42,0.85));border:1.5px solid rgba(59,130,246,0.35);border-radius:18px;padding:22px 24px;margin-bottom:28px;box-shadow:0 10px 28px rgba(0,0,0,0.25);position:relative;overflow:hidden;}
+.c-ai-impact-card-simple::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,#3b82f6,#10b981,#8b5cf6);}
+.c-ai-header-simple{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:14px;flex-wrap:wrap;}
+.c-ai-badge-group{display:flex;align-items:center;gap:12px;}
+.c-ai-score-big{font-family:var(--font-display);font-size:1.6rem;font-weight:900;color:#4ade80;background:rgba(16,185,129,0.12);border:1.5px solid rgba(16,185,129,0.3);padding:6px 14px;border-radius:12px;}
+.c-ai-status-title{font-size:0.72rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.05em;}
+.c-ai-status-sub{font-size:0.85rem;}
+.c-ai-one-liner{font-size:0.92rem;color:#fff;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);padding:10px 16px;border-radius:12px;flex:1;min-width:260px;}
 
-.c-ai-meter-track{background:rgba(255,255,255,0.08);border-radius:100px;height:8px;overflow:hidden;margin-bottom:20px;}
+.c-ai-meter-track{background:rgba(255,255,255,0.08);border-radius:100px;height:7px;overflow:hidden;margin-bottom:14px;}
 .c-ai-meter-fill{height:100%;border-radius:100px;transition:width 0.8s ease-in-out;}
 
-.c-ai-body-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-bottom:20px;}
-.c-ai-col{display:flex;flex-direction:column;gap:14px;}
-.c-ai-insight-box{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.08);border-radius:14px;padding:16px 18px;}
-.c-ai-box-title{display:flex;align-items:center;gap:8px;font-size:0.88rem;font-weight:700;color:var(--text);margin-bottom:8px;}
-.c-ai-box-icon{font-size:1rem;}
-.c-ai-box-text{font-size:0.84rem;color:var(--text2);line-height:1.6;}
-.c-ai-skills-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px;}
-.c-ai-skill-chip{background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#93c5fd;font-size:0.75rem;font-weight:600;padding:4px 10px;border-radius:100px;}
-
-.c-ai-footer-cta{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-top:16px;border-top:1px solid rgba(255,255,255,0.08);flex-wrap:wrap;}
-.c-ai-cta-hint{font-size:0.84rem;color:var(--text2);}
-.c-ai-ask-btn{background:rgba(59,130,246,0.18);border:1.5px solid rgba(59,130,246,0.5);color:#93c5fd;font-family:var(--font-display);font-size:0.88rem;font-weight:700;padding:9px 18px;border-radius:10px;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:8px;}
+.c-ai-3points-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:14px;margin-bottom:14px;}
+.c-ai-point{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:12px 14px;display:flex;gap:10px;}
+.c-ai-pt-icon{font-size:1.2rem;flex-shrink:0;margin-top:2px;}
+.c-ai-point strong{display:block;font-size:0.8rem;color:var(--text);margin-bottom:4px;}
+.c-ai-point p{font-size:0.8rem;color:var(--text2);line-height:1.45;margin:0;}
+.c-ai-mini-chips{display:flex;flex-wrap:wrap;gap:4px;margin-top:4px;}
+.c-mini-chip{background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.3);color:#93c5fd;font-size:0.72rem;font-weight:600;padding:2px 8px;border-radius:100px;}
+.c-ai-quick-ask{display:flex;justify-content:flex-end;}
+.c-ai-ask-btn{background:rgba(59,130,246,0.18);border:1.5px solid rgba(59,130,246,0.5);color:#93c5fd;font-family:var(--font-display);font-size:0.85rem;font-weight:700;padding:8px 16px;border-radius:10px;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:6px;}
 .c-ai-ask-btn:hover{background:rgba(59,130,246,0.35);color:#fff;border-color:#3b82f6;}
 
 /* Stepper Header & Pills */
-.c-stepper-header-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:24px;flex-wrap:wrap;}
-.c-section-heading{font-family:var(--font-display);font-size:1.25rem;font-weight:800;color:var(--text);margin-bottom:4px;}
-.c-section-subheading{font-size:0.86rem;color:var(--text2);}
+.c-stepper-header-row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;margin-bottom:20px;flex-wrap:wrap;}
+.c-section-heading{font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:var(--text);margin-bottom:4px;}
+.c-section-subheading{font-size:0.85rem;color:var(--text2);}
 .c-milestone-pills{display:flex;gap:8px;overflow-x:auto;padding-bottom:4px;}
-.c-step-pill{background:var(--card);border:1.5px solid var(--card-border);color:var(--text2);font-family:var(--font-body);font-size:0.8rem;font-weight:600;padding:7px 12px;border-radius:10px;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
+.c-step-pill{background:var(--card);border:1.5px solid var(--card-border);color:var(--text2);font-family:var(--font-body);font-size:0.8rem;font-weight:600;padding:6px 12px;border-radius:10px;cursor:pointer;transition:all 0.2s;display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
 .c-step-pill:hover{border-color:var(--saffron);color:var(--text);}
 .c-step-pill.active{background:var(--saffron);border-color:var(--saffron);color:#fff;}
 .c-step-pill .step-num{background:rgba(255,255,255,0.15);width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:0.7rem;font-weight:800;}
 
-/* Timeline Modern Stepper */
-.ctimeline{position:relative;padding-left:48px;margin-bottom:44px;}
-.ctimeline::before{content:'';position:absolute;left:18px;top:12px;bottom:12px;width:3px;background:linear-gradient(180deg,#FF6B2B,#1DB954,#0EA5E9,#8B5CF6);border-radius:3px;}
-.ctl-item{position:relative;margin-bottom:28px;}
-.ctl-dot{position:absolute;left:-48px;top:4px;width:24px;height:24px;border-radius:50%;border:3px solid #fff;display:flex;align-items:center;justify-content:center;}
-.ctl-dot-inner{font-size:0.68rem;font-weight:800;color:#fff;}
-.ctl-card{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:22px;border-left:4px solid;transition:all 0.25s;}
+/* Timeline Stepper */
+.ctimeline{position:relative;padding-left:44px;margin-bottom:36px;}
+.ctimeline::before{content:'';position:absolute;left:16px;top:10px;bottom:10px;width:3px;background:linear-gradient(180deg,#FF6B2B,#1DB954,#0EA5E9,#8B5CF6);border-radius:3px;}
+.ctl-item{position:relative;margin-bottom:24px;}
+.ctl-dot{position:absolute;left:-44px;top:4px;width:22px;height:22px;border-radius:50%;border:3px solid #fff;display:flex;align-items:center;justify-content:center;}
+.ctl-dot-inner{font-size:0.65rem;font-weight:800;color:#fff;}
+.ctl-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:18px 20px;border-left:4px solid;transition:all 0.25s;}
 .ctl-card:hover{border-color:rgba(255,255,255,0.15);}
-.ctl-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;}
-.ctl-step-badge{font-size:0.74rem;font-weight:700;padding:3px 10px;border-radius:100px;text-transform:uppercase;letter-spacing:0.04em;}
-.ctl-item-title{font-family:var(--font-display);font-size:1.08rem;font-weight:700;margin-bottom:8px;color:var(--text);}
-.ctl-item-desc{font-size:0.86rem;color:var(--text2);line-height:1.65;margin-bottom:12px;}
-.ctl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:12px;}
-.ctl-tag{font-size:0.72rem;font-weight:600;padding:3px 10px;border-radius:100px;}
+.ctl-card-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px;}
+.ctl-step-badge{font-size:0.72rem;font-weight:700;padding:2px 8px;border-radius:100px;text-transform:uppercase;letter-spacing:0.04em;}
+.ctl-item-title{font-family:var(--font-display);font-size:1.02rem;font-weight:700;margin-bottom:6px;color:var(--text);}
+.ctl-item-desc{font-size:0.84rem;color:var(--text2);line-height:1.55;margin-bottom:10px;}
+.ctl-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px;}
+.ctl-tag{font-size:0.72rem;font-weight:600;padding:2px 8px;border-radius:100px;}
 .tag-o{background:rgba(255,107,43,0.15);color:#FF8F60;}
 .tag-b{background:rgba(14,165,233,0.15);color:#38bdf8;}
 .tag-g{background:rgba(29,185,84,0.15);color:#4ade80;}
 .tag-p{background:rgba(139,92,246,0.15);color:#a78bfa;}
 
 /* Salary bar */
-.ctl-salary{margin-top:12px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:12px;padding:10px 14px;}
-.ctl-salary-label{display:flex;align-items:center;justify-content:space-between;font-size:0.78rem;color:var(--text2);margin-bottom:6px;}
-.ctl-salary-track{background:var(--deep3);border-radius:100px;height:7px;overflow:hidden;}
+.ctl-salary{margin-top:10px;background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.06);border-radius:10px;padding:8px 12px;}
+.ctl-salary-label{display:flex;align-items:center;justify-content:space-between;font-size:0.76rem;color:var(--text2);margin-bottom:4px;}
+.ctl-salary-track{background:var(--deep3);border-radius:100px;height:6px;overflow:hidden;}
 .ctl-salary-fill{height:100%;border-radius:100px;background:linear-gradient(90deg,var(--saffron),#FFD700);}
-.ctl-salary-amt{font-size:0.84rem;font-weight:800;color:#FFD700;}
+.ctl-salary-amt{font-size:0.82rem;font-weight:800;color:#FFD700;}
 
 /* Branches Section */
-.cbranch-section{margin-bottom:44px;}
-.cbranch-header{margin-bottom:20px;}
-.cbranch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px;}
-.cbranch-card{background:var(--card);border:1px solid var(--card-border);border-radius:16px;padding:22px;transition:all 0.25s;}
+.cbranch-section{margin-bottom:36px;}
+.cbranch-header{margin-bottom:16px;}
+.cbranch-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:14px;}
+.cbranch-card{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:18px;transition:all 0.25s;}
 .cbranch-card:hover{transform:translateY(-3px);box-shadow:0 10px 28px rgba(0,0,0,0.25);}
-.cbranch-card-header{margin-bottom:12px;}
-.cbranch-card h4{font-family:var(--font-display);font-size:0.96rem;font-weight:700;}
+.cbranch-card h4{font-family:var(--font-display);font-size:0.92rem;font-weight:700;margin-bottom:10px;}
 .cbranch-card ul{list-style:none;}
-.cbranch-card ul li{font-size:0.83rem;color:var(--text2);padding:5px 0;padding-left:16px;position:relative;border-bottom:1px solid rgba(255,255,255,0.04);}
+.cbranch-card ul li{font-size:0.81rem;color:var(--text2);padding:4px 0;padding-left:14px;position:relative;border-bottom:1px solid rgba(255,255,255,0.04);}
 .cbranch-card ul li:last-child{border-bottom:none;}
 .cbranch-card ul li::before{content:'▸';position:absolute;left:0;color:var(--bc,var(--saffron));font-size:0.75rem;}
 
 /* Action Hub */
-.c-action-hub{background:var(--card);border:1.5px solid var(--card-border);border-radius:20px;padding:26px 28px;margin-top:20px;}
-.c-action-hub-title{font-family:var(--font-display);font-size:1.1rem;font-weight:800;color:var(--text);margin-bottom:16px;}
-.c-action-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:14px;margin-bottom:20px;}
-.c-action-mini-card{background:rgba(255,255,255,0.04);border:1px solid var(--card-border);border-radius:14px;padding:16px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:14px;}
+.c-action-hub{background:var(--card);border:1.5px solid var(--card-border);border-radius:18px;padding:22px 24px;margin-top:20px;}
+.c-action-hub-title{font-family:var(--font-display);font-size:1.05rem;font-weight:800;color:var(--text);margin-bottom:14px;}
+.c-action-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:18px;}
+.c-action-mini-card{background:rgba(255,255,255,0.04);border:1px solid var(--card-border);border-radius:12px;padding:14px;cursor:pointer;transition:all 0.2s;display:flex;align-items:center;gap:12px;}
 .c-action-mini-card:hover{border-color:var(--saffron);background:rgba(255,107,43,0.08);transform:translateY(-2px);}
-.c-act-icon{font-size:1.8rem;flex-shrink:0;}
-.c-act-info{display:flex;flex-direction:column;gap:3px;flex:1;}
-.c-act-info strong{font-size:0.88rem;color:var(--text);}
-.c-act-info span{font-size:0.76rem;color:var(--text2);}
-.c-act-arrow{font-size:1rem;color:var(--saffron);font-weight:700;}
-.c-action-bottom-btn{text-align:center;padding-top:12px;border-top:1px solid rgba(255,255,255,0.06);}
+.c-act-icon{font-size:1.6rem;flex-shrink:0;}
+.c-act-info{display:flex;flex-direction:column;gap:2px;flex:1;}
+.c-act-info strong{font-size:0.85rem;color:var(--text);}
+.c-act-info span{font-size:0.74rem;color:var(--text2);}
+.c-act-arrow{font-size:0.95rem;color:var(--saffron);font-weight:700;}
+.c-action-bottom-btn{text-align:center;padding-top:10px;border-top:1px solid rgba(255,255,255,0.06);}
+
+/* 🎯 STREAM MATCHER VIEW */
+.c-matcher-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:20px;padding:32px 28px;max-width:780px;margin:0 auto;box-shadow:0 12px 36px rgba(0,0,0,0.3);}
+.c-matcher-header{text-align:center;margin-bottom:28px;}
+.c-matcher-title{font-family:var(--font-display);font-size:1.4rem;font-weight:800;color:var(--text);margin-bottom:6px;}
+.c-matcher-sub{font-size:0.88rem;color:var(--text2);}
+.c-quiz-group{margin-bottom:24px;}
+.c-quiz-q{font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.c-quiz-options{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px;}
+.c-quiz-opt{background:rgba(255,255,255,0.03);border:1.5px solid var(--card-border);color:var(--text2);font-family:var(--font-body);font-size:0.86rem;font-weight:600;padding:12px 14px;border-radius:12px;cursor:pointer;transition:all 0.2s;text-align:left;display:flex;align-items:center;gap:10px;}
+.c-quiz-opt:hover{border-color:rgba(255,255,255,0.2);color:var(--text);background:rgba(255,255,255,0.06);}
+.c-quiz-opt.selected{border-color:var(--saffron);color:#fff;background:rgba(255,107,43,0.12);box-shadow:0 0 0 1px var(--saffron);}
+.c-quiz-opt-icon{font-size:1.4rem;}
+
+/* Matcher Result Card */
+.c-match-result{background:linear-gradient(135deg,rgba(59,130,246,0.1),rgba(16,185,129,0.1));border:2px solid #10b981;border-radius:16px;padding:24px;margin-top:24px;text-align:center;animation:fadeIn 0.3s ease-in-out;}
+.c-match-badge{background:#10b981;color:#fff;font-size:0.75rem;font-weight:800;padding:4px 14px;border-radius:100px;display:inline-block;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:12px;}
+.c-match-path-title{font-family:var(--font-display);font-size:1.5rem;font-weight:800;color:#fff;margin-bottom:8px;}
+.c-match-reason{font-size:0.92rem;color:var(--text2);max-width:540px;margin:0 auto 16px;line-height:1.5;}
+.c-match-tags{display:flex;gap:8px;justify-content:center;margin-bottom:18px;flex-wrap:wrap;}
+.c-match-actions{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;}
+
+/* ⚖️ PATH COMPARISON VIEW */
+.c-compare-wrap{background:var(--card);border:1.5px solid var(--card-border);border-radius:20px;padding:32px 28px;max-width:960px;margin:0 auto;box-shadow:0 12px 36px rgba(0,0,0,0.3);}
+.c-compare-header{text-align:center;margin-bottom:20px;}
+.c-compare-presets{display:flex;gap:8px;justify-content:center;margin-bottom:24px;flex-wrap:wrap;}
+.c-preset-btn{background:rgba(255,255,255,0.04);border:1.5px solid var(--card-border);color:var(--text2);font-family:var(--font-body);font-size:0.82rem;font-weight:700;padding:7px 14px;border-radius:100px;cursor:pointer;transition:all 0.2s;}
+.c-preset-btn:hover,.c-preset-btn.active{border-color:var(--saffron);color:var(--saffron);background:rgba(255,107,43,0.08);}
+
+.c-compare-selectors{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-bottom:24px;}
+.c-compare-select{width:100%;background:var(--deep2);border:1.5px solid var(--card-border);color:var(--text);font-family:var(--font-display);font-size:0.95rem;font-weight:700;padding:12px 14px;border-radius:12px;outline:none;cursor:pointer;}
+.c-compare-select:focus{border-color:var(--saffron);}
+.c-vs-badge{width:40px;height:40px;border-radius:50%;background:rgba(255,107,43,0.15);border:1px solid rgba(255,107,43,0.4);color:var(--saffron-light);display:flex;align-items:center;justify-content:center;font-family:var(--font-display);font-size:0.85rem;font-weight:900;}
+
+.c-compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
+.c-compare-col{background:rgba(255,255,255,0.02);border:1.5px solid var(--card-border);border-radius:16px;padding:22px;display:flex;flex-direction:column;gap:14px;}
+.c-col-header{display:flex;align-items:center;gap:12px;padding-bottom:12px;border-bottom:1px solid rgba(255,255,255,0.06);}
+.c-col-icon{font-size:2.4rem;}
+.c-col-title{font-family:var(--font-display);font-size:1.2rem;font-weight:800;color:var(--text);}
+.c-col-stage{font-size:0.72rem;color:var(--text3);text-transform:uppercase;letter-spacing:0.04em;}
+.c-col-row{display:flex;flex-direction:column;gap:3px;}
+.c-col-label{font-size:0.72rem;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:0.04em;}
+.c-col-val{font-size:0.86rem;color:var(--text);line-height:1.45;}
+.c-col-highlight{font-weight:700;color:#4ade80;}
 
 @media(max-width:768px){
-  .c-ai-body-grid{grid-template-columns:1fr;}
-  .ctree-header{flex-direction:column;text-align:center;padding:24px 20px;}
+  .c-compare-selectors{grid-template-columns:1fr;}
+  .c-vs-badge{margin:0 auto;}
+  .c-compare-grid{grid-template-columns:1fr;}
+  .c-ai-3points-grid{grid-template-columns:1fr;}
+  .c-ai-header-simple{flex-direction:column;align-items:flex-start;}
+  .c-ai-one-liner{width:100%;}
+  .c-mode-switcher{width:100%;}
+  .c-mode-btn{flex:1;justify-content:center;padding:9px 12px;font-size:0.82rem;}
+  .ctree-header{flex-direction:column;text-align:center;padding:22px 18px;}
   .th-content{flex-direction:column;text-align:center;}
-  .th-title-wrap{flex-direction:column;text-align:center;}
   .th-badge-row{justify-content:center;}
   .th-quick-stats{justify-content:center;width:100%;}
   .c-stepper-header-row{flex-direction:column;align-items:flex-start;}
@@ -478,6 +531,7 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
   .ctimeline{padding-left:36px;}
   .ctl-dot{left:-36px;width:20px;height:20px;}
 }
+
 
 /* ── SCHOLARSHIP FORM ── */
 .schol-form-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:20px;padding:32px;max-width:860px;margin:0 auto;}
@@ -811,65 +865,118 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
   <div class="max-w">
     <div class="section-tag" data-i18n="career_tag">Career Guidance</div>
     <h2 class="section-title" data-i18n="career_title">Your Complete Career Roadmap & AI Outlook</h2>
-    <p class="section-sub" data-i18n="career_sub">Click your stage → choose your path → see the full year-by-year milestone journey with salary growth & AI impact reality check.</p>
+    <p class="section-sub" data-i18n="career_sub">Choose your stage → pick your path → see the simplified milestone journey with salary growth & AI impact.</p>
 
-    <!-- STEP 1: CHOOSE STAGE -->
-    <div id="cStep1">
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:760px;margin:0 auto;">
-        <div class="c-choose-card" onclick="showPaths('10th')">
-          <span class="cc-stage-badge">🏫 10TH (SSC)</span>
-          <div class="cc-icon">🏫</div>
-          <h3 class="cc-title" data-i18n="c_stage1_10th_title">After 10th Class (SSC)</h3>
-          <p class="cc-sub" data-i18n="c_stage1_10th_desc">Completed SSC? Discover 5 structured streams: Intermediate MPC, BiPC, MEC, CEC, plus Polytechnic & ITI.</p>
-          <div class="cc-tags">
-            <span class="ctag">MPC</span><span class="ctag">BiPC</span><span class="ctag">MEC</span><span class="ctag">CEC</span><span class="ctag">Polytechnic</span><span class="ctag">ITI</span>
-          </div>
-          <div class="cc-btn" data-i18n="c_explore_paths">Explore 5 Streams →</div>
-        </div>
-        <div class="c-choose-card" onclick="showPaths('inter')">
-          <span class="cc-stage-badge">🎓 12TH (INTER)</span>
-          <div class="cc-icon">🎓</div>
-          <h3 class="cc-title" data-i18n="c_stage1_inter_title">After Intermediate (12th)</h3>
-          <p class="cc-sub" data-i18n="c_stage1_inter_desc">Completed 12th? Discover 6 high-growth career tracks: B.Tech, MBBS, B.Sc, B.Com, Govt Jobs & Tech Skills.</p>
-          <div class="cc-tags">
-            <span class="ctag">B.Tech</span><span class="ctag">MBBS</span><span class="ctag">B.Sc</span><span class="ctag">B.Com</span><span class="ctag">Govt Jobs</span><span class="ctag">Tech Skills</span>
-          </div>
-          <div class="cc-btn" data-i18n="c_explore_paths">Explore 6 Tracks →</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- STEP 2: CHOOSE PATH -->
-    <div id="cStep2" style="display:none;">
-      <div class="c-top-bar">
-        <div class="c-top-bar-left">
-          <button class="c-back-btn" onclick="goStep1()">
-            <span id="cBackBtnStep2">← Back to Stages</span>
-          </button>
-          <span id="cStep2Label" style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;"></span>
-        </div>
-        <div class="c-stage-toggle" id="cStageToggle">
-          <button class="c-stage-btn" id="stageBtn10th" onclick="showPaths('10th')">🏫 10th SSC</button>
-          <button class="c-stage-btn" id="stageBtnInter" onclick="showPaths('inter')">🎓 Intermediate</button>
-        </div>
-      </div>
-      <div class="cpath-grid" id="cPathGrid"></div>
-    </div>
-
-    <!-- STEP 3: INTERACTIVE ROADMAP & AI OUTLOOK HUB -->
-    <div id="cStep3" style="display:none;">
-      <div class="c-top-bar">
-        <div class="c-top-bar-left">
-          <button class="c-back-btn" onclick="goStep2()">
-            <span id="cBackBtnStep3">← Back to Paths</span>
-          </button>
-          <span id="cStep3Label" style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;"></span>
-        </div>
-        <button class="c-back-btn" onclick="goStep1()" style="font-size:0.8rem;">
-          <span id="cChangeStageBtn">🔄 Change Stage</span>
+    <!-- EXCLUSIVE VIEW SWITCHER -->
+    <div class="c-mode-switcher-wrap">
+      <div class="c-mode-switcher">
+        <button class="c-mode-btn active" id="cTabRoadmaps" onclick="switchCareerView('roadmaps')">
+          <span>🧭</span> <span id="lblTabRoadmaps">Explore Roadmaps</span>
+        </button>
+        <button class="c-mode-btn" id="cTabMatcher" onclick="switchCareerView('matcher')">
+          <span>🎯</span> <span id="lblTabMatcher">30-Sec Stream Matcher</span>
+        </button>
+        <button class="c-mode-btn" id="cTabCompare" onclick="switchCareerView('compare')">
+          <span>⚖️</span> <span id="lblTabCompare">Compare 2 Paths</span>
         </button>
       </div>
-      <div id="cTreeWrap"></div>
+    </div>
+
+    <!-- 🧭 VIEW 1: ROADMAPS (Default) -->
+    <div id="careerViewRoadmaps" class="c-view-container">
+      <!-- STEP 1: CHOOSE STAGE -->
+      <div id="cStep1">
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:24px;max-width:760px;margin:0 auto;">
+          <div class="c-choose-card" onclick="showPaths('10th')">
+            <span class="cc-stage-badge">🏫 10TH (SSC)</span>
+            <div class="cc-icon">🏫</div>
+            <h3 class="cc-title" data-i18n="c_stage1_10th_title">After 10th Class (SSC)</h3>
+            <p class="cc-sub" data-i18n="c_stage1_10th_desc">Completed SSC? Discover 5 structured streams: Intermediate MPC, BiPC, MEC, CEC, plus Polytechnic & ITI.</p>
+            <div class="cc-tags">
+              <span class="ctag">MPC</span><span class="ctag">BiPC</span><span class="ctag">MEC</span><span class="ctag">CEC</span><span class="ctag">Polytechnic</span><span class="ctag">ITI</span>
+            </div>
+            <div class="cc-btn" data-i18n="c_explore_paths">Explore 5 Streams →</div>
+          </div>
+          <div class="c-choose-card" onclick="showPaths('inter')">
+            <span class="cc-stage-badge">🎓 12TH (INTER)</span>
+            <div class="cc-icon">🎓</div>
+            <h3 class="cc-title" data-i18n="c_stage1_inter_title">After Intermediate (12th)</h3>
+            <p class="cc-sub" data-i18n="c_stage1_inter_desc">Completed 12th? Discover 6 high-growth career tracks: B.Tech, MBBS, B.Sc, B.Com, Govt Jobs & Tech Skills.</p>
+            <div class="cc-tags">
+              <span class="ctag">B.Tech</span><span class="ctag">MBBS</span><span class="ctag">B.Sc</span><span class="ctag">B.Com</span><span class="ctag">Govt Jobs</span><span class="ctag">Tech Skills</span>
+            </div>
+            <div class="cc-btn" data-i18n="c_explore_paths">Explore 6 Tracks →</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: CHOOSE PATH -->
+      <div id="cStep2" style="display:none;">
+        <div class="c-top-bar">
+          <div class="c-top-bar-left">
+            <button class="c-back-btn" onclick="goStep1()">
+              <span id="cBackBtnStep2">← Back to Stages</span>
+            </button>
+            <span id="cStep2Label" style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;"></span>
+          </div>
+          <div class="c-stage-toggle" id="cStageToggle">
+            <button class="c-stage-btn" id="stageBtn10th" onclick="showPaths('10th')">🏫 10th SSC</button>
+            <button class="c-stage-btn" id="stageBtnInter" onclick="showPaths('inter')">🎓 Intermediate</button>
+          </div>
+        </div>
+        <div class="cpath-grid" id="cPathGrid"></div>
+      </div>
+
+      <!-- STEP 3: ROADMAP & AI OUTLOOK HUB -->
+      <div id="cStep3" style="display:none;">
+        <div class="c-top-bar">
+          <div class="c-top-bar-left">
+            <button class="c-back-btn" onclick="goStep2()">
+              <span id="cBackBtnStep3">← Back to Paths</span>
+            </button>
+            <span id="cStep3Label" style="font-family:var(--font-display);font-weight:700;font-size:1.05rem;"></span>
+          </div>
+          <button class="c-back-btn" onclick="goStep1()" style="font-size:0.8rem;">
+            <span id="cChangeStageBtn">🔄 Change Stage</span>
+          </button>
+        </div>
+        <div id="cTreeWrap"></div>
+      </div>
+    </div>
+
+    <!-- 🎯 VIEW 2: 30-SEC STREAM MATCHER (Hidden by default) -->
+    <div id="careerViewMatcher" class="c-view-container" style="display:none;">
+      <div class="c-matcher-card">
+        <div class="c-matcher-header">
+          <div style="font-size:2.5rem;margin-bottom:6px;">🎯</div>
+          <h3 class="c-matcher-title" id="matcherHeadTitle">30-Second Stream Matcher</h3>
+          <p class="c-matcher-sub" id="matcherHeadSub">Confused about what to study? Answer 2 simple questions to get your tailored stream match:</p>
+        </div>
+        
+        <div id="matcherQuizBody"></div>
+        <div id="matcherResultBox"></div>
+      </div>
+    </div>
+
+    <!-- ⚖️ VIEW 3: PATH COMPARISON (Hidden by default) -->
+    <div id="careerViewCompare" class="c-view-container" style="display:none;">
+      <div class="c-compare-wrap">
+        <div class="c-compare-header">
+          <div style="font-size:2.5rem;margin-bottom:6px;">⚖️</div>
+          <h3 class="c-matcher-title" id="compareHeadTitle">Side-by-Side Career Path Finder</h3>
+          <p class="c-matcher-sub" id="compareHeadSub">Compare any two streams side-by-side to understand duration, study style, entrance exams, and AI resilience:</p>
+        </div>
+
+        <div class="c-compare-presets" id="comparePresetsWrap"></div>
+
+        <div class="c-compare-selectors">
+          <select class="c-compare-select" id="compareSelect1" onchange="onCompareSelectChange()"></select>
+          <div class="c-vs-badge">VS</div>
+          <select class="c-compare-select" id="compareSelect2" onchange="onCompareSelectChange()"></select>
+        </div>
+
+        <div class="c-compare-grid" id="compareCardsGrid"></div>
+      </div>
     </div>
 
   </div>
@@ -2209,279 +2316,875 @@ const cTrees_en = {
 const aiImpactData_en = {
   mpc: {
     resilienceScore: 86,
-    resilienceText: "86% AI-Resilient",
-    riskLevel: "Low to Moderate Risk — AI-Augmented",
+    simpleBadge: "Low Risk — AI Co-pilot",
     riskBadgeColor: "#3b82f6",
-    verdict: "AI will NOT eliminate engineers. Repetitive code and basic calculations are automated, but core system design, mathematics, physical modeling, and complex problem-solving require skilled human minds. Engineers who use AI tools build 3x faster and command top salaries.",
-    presentUse: "Engineers use AI for mathematical simulation, circuit optimization, algorithm benchmarking, and automated test writing.",
-    futureOutlook: "Massive career expansion in Semiconductor chip design, Robotics, Clean energy systems, Aerospace, and AI Infrastructure Engineering.",
-    skillsToMaster: ["Advanced Mathematics & Logic", "System Architecture & Design", "Physics & Physical Modeling", "AI Prompting & Automation"]
+    punchline: "AI won't replace engineers. Engineers who use AI build 3x faster and get hired first.",
+    todayLine: "Engineers use AI for quick code drafting, calculations, and circuit designs.",
+    futureLine: "Huge growth in Robotics, Semiconductor chips, and AI System Engineering.",
+    skillsToMaster: ["Mathematics & Logic", "System Design", "Problem Solving", "AI Prompting"]
   },
   bipc: {
     resilienceScore: 98,
-    resilienceText: "98% AI-Resilient",
-    riskLevel: "Extremely Safe — Human-Core Essential",
+    simpleBadge: "100% Safe — Human Touch Essential",
     riskBadgeColor: "#10b981",
-    verdict: "AI CANNOT replace medical professionals. Patient care demands clinical examination, surgical dexterity, emergency intuition, bedside empathy, and medical ethics that software can never replicate.",
-    presentUse: "Doctors and radiologists use AI to analyze CT/MRI scans in seconds, identify early tumors, and monitor ICU patient telemetry.",
-    futureOutlook: "AI acts as a diagnostic co-pilot, cutting administrative paperwork and letting healthcare professionals focus 100% on healing patients.",
-    skillsToMaster: ["Clinical Diagnosis & Patient Care", "Surgical Precision", "Bedside Empathy & Ethics", "Emergency Medical Decisions"]
+    punchline: "AI can never replace doctors. Only humans can examine patients, perform surgeries, and give bedside care.",
+    todayLine: "Doctors use AI to read MRI/CT scans faster and detect illnesses early.",
+    futureLine: "AI handles paperwork, giving doctors more time to heal and consult patients.",
+    skillsToMaster: ["Clinical Diagnosis", "Surgical Precision", "Patient Empathy", "Emergency Decisions"]
   },
   mec: {
     resilienceScore: 78,
-    resilienceText: "78% AI-Resilient",
-    riskLevel: "Moderate Risk — Routine Roles Automating",
+    simpleBadge: "Evolving — Strategic Skills Needed",
     riskBadgeColor: "#f59e0b",
-    verdict: "Basic ledger entry and routine billing are automated. However, Chartered Accountants (CA), financial strategists, forensic auditors, and tax planners are more essential than ever to navigate complex tax codes and lead business growth.",
-    presentUse: "Finance professionals use AI for real-time transaction reconciliation, fraud detection, automated tax computation, and cash-flow forecasting.",
-    futureOutlook: "Routine data-entry jobs disappear; finance professionals transition to high-value strategic corporate advisors, wealth managers, and risk consultants.",
-    skillsToMaster: ["Strategic Financial Planning", "Taxation & Regulatory Law", "Data Analytics (PowerBI/SQL)", "Client Advisory & Negotiation"]
+    punchline: "AI does routine data entry, but Chartered Accountants and financial leaders make key business decisions.",
+    todayLine: "Instant tax calculation, automated billing, and fraud detection algorithms.",
+    futureLine: "Clerical roles shrink; high-paid strategic finance advisors and CAs grow.",
+    skillsToMaster: ["Financial Strategy", "Tax & Audit Law", "Data Analytics", "Client Advisory"]
   },
   cec: {
     resilienceScore: 92,
-    resilienceText: "92% AI-Resilient",
-    riskLevel: "Very Low Risk — Human Governance & Law",
+    simpleBadge: "Very Safe — Law & Governance",
     riskBadgeColor: "#10b981",
-    verdict: "Judges, lawyers, and public administrators make constitutional, moral, and human welfare decisions. An AI cannot stand in a courtroom to advocate for a citizen or govern a rural district with compassion.",
-    presentUse: "Lawyers use AI to search thousands of judicial precedents in seconds and auto-draft standard contracts and affidavits.",
-    futureOutlook: "AI handles legal research and document summarization; human advocates focus on argument strategy, cross-examination, and courtroom leadership.",
-    skillsToMaster: ["Legal Argumentation & Advocacy", "Constitutional Law & Ethics", "Public Governance & Empathy", "Negotiation & Persuasion"]
+    punchline: "An AI cannot stand in a courtroom to argue a case or run a district with compassion.",
+    todayLine: "Lawyers use AI to search thousands of court cases in seconds.",
+    futureLine: "AI does legal research; human advocates focus on arguments, justice, and leadership.",
+    skillsToMaster: ["Legal Argumentation", "Public Governance", "Constitutional Law", "Negotiation"]
   },
   poly: {
     resilienceScore: 95,
-    resilienceText: "95% AI-Resilient",
-    riskLevel: "Extremely Safe — Physical On-Site Engineering",
+    simpleBadge: "Extremely Safe — Physical On-Site Skills",
     riskBadgeColor: "#10b981",
-    verdict: "Software cannot lay physical foundation concrete, wire electrical transformers, service hydraulic pumps, or fix CNC factory machinery on-site. Field technical expertise is strongly insulated from AI automation.",
-    presentUse: "Technicians use smart IoT vibration sensors and AI diagnostic handheld scanners to detect equipment faults before breakdowns occur.",
-    futureOutlook: "Huge domestic and international demand in Solar & Renewable power installation, Electric Vehicles (EV), and smart factory automation.",
-    skillsToMaster: ["Hands-on Electrical & Mechanical Skills", "PLC & Industrial Automation", "Industrial Safety Standards", "EV & Solar Tech"]
+    punchline: "Software cannot wire a power substation, build a bridge, or service heavy factory machines.",
+    todayLine: "Technicians use handheld AI diagnostic scanners to detect machine faults.",
+    futureLine: "Massive demand in Solar Power, Electric Vehicles (EV), and smart automation.",
+    skillsToMaster: ["Hands-on Mechanical/Electrical", "Industrial Safety", "PLC Automation", "EV & Solar Tech"]
   },
   iti: {
     resilienceScore: 97,
-    resilienceText: "97% AI-Resilient",
-    riskLevel: "Extremely Safe — Physical Craftsmanship",
+    simpleBadge: "100% Safe — Physical Craftsmanship",
     riskBadgeColor: "#10b981",
-    verdict: "One of the safest careers in the world! An AI cannot climb an electricity pole, weld an oil pipeline, rebuild a diesel engine, or fix a household electrical short circuit. True trade craftsmanship is irreplaceable.",
-    presentUse: "Technicians use computerized diagnostic scanning tools and laser-guided precision cutting equipment.",
-    futureOutlook: "Skilled trade technicians enjoy rising domestic wages in India and lucrative job opportunities in the Gulf, Germany, and abroad.",
-    skillsToMaster: ["Trade Craftsmanship & Precision", "Electrical Wiring Safety", "Engine Diagnostics & Repair", "Blueprint Reading"]
+    punchline: "One of the most AI-proof jobs in the world! An AI cannot climb an electric pole, weld a pipe, or fix an engine.",
+    todayLine: "Digital fault checkers and laser-guided precision cutting machines.",
+    futureLine: "Rising wages in India and high-paying jobs in Gulf countries and Germany.",
+    skillsToMaster: ["Trade Craftsmanship", "Precision Welding", "Electrical Safety", "Machine Maintenance"]
   },
   voc: {
     resilienceScore: 88,
-    resilienceText: "88% AI-Resilient",
-    riskLevel: "Low Risk — Specialized Applied Skills",
+    simpleBadge: "Safe — Hands-on Applied Skills",
     riskBadgeColor: "#10b981",
-    verdict: "Applied trades like Medical Lab Technology, Horticulture, Retail, and Digital Media require hands-on human execution. When combined with modern digital tools, vocational professionals thrive easily.",
-    presentUse: "Technicians use automated blood analyzers, digital inventory management software, and computer-assisted design tools.",
-    futureOutlook: "Steady employment across diagnostic labs, agro-businesses, and local digital enterprises.",
-    skillsToMaster: ["Laboratory Technique & Precision", "Customer Relations", "Digital Equipment Operation", "Multi-tasking"]
+    punchline: "Hands-on medical lab tests, retail, and multimedia thrive when using digital tools.",
+    todayLine: "Automated medical blood analyzers and digital computer design tools.",
+    futureLine: "Steady jobs across local diagnostic labs, agro-business, and digital studios.",
+    skillsToMaster: ["Lab Technique", "Customer Relations", "Digital Equipment Operation"]
   },
   btech: {
     resilienceScore: 84,
-    resilienceText: "84% AI-Resilient",
-    riskLevel: "Low to Moderate Risk — AI-Augmented",
+    simpleBadge: "AI-Augmented — Top Packages",
     riskBadgeColor: "#3b82f6",
-    verdict: "AI is a superpower for engineers, not a replacement. Junior syntax typing is automated, but architects who design scalable cloud platforms, secure cybersecurity systems, and real-world embedded hardware are more valuable than ever.",
-    presentUse: "Engineers build apps 5x faster using AI copilots for code autocompletion, unit test generation, and bug fixing.",
-    futureOutlook: "Rapid salary growth in AI Engineering, Cloud Architecture, Cyber Defense, Autonomous Systems, and Full-Stack Product Building.",
-    skillsToMaster: ["System Architecture & System Design", "Data Structures & Algorithms", "Cloud Platforms (AWS/Azure/GCP)", "AI Model Integration & Prompting"]
+    punchline: "AI is a superpower for engineers, not a replacement. Architects who build scalable systems earn the highest salaries.",
+    todayLine: "Developers build apps 5x faster using AI copilots for code autocompletion and bug testing.",
+    futureLine: "High salaries in Cloud Architecture, AI Engineering, Cybersecurity, and Robotics.",
+    skillsToMaster: ["System Architecture", "Algorithms & Logic", "Cloud (AWS/Azure)", "AI Model Prompting"]
   },
   mbbs: {
     resilienceScore: 98,
-    resilienceText: "98% AI-Resilient",
-    riskLevel: "Extremely Safe — Human-Core Essential",
+    simpleBadge: "100% Safe — Human Life Care",
     riskBadgeColor: "#10b981",
-    verdict: "100% resilient. A human patient will always demand a human doctor for medical consultations, complex surgeries, trauma care, and compassionate life guidance.",
-    presentUse: "AI assists with early tumor detection in imaging, automated vital monitoring in ICUs, and genomic analysis.",
-    futureOutlook: "Doctors equipped with AI tools make fewer diagnostic errors and spend more time directly healing patients.",
-    skillsToMaster: ["Clinical Diagnosis", "Surgical Precision", "Patient Empathy & Bedside Manner", "Emergency Triage"]
+    punchline: "A human patient will always demand a human doctor for medical care, surgeries, and empathetic treatment.",
+    todayLine: "AI assists with early tumor detection in imaging and patient vital monitoring.",
+    futureLine: "Doctors with AI tools make zero diagnostic errors and heal patients faster.",
+    skillsToMaster: ["Clinical Diagnosis", "Surgical Skills", "Bedside Empathy", "Emergency Triage"]
   },
   bsc: {
     resilienceScore: 86,
-    resilienceText: "86% AI-Resilient",
-    riskLevel: "Low Risk — Research & Discovery Driven",
+    simpleBadge: "Safe — Research & Discovery",
     riskBadgeColor: "#3b82f6",
-    verdict: "AI accelerates scientific calculation, but the scientific method—forming hypotheses, physical laboratory experiments, and environmental field studies—demands human scientists.",
-    presentUse: "Researchers use AI to model chemical bonds, analyze telescope space images, and simulate weather patterns.",
-    futureOutlook: "Expanding roles in Data Science, Biotechnology, Environmental Sustainability, and Scientific Research.",
-    skillsToMaster: ["Scientific Experimentation", "Statistical Analysis (Python/R)", "Data Interpretation", "Research Methodology"]
+    punchline: "AI calculates numbers, but laboratory experiments and scientific discoveries need real scientists.",
+    todayLine: "Simulating chemical reactions, telescope space photos, and weather models.",
+    futureLine: "Booming careers in Data Science, Biotechnology, and Renewable Materials.",
+    skillsToMaster: ["Lab Experimentation", "Data Analysis (Python)", "Scientific Method"]
   },
   bcom: {
     resilienceScore: 76,
-    resilienceText: "76% AI-Resilient",
-    riskLevel: "Moderate Risk — Routine Roles Automating",
+    simpleBadge: "Evolving — Business Leaders Needed",
     riskBadgeColor: "#f59e0b",
-    verdict: "Routine clerk jobs are transforming, but commercial managers, marketing strategists, entrepreneurial founders, and auditors are in peak demand.",
-    presentUse: "AI-driven customer analytics, automated invoicing, digital ad campaign optimization, and inventory forecasting.",
-    futureOutlook: "Graduates who master data analytics, AI business tools, and financial strategy lead corporate teams and launch successful businesses.",
-    skillsToMaster: ["Business Strategy", "Financial Modeling", "Digital Marketing Analytics", "Negotiation & Sales"]
+    punchline: "Simple clerk tasks are automated, but marketing strategists, business founders, and managers thrive.",
+    todayLine: "Automated billing, digital ad optimization, and customer analytics.",
+    futureLine: "Graduates who learn digital marketing, AI business tools, and finance lead companies.",
+    skillsToMaster: ["Business Strategy", "Financial Modeling", "Digital Marketing", "Sales & Negotiation"]
   },
   govt: {
     resilienceScore: 96,
-    resilienceText: "96% AI-Resilient",
-    riskLevel: "Extremely Safe — Public Administration & Policy",
+    simpleBadge: "100% Safe — Public Authority",
     riskBadgeColor: "#10b981",
-    verdict: "Extremely safe. Government authority, police administration, policy execution, and rural welfare distribution rest purely on human accountability and constitutional laws.",
-    presentUse: "Governments use AI to detect welfare fraud, automate tax filings, and analyze satellite crop data for farmer relief.",
-    futureOutlook: "Civil servants will use AI dashboards to monitor district development, while executive powers and citizen grievances remain 100% human.",
-    skillsToMaster: ["Public Policy & Ethics", "Crisis Leadership", "Community Empathy", "Administrative Governance"]
+    punchline: "Law enforcement, district administration, and public welfare decisions will always remain human.",
+    todayLine: "Detecting welfare fraud, satellite crop surveys for farmer relief, and Aadhaar verification.",
+    futureLine: "Officers use AI dashboards to monitor district progress, but all decisions stay 100% human.",
+    skillsToMaster: ["Public Policy & Ethics", "Crisis Leadership", "Community Empathy", "Administration"]
   },
   skill: {
     resilienceScore: 82,
-    resilienceText: "82% AI-Resilient",
-    riskLevel: "Evolving Rapidly — AI-Amplified",
+    simpleBadge: "AI-Supercharged — Creator Economy",
     riskBadgeColor: "#3b82f6",
-    verdict: "AI does not destroy tech skills; it multiplies them. A skilled developer or designer using AI can now build entire products in days, earning high freelance and global remote salaries.",
-    presentUse: "Professionals use Midjourney for visuals, Cursor for code, and ChatGPT for copywriting and client proposals.",
-    futureOutlook: "Freelancers and creators with AI-first workflows will outperform traditional agencies and win global remote contracts.",
-    skillsToMaster: ["Full-Stack Product Building", "AI Co-pilot Workflows", "UI/UX Design Judgment", "Client & Remote Communication"]
+    punchline: "A skilled creator or coder using AI can now build entire client projects in days and earn global dollars.",
+    todayLine: "Midjourney for graphics, Cursor/Copilot for code, and ChatGPT for copywriting.",
+    futureLine: "AI-skilled freelancers and builders win lucrative remote contracts from US/UK.",
+    skillsToMaster: ["Full-Stack Building", "AI Workflows", "UI/UX Judgment", "Client Communication"]
   }
 };
 
+// 2. SIMPLIFIED AI IMPACT DATA (Telugu)
 const aiImpactData_te = {
   mpc: {
     resilienceScore: 86,
-    resilienceText: "86% AI-రెసిలియంట్ (సురక్షితం)",
-    riskLevel: "తక్కువ నుండి మధ్యస్థ ప్రమాదం — AI సహాయకారి",
+    simpleBadge: "తక్కువ ప్రమాదం — AI సహాయకారి",
     riskBadgeColor: "#3b82f6",
-    verdict: "AI ఇంజనీరింగ్ రంగాన్ని తొలగించదు. సాధారణ పనులను AI ఆటోమేట్ చేసినప్పటికీ, గణితం, భౌతికశాస్త్రం, లాజిక్ మరియు సిస్టమ్ డిజైన్ తెలిసిన ఇంజనీర్లు ఆధునిక సాంకేతిక ప్రపంచాన్ని నడిపిస్తారు. AI సాధనాలను ఉపయోగించే ఇంజనీర్లు 3 రెట్లు వేగంగా పనిచేస్తూ అధిక వేతనాలు పొందుతున్నారు.",
-    presentUse: "ఇంజనీర్లు గణిత మోడలింగ్, సర్క్యూట్ డిజైన్ సిమ్యులేషన్స్ మరియు వేగవంతమైన సాఫ్ట్‌వేర్ అభివృద్ధి కోసం AIని వాడుతున్నారు.",
-    futureOutlook: "రోబోటిక్స్, సెమీకండక్టర్ చిప్ డిజైన్ (VLSI), పునరుత్పాదక శక్తి మరియు AI ఇన్‌ఫ్రాస్ట్రక్చర్ ఇంజనీరింగ్‌లలో భారీ అవకాశాలు ఉంటాయి.",
-    skillsToMaster: ["ఉన్నత గణితం & లాజిక్", "సిస్టమ్ ఆర్కిటెక్చర్", "భౌతికశాస్త్ర పునాదులు", "AI ప్రాంప్టింగ్ & ఆటోమేషన్"]
+    punchline: "AI ఇంజనీర్లను భర్తీ చేయదు. AI సాధనాలు వాడే ఇంజనీర్లు 3 రెట్లు వేగంగా పనిచేస్తూ అధిక వేతనాలు పొందుతారు.",
+    todayLine: "కోడింగ్ వేగంగా రాయడానికి, గణిత లెక్కలు మరియు సర్క్యూట్ డిజైన్ల కోసం ఇంజనీర్లు AIని వాడుతున్నారు.",
+    futureLine: "రోబోటిక్స్, సెమీకండక్టర్ చిప్స్ మరియు AI సిస్టమ్స్ రంగాలలో భారీ ఉద్యోగ అవకాశాలు ఉంటాయి.",
+    skillsToMaster: ["గణితం & లాజిక్", "సిస్టమ్ డిజైన్", "సమస్య పరిష్కారం", "AI ప్రాంప్టింగ్"]
   },
   bipc: {
     resilienceScore: 98,
-    resilienceText: "98% AI-రెసిలియంట్ (అత్యంత సురక్షితం)",
-    riskLevel: "అత్యంత సురక్షితం — మానవ స్పర్శ అనివార్యం",
+    simpleBadge: "100% సురక్షితం — మానవ స్పర్శ అనివార్యం",
     riskBadgeColor: "#10b981",
-    verdict: "AI వైద్య నిపుణులను ఎప్పటికీ భర్తీ చేయలేదు. రోగుల శారీరక పరీక్ష, సర్జరీలు, మానవతా దృక్పథం, అత్యవసర వైద్య నిర్ణయాలు సాఫ్ట్‌వేర్ చేయలేదు.",
-    presentUse: "వైద్యులు ఎక్స్-రేలు, స్కానింగ్స్ పరిశీలన మరియు కొత్త మందుల ఆవిష్కరణ కోసం AIని వాడుతున్నారు.",
-    futureOutlook: "AI ఒక నమ్మకమైన సహాయక సాధనంగా పనిచేస్తుంది, పేపర్‌వర్క్ తగ్గించి రోగులను నయం చేయడానికి వైద్యులకు ఎక్కువ సమయాన్ని ఇస్తుంది.",
-    skillsToMaster: ["క్లినికల్ రోగ నిర్ధారణ", "సర్జికల్ నైపుణ్యం", "రోగుల పట్ల ఆప్యాయత & నైతికత", "అత్యవసర వైద్య నిర్ణయాలు"]
+    punchline: "AI వైద్యులను ఎప్పటికీ భర్తీ చేయలేదు. రోగుల పరీక్ష, సర్జరీలు, మానవతా దృక్పథం సాఫ్ట్‌వేర్ చేయలేదు.",
+    todayLine: "MRI/CT స్కాన్‌లను వేగంగా చదవడానికి, వ్యాధులను ముందుగానే గుర్తించడానికి వైద్యులు AIని వాడుతున్నారు.",
+    futureLine: "AI పేపర్‌వర్క్ తగ్గిస్తుంది, రోగుల చికిత్స కోసం వైద్యులకు ఎక్కువ సమయాన్ని ఇస్తుంది.",
+    skillsToMaster: ["రోగ నిర్ధారణ", "సర్జికల్ నైపుణ్యం", "రోగుల పట్ల ఆప్యాయత", "అత్యవసర నిర్ణయాలు"]
   },
   mec: {
     resilienceScore: 78,
-    resilienceText: "78% AI-రెసిలియంట్ (మధ్యస్థ భద్రత)",
-    riskLevel: "మధ్యస్థ ప్రమాదం — సాధారణ విధులు ఆటోమేట్ అవుతాయి",
+    simpleBadge: "మారుతున్న రంగం — ఉన్నత నైపుణ్యాలు అవసరం",
     riskBadgeColor: "#f59e0b",
-    verdict: "సాధారణ లెక్కలు మరియు డేటా ఎంట్రీ ఆటోమేట్ అయినప్పటికీ, చార్టర్డ్ అకౌంటెంట్లు (CA), ఫైనాన్స్ స్ట్రాటజిస్టులు మరియు ఆడిటర్లకు డిమాండ్ ఎప్పుడూ ఉంటుంది.",
-    presentUse: "ఆటోమేటెడ్ అకౌంటింగ్ సాఫ్ట్‌వేర్, తక్షణ పన్ను లెక్కలు మరియు మోసాలను గుర్తించే అల్గారిథమ్‌లలో AIని వాడుతున్నారు.",
-    futureOutlook: "డేటా ఎంట్రీ తగ్గి, ఉన్నత స్థాయి ఆర్థిక సలహాలు, పన్ను ప్రణాళికలు మరియు వ్యాపార వ్యూహాలకు ప్రాధాన్యత పెరుగుతుంది.",
-    skillsToMaster: ["ఆర్థిక వ్యూహం", "టాక్సేషన్ & ఆడిట్ చట్టాలు", "డేటా అనలిటిక్స్ (PowerBI/Excel)", "క్లయింట్ అడ్వైజరీ"]
+    punchline: "సాధారణ బిల్లింగ్ ఆటోమేట్ అయినప్పటికీ, చార్టర్డ్ అకౌంటెంట్లు (CA) మరియు ఫైనాన్స్ లీడర్లకు పూర్తి డిమాండ్ ఉంటుంది.",
+    todayLine: "ఆటోమేటెడ్ బిల్లింగ్, పన్ను లెక్కలు మరియు మోసాలను అడ్డుకునే అల్గారిథమ్స్.",
+    futureLine: "క్లరికల్ పనులు తగ్గి, ఉన్నత స్థాయి ఆర్థిక సలహాదారులకు మరియు సిఎలకు డిమాండ్ పెరుగుతుంది.",
+    skillsToMaster: ["ఆర్థిక వ్యూహం", "టాక్స్ & ఆడిట్ చట్టాలు", "డేటా అనలిటిక్స్", "క్లయింట్ అడ్వైజరీ"]
   },
   cec: {
     resilienceScore: 92,
-    resilienceText: "92% AI-రెసిలియంట్ (సురక్షితం)",
-    riskLevel: "చాలా తక్కువ ప్రమాదం — న్యాయం & ప్రజా పాలన",
+    simpleBadge: "చాలా సురక్షితం — న్యాయం & పరిపాలన",
     riskBadgeColor: "#10b981",
-    verdict: "న్యాయమూర్తులు, లాయర్లు, సివిల్ సర్వెంట్లు సమాజ న్యాయం మరియు ప్రజల సంక్షేమం కోసం పనిచేస్తారు. కోర్టులో వాదించడం లేదా జిల్లాను పరిపాలించడం AI వల్ల కాదు.",
-    presentUse: "వేల కొద్దీ కేసుల తీర్పులను క్షణాల్లో శోధించడానికి మరియు డ్రాఫ్ట్‌లు సిద్ధం చేయడానికి AIని వాడుతున్నారు.",
-    futureOutlook: "లీగల్ రీసెర్చ్ కోసం AI తోడ్పడుతుంది, అయితే న్యాయస్థానంలో వాదనలు మరియు పరిపాలన పూర్తిగా మానవుల చేతుల్లోనే ఉంటాయి.",
-    skillsToMaster: ["లీగల్ వాదనలు", "ప్రజా పరిపాలన & నైతికత", "రాజ్యాంగ చట్టం", "నెగోషియేషన్ నైపుణ్యాలు"]
+    punchline: "కోర్టులో నిలబడి వాదించడం లేదా జిల్లాను మానవతా దృక్పథంతో పరిపాలించడం AI వల్ల కాదు.",
+    todayLine: "వేల కొద్దీ పాత తీర్పులను క్షణాల్లో శోధించడానికి లాయర్లు AIని వాడుతున్నారు.",
+    futureLine: "రీసెర్చ్ కోసం AI సాయపడుతుంది; న్యాయపోరాటం మరియు ప్రజా పరిపాలన మానవుల చేతుల్లోనే ఉంటాయి.",
+    skillsToMaster: ["లీగల్ వాదనలు", "ప్రజా పరిపాలన", "రాజ్యాంగ చట్టం", "నెగోషియేషన్"]
   },
   poly: {
     resilienceScore: 95,
-    resilienceText: "95% AI-రెసిలియంట్ (అత్యంత సురక్షితం)",
-    riskLevel: "అత్యంత సురక్షితం — ఫీల్డ్ టెక్నికల్ స్కిల్స్",
+    simpleBadge: "అత్యంత సురక్షితం — ఫీల్డ్ టెక్నికల్ స్కిల్స్",
     riskBadgeColor: "#10b981",
-    verdict: "క్షేత్రస్థాయి ప్రాక్టికల్ ఇంజనీరింగ్‌ను AI భర్తీ చేయలేదు. విద్యుత్ లైన్లు వేయడం, వంతెనల నిర్మాణం, మెషినరీ రిపేర్లు చేయడానికి టెక్నీషియన్లు స్వయంగా ఉండాల్సిందే.",
-    presentUse: "మెషీన్లలో లోపాలను గుర్తించడానికి స్మార్ట్ సెన్సార్లు మరియు AI డయాగ్నస్టిక్ సాధనాలను వాడుతున్నారు.",
-    futureOutlook: "సోలార్ పవర్, ఎలక్ట్రిక్ వాహనాలు (EV), స్మార్ట్ సిటీలు మరియు పారిశ్రామిక ఆటోమేషన్‌లో భారీ డిమాండ్ ఉంటుంది.",
-    skillsToMaster: ["ప్రాక్టికల్ మెకానికల్/ఎలక్ట్రికల్ నైపుణ్యాలు", "PLC ప్రోగ్రామింగ్", "ఇండస్ట్రియల్ సేఫ్టీ", "EV & సోలార్ టెక్నాలజీ"]
+    punchline: "సాఫ్ట్‌వేర్ విద్యుత్ లైన్లు వేయలేదు, వంతెనలు కట్టలేదు, ఫ్యాక్టరీ మెషీన్లను రిపేర్ చేయలేదు.",
+    todayLine: "మెషీన్లలో లోపాలను గుర్తించడానికి AI డయాగ్నస్టిక్ సాధనాలను వాడుతున్నారు.",
+    futureLine: "సోలార్ పవర్, ఎలక్ట్రిక్ వాహనాలు (EV) మరియు స్మార్ట్ ఆటోమేషన్‌లో భారీ డిమాండ్ ఉంటుంది.",
+    skillsToMaster: ["ప్రాక్టికల్ మెకానికల్/ఎలక్ట్రికల్", "ఇండస్ట్రియల్ సేఫ్టీ", "PLC ఆటోమేషన్", "EV & సోలార్ టెక్"]
   },
   iti: {
     resilienceScore: 97,
-    resilienceText: "97% AI-రెసిలియంట్ (అత్యంత సురక్షితం)",
-    riskLevel: "అత్యంత సురక్షితం — చేతివృత్తి నైపుణ్యం",
+    simpleBadge: "100% సురక్షితం — చేతివృత్తి నైపుణ్యం",
     riskBadgeColor: "#10b981",
-    verdict: "ప్రపంచంలోనే AI తాకలేని అత్యంత సురక్షితమైన రంగాలలో ఇది ఒకటి! విద్యుత్ స్తంభం ఎక్కడం, పైప్‌లైన్ వెల్డింగ్, కార్ ఇంజిన్ రిపేర్ చేయడం AI చేయలేదు.",
-    presentUse: "డిజిటల్ సర్క్యూట్ టెస్టింగ్ టూల్స్ మరియు కంప్యూటర్ ఆధారిత కట్టింగ్ మెషీన్లను వాడుతున్నారు.",
-    futureOutlook: "నైపుణ్యం కలిగిన ITI నిపుణులకు భారతదేశంలోనే కాకుండా గల్ఫ్ మరియు యూరప్ దేశాల్లో విపరీతమైన డిమాండ్ మరియు అధిక వేతనాలు ఉంటాయి.",
-    skillsToMaster: ["చేతివృత్తి నైపుణ్యం", "ప్రెసిషన్ వెల్డింగ్", "ఎలక్ట్రికల్ వైరింగ్ సేఫ్టీ", "మెషిన్ నిర్వహణ"]
+    punchline: "ప్రపంచంలోనే అత్యంత సురక్షితమైన రంగం! AI కరెంట్ స్తంభం ఎక్కలేదు, వెల్డింగ్ చేయలేదు, ఇంజిన్ బాగుచేయలేదు.",
+    todayLine: "డిజిటల్ సర్క్యూట్ టెస్టర్లు మరియు లేజర్ కట్టింగ్ మెషీన్ల వినియోగం.",
+    futureLine: "భారతదేశంలో మంచి జీతాలు మరియు గల్ఫ్ దేశాలలో భారీ సంపాదన అవకాశాలు.",
+    skillsToMaster: ["చేతివృత్తి నైపుణ్యం", "ప్రెసిషన్ వెల్డింగ్", "ఎలక్ట్రికల్ సేఫ్టీ", "మెషిన్ నిర్వహణ"]
   },
   voc: {
     resilienceScore: 88,
-    resilienceText: "88% AI-రెసిలియంట్ (సురక్షితం)",
-    riskLevel: "తక్కువ ప్రమాదం — ప్రత్యేక అనువర్తిత నైపుణ్యాలు",
+    simpleBadge: "సురక్షితం — ప్రాక్టికల్ నైపుణ్యాలు",
     riskBadgeColor: "#10b981",
-    verdict: "ల్యాబ్ టెక్నీషియన్, డిజిటల్ మీడియా, రిటైల్ వంటి ప్రయోగాత్మక నైపుణ్యాలు AI సాధనాలతో కలిసినప్పుడు మరింత అభివృద్ధి చెందుతాయి.",
-    presentUse: "ఆటోమేటెడ్ ల్యాబ్ ఎక్విప్‌మెంట్, డిజిటల్ ఇన్వెంటరీ మరియు డిజైన్ సాఫ్ట్‌వేర్లను వాడుతున్నారు.",
-    futureOutlook: "హెల్త్‌కేర్ డయాగ్నోస్టిక్స్, స్థానిక వాణిజ్యం మరియు డిజిటల్ మీడియా రంగాలలో స్థిరమైన ఉద్యోగ అవకాశాలు ఉంటాయి.",
-    skillsToMaster: ["ల్యాబొరేటరీ నైపుణ్యాలు", "కస్టమర్ రిలేషన్స్", "డిజిటల్ పరికరాల నిర్వహణ", "మల్టీ టాస్కింగ్"]
+    punchline: "ల్యాబ్ టెస్ట్‌లు, రిటైల్ మరియు మల్టీమీడియా వంటి ప్రాక్టికల్ పనులు డిజిటల్ టూల్స్ ద్వారా మరింత రాణిస్తాయి.",
+    todayLine: "ఆటోమేటెడ్ బ్లడ్ ఎనలైజర్లు మరియు కంప్యూటర్ డిజైన్ టూల్స్.",
+    futureLine: "డయాగ్నస్టిక్ ల్యాబ్‌లు, లోకల్ బిజినెస్ మరియు మీడియా రంగాలలో స్థిరమైన ఉద్యోగాలు.",
+    skillsToMaster: ["ల్యాబ్ నైపుణ్యాలు", "కస్టమర్ రిలేషన్స్", "డిజిటల్ పరికరాల నిర్వహణ"]
   },
   btech: {
     resilienceScore: 84,
-    resilienceText: "84% AI-రెసిలియంట్ (సురక్షితం)",
-    riskLevel: "తక్కువ నుండి మధ్యస్థ ప్రమాదం — AI సహాయకారి",
+    simpleBadge: "AI సహాయకారి — అత్యున్నత ప్యాకేజీలు",
     riskBadgeColor: "#3b82f6",
-    verdict: "AI ఇంజనీర్లకు ఒక సూపర్ పవర్ లాంటిది. ప్రాథమిక కోడింగ్ AI వేగంగా చేసినప్పటికీ, సిస్టమ్ డిజైన్, సెక్యూరిటీ మరియు సాఫ్ట్‌వేర్ ఆర్కిటెక్చర్ నిర్మించడానికి ఇంజనీర్లు చాలా అవసరం.",
-    presentUse: "ఇంజనీర్లు కోడ్ వేగంగా రాయడానికి, టెస్టింగ్ మరియు బగ్స్ పరిష్కరించడానికి AI కో-పైలట్లను విస్తృతంగా వాడుతున్నారు.",
-    futureOutlook: "AI ఇంజనీరింగ్, సైబర్ డిఫెన్స్, క్లౌడ్ ఇన్‌ఫ్రాస్ట్రక్చర్ మరియు రోబోటిక్స్ రంగాలలో అత్యున్నత ప్యాకేజీలు లభిస్తాయి.",
-    skillsToMaster: ["సిస్టమ్ ఆర్కిటెక్చర్ & డిజైన్", "డేటా స్ట్రక్చర్స్ & అల్గారిథమ్స్", "క్లౌడ్ కంప్యూటింగ్", "AI మోడల్ ఇంటిగ్రేషన్"]
+    punchline: "AI ఇంజనీర్లకు సూపర్ పవర్. పెద్ద సిస్టమ్స్ డిజైన్ చేసే ఆర్కిటెక్ట్‌లకు మార్కెట్లో అత్యధిక జీతాలు లభిస్తాయి.",
+    todayLine: "డెవలపర్లు కోడ్ వేగంగా రాయడానికి మరియు టెస్టింగ్ చేయడానికి AI కో-పైలట్లను వాడుతున్నారు.",
+    futureLine: "క్లౌడ్ ఆర్కిటెక్చర్, AI ఇంజనీరింగ్, సైబర్ సెక్యూరిటీ మరియు రోబోటిక్స్‌లో ఉన్నత ప్యాకేజీలు.",
+    skillsToMaster: ["సిస్టమ్ ఆర్కిటెక్చర్", "లాజిక్ & అల్గారిథమ్స్", "క్లౌడ్ (AWS/Azure)", "AI ప్రాంప్టింగ్"]
   },
   mbbs: {
     resilienceScore: 98,
-    resilienceText: "98% AI-రెసిలియంట్ (అత్యంత సురక్షితం)",
-    riskLevel: "అత్యంత సురక్షితం — మానవ స్పర్శ అనివార్యం",
+    simpleBadge: "100% సురక్షితం — మానవ ప్రాణ సంరక్షణ",
     riskBadgeColor: "#10b981",
-    verdict: "100% సురక్షితమైన రంగం. రోగికి చికిత్స అందించడం, సర్జరీలు చేయడం, ప్రమాద సమయాల్లో ప్రాణాలు కాపాడటం మరియు మానసిక ధైర్యం చెప్పడం వైద్యుడికే సాధ్యం.",
-    presentUse: "క్యాన్సర్ కణాల ముందస్తు గుర్తింపు, MRI/CT స్కాన్ల విశ్లేషణ మరియు ICU మానిటరింగ్‌లో AI వైద్యులకు సహాయపడుతుంది.",
-    futureOutlook: "AI సహాయంతో వైద్యులు తప్పులు లేకుండా వేగంగా వ్యాధిని నిర్ధారించి, రోగుల సంరక్షణకు ఎక్కువ సమయం కేటాయించగలుగుతారు.",
-    skillsToMaster: ["క్లినికల్ డయాగ్నోసిస్", "సర్జికల్ నైపుణ్యం", "రోగుల పట్ల ఆప్యాయత", "అత్యవసర చికిత్స"]
+    punchline: "చికిత్స, సర్జరీలు మరియు ఆప్యాయతతో కూడిన వైద్యం కోసం రోగి ఎల్లప్పుడూ మనుషులైన వైద్యులనే కోరుకుంటారు.",
+    todayLine: "క్యాన్సర్ కణాల ముందస్తు గుర్తింపు మరియు ICU మానిటరింగ్‌లో AI తోడ్పడుతుంది.",
+    futureLine: "వైద్యులు ఎలాంటి తప్పులు లేకుండా వేగంగా వ్యాధిని నయం చేయగలుగుతారు.",
+    skillsToMaster: ["రోగ నిర్ధారణ", "సర్జరీ నైపుణ్యాలు", "రోగుల పట్ల ఆప్యాయత", "అత్యవసర చికిత్స"]
   },
   bsc: {
     resilienceScore: 86,
-    resilienceText: "86% AI-రెసిలియంట్ (సురక్షితం)",
-    riskLevel: "తక్కువ ప్రమాదం — పరిశోధన & ఆవిష్కరణలు",
+    simpleBadge: "సురక్షితం — పరిశోధన & ఆవిష్కరణలు",
     riskBadgeColor: "#3b82f6",
-    verdict: "AI శాస్త్రీయ లెక్కలను వేగవంతం చేస్తుంది, కానీ కొత్త సిద్ధాంతాలను కనిపెట్టడం, ప్రయోగశాలలో ప్రయోగాలు చేయడం మరియు పర్యావరణ అధ్యయనాలు శాస్త్రవేత్తలకే సాధ్యం.",
-    presentUse: "రసాయన చర్యలను మోడల్ చేయడానికి, అంతరిక్ష ఫోటోలను విశ్లేషించడానికి మరియు వాతావరణ అంచనాలకు AIని వాడుతున్నారు.",
-    futureOutlook: "డేటా సైన్స్, బయోటెక్నాలజీ, పర్యావరణ రక్షణ మరియు పరిశోధనా సంస్థల్లో డిమాండ్ పెరుగుతుంది.",
-    skillsToMaster: ["ప్రయోగశాల నైపుణ్యాలు", "గణాంక విశ్లేషణ (Python/R)", "డేటా పరిశీలన", "రీసెర్చ్ మెథడాలజీ"]
+    punchline: "AI లెక్కలు వేస్తుంది, కానీ ప్రయోగశాలలో ప్రయోగాలు చేయడం మరియు కొత్త విషయాలను కనుగొనడం శాస్త్రవేత్తలకే సాధ్యం.",
+    todayLine: "రసాయన చర్యలు, అంతరిక్ష ఫోటోలు మరియు వాతావరణాన్ని సిమ్యులేట్ చేయడం.",
+    futureLine: "డేటా సైన్స్, బయోటెక్నాలజీ మరియు పర్యావరణ పరిరక్షణ రంగాలలో విస్తృత అవకాశాలు.",
+    skillsToMaster: ["ప్రయోగశాల నైపుణ్యం", "డేటా విశ్లేషణ (Python)", "సైంటిఫిక్ మెథడ్"]
   },
   bcom: {
     resilienceScore: 76,
-    resilienceText: "76% AI-రెసిలియంట్ (మధ్యస్థ భద్రత)",
-    riskLevel: "మధ్యస్థ ప్రమాదం — సాధారణ విధులు మారుతున్నాయి",
+    simpleBadge: "మారుతున్న రంగం — వ్యాపార లీడర్లు అవసరం",
     riskBadgeColor: "#f59e0b",
-    verdict: "సాధారణ క్లరికల్ పనులు తగ్గుతున్నప్పటికీ, బిజినెస్ మేనేజర్లు, మార్కెటింగ్ వ్యూహకర్తలు, ఆడిటర్లు మరియు వ్యాపారవేత్తలకు అపారమైన అవకాశాలు ఉన్నాయి.",
-    presentUse: "కస్టమర్ అనలిటిక్స్, ఆటోమేటెడ్ బిల్లింగ్, డిజిటల్ ప్రకటనలు మరియు ఇన్వెంటరీ అంచనాలలో AI విస్తృతంగా వాడుతున్నారు.",
-    futureOutlook: "డేటా అనలిటిక్స్, AI బిజినెస్ టూల్స్ మరియు ఫైనాన్షియల్ ప్లానింగ్ నేర్చుకున్న వారు కంపెనీలలో లీడర్లుగా ఎదుగుతారు.",
-    skillsToMaster: ["వ్యాపార వ్యూహం", "ఫైనాన్షియల్ మోడలింగ్", "డిజిటల్ మార్కెటింగ్ విశ్లేషణ", "నెగోషియేషన్ & సేల్స్"]
+    punchline: "సాధారణ పనులు ఆటోమేట్ అయినప్పటికీ, మార్కెటింగ్, బిజినెస్ లీడర్షిప్ మరియు మేనేజ్‌మెంట్లకు మంచి భవిష్యత్తు ఉంది.",
+    todayLine: "ఆటోమేటెడ్ బిల్లింగ్, డిజిటల్ ప్రకటనలు మరియు కస్టమర్ అనలిటిక్స్.",
+    futureLine: "డిజిటల్ మార్కెటింగ్ మరియు AI టూల్స్ నేర్చుకున్న వారు కంపెనీలలో లీడర్లుగా ఎదుగుతారు.",
+    skillsToMaster: ["వ్యాపార వ్యూహం", "ఫైనాన్షియల్ మోడలింగ్", "డిజిటల్ మార్కెటింగ్", "సేల్స్ & నెగోషియేషన్"]
   },
   govt: {
     resilienceScore: 96,
-    resilienceText: "96% AI-రెసిలియంట్ (అత్యంత సురక్షితం)",
-    riskLevel: "అత్యంత సురక్షితం — ప్రజా పరిపాలన & విధానాలు",
+    simpleBadge: "100% సురక్షితం — ప్రభుత్వ అధికారం & రక్షణ",
     riskBadgeColor: "#10b981",
-    verdict: "అత్యంత సురక్షితమైన రంగం. ప్రభుత్వ నిర్ణయాలు, పోలీసు భద్రత, ప్రజా సంక్షేమ పథకాల అమలు మరియు చట్టాల అమలు రాజ్యాంగబద్ధమైన మానవ బాధ్యత.",
-    presentUse: "రైతులకు నష్టపరిహారం కోసం పంటల ఉపగ్రహ సర్వే, సంక్షేమ పథకాల పర్యవేక్షణ మరియు పన్నుల ఆడిటింగ్‌లో AI ని ప్రభుత్వాలు వాడుతున్నాయి.",
-    futureOutlook: "అధికారులు జిల్లాల అభివృద్ధిని పర్యవేక్షించడానికి AI డ్యాష్‌బోర్డులను ఉపయోగిస్తారు, అయితే నిర్ణయాధికారం పూర్తిగా అధికారుల చేతుల్లోనే ఉంటుంది.",
-    skillsToMaster: ["ప్రజా విధానం & నైతికత", "సంక్షోభ నాయకత్వం", "ప్రజల పట్ల సానుభూతి", "పరిపాలనా నైపుణ్యాలు"]
+    punchline: "శాంతిభద్రతలు, జిల్లా పాలన మరియు ప్రజా సంక్షేమ నిర్ణయాలు ఎల్లప్పుడూ రాజ్యాంగబద్ధమైన అధికారుల చేతుల్లోనే ఉంటాయి.",
+    todayLine: "సంక్షేమ పథకాల పర్యవేక్షణ, పంటల ఉపగ్రహ సర్వే మరియు ఆధార్ వెరిఫికేషన్.",
+    futureLine: "అధికారులు పురోగతిని పర్యవేక్షించడానికి AI వాడతారు, కానీ తుది నిర్ణయాలు అధికారులవే.",
+    skillsToMaster: ["ప్రజా విధానం & నైతికత", "సంక్షోభ నాయకత్వం", "సానుభూతి", "పరిపాలన"]
   },
   skill: {
     resilienceScore: 82,
-    resilienceText: "82% AI-రెసిలియంట్ (సురక్షితం)",
-    riskLevel: "వేగంగా మారుతోంది — AI సామర్థ్యాన్ని పెంచుతుంది",
+    simpleBadge: "AI సూపర్ పవర్ — గ్లోబల్ ఆదాయం",
     riskBadgeColor: "#3b82f6",
-    verdict: "AI నైపుణ్యాలను నాశనం చేయదు; వాటిని పదింతలు పెంచుతుంది. AI సాధనాలు వాడే డెవలపర్ లేదా డిజైనర్ ఇప్పుడు కొన్ని రోజుల్లోనే పూర్తి ప్రాజెక్ట్‌లను పూర్తి చేస్తూ గ్లోబల్ రిమోట్ డాలర్లలో సంపాదిస్తున్నారు.",
-    presentUse: "డిజైనర్లు Midjourney, కోడర్లు Cursor/Copilot మరియు కంటెంట్ కోసం ChatGPT ని విరివిగా వాడుతున్నారు.",
-    futureOutlook: "AI సాధనాలను సమర్థవంతంగా ఉపయోగించే ఫ్రీలాన్సర్లు మరియు డెవలపర్లు అంతర్జాతీయ క్లయింట్ల నుండి భారీ ప్రాజెక్టులను గెలుచుకుంటారు.",
-    skillsToMaster: ["ఫుల్-స్టాక్ ప్రొడక్ట్ బిల్డింగ్", "AI వర్క్‌ఫ్లోలు & ప్రాంప్టింగ్", "UI/UX డిజైన్ నైపుణ్యం", "గ్లోబల్ క్లయింట్ కమ్యూనికేషన్"]
+    punchline: "AI సాధనాలు వాడే డిజైనర్ లేదా కోడర్ ఇప్పుడు కొన్ని రోజుల్లోనే పూర్తి ప్రాజెక్ట్‌లను చేస్తూ డాలర్లలో సంపాదిస్తున్నారు.",
+    todayLine: "గ్రాఫిక్స్ కోసం Midjourney, కోడింగ్ కోసం Cursor, కంటెంట్ కోసం ChatGPT.",
+    futureLine: "AI వాడే ఫ్రీలాన్సర్లు విదేశీ క్లయింట్ల నుండి భారీ ప్రాజెక్టులను సాధిస్తారు.",
+    skillsToMaster: ["ఫుల్-స్టాక్ బిల్డింగ్", "AI వర్క్‌ఫ్లోలు", "UI/UX నైపుణ్యం", "క్లయింట్ కమ్యూనికేషన్"]
+  }
+};
+
+// 3. COMPARISON DATA (English & Telugu)
+const pathCompareData_en = {
+  mpc: {
+    name: "Intermediate MPC", icon: "🔬", stage: "After 10th",
+    duration: "2 Yrs (+ 4 Yrs B.Tech)",
+    style: "Theory, Mathematics & Physics",
+    exam: "AP EAMCET / JEE Mains",
+    startSalary: "₹3.5 – ₹7 LPA (Service) | ₹12–60 LPA (Product)",
+    peakSalary: "₹30 – ₹80 LPA+ (Tech Lead / Architect)",
+    aiSafety: "86% Safe (AI Co-pilot)",
+    bestFor: "Students strong in Maths who want Software, Tech or IIT"
+  },
+  poly: {
+    name: "Polytechnic Diploma", icon: "⚙️", stage: "After 10th",
+    duration: "3 Years (Direct job or 2nd Yr B.Tech)",
+    style: "70% Hands-on Practical Labs",
+    exam: "AP POLYCET (After 10th)",
+    startSalary: "₹2 – ₹4.5 LPA (Technician / Jr. Engg)",
+    peakSalary: "₹10 – ₹25 LPA+ (Field Manager / Contractor)",
+    aiSafety: "95% Safe (Physical Engineering)",
+    bestFor: "Students wanting practical learning or faster employment"
+  },
+  bipc: {
+    name: "Intermediate BiPC", icon: "🧬", stage: "After 10th",
+    duration: "2 Yrs (+ 5.5 Yrs MBBS / BDS / Pharma)",
+    style: "Biology, Chemistry & Medical Concepts",
+    exam: "NEET UG / EAPCET",
+    startSalary: "₹6 – ₹15 LPA (Doctor / Specialist start)",
+    peakSalary: "₹30 LPA – ₹2 Cr+ (Senior Specialist)",
+    aiSafety: "98% Safe (Human Life Care)",
+    bestFor: "Students dedicated to Medicine, Healthcare or Biology"
+  },
+  bsc: {
+    name: "B.Sc Degree", icon: "🔭", stage: "After 12th",
+    duration: "3 Years",
+    style: "Pure Sciences, Research & Lab Work",
+    exam: "Direct Merit / Degree Online Admissions",
+    startSalary: "₹2.5 – ₹5 LPA",
+    peakSalary: "₹12 – ₹30 LPA (Data Science / Research)",
+    aiSafety: "86% Safe (Scientific Analysis)",
+    bestFor: "Students wanting affordable 3-yr graduation or research"
+  },
+  mec: {
+    name: "Intermediate MEC", icon: "📊", stage: "After 10th",
+    duration: "2 Yrs (+ 3 Yrs B.Com / CA)",
+    style: "Commerce, Business Economics & Maths",
+    exam: "CA Foundation / CUET",
+    startSalary: "₹3 – ₹6 LPA | CA: ₹8–15 LPA",
+    peakSalary: "₹25 LPA – ₹1 Cr+ (CFO / Partner)",
+    aiSafety: "78% Safe (Strategic Advisory)",
+    bestFor: "Students interested in Banking, CA, Finance & Business"
+  },
+  cec: {
+    name: "Intermediate CEC", icon: "📚", stage: "After 10th",
+    duration: "2 Yrs (+ 3 Yrs BA / 5 Yrs LLB)",
+    style: "Civics, Economics & Social Studies",
+    exam: "CLAT (Law) / AP LAWCET / UPSC",
+    startSalary: "₹3 – ₹6 LPA (Entry Officer / Jr. Lawyer)",
+    peakSalary: "₹20 LPA – ₹1 Cr+ (Senior Advocate / IAS)",
+    aiSafety: "92% Safe (Law & Governance)",
+    bestFor: "Students aiming for Civil Services (IAS/IPS) or Law"
+  },
+  iti: {
+    name: "ITI Courses", icon: "🔧", stage: "After 10th",
+    duration: "1 to 2 Years",
+    style: "100% Hands-on Workshop Trades",
+    exam: "Direct Admission (10th marks)",
+    startSalary: "₹1.5 – ₹3.5 LPA (Domestic) | ₹6–14L (Gulf)",
+    peakSalary: "₹10 – ₹30 LPA (Senior Foreman / Gulf)",
+    aiSafety: "97% Safe (Hands-on Craft)",
+    bestFor: "Quickest route to a salaried trade job or abroad visa"
+  },
+  btech: {
+    name: "B.Tech / B.E.", icon: "🏗️", stage: "After 12th",
+    duration: "4 Years",
+    style: "Engineering, Coding, Labs & Projects",
+    exam: "JEE Mains, AP EAMCET",
+    startSalary: "₹3.5 – ₹7 LPA (Service) | ₹15–60 LPA (Product)",
+    peakSalary: "₹40 – ₹1 Cr+ (Senior Lead / Architect)",
+    aiSafety: "84% Safe (AI Co-pilot)",
+    bestFor: "High-paying tech careers, software, AI & global jobs"
+  },
+  mbbs: {
+    name: "MBBS / Medical", icon: "🏥", stage: "After 12th",
+    duration: "5.5 Years (including 1 yr Internship)",
+    style: "Clinical Medicine, Anatomy, Surgery & Rotations",
+    exam: "NEET UG",
+    startSalary: "₹8 – ₹15 LPA",
+    peakSalary: "₹30 LPA – ₹2 Cr+ (Surgeon / Specialist)",
+    aiSafety: "98% Safe (Unreplaceable)",
+    bestFor: "Passionate about healing patients, highest social respect"
+  },
+  bcom: {
+    name: "B.Com / BBA", icon: "📈", stage: "After 12th",
+    duration: "3 Years",
+    style: "Accounting, Taxation, Management & Marketing",
+    exam: "Merit Admission / CAT (for MBA)",
+    startSalary: "₹2.5 – ₹5 LPA",
+    peakSalary: "₹15 – ₹40 LPA (Manager / Entrepreneur)",
+    aiSafety: "76% Safe (Finance Evolution)",
+    bestFor: "Corporate business, retail, banking or starting a business"
+  },
+  govt: {
+    name: "Government Exams", icon: "📋", stage: "After 12th / Degree",
+    duration: "1 to 3 Years Preparation",
+    style: "General Studies, Aptitude, Current Affairs",
+    exam: "UPSC, APPSC Group 1/2, SSC CGL, RRB",
+    startSalary: "₹35K – ₹80K/month + Benefits",
+    peakSalary: "₹1.5L – ₹2.5L/month + Govt Perks & Pension",
+    aiSafety: "96% Safe (Public Policy)",
+    bestFor: "Lifetime job security, public power, and serving society"
+  },
+  skill: {
+    name: "Skill Bootcamps", icon: "🚀", stage: "Any Time",
+    duration: "3 to 6 Months",
+    style: "Real-world Coding, UI/UX, Video Editing, AI Tools",
+    exam: "Portfolio & Project Interview",
+    startSalary: "₹2 – ₹5 LPA (or ₹15K–50K/mo freelance)",
+    peakSalary: "₹20 – ₹60 LPA+ (Global Remote / Agency)",
+    aiSafety: "82% Safe (Creator Power)",
+    bestFor: "Wants rapid practical skills, freelancing, or remote income"
+  },
+  voc: {
+    name: "Vocational Courses", icon: "💻", stage: "After 10th",
+    duration: "6 Months to 2 Years",
+    style: "Medical Lab, Retail, Computer Applications",
+    exam: "Board of Intermediate Vocational Exams",
+    startSalary: "₹1.8 – ₹3.5 LPA",
+    peakSalary: "₹8 – ₹18 LPA",
+    aiSafety: "88% Safe (Applied Skills)",
+    bestFor: "Affordable job-oriented training right after 10th"
+  }
+};
+
+const pathCompareData_te = {
+  mpc: {
+    name: "ఇంటర్మీడియట్ MPC", icon: "🔬", stage: "10వ తరగతి తర్వాత",
+    duration: "2 సం. (+ 4 సం. బి.టెక్)",
+    style: "థియరీ, గణితం & భౌతికశాస్త్రం",
+    exam: "AP EAMCET / JEE మెయిన్స్",
+    startSalary: "₹3.5 – ₹7 LPA (సర్వీస్) | ₹12–60 LPA (ప్రొడక్ట్)",
+    peakSalary: "₹30 – ₹80 LPA+ (టెక్ లీడ్ / ఆర్కిటెక్ట్)",
+    aiSafety: "86% సురక్షితం (AI కో-పైలట్)",
+    bestFor: "గణితంలో మంచి పట్టు ఉండి సాఫ్ట్‌వేర్ లేదా IIT వైపు వెళ్లాలనుకునే విద్యార్థులు"
+  },
+  poly: {
+    name: "పాలిటెక్నిక్ డిప్లొమా", icon: "⚙️", stage: "10వ తరగతి తర్వాత",
+    duration: "3 సంవత్సరాలు (నేరుగా ఉద్యోగం లేదా బి.టెక్ 2వ సం.)",
+    style: "70% ప్రాక్టికల్ ల్యాబ్స్ & వర్క్‌షాప్‌లు",
+    exam: "AP POLYCET (10వ తరగతి తర్వాత)",
+    startSalary: "₹2 – ₹4.5 LPA (టెక్నీషియన్ / జూనియర్ ఇంజనీర్)",
+    peakSalary: "₹10 – ₹25 LPA+ (ఫీల్డ్ మేనేజర్ / కాంట్రాక్టర్)",
+    aiSafety: "95% సురక్షితం (క్షేత్రస్థాయి ఇంజనీరింగ్)",
+    bestFor: "ప్రాక్టికల్ పద్ధతిలో త్వరగా ఉపాధి పొందాలనుకునే విద్యార్థులు"
+  },
+  bipc: {
+    name: "ఇంటర్మీడియట్ BiPC", icon: "🧬", stage: "10వ తరగతి తర్వాత",
+    duration: "2 సం. (+ 5.5 సం. MBBS / BDS / ఫార్మసీ)",
+    style: "జీవశాస్త్రం, రసాయనశాస్త్రం & మెడిసిన్",
+    exam: "NEET UG / EAPCET",
+    startSalary: "₹6 – ₹15 LPA (డాక్టర్ / స్పెషలిస్ట్ ప్రారంభం)",
+    peakSalary: "₹30 LPA – ₹2 కోట్లు+ (సీనియర్ స్పెషలిస్ట్)",
+    aiSafety: "98% సురక్షితం (మానవ ప్రాణ సంరక్షణ)",
+    bestFor: "వైద్య రంగం, హెల్త్‌కేర్ లేదా పరిశోధన వైపు మక్కువ ఉన్న విద్యార్థులు"
+  },
+  bsc: {
+    name: "బి.ఎస్సీ డిగ్రీ", icon: "🔭", stage: "ఇంటర్మీడియట్ తర్వాత",
+    duration: "3 సంవత్సరాలు",
+    style: "ప్యూర్ సైన్స్, పరిశోధన & ల్యాబ్ వర్క్",
+    exam: "డిగ్రీ ఆన్‌లైన్ అడ్మిషన్లు (OAMDC)",
+    startSalary: "₹2.5 – ₹5 LPA",
+    peakSalary: "₹12 – ₹30 LPA (డేటా సైన్స్ / రీసెర్చ్)",
+    aiSafety: "86% సురక్షితం (శాస్త్రీయ విశ్లేషణ)",
+    bestFor: "తక్కువ ఖర్చుతో 3 ఏళ్లలో డిగ్రీ పూర్తి చేయాలనుకునే విద్యార్థులు"
+  },
+  mec: {
+    name: "ఇంటర్మీడియట్ MEC", icon: "📊", stage: "10వ తరగతి తర్వాత",
+    duration: "2 సం. (+ 3 సం. బి.కామ్ / CA)",
+    style: "కామర్స్, ఎకనామిక్స్ & గణితం",
+    exam: "CA ఫౌండేషన్ / CUET",
+    startSalary: "₹3 – ₹6 LPA | CA: ₹8–15 LPA",
+    peakSalary: "₹25 LPA – ₹1 కోటి+ (CFO / బిజినెస్ హెడ్)",
+    aiSafety: "78% సురక్షితం (వ్యూహాత్మక ఆర్థిక సలహాలు)",
+    bestFor: "బ్యాంకింగ్, CA, ఫైనాన్స్ & బిజినెస్ ఆసక్తి ఉన్న విద్యార్థులు"
+  },
+  cec: {
+    name: "ఇంటర్మీడియట్ CEC", icon: "📚", stage: "10వ తరగతి తర్వాత",
+    duration: "2 సం. (+ 3 సం. BA / 5 సం. LLB)",
+    style: "పౌరశాస్త్రం, అర్థశాస్త్రం & సమాజ శాస్త్రం",
+    exam: "CLAT (లా) / AP LAWCET / UPSC",
+    startSalary: "₹3 – ₹6 LPA (ప్రారంభ అధికారి / లాయర్)",
+    peakSalary: "₹20 LPA – ₹1 కోటి+ (సీనియర్ అడ్వకేట్ / IAS)",
+    aiSafety: "92% సురక్షితం (చట్టం & పరిపాలన)",
+    bestFor: "సివిల్ సర్వీసెస్ (IAS/IPS) లేదా లాయర్ వృత్తి లక్ష్యంగా ఉన్న విద్యార్థులు"
+  },
+  iti: {
+    name: "ITI కోర్సులు", icon: "🔧", stage: "10వ తరగతి తర్వాత",
+    duration: "1 నుండి 2 సంవత్సరాలు",
+    style: "100% హ్యాండ్స్-ఆన్ చేతివృత్తి శిక్షణ",
+    exam: "నేరుగా ప్రవేశం (10వ తరగతి మార్కులు)",
+    startSalary: "₹1.5 – ₹3.5 LPA (ఇండియా) | ₹6–14L (గల్ఫ్)",
+    peakSalary: "₹10 – ₹30 LPA (సీనియర్ ఫోర్‌మెన్ / గల్ఫ్)",
+    aiSafety: "97% సురక్షితం (చేతివృత్తి నైపుణ్యం)",
+    bestFor: "త్వరగా జీతం వచ్చే ఉద్యోగం లేదా గల్ఫ్ వెళ్లాలనుకునే విద్యార్థులు"
+  },
+  btech: {
+    name: "బి.టెక్ / బి.ఇ.", icon: "🏗️", stage: "ఇంటర్మీడియట్ తర్వాత",
+    duration: "4 సంవత్సరాలు",
+    style: "ఇంజనీరింగ్, కోడింగ్, ల్యాబ్స్ & ప్రాజెక్ట్‌లు",
+    exam: "JEE మెయిన్స్, AP EAMCET",
+    startSalary: "₹3.5 – ₹7 LPA (సర్వీస్) | ₹15–60 LPA (ప్రొడక్ట్)",
+    peakSalary: "₹40 – ₹1 కోటి+ (టెక్ లీడ్ / ఆర్కిటెక్ట్)",
+    aiSafety: "84% సురక్షితం (AI సహాయకారి)",
+    bestFor: "సాఫ్ట్‌వేర్, AI మరియు అంతర్జాతీయ టెక్ ఉద్యోగాలు కోరుకునే విద్యార్థులు"
+  },
+  mbbs: {
+    name: "MBBS / మెడికల్", icon: "🏥", stage: "ఇంటర్మీడియట్ తర్వాత",
+    duration: "5.5 సంవత్సరాలు (1 సం. ఇంటర్న్‌షిప్‌తో కలిపి)",
+    style: "క్లినికల్ మెడిసిన్, సర్జరీ & హాస్పిటల్ ప్రాక్టీస్",
+    exam: "NEET UG",
+    startSalary: "₹8 – ₹15 LPA",
+    peakSalary: "₹30 LPA – ₹2 కోట్లు+ (స్పెషలిస్ట్ డాక్టర్)",
+    aiSafety: "98% సురక్షితం (తిరుగులేని రంగం)",
+    bestFor: "రోగులకు సేవ చేయాలనే దృక్పథం మరియు సమాజంలో అత్యున్నత గౌరవం కోరుకునేవారు"
+  },
+  bcom: {
+    name: "బి.కామ్ / BBA", icon: "📈", stage: "ఇంటర్మీడియట్ తర్వాత",
+    duration: "3 సంవత్సరాలు",
+    style: "అకౌంటింగ్, టాక్సేషన్ & బిజినెస్ మేనేజ్‌మెంట్",
+    exam: "మెరిట్ అడ్మిషన్ / CAT (MBA కోసం)",
+    startSalary: "₹2.5 – ₹5 LPA",
+    peakSalary: "₹15 – ₹40 LPA (మేనేజర్ / వ్యాపారవేత్త)",
+    aiSafety: "76% సురక్షితం (వ్యాపార విస్తరణ)",
+    bestFor: "కార్పొరేట్ ఉద్యోగాలు, మార్కెటింగ్, బ్యాంకింగ్ లేదా సొంత వ్యాపారం"
+  },
+  govt: {
+    name: "ప్రభుత్వ పరీక్షలు", icon: "📋", stage: "ఇంటర్మీడియట్ / డిగ్రీ తర్వాత",
+    duration: "1 నుండి 3 సంవత్సరాల ప్రిపరేషన్",
+    style: "జనరల్ స్టడీస్, ఆప్టిట్యూడ్, కరెంట్ అఫైర్స్",
+    exam: "UPSC, APPSC గ్రూప్ 1/2, SSC, రైల్వేలు",
+    startSalary: "₹35,000 – ₹80,000/నెల + బెనిఫిట్స్",
+    peakSalary: "₹1.5L – ₹2.5L/నెల + ప్రభుత్వ వసతులు & పెన్షన్",
+    aiSafety: "96% సురక్షితం (ప్రజా పరిపాలన)",
+    bestFor: "జీవితాంతం జాబ్ సెక్యూరిటీ, అధికార హోదా మరియు ప్రజా సేవ"
+  },
+  skill: {
+    name: "నైపుణ్యాభివృద్ధి బూట్‌క్యాంప్స్", icon: "🚀", stage: "ఎప్పుడైనా",
+    duration: "3 నుండి 6 నెలలు",
+    style: "కోడింగ్, UI/UX డిజైన్, వీడియో ఎడిటింగ్, AI టూల్స్",
+    exam: "ప్రాజెక్ట్ పోర్ట్‌ఫోలియో & ఇంటర్వ్యూ",
+    startSalary: "₹2 – ₹5 LPA (లేదా ₹15K-50K/నెల ఫ్రీలాన్సింగ్)",
+    peakSalary: "₹20 – ₹60 LPA+ (గ్లోబల్ రిమోట్ జాబ్స్)",
+    aiSafety: "82% సురక్షితం (క్రియేటర్ సూపర్ పవర్)",
+    bestFor: "త్వరగా ప్రాక్టికల్ స్కిల్స్ నేర్చుకుని ఫ్రీలాన్సింగ్ లేదా రిమోట్ జాబ్ కోరుకునేవారు"
+  },
+  voc: {
+    name: "వొకేషనల్ కోర్సులు", icon: "💻", stage: "10వ తరగతి తర్వాత",
+    duration: "6 నెలలు నుండి 2 సంవత్సరాలు",
+    style: "మెడికల్ ల్యాబ్, రిటైల్, కంప్యూటర్ అప్లికేషన్స్",
+    exam: "బోర్డ్ ఆఫ్ ఇంటర్మీడియట్ వొకేషనల్ పరీక్షలు",
+    startSalary: "₹1.8 – ₹3.5 LPA",
+    peakSalary: "₹8 – ₹18 LPA",
+    aiSafety: "88% సురక్షితం (ప్రాక్టికల్ నైపుణ్యాలు)",
+    bestFor: "10వ తరగతి తర్వాత తక్కువ ఖర్చుతో జాబ్ ఓరియెంటెడ్ ట్రైనింగ్ కోరుకునేవారు"
   }
 };
 
 let curStage = '', curPathId = '';
+let currentCareerView = 'roadmaps';
+let matcherAnswers = { interest: '', speed: '' };
+let compareP1 = 'mpc', compareP2 = 'poly';
 
+// ═══════════════════════════════════════════
+// EXCLUSIVE CAREER VIEW SWITCHER (SINGLE VIEW MODE)
+// ═══════════════════════════════════════════
+function switchCareerView(mode) {
+  currentCareerView = mode;
+  const isTe = activeLanguage === 'te';
+
+  const vRoadmaps = document.getElementById('careerViewRoadmaps');
+  const vMatcher = document.getElementById('careerViewMatcher');
+  const vCompare = document.getElementById('careerViewCompare');
+
+  const btnRoadmaps = document.getElementById('cTabRoadmaps');
+  const btnMatcher = document.getElementById('cTabMatcher');
+  const btnCompare = document.getElementById('cTabCompare');
+
+  if (vRoadmaps) vRoadmaps.style.display = (mode === 'roadmaps' ? 'block' : 'none');
+  if (vMatcher) vMatcher.style.display = (mode === 'matcher' ? 'block' : 'none');
+  if (vCompare) vCompare.style.display = (mode === 'compare' ? 'block' : 'none');
+
+  if (btnRoadmaps) btnRoadmaps.classList.toggle('active', mode === 'roadmaps');
+  if (btnMatcher) btnMatcher.classList.toggle('active', mode === 'matcher');
+  if (btnCompare) btnCompare.classList.toggle('active', mode === 'compare');
+
+  if (mode === 'matcher') {
+    renderStreamMatcher();
+  } else if (mode === 'compare') {
+    renderPathComparison();
+  }
+  document.getElementById('career').scrollIntoView({behavior:'smooth'});
+}
+
+// ═══════════════════════════════════════════
+// 1. STREAM MATCHER (INTERACTIVE QUIZ)
+// ═══════════════════════════════════════════
+function renderStreamMatcher() {
+  const isTe = activeLanguage === 'te';
+  const headTitle = document.getElementById('matcherHeadTitle');
+  const headSub = document.getElementById('matcherHeadSub');
+  if (headTitle) headTitle.textContent = isTe ? '🎯 30-సెకన్ల స్ట్రీమ్ మ్యాచర్' : '🎯 30-Second Stream Matcher';
+  if (headSub) headSub.textContent = isTe
+    ? 'ఏ కోర్సు ఎంచుకోవాలో గందరగోళంగా ఉందా? 2 చిన్న ప్రశ్నలకు సమాధానం ఇచ్చి మీ ఉత్తమ మార్గాన్ని కనుగొనండి:'
+    : 'Not sure which stream to choose? Answer 2 simple questions to find your tailored path:';
+
+  const q1Text = isTe ? '1. మీకు ఏ సబ్జెక్ట్ లేదా పని అంటే ఎక్కువ ఆసక్తి?' : '1. What subject or activity do you enjoy most?';
+  const q2Text = isTe ? '2. చదువు పూర్తి చేసి ఎంత త్వరగా సంపాదన ప్రారంభించాలనుకుంటున్నారు?' : '2. How fast do you want to start earning?';
+
+  const q1Options = isTe ? [
+    { id: 'math', icon: '🔢', title: 'గణితం, లాజిక్ & కంప్యూటర్స్', sub: 'Maths, Coding & Engineering' },
+    { id: 'bio', icon: '🌿', title: 'జీవశాస్త్రం, మెడిసిన్ & ఇతరులకు సాయం', sub: 'Biology, Healthcare & People' },
+    { id: 'business', icon: '💰', title: 'డబ్బు, వ్యాపారం, బ్యాంకింగ్ & లెక్కలు', sub: 'Money, Accounts & Commerce' },
+    { id: 'tools', icon: '🔧', title: 'మెషీన్లు బాగుచేయడం, చేతివృత్తులు & టూల్స్', sub: 'Hands-on Machines & Fixing' },
+    { id: 'govt', icon: '⚖️', title: 'ప్రజా సేవ, చట్టం, రాజకీయం & సివిల్స్', sub: 'Civil Services, Law & Society' }
+  ] : [
+    { id: 'math', icon: '🔢', title: 'Math, Logic & Computers', sub: 'Solving problems, numbers & coding' },
+    { id: 'bio', icon: '🌿', title: 'Biology & Healthcare', sub: 'Living science, medicine & caring' },
+    { id: 'business', icon: '💰', title: 'Money, Business & Accounts', sub: 'Finance, banking & trading' },
+    { id: 'tools', icon: '🔧', title: 'Machines, Wiring & Tools', sub: 'Hands-on repairs & technical crafts' },
+    { id: 'govt', icon: '⚖️', title: 'Law, Society & Civil Services', sub: 'Public administration & justice' }
+  ];
+
+  const q2Options = isTe ? [
+    { id: 'fast', icon: '⚡', title: 'త్వరగా — 1 నుండి 2 ఏళ్లలో', sub: 'ITI / డిప్లొమా / నైపుణ్యాలు' },
+    { id: 'degree', icon: '🎓', title: '3 నుండి 4 ఏళ్ల డిగ్రీ తర్వాత', sub: 'బి.టెక్ / బి.కామ్ / బి.ఎస్సీ' },
+    { id: 'long', icon: '🏥', title: '5+ ఏళ్లు ఉన్నత చదువు (గౌరవం)', sub: 'MBBS / డాక్టర్ / UPSC IAS' }
+  ] : [
+    { id: 'fast', icon: '⚡', title: 'Quick Start — 1 to 2 Years', sub: 'ITI / Diploma / Fast trades' },
+    { id: 'degree', icon: '🎓', title: 'Standard Degree (3–4 Yrs)', sub: 'B.Tech / B.Com / B.Sc' },
+    { id: 'long', icon: '🏥', title: 'Long Study (5+ Yrs) for Prestige', sub: 'MBBS / Doctor / Civil Services' }
+  ];
+
+  const quizBody = document.getElementById('matcherQuizBody');
+  if (!quizBody) return;
+
+  quizBody.innerHTML = `
+    <div class="c-quiz-group">
+      <div class="c-quiz-q">${q1Text}</div>
+      <div class="c-quiz-options">
+        ${q1Options.map(opt => `
+          <button class="c-quiz-opt ${matcherAnswers.interest === opt.id ? 'selected' : ''}" onclick="selectMatcherOption('interest', '${opt.id}')">
+            <span class="c-quiz-opt-icon">${opt.icon}</span>
+            <div>
+              <div style="font-weight:700;color:var(--text);">${opt.title}</div>
+              <div style="font-size:0.75rem;color:var(--text3);">${opt.sub}</div>
+            </div>
+          </button>
+        `).join('')}
+      </div>
+    </div>
+
+    <div class="c-quiz-group">
+      <div class="c-quiz-q">${q2Text}</div>
+      <div class="c-quiz-options">
+        ${q2Options.map(opt => `
+          <button class="c-quiz-opt ${matcherAnswers.speed === opt.id ? 'selected' : ''}" onclick="selectMatcherOption('speed', '${opt.id}')">
+            <span class="c-quiz-opt-icon">${opt.icon}</span>
+            <div>
+              <div style="font-weight:700;color:var(--text);">${opt.title}</div>
+              <div style="font-size:0.75rem;color:var(--text3);">${opt.sub}</div>
+            </div>
+          </button>
+        `).join('')}
+      </div>
+    </div>
+  `;
+
+  renderMatcherResult();
+}
+
+function selectMatcherOption(question, value) {
+  matcherAnswers[question] = value;
+  renderStreamMatcher();
+  if (matcherAnswers.interest && matcherAnswers.speed) {
+    const box = document.getElementById('matcherResultBox');
+    if (box) setTimeout(() => box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }), 120);
+  }
+}
+
+function resetStreamMatcher() {
+  matcherAnswers = { interest: '', speed: '' };
+  renderStreamMatcher();
+}
+
+function renderMatcherResult() {
+  const box = document.getElementById('matcherResultBox');
+  if (!box) return;
+  const isTe = activeLanguage === 'te';
+
+  if (!matcherAnswers.interest || !matcherAnswers.speed) {
+    box.innerHTML = `
+      <div style="text-align:center;padding:16px;color:var(--text3);font-size:0.85rem;">
+        👆 ${isTe ? 'పైన 2 ప్రశ్నలను ఎంచుకోండి — మీ సిఫార్సు వెంటనే కనిపిస్తుంది!' : 'Select options for both questions above to see your instant stream recommendation!'}
+      </div>
+    `;
+    return;
+  }
+
+  // Determine matched path
+  let matchId = 'mpc';
+  let matchReason = '';
+
+  const { interest, speed } = matcherAnswers;
+
+  if (interest === 'tools') {
+    if (speed === 'fast') {
+      matchId = 'iti';
+      matchReason = isTe ? 'మీ ప్రాక్టికల్ చేతివృత్తి ఆసక్తికి 1-2 ఏళ్లలో నేరుగా ఉద్యోగం అందించే ITI కోర్సులు అత్యుత్తమం.' : 'Matches your hands-on practical interest for a rapid trade job in 1-2 years.';
+    } else {
+      matchId = 'poly';
+      matchReason = isTe ? 'పాలిటెక్నిక్ డిప్లొమా ద్వారా 3 ఏళ్లలో హ్యాండ్స్-ఆన్ ఇంజనీరింగ్ లేదా ECET ద్వారా బి.టెక్ 2వ సంవత్సరంలో చేరవచ్చు.' : 'Polytechnic Diploma gives you hands-on technical labs with direct 2nd-year B.Tech entry via ECET.';
+    }
+  } else if (interest === 'math') {
+    if (speed === 'fast') {
+      matchId = 'poly';
+      matchReason = isTe ? 'గణితంతో పాటు వేగంగా టెక్నికల్ ఉద్యోగం పొందడానికి పాలిటెక్నిక్ డిప్లొమా మంచి మార్గం.' : 'Fast technical route with mathematics and early job opportunities.';
+    } else {
+      matchId = 'mpc';
+      matchReason = isTe ? 'గణితంలో మంచి పట్టు ఉండి సాఫ్ట్‌వేర్, బి.టెక్ లేదా IIT చేరడానికి ఇంటర్ MPC సరైన పునాది.' : 'Ideal choice for students strong in math aiming for B.Tech, Software, or IIT.';
+    }
+  } else if (interest === 'bio') {
+    if (speed === 'fast') {
+      matchId = 'voc';
+      matchReason = isTe ? 'హెల్త్‌కేర్ మరియు మెడికల్ ల్యాబ్ రంగంలో 2 ఏళ్లలో ప్రాక్టికల్ నైపుణ్యాలు పొందడానికి వొకేషనల్ కోర్సులు సరిపోతాయి.' : 'Vocational paramedical & lab tech courses provide quick medical field employment.';
+    } else if (speed === 'degree') {
+      matchId = 'bsc';
+      matchReason = isTe ? 'బయాలజీ, బయోటెక్ మరియు రీసెర్చ్ వైపు 3 ఏళ్లలో డిగ్రీ పూర్తి చేయడానికి B.Sc ఉత్తమం.' : 'Cost-effective 3-year science degree leading to research, data, or biotechnology.';
+    } else {
+      matchId = 'bipc';
+      matchReason = isTe ? 'వైద్యుడిగా రోగులకు సేవ చేయాలనే లక్ష్యానికి ఇంటర్ BiPC మరియు NEET ప్రిపరేషన్ అత్యుత్తమం.' : 'The gold standard medical stream for NEET preparation leading to MBBS or BDS.';
+    }
+  } else if (interest === 'business') {
+    if (speed === 'fast') {
+      matchId = 'skill';
+      matchReason = isTe ? 'డిజిటల్ మార్కెటింగ్, ఈ-కామర్స్ నైపుణ్యాలతో కొన్ని నెలల్లోనే ఆదాయం ప్రారంభించవచ్చు.' : 'Rapid 3-6 month bootcamp in digital marketing, freelancing, and e-commerce.';
+    } else {
+      matchId = 'mec';
+      matchReason = isTe ? 'బ్యాంకింగ్, చార్టర్డ్ అకౌంటెంట్ (CA) లేదా బిజినెస్ రంగాలకు ఇంటర్ MEC అత్యంత లాభదాయకమైన మార్గం.' : 'Best foundation for Chartered Accountancy (CA), Banking, and corporate finance.';
+    }
+  } else if (interest === 'govt') {
+    if (speed === 'fast') {
+      matchId = 'iti';
+      matchReason = isTe ? 'రైల్వేస్ మరియు రక్షణ రంగాలలో వేగంగా ప్రభుత్వ టెక్నీషియన్ ఉద్యోగాలు సాధించవచ్చు.' : 'Fastest path to central railway & defense technician vacancies.';
+    } else {
+      matchId = 'cec';
+      matchReason = isTe ? 'సివిల్ సర్వీసెస్ (IAS/IPS), గ్రూప్స్ లేదా న్యాయవాద వృత్తి (లా) లక్ష్యాలకు ఇంటర్ CEC బలమైన పునాది.' : 'Top stream for UPSC Civil Services, Public Administration, and 5-year Integrated Law.';
+    }
+  }
+
+  const pData = isTe ? pathCompareData_te[matchId] : pathCompareData_en[matchId];
+  const impact = isTe ? aiImpactData_te[matchId] : aiImpactData_en[matchId];
+
+  box.innerHTML = `
+    <div class="c-match-result">
+      <span class="c-match-badge">🎉 ${isTe ? 'మీ ఉత్తమ సిఫార్సు' : 'Your Best Stream Match'}</span>
+      <div class="c-match-path-title">${pData.icon} ${pData.name}</div>
+      <p class="c-match-reason">${matchReason}</p>
+      <div class="c-match-tags">
+        <span class="ctag" style="background:#10b98122;color:#10b981;">🛡️ ${impact.resilienceScore}% ${isTe ? 'AI సురక్షితం' : 'AI Safe'}</span>
+        <span class="ctag" style="background:#3b82f622;color:#60a5fa;">⏱️ ${pData.duration}</span>
+        <span class="ctag" style="background:#f59e0b22;color:#fbbf24;">🎯 ${pData.exam}</span>
+      </div>
+      <div class="c-match-actions">
+        <button class="cc-btn" onclick="openMatchedRoadmap('${matchId}')" style="margin:0;cursor:pointer;">
+          ${isTe ? 'పూర్తి రోడ్‌మ్యాప్ & AI విశ్లేషణ చూడండి →' : 'View Full Roadmap & AI Outlook →'}
+        </button>
+        <button class="c-back-btn" onclick="resetStreamMatcher()" style="cursor:pointer;">
+          🔄 ${isTe ? 'మళ్లీ ప్రయత్నించండి' : 'Try Again'}
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function openMatchedRoadmap(pathId) {
+  // Determine stage
+  const paths10th = ['mpc', 'bipc', 'mec', 'cec', 'poly', 'iti', 'voc'];
+  const stage = paths10th.includes(pathId) ? '10th' : 'inter';
+
+  switchCareerView('roadmaps');
+  curStage = stage;
+  showTree(pathId);
+}
+
+// ═══════════════════════════════════════════
+// 2. SIDE-BY-SIDE PATH COMPARISON
+// ═══════════════════════════════════════════
+function renderPathComparison(p1, p2) {
+  const isTe = activeLanguage === 'te';
+  if (p1) compareP1 = p1;
+  if (p2) compareP2 = p2;
+
+  const headTitle = document.getElementById('compareHeadTitle');
+  const headSub = document.getElementById('compareHeadSub');
+  if (headTitle) headTitle.textContent = isTe ? '⚖️ కెరీర్ మార్గాల పోలిక (Side-by-Side Comparison)' : '⚖️ Side-by-Side Career Path Finder';
+  if (headSub) headSub.textContent = isTe
+    ? 'ఏవైనా రెండు మార్గాలను పక్కపక్కనే సరిపోల్చి సమయం, శైలి, పరీక్షలు మరియు AI భద్రతను తెలుసుకోండి:'
+    : 'Compare any two career streams side-by-side to understand duration, study style, entrance exams, and AI resilience:';
+
+  // Presets
+  const presets = [
+    { p1: 'mpc', p2: 'poly', label: isTe ? '🔬 MPC vs ⚙️ పాలిటెక్నిక్' : '🔬 MPC vs ⚙️ Polytechnic' },
+    { p1: 'bipc', p2: 'bsc', label: isTe ? '🧬 BiPC vs 🔭 B.Sc డిగ్రీ' : '🧬 BiPC vs 🔭 B.Sc Degree' },
+    { p1: 'mec', p2: 'cec', label: isTe ? '📊 MEC vs 📚 CEC' : '📊 MEC vs 📚 CEC' },
+    { p1: 'btech', p2: 'govt', label: isTe ? '🏗️ బి.టెక్ vs 📋 ప్రభుత్వ ఉద్యోగాలు' : '🏗️ B.Tech vs 📋 Govt Exams' }
+  ];
+
+  const presetsWrap = document.getElementById('comparePresetsWrap');
+  if (presetsWrap) {
+    presetsWrap.innerHTML = presets.map(pr => `
+      <button class="c-preset-btn ${(compareP1 === pr.p1 && compareP2 === pr.p2) ? 'active' : ''}" onclick="setComparePreset('${pr.p1}', '${pr.p2}')">
+        ${pr.label}
+      </button>
+    `).join('');
+  }
+
+  // Populate Selects
+  const dataMap = isTe ? pathCompareData_te : pathCompareData_en;
+  const select1 = document.getElementById('compareSelect1');
+  const select2 = document.getElementById('compareSelect2');
+
+  const allKeys = Object.keys(dataMap);
+
+  if (select1 && select2) {
+    select1.innerHTML = allKeys.map(k => `<option value="${k}" ${k === compareP1 ? 'selected' : ''}>${dataMap[k].icon} ${dataMap[k].name}</option>`).join('');
+    select2.innerHTML = allKeys.map(k => `<option value="${k}" ${k === compareP2 ? 'selected' : ''}>${dataMap[k].icon} ${dataMap[k].name}</option>`).join('');
+  }
+
+  // Render Grid
+  const d1 = dataMap[compareP1];
+  const d2 = dataMap[compareP2];
+  const imp1 = (isTe ? aiImpactData_te : aiImpactData_en)[compareP1];
+  const imp2 = (isTe ? aiImpactData_te : aiImpactData_en)[compareP2];
+
+  const grid = document.getElementById('compareCardsGrid');
+  if (!grid || !d1 || !d2) return;
+
+  function renderCol(d, imp, pid) {
+    return `
+      <div class="c-compare-col">
+        <div class="c-col-header">
+          <span class="c-col-icon">${d.icon}</span>
+          <div>
+            <div class="c-col-title">${d.name}</div>
+            <div class="c-col-stage">${d.stage}</div>
+          </div>
+        </div>
+
+        <div class="c-col-row">
+          <span class="c-col-label">⏱️ ${isTe ? 'వ్యవధి' : 'Duration'}</span>
+          <span class="c-col-val" style="font-weight:700;">${d.duration}</span>
+        </div>
+
+        <div class="c-col-row">
+          <span class="c-col-label">📚 ${isTe ? 'అభ్యసన శైలి' : 'Study Style'}</span>
+          <span class="c-col-val">${d.style}</span>
+        </div>
+
+        <div class="c-col-row">
+          <span class="c-col-label">🎯 ${isTe ? 'కీలక ప్రవేశ పరీక్ష' : 'Key Entrance Exam'}</span>
+          <span class="c-col-val">${d.exam}</span>
+        </div>
+
+        <div class="c-col-row">
+          <span class="c-col-label">💰 ${isTe ? 'ప్రారంభ వేతనం' : 'Starting Salary'}</span>
+          <span class="c-col-val c-col-highlight">${d.startSalary}</span>
+        </div>
+
+        <div class="c-col-row">
+          <span class="c-col-label">📈 ${isTe ? 'గరిష్ట సంపాదన' : 'Peak Salary Potential'}</span>
+          <span class="c-col-val" style="color:#fbbf24;font-weight:700;">${d.peakSalary}</span>
+        </div>
+
+        <div class="c-col-row">
+          <span class="c-col-label">🛡️ ${isTe ? 'AI భద్రత & రెసిలియెన్స్' : 'AI Safety & Resilience'}</span>
+          <span class="c-col-val" style="color:${imp.riskBadgeColor};font-weight:700;">🛡️ ${imp.resilienceScore}% — ${imp.simpleBadge}</span>
+        </div>
+
+        <div class="c-col-row">
+          <span class="c-col-label">🏆 ${isTe ? 'ఎవరికి అనుకూలం?' : 'Best Suited For'}</span>
+          <span class="c-col-val">${d.bestFor}</span>
+        </div>
+
+        <div style="margin-top:auto;padding-top:12px;">
+          <button class="cc-btn" style="width:100%;padding:10px;font-size:0.85rem;" onclick="openMatchedRoadmap('${pid}')">
+            ${isTe ? 'రోడ్‌మ్యాప్ తెరవండి →' : 'Open Roadmap →'}
+          </button>
+        </div>
+      </div>
+    `;
+  }
+
+  grid.innerHTML = renderCol(d1, imp1, compareP1) + renderCol(d2, imp2, compareP2);
+}
+
+function setComparePreset(p1, p2) {
+  compareP1 = p1;
+  compareP2 = p2;
+  renderPathComparison();
+}
+
+function onCompareSelectChange() {
+  const s1 = document.getElementById('compareSelect1');
+  const s2 = document.getElementById('compareSelect2');
+  if (s1 && s2) {
+    compareP1 = s1.value;
+    compareP2 = s2.value;
+    renderPathComparison();
+  }
+}
+
+// ═══════════════════════════════════════════
+// 3. ROADMAP RENDERING (SIMPLIFIED & PUNCHY)
+// ═══════════════════════════════════════════
 function showPaths(stage) {
   curStage = stage;
   const isTe = activeLanguage === 'te';
   document.getElementById('cStep1').style.display = 'none';
   document.getElementById('cStep3').style.display = 'none';
   document.getElementById('cStep2').style.display = 'block';
-  
-  // Toggle buttons
+
   const btn10 = document.getElementById('stageBtn10th');
   const btnIn = document.getElementById('stageBtnInter');
   if (btn10 && btnIn) {
@@ -2490,12 +3193,12 @@ function showPaths(stage) {
     btn10.textContent = isTe ? '🏫 10వ తరగతి (SSC)' : '🏫 10th Class (SSC)';
     btnIn.textContent = isTe ? '🎓 ఇంటర్మీడియట్ (12th)' : '🎓 Intermediate (12th)';
   }
-  
+
   const backBtn = document.getElementById('cBackBtnStep2');
   if (backBtn) {
     backBtn.textContent = isTe ? '← దశల ఎంపికకు వెనుకకు' : '← Back to Stages';
   }
-  
+
   const lbl = document.getElementById('cStep2Label');
   if (lbl) {
     lbl.textContent = stage === '10th'
@@ -2507,21 +3210,21 @@ function showPaths(stage) {
   const impactMap = isTe ? aiImpactData_te : aiImpactData_en;
 
   document.getElementById('cPathGrid').innerHTML = paths.map(p => {
-    const imp = impactMap[p.id] || { resilienceText: '85% Safe', riskBadgeColor: '#3b82f6', resilienceScore: 85 };
+    const imp = impactMap[p.id] || { resilienceScore: 85, riskBadgeColor: '#3b82f6' };
     return `
       <div class="cpath-card fade-in" style="border-top:3.5px solid ${p.color};" onclick="showTree('${p.id}')">
         <div>
           <div class="cpath-header">
             <span class="cpath-icon">${p.icon}</span>
             <span class="cpath-safe-badge" style="background:${imp.riskBadgeColor}1a; color:${imp.riskBadgeColor}; border:1px solid ${imp.riskBadgeColor}44;">
-              🛡️ ${imp.resilienceScore}% ${isTe ? 'రక్షణ' : 'AI Safe'}
+              🛡️ ${imp.resilienceScore}% ${isTe ? 'సురక్షితం' : 'AI Safe'}
             </span>
           </div>
           <div class="cpath-name" style="color:${p.color};">${p.name}</div>
           <div class="cpath-sub">${p.sub}</div>
         </div>
         <div class="cpath-footer">
-          <span style="font-size:0.75rem; color:var(--text3);">${isTe ? 'రోడ్‌మ్యాప్ & AI విశ్లేషణ' : 'Roadmap & AI Outlook'}</span>
+          <span style="font-size:0.75rem; color:var(--text3);">${isTe ? 'రోడ్‌మ్యాప్ & AI' : 'Roadmap & AI'}</span>
           <span class="cpath-arrow" style="color:${p.color};">${isTe ? 'చూడండి →' : 'Explore →'}</span>
         </div>
       </div>
@@ -2555,11 +3258,11 @@ function showTree(pathId) {
 
   const lbl = document.getElementById('cStep3Label');
   if (lbl) {
-    lbl.textContent = `${t.icon} ${t.title} — ${isTe ? 'పూర్తి కెరీర్ రోడ్‌మ్యాప్ & AI విశ్లేషణ' : 'Full Career Roadmap & AI Analysis'}`;
+    lbl.textContent = `${t.icon} ${t.title} — ${isTe ? 'పూర్తి రోడ్‌మ్యాప్' : 'Full Roadmap'}`;
   }
 
-  // Find peak salary from timeline
-  let peakSalary = isTe ? '₹10L – ₹1Cr+' : '₹10L – ₹1Cr+';
+  // Find peak salary
+  let peakSalary = '₹10L – ₹1Cr+';
   for (let i = t.timeline.length - 1; i >= 0; i--) {
     if (t.timeline[i].salary) {
       peakSalary = t.timeline[i].salary.split('|')[0].replace(/.*:/, '').trim();
@@ -2569,7 +3272,7 @@ function showTree(pathId) {
 
   const stageName = curStage === '10th' ? (isTe ? '10వ తరగతి తర్వాత' : 'After 10th Class') : (isTe ? 'ఇంటర్మీడియట్ తర్వాత' : 'After Intermediate');
 
-  // Build Milestone pills
+  // Milestone pills
   const pillsHTML = t.timeline.map((item, idx) => {
     const rawYr = item.yr.split('—')[0].split('→')[0].trim();
     return `
@@ -2580,43 +3283,49 @@ function showTree(pathId) {
     `;
   }).join('');
 
-  // Build Timeline Items
-  const tlHTML = t.timeline.map((item, idx) => `
-    <div class="ctl-item" id="milestoneStep${idx}">
-      <div class="ctl-dot" style="background:${item.dot};border-color:${item.dot};box-shadow:0 0 0 4px ${item.dot}33;">
-        <span class="ctl-dot-inner">${idx + 1}</span>
-      </div>
-      <div class="ctl-card" style="border-left-color:${item.border};">
-        <div class="ctl-card-top">
-          <span class="ctl-step-badge" style="background:${item.dot}18; color:${item.dot}; border:1px solid ${item.dot}44;">
-            ${isTe ? 'దశ ' + (idx + 1) : 'Milestone ' + (idx + 1)} • ⏱️ ${item.yr}
-          </span>
+  // Simplified 1-Sentence Timeline Items
+  const tlHTML = t.timeline.map((item, idx) => {
+    // Simplify description to first sentence or clear bite
+    let simpleDesc = item.desc;
+    if (simpleDesc.includes('.')) {
+      const firstDot = simpleDesc.indexOf('.');
+      simpleDesc = simpleDesc.substring(0, firstDot + 1);
+    }
+    return `
+      <div class="ctl-item" id="milestoneStep${idx}">
+        <div class="ctl-dot" style="background:${item.dot};border-color:${item.dot};box-shadow:0 0 0 4px ${item.dot}33;">
+          <span class="ctl-dot-inner">${idx + 1}</span>
         </div>
-        <h4 class="ctl-item-title">${item.title}</h4>
-        <p class="ctl-item-desc">${item.desc}</p>
-        <div class="ctl-tags">
-          ${item.tags.map(tg => `<span class="ctl-tag ${tg.c}">${tg.t}</span>`).join('')}
+        <div class="ctl-card" style="border-left-color:${item.border};">
+          <div class="ctl-card-top">
+            <span class="ctl-step-badge" style="background:${item.dot}18; color:${item.dot}; border:1px solid ${item.dot}44;">
+              ${isTe ? 'దశ ' + (idx + 1) : 'Milestone ' + (idx + 1)} • ⏱️ ${item.yr}
+            </span>
+          </div>
+          <h4 class="ctl-item-title">${item.title}</h4>
+          <p class="ctl-item-desc">${simpleDesc}</p>
+          <div class="ctl-tags">
+            ${item.tags.map(tg => `<span class="ctl-tag ${tg.c}">${tg.t}</span>`).join('')}
+          </div>
+          ${item.salary ? `
+            <div class="ctl-salary">
+              <div class="ctl-salary-label">
+                <span>💰 ${isTe ? 'ఈ దశలో సంపాదన' : 'Earning at This Stage'}</span>
+                <span class="ctl-salary-amt">${item.salary}</span>
+              </div>
+              <div class="ctl-salary-track">
+                <div class="ctl-salary-fill" style="width:${item.pct || 40}%;"></div>
+              </div>
+            </div>` : ''}
         </div>
-        ${item.salary ? `
-          <div class="ctl-salary">
-            <div class="ctl-salary-label">
-              <span>💰 ${isTe ? 'ఈ దశలో సంపాదన సామర్థ్యం' : 'Earning Potential at This Stage'}</span>
-              <span class="ctl-salary-amt">${item.salary}</span>
-            </div>
-            <div class="ctl-salary-track">
-              <div class="ctl-salary-fill" style="width:${item.pct || 40}%;"></div>
-            </div>
-          </div>` : ''}
       </div>
-    </div>
-  `).join('');
+    `;
+  }).join('');
 
-  // Build Branches
+  // Branches
   const branchHTML = t.branches.map(b => `
     <div class="cbranch-card" style="border-top:3.5px solid ${b.color};">
-      <div class="cbranch-card-header">
-        <h4 style="color:${b.color};">${b.title}</h4>
-      </div>
+      <h4 style="color:${b.color};">${b.title}</h4>
       <ul>${b.items.map(i => `<li style="--bc:${b.color}">${i}</li>`).join('')}</ul>
     </div>
   `).join('');
@@ -2629,7 +3338,7 @@ function showTree(pathId) {
         <div>
           <div class="th-badge-row">
             <span class="ctree-badge-tag">${stageName}</span>
-            <span class="ctree-badge-tag">${isTe ? '📅 దశలవారీ రోడ్‌మ్యాప్' : '📅 Step-by-Step Journey'}</span>
+            <span class="ctree-badge-tag">${isTe ? '📅 దశలవారీ రోడ్‌మ్యాప్' : '📅 Step-by-Step'}</span>
           </div>
           <h2>${t.title}</h2>
           <p class="th-tagline">${t.tag}</p>
@@ -2637,32 +3346,28 @@ function showTree(pathId) {
       </div>
       <div class="th-quick-stats">
         <div class="th-stat-pill">
-          <span class="th-stat-lbl">${isTe ? '💰 సంపాదన సామర్థ్యం' : '💰 Earning Potential'}</span>
+          <span class="th-stat-lbl">${isTe ? '💰 సంపాదన' : '💰 Earning Potential'}</span>
           <span class="th-stat-val">${peakSalary}</span>
         </div>
         <div class="th-stat-pill">
-          <span class="th-stat-lbl">${isTe ? '🛡️ AI రెసిలియెన్స్' : '🛡️ AI Resilience'}</span>
-          <span class="th-stat-val" style="color:#4ade80;">${impact.resilienceText}</span>
+          <span class="th-stat-lbl">${isTe ? '🛡️ AI భద్రత' : '🛡️ AI Safety'}</span>
+          <span class="th-stat-val" style="color:#4ade80;">${impact.resilienceScore}% ${isTe ? 'సురక్షితం' : 'Safe'}</span>
         </div>
       </div>
     </div>
 
-    <!-- 🤖 AI IMPACT & OUTLOOK CARD -->
-    <div class="c-ai-impact-card">
-      <div class="c-ai-impact-header">
-        <div class="c-ai-title-group">
-          <div class="c-ai-icon-bubble">🤖</div>
+    <!-- 🤖 ULTRA-SIMPLE 1-GLANCE AI REALITY CARD -->
+    <div class="c-ai-impact-card-simple">
+      <div class="c-ai-header-simple">
+        <div class="c-ai-badge-group">
+          <div class="c-ai-score-big">🛡️ ${impact.resilienceScore}%</div>
           <div>
-            <h3 class="c-ai-title">${isTe ? 'ఈ కెరీర్‌పై AI ప్రభావం & భవిష్యత్తు వాస్తవం' : 'AI Impact & Future Career Outlook'}</h3>
-            <p class="c-ai-subtitle">${isTe ? 'ఈ ఉద్యోగాన్ని AI భర్తీ చేస్తుందా? విద్యార్థుల కోసం వాస్తవ విశ్లేషణ:' : 'Will AI replace this career? The honest reality check for students:'}</p>
+            <div class="c-ai-status-title">${isTe ? 'AI భద్రతా రేటింగ్' : 'AI Safety Rating'}</div>
+            <div class="c-ai-status-sub" style="color:${impact.riskBadgeColor}; font-weight:700;">${impact.simpleBadge}</div>
           </div>
         </div>
-        <div class="c-ai-resilience-badge" style="border-color:${impact.riskBadgeColor};">
-          <div class="c-ai-score-num">${impact.resilienceScore}%</div>
-          <div>
-            <div class="c-ai-score-label">${isTe ? 'AI రెసిలియంట్' : 'AI-Resilient'}</div>
-            <div class="c-ai-risk-tag" style="background:${impact.riskBadgeColor}22; color:${impact.riskBadgeColor};">${impact.riskLevel}</div>
-          </div>
+        <div class="c-ai-one-liner">
+          <strong>"${impact.punchline}"</strong>
         </div>
       </div>
 
@@ -2670,51 +3375,33 @@ function showTree(pathId) {
         <div class="c-ai-meter-fill" style="width:${impact.resilienceScore}%; background:linear-gradient(90deg, #3b82f6, #10b981);"></div>
       </div>
 
-      <div class="c-ai-body-grid">
-        <!-- Left Column: Reality Check -->
-        <div class="c-ai-col">
-          <div class="c-ai-insight-box">
-            <div class="c-ai-box-title">
-              <span class="c-ai-box-icon">❓</span>
-              <strong>${isTe ? 'AI ఈ ఉద్యోగాన్ని భర్తీ చేస్తుందా?' : 'Will AI Replace This Career?'}</strong>
-            </div>
-            <p class="c-ai-box-text">${impact.verdict}</p>
-          </div>
-          <div class="c-ai-insight-box">
-            <div class="c-ai-box-title">
-              <span class="c-ai-box-icon">⚡</span>
-              <strong>${isTe ? 'ప్రస్తుత వినియోగం (నేడు):' : 'Present Reality (Today as a Co-pilot):'}</strong>
-            </div>
-            <p class="c-ai-box-text">${impact.presentUse}</p>
+      <div class="c-ai-3points-grid">
+        <div class="c-ai-point">
+          <span class="c-ai-pt-icon">⚡</span>
+          <div>
+            <strong>${isTe ? 'నేడు AI ఎలా సహాయపడుతుంది:' : 'How AI Helps Today:'}</strong>
+            <p>${impact.todayLine}</p>
           </div>
         </div>
-
-        <!-- Right Column: Future & Skills -->
-        <div class="c-ai-col">
-          <div class="c-ai-insight-box">
-            <div class="c-ai-box-title">
-              <span class="c-ai-box-icon">🔮</span>
-              <strong>${isTe ? 'రాబోయే 5-10 సంవత్సరాల భవిష్యత్తు:' : 'Future Outlook (Next 5–10 Years):'}</strong>
-            </div>
-            <p class="c-ai-box-text">${impact.futureOutlook}</p>
+        <div class="c-ai-point">
+          <span class="c-ai-pt-icon">🔮</span>
+          <div>
+            <strong>${isTe ? 'భవిష్యత్తు వాస్తవం:' : 'Future Reality:'}</strong>
+            <p>${impact.futureLine}</p>
           </div>
-          <div class="c-ai-insight-box">
-            <div class="c-ai-box-title">
-              <span class="c-ai-box-icon">🛡️</span>
-              <strong>${isTe ? 'మీరు నేర్చుకోవాల్సిన తిరుగులేని నైపుణ్యాలు:' : 'Irreplaceable Human Skills to Build:'}</strong>
-            </div>
-            <div class="c-ai-skills-chips">
-              ${impact.skillsToMaster.map(s => `<span class="c-ai-skill-chip">${s}</span>`).join('')}
+        </div>
+        <div class="c-ai-point">
+          <span class="c-ai-pt-icon">💡</span>
+          <div>
+            <strong>${isTe ? 'ముఖ్యమైన నైపుణ్యాలు:' : 'Key Human Skills:'}</strong>
+            <div class="c-ai-mini-chips">
+              ${impact.skillsToMaster.map(s => `<span class="c-mini-chip">${s}</span>`).join('')}
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Action Footer -->
-      <div class="c-ai-footer-cta">
-        <div class="c-ai-cta-hint">
-          💡 ${isTe ? 'మరింత స్పష్టత కావాలా? మా AI అసిస్టెంట్ ఉదయ్‌ని ఉచితంగా అడగండి:' : 'Have questions about this career? Ask our AI study owl Uday directly:'}
-        </div>
+      <div class="c-ai-quick-ask">
         <button class="c-ai-ask-btn" onclick="askUdayAboutCareer('${pathId}')">
           🦉 ${isTe ? 'ఉదయ్ AI ని "' + t.title + '" గురించి అడగండి' : 'Ask Uday AI about "' + t.title + '"'} →
         </button>
@@ -2724,8 +3411,8 @@ function showTree(pathId) {
     <!-- 📍 STEPPER NAVIGATION -->
     <div class="c-stepper-header-row">
       <div>
-        <h3 class="c-section-heading">📅 ${isTe ? 'సంవత్సరం వారీగా కెరీర్ ప్రయాణం' : 'Year-by-Year Career Milestone Journey'}</h3>
-        <p class="c-section-subheading">${isTe ? 'ప్రతి మైలురాయిపై క్లిక్ చేసి దశలవారీగా మీ భవిష్యత్తును పరిశీలించండి:' : 'Click any milestone step or follow along your timeline:'}</p>
+        <h3 class="c-section-heading">📅 ${isTe ? 'దశలవారీ కెరీర్ ప్రయాణం' : 'Milestone Career Journey'}</h3>
+        <p class="c-section-subheading">${isTe ? 'ప్రతి దశపై క్లిక్ చేసి పరిశీలించండి:' : 'Click any step to jump to it:'}</p>
       </div>
       <div class="c-milestone-pills" id="cMilestonePills">${pillsHTML}</div>
     </div>
@@ -2736,37 +3423,37 @@ function showTree(pathId) {
     <!-- 🌿 SPECIALIZATION BRANCHES -->
     <div class="cbranch-section">
       <div class="cbranch-header">
-        <h3 class="c-section-heading">🌿 ${isTe ? 'ఈ మార్గం నుండి ఎంచుకోగల విభాగాలు (స్పెషలైజేషన్స్)' : 'All Specialization Branches from This Path'}</h3>
-        <p class="c-section-subheading">${isTe ? 'మీ ఆసక్తిని బట్టి మీరు ఎంచుకోగల ప్రసిద్ధ రంగాలు:' : 'Explore top specialization domains and job roles available in this field:'}</p>
+        <h3 class="c-section-heading">🌿 ${isTe ? 'ఈ మార్గం నుండి ఎంచుకోగల విభాగాలు' : 'Specialization Branches'}</h3>
+        <p class="c-section-subheading">${isTe ? 'మీరు ఎంచుకోగల ప్రసిద్ధ రంగాలు:' : 'Top specializations in this stream:'}</p>
       </div>
       <div class="cbranch-grid">${branchHTML}</div>
     </div>
 
     <!-- 🚀 BOTTOM QUICK ACTION HUB -->
     <div class="c-action-hub">
-      <div class="c-action-hub-title">${isTe ? '🚀 మీ తదుపరి అడుగు' : '🚀 Next Steps for Your Career Journey'}</div>
+      <div class="c-action-hub-title">${isTe ? '🚀 తదుపరి చర్యలు' : '🚀 Next Steps for You'}</div>
       <div class="c-action-cards">
         <div class="c-action-mini-card" onclick="document.getElementById('ai-tools').scrollIntoView({behavior:'smooth'})">
           <span class="c-act-icon">🛠️</span>
           <div class="c-act-info">
-            <strong>${isTe ? 'AI సాధనాలను అన్వేషించండి' : 'Explore AI Tools'}</strong>
-            <span>${isTe ? 'మీ చదువు కోసం ఉపయోగపడే 10 ఉచిత టూల్స్' : '10 Free AI study & career co-pilots'}</span>
+            <strong>${isTe ? 'AI సాధనాలు' : 'Explore AI Tools'}</strong>
+            <span>${isTe ? '10 ఉచిత స్టడీ AI టూల్స్' : '10 Free AI study co-pilots'}</span>
           </div>
           <span class="c-act-arrow">→</span>
         </div>
         <div class="c-action-mini-card" onclick="document.getElementById('scholarships').scrollIntoView({behavior:'smooth'})">
           <span class="c-act-icon">🎓</span>
           <div class="c-act-info">
-            <strong>${isTe ? 'స్కాలర్‌షిప్‌లను కనుగొనండి' : 'Match Scholarships'}</strong>
-            <span>${isTe ? 'మీ విద్యకు ఆర్థిక సాయం అందించే పథకాలు' : 'Check financial aid & grants for this path'}</span>
+            <strong>${isTe ? 'స్కాలర్‌షిప్‌లు' : 'Match Scholarships'}</strong>
+            <span>${isTe ? 'ఆర్థిక సాయం పథకాలు' : 'Financial grants for this path'}</span>
           </div>
           <span class="c-act-arrow">→</span>
         </div>
-        <div class="c-action-mini-card" onclick="document.getElementById('coding').scrollIntoView({behavior:'smooth'})">
-          <span class="c-act-icon">💻</span>
+        <div class="c-action-mini-card" onclick="switchCareerView('compare')">
+          <span class="c-act-icon">⚖️</span>
           <div class="c-act-info">
-            <strong>${isTe ? 'డిజిటల్ స్కిల్స్ & కోడింగ్' : 'Digital Skills & Coding'}</strong>
-            <span>${isTe ? 'ఉచితంగా కోడింగ్ & కంప్యూటర్ నైపుణ్యాలు' : 'Free platforms to build in-demand skills'}</span>
+            <strong>${isTe ? 'మరొక మార్గంతో సరిపోల్చండి' : 'Compare with Another Stream'}</strong>
+            <span>${isTe ? 'రెండు మార్గాలను పక్కపక్కనే చూడండి' : 'See side-by-side comparison'}</span>
           </div>
           <span class="c-act-arrow">→</span>
         </div>
@@ -3195,6 +3882,21 @@ function switchLanguage(lang) {
     cTrees = cTrees_en;
   }
   
+  
+  // Update Career mode switcher labels
+  const tabRoadmaps = document.getElementById('lblTabRoadmaps');
+  const tabMatcher = document.getElementById('lblTabMatcher');
+  const tabCompare = document.getElementById('lblTabCompare');
+  if (tabRoadmaps) tabRoadmaps.textContent = lang === 'te' ? 'రోడ్‌మ్యాప్స్ చూడండి' : 'Explore Roadmaps';
+  if (tabMatcher) tabMatcher.textContent = lang === 'te' ? '30-సెకన్ల స్ట్రీమ్ మ్యాచర్' : '30-Sec Stream Matcher';
+  if (tabCompare) tabCompare.textContent = lang === 'te' ? 'రెండు మార్గాల పోలిక' : 'Compare 2 Paths';
+
+  if (currentCareerView === 'matcher') {
+    renderStreamMatcher();
+  } else if (currentCareerView === 'compare') {
+    renderPathComparison();
+  }
+
   applyStaticTranslations(lang);
   
   // Re-render Dynamic Content
