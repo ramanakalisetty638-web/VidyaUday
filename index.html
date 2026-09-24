@@ -1142,6 +1142,7 @@ function selectAIGoal(goalId) {
 
   renderAIGoals();
   renderAITools(goal.toolIds);
+  renderStudentPrompts(goalId);
 
   const banner = document.getElementById('aiGoalBanner');
   if (banner) {
@@ -1161,6 +1162,7 @@ function clearAIGoal() {
   selectedAIGoal = null;
   renderAIGoals();
   renderAITools();
+  renderStudentPrompts(null);
   const banner = document.getElementById('aiGoalBanner');
   if (banner) banner.style.display = 'none';
 }
@@ -1196,44 +1198,179 @@ function renderAITools(highlightIds = null) {
 }
 
 // ═══════════════════════════════════════════
-// STUDENT AI PROMPTS DATA & LOGIC
+// STUDENT AI PROMPTS DATA & DYNAMIC LOGIC
 // ═══════════════════════════════════════════
-const studentPrompts = [
-  {
-    id: 'concept',
-    tagEn: '📖 Concept Explainer',
-    tagTe: '📖 కాన్సెప్ట్ వివరణ',
-    promptEn: 'Explain [Topic Name, e.g. Newton Laws] in simple Telugu and English as if I am in 10th class, using a daily life village example.',
-    promptTe: '[టాపిక్ పేరు, ఉదా. కిరణజన్య సంయోగక్రియ] గురించి 10వ తరగతి విద్యార్థికి అర్థమయ్యేలా రోజువారీ ఉదాహరణలతో సరళమైన తెలుగులో వివరించండి.'
-  },
-  {
-    id: 'mcq',
-    tagEn: '🧪 Practice Exam Questions',
-    tagTe: '🧪 పరీక్ష ప్రాక్టీస్ ప్రశ్నలు',
-    promptEn: 'Create 5 important multiple-choice questions with answers and step-by-step explanations for Intermediate [MPC / BiPC] on [Chapter Name].',
-    promptTe: 'ఇంటర్మీడియట్ [సబ్జెక్ట్/చాప్టర్ పేరు] పై సమాధానాలు మరియు వివరణలతో కూడిన 5 ముఖ్యమైన మల్టిపుల్ ఛాయిస్ (MCQ) ప్రశ్నలను ఇవ్వండి.'
-  },
-  {
-    id: 'letter',
-    tagEn: '📝 Formal Leave Letter',
-    tagTe: '📝 కాలేజ్ సెలవు లేఖ',
-    promptEn: 'Draft a polite formal letter to my college principal requesting 2 days leave for [Reason, e.g. brother marriage / illness], in proper English.',
-    promptTe: 'మా కాలేజ్ ప్రిన్సిపాల్‌కు [సెలవు కారణం] కొరకు 2 రోజుల సెలవు కోరుతూ మర్యాదపూర్వక అధికారిక ఇంగ్లీష్ దరఖాస్తు లేఖను రాయండి.'
-  },
-  {
-    id: 'career',
-    tagEn: '🎯 Career Roadmap Guidance',
-    tagTe: '🎯 కెరీర్ గైడెన్స్',
-    promptEn: 'I completed [10th Class / Inter MPC / BiPC] with [75%] marks. What are the top 5 government and private career paths and entrance exams in Andhra Pradesh?',
-    promptTe: 'నేను [10వ తరగతి / ఇంటర్ MPC / BiPC] [75%] మార్కులతో పూర్తి చేసాను. ఆంధ్రప్రదేశ్‌లో నాకు అందుబాటులో ఉన్న ఉత్తమ 5 కెరీర్ మార్గాలు మరియు ప్రవేశ పరీక్షల వివరాలు ఇవ్వండి.'
-  }
-];
+const promptsByGoal = {
+  exam: [
+    {
+      id: 'exam_concept',
+      tagEn: '📖 Concept Doubts (ChatGPT & Gemini)',
+      tagTe: '📖 కాన్సెప్ట్ సందేహాలు (ChatGPT & Gemini)',
+      promptEn: 'Explain [Topic Name, e.g. Newton Laws] in simple Telugu and English as if I am in 10th class, using a daily life village example.',
+      promptTe: '[టాపిక్ పేరు, ఉదా. కిరణజన్య సంయోగక్రియ] గురించి 10వ తరగతి విద్యార్థికి అర్థమయ్యేలా రోజువారీ ఉదాహరణలతో సరళమైన తెలుగులో వివరించండి.'
+    },
+    {
+      id: 'exam_math',
+      tagEn: '📐 Math Step-by-Step Solver',
+      tagTe: '📐 లెక్కల పరిష్కారం స్టెప్-బై-స్టెప్',
+      promptEn: 'Solve this math problem step-by-step with clear formulas and explanations for Class 10 / Intermediate: [Paste problem here].',
+      promptTe: 'ఈ క్రింది గణిత సమస్యను సూత్రాలు మరియు స్పష్టమైన వివరణలతో దశలవారీగా పరిష్కరించండి: [లెక్క ఇక్కడ రాయండి].'
+    },
+    {
+      id: 'exam_mcq',
+      tagEn: '🧪 Practice Exam Questions',
+      tagTe: '🧪 పరీక్ష ప్రాక్టీస్ ప్రశ్నలు',
+      promptEn: 'Create 5 important multiple-choice questions with answers and step-by-step explanations for Intermediate [MPC / BiPC] on [Chapter Name].',
+      promptTe: 'ఇంటర్మీడియట్ [సబ్జెక్ట్/చాప్టర్ పేరు] పై సమాధానాలు మరియు వివరణలతో కూడిన 5 ముఖ్యమైన మల్టిపుల్ ఛాయిస్ (MCQ) ప్రశ్నలను ఇవ్వండి.'
+    }
+  ],
+  presentation: [
+    {
+      id: 'pres_gamma',
+      tagEn: '⚡ Slide Deck Generator (Gamma)',
+      tagTe: '⚡ స్లైడ్ డెక్ జనరేటర్ (Gamma)',
+      promptEn: 'Create an 8-slide presentation outline on [Topic, e.g. Renewable Energy Sources] with slide titles, concise bullet points, and key statistics.',
+      promptTe: '[టాపిక్ పేరు, ఉదా. సౌరశక్తి ఉపయోగాలు] పై స్లైడ్ శీర్షికలు, ముఖ్యమైన పాయింట్లు మరియు గణాంకాలతో కూడిన 8-స్లైడ్ల ప్రెజెంటేషన్ అవుట్‌లైన్ ఇవ్వండి.'
+    },
+    {
+      id: 'pres_canva',
+      tagEn: '🎨 Project Poster Layout (Canva)',
+      tagTe: '🎨 ప్రాజెక్ట్ పోస్టర్ లేఅవుట్ (Canva)',
+      promptEn: 'Suggest a professional color scheme, headline, 3-section layout, and design ideas for a college project exhibition poster about [Project Name].',
+      promptTe: '[ప్రాజెక్ట్ పేరు] సైన్స్ ఎగ్జిబిషన్ పోస్టర్ కోసం ఆకర్షణీయమైన రంగుల ఎంపిక, శీర్షిక మరియు 3-సెక్షన్ల డిజైన్ లేఅవుట్ సూచనలను ఇవ్వండి.'
+    },
+    {
+      id: 'pres_notes',
+      tagEn: '📊 Seminar Speech Notes',
+      tagTe: '📊 సెమినార్ ప్రసంగం నోట్స్',
+      promptEn: 'Write a 3-minute spoken presentation script in simple English explaining [Topic] for my college seminar with a strong opening and closing.',
+      promptTe: 'మా కాలేజ్ సెమినార్‌లో [టాపిక్] గురించి మాట్లాడటానికి 3 నిమిషాల ప్రసంగ నోట్స్ (ఆకర్షణీయమైన ప్రారంభం మరియు ముగింపుతో) రాయండి.'
+    }
+  ],
+  writing: [
+    {
+      id: 'write_essay',
+      tagEn: '✍️ Essay & Paragraph Drafter',
+      tagTe: '✍️ వ్యాస రచన & డ్రాఫ్టింగ్',
+      promptEn: 'Write a well-structured 250-word essay on [Topic, e.g. Water Conservation in Villages] with introduction, 3 body points, and conclusion.',
+      promptTe: '[టాపిక్ పేరు, ఉదా. గ్రామీణ ప్రాంతాల్లో నీటి సంరక్షణ] పై పరిచయం, 3 ముఖ్యమైన అంశాలు మరియు ముగింపుతో కూడిన 250 పదాల వ్యాసం రాయండి.'
+    },
+    {
+      id: 'write_letter',
+      tagEn: '📝 Formal Leave & Permission Letter',
+      tagTe: '📝 అధికారిక సెలవు లేఖ',
+      promptEn: 'Draft a polite formal letter to my college principal requesting 2 days leave for [Reason, e.g. brother marriage / illness], in proper English.',
+      promptTe: 'మా కాలేజ్ ప్రిన్సిపాల్‌కు [సెలవు కారణం] కొరకు 2 రోజుల సెలవు కోరుతూ మర్యాదపూర్వక అధికారిక ఇంగ్లీష్ దరఖాస్తు లేఖను రాయండి.'
+    },
+    {
+      id: 'write_quill',
+      tagEn: '🔍 Grammar & Sentence Polisher (QuillBot)',
+      tagTe: '🔍 ఇంగ్లీష్ గ్రామర్ & వాక్యాల దిద్దుబాటు (QuillBot)',
+      promptEn: 'Check the following English paragraph for grammar errors and rewrite it in a more professional academic tone: "[Paste your text here]".',
+      promptTe: 'ఈ క్రింది పేరాలోని ఇంగ్లీష్ వ్యాకరణ తప్పులను సరిచేసి, మరింత ప్రొఫెషనల్ మరియు స్పష్టమైన శైలిలో తిరిగి రాయండి: "[మీ వాక్యం ఇక్కడ పేస్ట్ చేయండి]".'
+    }
+  ],
+  coding: [
+    {
+      id: 'code_fix',
+      tagEn: '💻 Code Bug Fixer & Explainer',
+      tagTe: '💻 కోడ్ బగ్ ఫిక్సర్ & వివరణ',
+      promptEn: 'Find and fix the error in this [Python / C / Java] code, and explain in simple terms why it failed: [Paste code here].',
+      promptTe: 'ఈ క్రింది [Python / C / Java] కోడ్‌లోని లోపాన్ని కనుగొని సరిచేయండి, మరియు ఆ లోపం ఎందుకు జరిగిందో సరళంగా వివరించండి: [కోడ్ ఇక్కడ పేస్ట్ చేయండి].'
+    },
+    {
+      id: 'code_readme',
+      tagEn: '🐙 GitHub README Generator',
+      tagTe: '🐙 GitHub ప్రాజెక్ట్ README తయారీ',
+      promptEn: 'Write a clean professional README.md for a student project titled [Project Name] with project description, features, technologies used, and how to run it.',
+      promptTe: '[ప్రాజెక్ట్ పేరు] విద్యార్థి ప్రాజెక్ట్ కోసం వివరణ, ఫీచర్లు మరియు ఎలా రన్ చేయాలో తెలిపే ప్రొఫెషనల్ GitHub README.md ఫైల్ తయారు చేయండి.'
+    },
+    {
+      id: 'code_linkedin',
+      tagEn: '💼 LinkedIn Student Summary',
+      tagTe: '💼 లింక్డ్‌ఇన్ విద్యార్థి సమ్మరీ',
+      promptEn: 'Write a compelling 2-sentence LinkedIn bio for an enthusiastic student pursuing [10th / Diploma / B.Tech] who is learning coding and seeking opportunities.',
+      promptTe: 'కోడింగ్ నేర్చుకుంటున్న [10వ తరగతి / డిప్లొమా / బి.టెక్] విద్యార్థి కోసం ఆకర్షణీయమైన 2-లైన్ల లింక్డ్‌ఇన్ బయో మరియు హెడ్‌లైన్ రాయండి.'
+    }
+  ],
+  research: [
+    {
+      id: 'res_fact',
+      tagEn: '🔎 Verified Fact Finder (Perplexity)',
+      tagTe: '🔎 నమ్మదగిన సమాచార పరిశోధన (Perplexity)',
+      promptEn: 'What are the official eligibility criteria, mandatory documents, and deadline for [Scholarship / Exam Name] in Andhra Pradesh with verified sources?',
+      promptTe: 'ఆంధ్రప్రదేశ్‌లో [స్కాలర్‌షిప్ / పరీక్ష పేరు] కు సంబంధించిన అర్హతలు, కావాల్సిన ధృవపత్రాలు మరియు చివరి తేదీల అధికారిక సమాచారాన్ని ఆధారాలతో ఇవ్వండి.'
+    },
+    {
+      id: 'res_compare',
+      tagEn: '📊 Quick Topic Comparison',
+      tagTe: '📊 అంశాల మధ్య తేడాలు & పోలిక',
+      promptEn: 'Create a clear comparison table between [Topic A, e.g. B.Tech vs Diploma] showing duration, cost, job scope, and average starting salary in India.',
+      promptTe: '[టాపిక్ A, ఉదా. బి.టెక్ మరియు డిప్లొమా] మధ్య కాలపరిమితి, ఫీజులు, ఉద్యోగ అవకాశాలు మరియు ప్రారంభ జీతం తెలిపే స్పష్టమైన పోలిక పట్టిక ఇవ్వండి.'
+    },
+    {
+      id: 'res_career',
+      tagEn: '🎯 Career Roadmap Guidance',
+      tagTe: '🎯 కెరీర్ రోడ్‌మ్యాప్ గైడెన్స్',
+      promptEn: 'I completed [10th Class / Inter MPC / BiPC] with [75%] marks. What are the top 5 government and private career paths and entrance exams in Andhra Pradesh?',
+      promptTe: 'నేను [10వ తరగతి / ఇంటర్ MPC / BiPC] [75%] మార్కులతో పూర్తి చేసాను. ఆంధ్రప్రదేశ్‌లో నాకు అందుబాటులో ఉన్న ఉత్తమ 5 కెరీర్ మార్గాలు మరియు ప్రవేశ పరీక్షల వివరాలు ఇవ్వండి.'
+    }
+  ]
+};
 
-function renderStudentPrompts() {
+function renderStudentPrompts(activeGoalId = selectedAIGoal) {
   const container = document.getElementById('aiPromptsGrid');
   if (!container) return;
   const isTe = activeLanguage === 'te';
-  container.innerHTML = studentPrompts.map((p, idx) => {
+
+  const titleEl = document.querySelector('[data-i18n="ai_prompts_title"]');
+  const subEl = document.querySelector('[data-i18n="ai_prompts_sub"]');
+
+  let list = [];
+  if (activeGoalId && promptsByGoal[activeGoalId]) {
+    list = promptsByGoal[activeGoalId];
+    if (titleEl) {
+      const goalNamesEn = {
+        exam: '📖 Homework & Exam Doubts (ChatGPT & Gemini)',
+        presentation: '⚡ Presentations & Posters (Gamma & Canva)',
+        writing: '✍️ Essays & Grammar (QuillBot & ChatGPT)',
+        coding: '💻 Code & Profile (GitHub & LinkedIn)',
+        research: '🔎 Research & Verified Facts (Perplexity & Gemini)'
+      };
+      const goalNamesTe = {
+        exam: '📖 హోంవర్క్ & పరీక్షల సందేహాలు (ChatGPT & Gemini)',
+        presentation: '⚡ ప్రెజెంటేషన్లు & పోస్టర్లు (Gamma & Canva)',
+        writing: '✍️ వ్యాసాలు & గ్రామర్ (QuillBot & ChatGPT)',
+        coding: '💻 కోడింగ్ & ప్రొఫైల్ (GitHub & LinkedIn)',
+        research: '🔎 రీసెర్చ్ & ఆధారాలు (Perplexity & Gemini)'
+      };
+      titleEl.textContent = isTe ? `💡 ${goalNamesTe[activeGoalId]} ప్రాంప్ట్‌లు` : `💡 Prompts for ${goalNamesEn[activeGoalId]}`;
+    }
+    if (subEl) {
+      subEl.textContent = isTe
+        ? 'ఈ టాస్క్ కోసం ప్రత్యేకంగా రూపొందించిన ప్రాంప్ట్‌లు. కాపీ చేసి సాధనంలో పేస్ట్ చేయండి.'
+        : 'Tailored prompts for this task. Copy any prompt and paste it directly into the spotlighted tools above.';
+    }
+  } else {
+    // 5 diverse prompts (one for each topic)
+    list = [
+      promptsByGoal.exam[0],
+      promptsByGoal.presentation[0],
+      promptsByGoal.writing[0],
+      promptsByGoal.coding[0],
+      promptsByGoal.research[0]
+    ];
+    if (titleEl) {
+      titleEl.textContent = isTe ? '💡 విద్యార్థుల కోసం 5 ముఖ్యమైన స్టడీ ప్రాంప్ట్‌లు' : '💡 Ready-to-Use Student Prompts (5 Key Tasks)';
+    }
+    if (subEl) {
+      subEl.textContent = isTe
+        ? 'హోంవర్క్, ప్రెజెంటేషన్లు, వ్యాసాలు, కోడింగ్ మరియు రీసెర్చ్ కోసం 5 రకాల ప్రాంప్ట్‌లు. కాపీ చేసి ChatGPT లేదా Gemini లో వాడండి.'
+        : '5 ready-made prompts for homework, presentations, essays, coding, and research. Copy and paste directly into ChatGPT or Gemini.';
+    }
+  }
+
+  container.innerHTML = list.map((p, idx) => {
     const rawPrompt = isTe ? p.promptTe : p.promptEn;
     const formattedPrompt = rawPrompt.replace(/\[([^\]]+)\]/g, '<mark>[$1]</mark>');
     return `
