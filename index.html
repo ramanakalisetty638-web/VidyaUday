@@ -2821,12 +2821,19 @@ function enterSite() {
   }
 }
 
-// Register Service Worker for PWA / Offline Mode
+// Force clear ALL old caches and re-register service worker
 if ('serviceWorker' in navigator) {
-  window.addEventListener('load', () => {
+  window.addEventListener('load', async function() {
+    // Step 1: Unregister ALL old service workers
+    var regs = await navigator.serviceWorker.getRegistrations();
+    for (var r of regs) { await r.unregister(); }
+    // Step 2: Delete ALL old caches
+    var keys = await caches.keys();
+    for (var k of keys) { await caches.delete(k); }
+    // Step 3: Register fresh service worker
     navigator.serviceWorker.register('sw.js')
-      .then(reg => console.log('✅ VidyaUday SW registered:', reg.scope))
-      .catch(err => console.log('SW registration failed:', err));
+      .then(function(reg) { console.log('SW registered fresh:', reg.scope); })
+      .catch(function(err) { console.log('SW failed:', err); });
   });
 }
 </script>
