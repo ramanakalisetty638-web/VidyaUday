@@ -1,68 +1,90 @@
-// VidyaUday Service Worker v5 — Offline Mode
-const CACHE_NAME = 'vidyauday-v5';
+// VidyaUday Service Worker v6 — 100% Offline Capability
+const CACHE_NAME = 'vidyauday-v6';
 
-// Only cache LOCAL files (cross-origin fonts will be cached on first fetch)
 const CORE_URLS = [
+  './',
   './index.html',
   './manifest.json',
   './icon-192.png',
   './icon-512.png'
 ];
 
-// Install — cache core files
+// Install: Cache all core platform assets immediately
 self.addEventListener('install', event => {
   event.waitUntil(
     caches.open(CACHE_NAME).then(cache => {
-      console.log('[VidyaUday SW] Caching core files');
-      return cache.addAll(CORE_URLS);
+      console.log('[VidyaUday SW] Pre-caching core platform files');
+      return cache.addAll(CORE_URLS).catch(err => {
+        console.warn('[VidyaUday SW] Pre-cache partial warning:', err);
+      });
     })
   );
   self.skipWaiting();
 });
 
-// Activate — clean old caches
+// Activate: Clean up obsolete caches and claim clients
 self.addEventListener('activate', event => {
   event.waitUntil(
     caches.keys().then(keys =>
       Promise.all(
-        keys.filter(k => k !== CACHE_NAME).map(k => caches.delete(k))
+        keys.filter(k => k !== CACHE_NAME).map(k => {
+          console.log('[VidyaUday SW] Clearing old cache:', k);
+          return caches.delete(k);
+        })
       )
     )
   );
   self.clients.claim();
 });
 
-// Fetch — network first, fallback to cache
+// Fetch: Stale-While-Revalidate with full offline fallback
 self.addEventListener('fetch', event => {
   const url = new URL(event.request.url);
 
-  // Skip Gemini API calls — never cache those
+  // Skip Gemini API requests — offline fallback is handled client-side by Uday the Owl
   if (url.hostname.includes('generativelanguage.googleapis.com')) {
     return;
   }
 
-  // Skip non-GET requests
+  // Only handle GET requests
   if (event.request.method !== 'GET') return;
 
   event.respondWith(
-    fetch(event.request)
-      .then(response => {
-        // Cache successful responses for offline
-        if (response.ok) {
-          const clone = response.clone();
-          caches.open(CACHE_NAME).then(cache => cache.put(event.request, clone));
-        }
-        return response;
-      })
-      .catch(() => {
-        // Offline — serve from cache
-        return caches.match(event.request).then(cached => {
-          if (cached) return cached;
-          // For navigation, always return index.html
+    caches.match(event.request).then(cachedResponse => {
+      if (cachedResponse) {
+        // Fetch fresh copy in background to update cache
+        fetch(event.request)
+          .then(networkResponse => {
+            if (networkResponse && networkResponse.ok) {
+              caches.open(CACHE_NAME).then(cache => {
+                cache.put(event.request, networkResponse);
+              });
+            }
+          })
+          .catch(() => {
+            // Offline - served from cache successfully
+          });
+        return cachedResponse;
+      }
+
+      // If not yet cached, fetch from network and store for next offline visit
+      return fetch(event.request)
+        .then(networkResponse => {
+          if (networkResponse && networkResponse.ok) {
+            const clone = networkResponse.clone();
+            caches.open(CACHE_NAME).then(cache => {
+              cache.put(event.request, clone);
+            });
+          }
+          return networkResponse;
+        })
+        .catch(() => {
+          // If offline and request is navigation, return cached index.html
           if (event.request.mode === 'navigate') {
-            return caches.match('./index.html');
+            return caches.match('./index.html')
+              .then(res => res || caches.match('./'));
           }
         });
-      })
+    })
   );
 });
