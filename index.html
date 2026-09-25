@@ -292,15 +292,7 @@ section{padding:80px 5vw;position:relative;z-index:1;}
 .search-wrap input:focus{border-color:var(--saffron);}
 .search-wrap input::placeholder{color:var(--text3);}
 .search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:1.1rem;pointer-events:none;}
-.schol-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;transition:all 0.3s;display:flex;flex-direction:column;}
-.schol-card:hover{transform:translateY(-4px);border-color:rgba(29,185,84,0.3);}
-.schol-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
-.schol-icon{font-size:2rem;flex-shrink:0;}
-.schol-name{font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:4px;}
-.schol-cat{font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--leaf);}
-.schol-row{font-size:0.83rem;color:var(--text2);margin-bottom:8px;}
-.schol-row strong{color:var(--text);display:block;font-weight:600;margin-bottom:2px;}
-.deadline{color:#fb923c;font-weight:600;}
+/* Schol card styles consolidated below */
 
 /* CODING */
 .code-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:28px;transition:all 0.3s;}
@@ -564,7 +556,34 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 }
 
 
-/* ── SCHOLARSHIP FORM ── */
+/* ── SECTION 5: SCHOLARSHIPS HUB (10TH & INTER FOCUS) ── */
+.schol-view-container{animation:fadeIn 0.25s ease-in-out;}
+.schol-trust-banner{background:rgba(16,185,129,0.08);border:1.5px solid rgba(16,185,129,0.3);border-radius:14px;padding:16px 20px;display:flex;align-items:flex-start;gap:14px;margin-bottom:28px;font-size:0.86rem;color:#34d399;line-height:1.55;}
+.schol-trust-icon{font-size:1.6rem;flex-shrink:0;}
+.schol-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:16px;padding:22px;transition:all 0.28s;display:flex;flex-direction:column;gap:12px;position:relative;}
+.schol-card:hover{transform:translateY(-4px);border-color:var(--saffron);box-shadow:0 14px 35px rgba(0,0,0,0.35);}
+.schol-card.eligible{border-color:rgba(16,185,129,0.6);box-shadow:0 0 20px rgba(16,185,129,0.15);}
+.schol-header{display:flex;align-items:flex-start;gap:12px;}
+.schol-icon{font-size:2rem;flex-shrink:0;line-height:1;}
+.schol-name{font-family:var(--font-display);font-size:1.06rem;font-weight:700;color:var(--text);margin-bottom:4px;}
+.schol-cat-badge{font-size:0.7rem;font-weight:700;padding:2px 8px;border-radius:6px;letter-spacing:0.04em;text-transform:uppercase;display:inline-block;}
+.schol-cat-badge.state{background:rgba(255,107,43,0.15);color:var(--saffron-light);border:1px solid rgba(255,107,43,0.3);}
+.schol-cat-badge.central{background:rgba(56,189,248,0.15);color:#38bdf8;border:1px solid rgba(56,189,248,0.3);}
+.schol-cat-badge.corporate{background:rgba(168,85,247,0.15);color:#c084fc;border:1px solid rgba(168,85,247,0.3);}
+.schol-annual-badge{background:rgba(16,185,129,0.12);color:#34d399;font-size:0.68rem;font-weight:700;padding:2px 8px;border-radius:6px;border:1px solid rgba(16,185,129,0.25);margin-left:6px;}
+
+.schol-benefit-box{background:linear-gradient(135deg,rgba(16,185,129,0.12),rgba(59,130,246,0.08));border:1px solid rgba(16,185,129,0.3);border-radius:10px;padding:10px 14px;color:#34d399;font-family:var(--font-display);font-size:0.95rem;font-weight:700;display:flex;align-items:center;gap:8px;}
+.schol-elig-row{font-size:0.83rem;color:var(--text2);line-height:1.5;}
+.schol-source-tag{font-size:0.72rem;color:var(--text3);display:flex;align-items:center;gap:5px;background:var(--deep2);padding:4px 8px;border-radius:6px;border:1px solid var(--card-border);width:fit-content;}
+.schol-deadline-row{font-size:0.78rem;color:#fb923c;font-weight:600;display:flex;align-items:center;gap:6px;}
+
+.schol-btn-row{display:flex;gap:8px;margin-top:auto;flex-wrap:wrap;}
+.schol-apply-btn{flex:1;min-width:140px;display:inline-flex;align-items:center;justify-content:center;gap:6px;background:rgba(255,107,43,0.1);border:1px solid rgba(255,107,43,0.3);color:var(--saffron-light);font-family:var(--font-display);font-size:0.84rem;font-weight:600;padding:9px 14px;border-radius:8px;text-decoration:none;transition:all 0.2s;}
+.schol-apply-btn:hover{background:var(--saffron);color:#fff;box-shadow:0 4px 14px rgba(255,107,43,0.35);}
+.schol-yt-btn{display:inline-flex;align-items:center;gap:6px;background:rgba(255,0,0,0.12);border:1px solid rgba(255,0,0,0.3);color:#ff6b6b;font-size:0.82rem;font-weight:600;padding:9px 14px;border-radius:8px;text-decoration:none;transition:all 0.2s;}
+.schol-yt-btn:hover{background:#ff0000;color:#fff;}
+
+/* 30-SEC ELIGIBILITY CHECKER (VIEW 2) */
 .schol-form-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:20px;padding:32px;max-width:860px;margin:0 auto;}
 .schol-form-header{display:flex;align-items:center;gap:16px;margin-bottom:28px;padding-bottom:20px;border-bottom:1px solid var(--card-border);}
 .schol-form-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:24px;}
@@ -572,30 +591,34 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 .schol-field label{font-size:0.82rem;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:0.05em;}
 .schol-field input,.schol-field select{background:var(--deep2);border:1.5px solid var(--card-border);color:var(--text);font-family:var(--font-body);font-size:0.92rem;padding:11px 14px;border-radius:10px;outline:none;transition:border 0.2s;-webkit-appearance:none;appearance:none;}
 .schol-field input:focus,.schol-field select:focus{border-color:var(--saffron);}
-.schol-field input::placeholder{color:var(--text3);}
+.schol-gender-row{display:flex;gap:10px;margin-top:4px;}
+.schol-gender-btn{flex:1;background:var(--deep2);border:1.5px solid var(--card-border);color:var(--text2);font-family:var(--font-body);font-size:0.86rem;font-weight:600;padding:10px 14px;border-radius:10px;cursor:pointer;transition:all 0.2s;}
+.schol-gender-btn.active{background:rgba(255,107,43,0.15);border-color:var(--saffron);color:var(--saffron-light);}
 .schol-submit-btn{width:100%;background:var(--saffron);color:#fff;font-family:var(--font-display);font-size:1rem;font-weight:700;padding:14px;border-radius:12px;border:none;cursor:pointer;transition:all 0.25s;display:flex;align-items:center;justify-content:center;gap:8px;}
 .schol-submit-btn:hover{background:var(--saffron-light);transform:translateY(-2px);box-shadow:0 8px 24px rgba(255,107,43,0.4);}
-.schol-profile-bar{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:28px;flex-wrap:wrap;gap:12px;}
+
+.schol-eligible-banner{background:linear-gradient(135deg,rgba(16,185,129,0.15),rgba(255,107,43,0.1));border:1.5px solid rgba(16,185,129,0.4);border-radius:14px;padding:18px 24px;text-align:center;font-size:1.05rem;color:#34d399;font-weight:700;margin-bottom:28px;}
+.schol-profile-bar{background:var(--card);border:1px solid var(--card-border);border-radius:14px;padding:16px 22px;display:flex;align-items:center;justify-content:space-between;margin-bottom:24px;flex-wrap:wrap;gap:12px;}
 .schol-profile-info{display:flex;align-items:center;gap:8px;flex-wrap:wrap;}
 .schol-profile-tag{background:rgba(255,107,43,0.12);color:var(--saffron-light);font-size:0.78rem;font-weight:600;padding:4px 12px;border-radius:100px;}
 .schol-edit-btn{background:transparent;border:1.5px solid var(--card-border);color:var(--text2);font-family:var(--font-body);font-size:0.82rem;font-weight:600;padding:8px 16px;border-radius:8px;cursor:pointer;transition:all 0.2s;}
 .schol-edit-btn:hover{border-color:var(--saffron);color:var(--saffron);}
-.schol-results-title{font-family:var(--font-display);font-size:1.15rem;font-weight:700;margin-bottom:20px;}
-.schol-card{background:var(--card);border:1px solid var(--card-border);border-radius:var(--radius);padding:24px;transition:all 0.3s;display:flex;flex-direction:column;}
-.schol-card:hover{transform:translateY(-4px);}
-.schol-card.eligible{border-color:rgba(29,185,84,0.5);box-shadow:0 0 0 1px rgba(29,185,84,0.2);}
-.schol-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:14px;}
-.schol-icon{font-size:2rem;flex-shrink:0;}
-.schol-name{font-family:var(--font-display);font-size:1rem;font-weight:700;margin-bottom:4px;}
-.schol-cat{font-size:0.72rem;font-weight:600;text-transform:uppercase;letter-spacing:0.06em;color:var(--leaf);}
-.schol-row{font-size:0.83rem;color:var(--text2);margin-bottom:8px;}
-.schol-row strong{color:var(--text);display:block;font-weight:600;margin-bottom:2px;}
-.deadline{color:#fb923c;font-weight:600;}
-.search-wrap{position:relative;max-width:480px;margin-bottom:32px;}
-.search-wrap input{width:100%;background:var(--deep2);border:1.5px solid var(--card-border);color:var(--text);font-family:var(--font-body);font-size:0.95rem;padding:12px 16px 12px 44px;border-radius:12px;outline:none;transition:border 0.2s;}
-.search-wrap input:focus{border-color:var(--saffron);}
-.search-wrap input::placeholder{color:var(--text3);}
-.search-icon{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:var(--text3);font-size:1.1rem;pointer-events:none;}
+
+/* DOCUMENTS & PORTALS GUIDE (VIEW 3) */
+.schol-guide-section{margin-bottom:36px;}
+.schol-guide-title{font-family:var(--font-display);font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.schol-docs-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+.schol-doc-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:14px;padding:20px;display:flex;gap:14px;transition:all 0.25s;}
+.schol-doc-card:hover{border-color:var(--sky);box-shadow:0 8px 24px rgba(0,0,0,0.25);}
+.schol-doc-icon{font-size:2rem;line-height:1;}
+.schol-doc-name{font-family:var(--font-display);font-size:0.98rem;font-weight:700;color:var(--text);margin-bottom:4px;}
+.schol-doc-desc{font-size:0.82rem;color:var(--text2);line-height:1.45;}
+.schol-timeline-steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;}
+.schol-step-card{background:var(--card);border:1.5px solid var(--card-border);border-radius:14px;padding:20px;position:relative;}
+.schol-step-num{position:absolute;top:14px;right:14px;background:rgba(255,107,43,0.15);color:var(--saffron-light);font-size:0.75rem;font-weight:800;padding:2px 8px;border-radius:6px;}
+.schol-step-months{font-size:0.78rem;color:#fb923c;font-weight:700;text-transform:uppercase;margin-bottom:6px;}
+.schol-step-title{font-family:var(--font-display);font-size:0.95rem;font-weight:700;color:var(--text);margin-bottom:4px;}
+.schol-step-desc{font-size:0.8rem;color:var(--text2);line-height:1.45;}
 @media(max-width:600px){.schol-form-grid{grid-template-columns:1fr;}}
 
 /* ═══════════════════════════════════════ */
@@ -1070,102 +1093,118 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <section id="scholarships" class="bg-alt">
   <div class="max-w">
     <div class="section-tag" data-i18n="schol_tag">Scholarships</div>
-    <h2 class="section-title" data-i18n="schol_title">Find Scholarships You Qualify For</h2>
-    <p class="section-sub" data-i18n="schol_sub">Enter your details once — we'll show only the scholarships you are eligible for.</p>
+    <h2 class="section-title" data-i18n="schol_title">10th & Intermediate Scholarships Hub</h2>
+    <p class="section-sub" data-i18n="schol_sub">Verified government schemes, instant eligibility check, and essential document guides.</p>
 
-    <!-- PROFILE FORM -->
-    <div id="scholProfileForm">
-      <div class="schol-form-card">
-        <div class="schol-form-header">
-          <span style="font-size:2rem;">🏆</span>
-          <div>
-            <div style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;" data-i18n="sf_header_title">Tell Us About Yourself</div>
-            <div style="font-size:0.82rem;color:var(--text2);margin-top:3px;" data-i18n="sf_header_sub">We'll match you with scholarships you can actually apply for</div>
-          </div>
-        </div>
-        <div class="schol-form-grid">
-          <div class="schol-field">
-            <label data-i18n="sf_lbl_name">Your Name</label>
-            <input type="text" id="sf_name" placeholder="Enter your name" data-i18n-placeholder="sf_pl_name">
-          </div>
-          <div class="schol-field">
-            <label data-i18n="sf_lbl_age">Your Age</label>
-            <input type="number" id="sf_age" placeholder="Enter your age" min="10" max="40" data-i18n-placeholder="sf_pl_age">
-          </div>
-          <div class="schol-field">
-            <label data-i18n="sf_lbl_class">Current Education</label>
-            <select id="sf_class">
-              <option value="" data-i18n="sf_opt_class">Select your class</option>
-              <option value="9" data-i18n="sf_opt_c9">Class 9</option>
-              <option value="10" data-i18n="sf_opt_c10">Class 10 (SSC)</option>
-              <option value="inter1" data-i18n="sf_opt_ci1">Intermediate 1st Year</option>
-              <option value="inter2" data-i18n="sf_opt_ci2">Intermediate 2nd Year</option>
-              <option value="degree" data-i18n="sf_opt_cdeg">Degree / B.Tech / Engineering</option>
-              <option value="pg" data-i18n="sf_opt_cpg">Post Graduation</option>
-            </select>
-          </div>
-          <div class="schol-field">
-            <label data-i18n="sf_lbl_caste">Caste Category</label>
-            <select id="sf_caste">
-              <option value="" data-i18n="sf_opt_caste">Select category</option>
-              <option value="sc" data-i18n="sf_opt_csc">SC (Scheduled Caste)</option>
-              <option value="st" data-i18n="sf_opt_cst">ST (Scheduled Tribe)</option>
-              <option value="obc" data-i18n="sf_opt_cobc">OBC (Other Backward Class)</option>
-              <option value="minority" data-i18n="sf_opt_cmin">Minority (Muslim/Christian/Sikh/Buddhist/Jain)</option>
-              <option value="general" data-i18n="sf_opt_cgen">General / Open Category</option>
-            </select>
-          </div>
-          <div class="schol-field">
-            <label data-i18n="sf_lbl_gender">Gender</label>
-            <select id="sf_gender">
-              <option value="" data-i18n="sf_opt_gender">Select gender</option>
-              <option value="female" data-i18n="sf_opt_gfem">Female</option>
-              <option value="male" data-i18n="sf_opt_gmale">Male</option>
-              <option value="other" data-i18n="sf_opt_goth">Other</option>
-            </select>
-          </div>
-          <div class="schol-field">
-            <label data-i18n="sf_lbl_income">Family Annual Income</label>
-            <select id="sf_income">
-              <option value="" data-i18n="sf_opt_income">Select income range</option>
-              <option value="below1" data-i18n="sf_opt_inc1">Below ₹1 Lakh</option>
-              <option value="1to2.5" data-i18n="sf_opt_inc2">₹1 Lakh – ₹2.5 Lakh</option>
-              <option value="2.5to8" data-i18n="sf_opt_inc3">₹2.5 Lakh – ₹8 Lakh</option>
-              <option value="above8" data-i18n="sf_opt_inc4">Above ₹8 Lakh</option>
-            </select>
-          </div>
-          <div class="schol-field">
-            <label data-i18n="sf_lbl_state">State</label>
-            <select id="sf_state">
-              <option value="" data-i18n="sf_opt_state">Select state</option>
-              <option value="ap" data-i18n="sf_opt_sap">Andhra Pradesh</option>
-              <option value="ts" data-i18n="sf_opt_sts">Telangana</option>
-              <option value="other" data-i18n="sf_opt_soth">Other State</option>
-            </select>
-          </div>
-        </div>
-        <button class="schol-submit-btn" onclick="submitScholProfile()" data-i18n="sf_btn_submit">
-          🔍 Find My Scholarships
+    <!-- SOURCE TRANSPARENCY TRUST BANNER -->
+    <div class="schol-trust-banner">
+      <span class="schol-trust-icon">🛡️</span>
+      <div id="scholTrustText">
+        <strong>Verified Government Schemes (Academic Year 2024–25):</strong> All eligibility criteria are curated from official Government Gazettes and DBT Portals (National Scholarship Portal, AP Jnanabhumi, TS ePASS, AICTE). All application links redirect strictly to official <code>.gov.in</code> websites.
+      </div>
+    </div>
+
+    <!-- EXCLUSIVE VIEW SWITCHER -->
+    <div class="c-mode-switcher-wrap">
+      <div class="c-mode-switcher">
+        <button class="c-mode-btn active" id="scholTabHub" onclick="switchScholView('hub')">
+          <span>🏆</span> <span id="lblScholTabHub">Top Scholarships Hub</span>
+        </button>
+        <button class="c-mode-btn" id="scholTabChecker" onclick="switchScholView('checker')">
+          <span>🎯</span> <span id="lblScholTabChecker">30-Sec Eligibility Checker</span>
+        </button>
+        <button class="c-mode-btn" id="scholTabGuide" onclick="switchScholView('guide')">
+          <span>📋</span> <span id="lblScholTabGuide">Documents & Portals Guide</span>
         </button>
       </div>
     </div>
 
-    <!-- RESULTS SECTION -->
-    <div id="scholResults" style="display:none;">
-      <div class="schol-profile-bar" id="scholProfileBar"></div>
-      <div id="scholEligibleSection">
-        <h3 class="schol-results-title" id="scholResultsTitle"></h3>
-        <div class="cards-grid" id="scholarshipGrid"></div>
-        <p id="scholNoResult" style="display:none;color:var(--text3);text-align:center;padding:40px;font-size:1rem;" data-i18n="schol_no_result">No scholarships match your profile right now. But check back — new schemes are added regularly!</p>
-      </div>
-      <div style="margin-top:32px;padding-top:24px;border-top:1px solid var(--card-border);">
-        <p style="font-size:0.85rem;color:var(--text3);margin-bottom:16px;" data-i18n="schol_other_ref">Showing all other scholarships for reference:</p>
-        <div class="search-wrap" style="max-width:400px;margin-bottom:20px;">
-          <span class="search-icon">🔍</span>
-          <input type="text" id="scholSearch" placeholder="Search all scholarships..." oninput="filterScholarships()" data-i18n-placeholder="schol_search_placeholder">
+    <!-- VIEW 1: TOP SCHOLARSHIPS HUB (Active by default) -->
+    <div id="scholViewHub" class="schol-view-container">
+      <div class="filter-row" id="scholFilters"></div>
+      <div class="cards-grid" id="scholHubGrid" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr));"></div>
+    </div>
+
+    <!-- VIEW 2: 30-SEC ELIGIBILITY CHECKER (Hidden by default) -->
+    <div id="scholViewChecker" class="schol-view-container" style="display:none;">
+      <!-- Interactive 4-Question Wizard -->
+      <div id="scholCheckerForm">
+        <div class="schol-form-card">
+          <div class="schol-form-header">
+            <span style="font-size:2rem;">🎯</span>
+            <div>
+              <div style="font-family:var(--font-display);font-size:1.15rem;font-weight:700;" id="sfCheckerTitle">Quick 30-Second Eligibility Matcher</div>
+              <div style="font-size:0.84rem;color:var(--text2);margin-top:3px;" id="sfCheckerSub">Select your basic details to instantly see every scholarship you can legally apply for</div>
+            </div>
+          </div>
+          <div class="schol-form-grid">
+            <div class="schol-field">
+              <label id="sfLblClass">Current Education</label>
+              <select id="sf_class">
+                <option value="10">Class 10 (SSC)</option>
+                <option value="9">Class 9 (Pre-Matric)</option>
+                <option value="inter1">Intermediate 1st Year (+1)</option>
+                <option value="inter2">Intermediate 2nd Year (+2)</option>
+                <option value="degree">Polytechnic / Degree / B.Tech</option>
+              </select>
+            </div>
+            <div class="schol-field">
+              <label id="sfLblState">State</label>
+              <select id="sf_state">
+                <option value="ap">Andhra Pradesh</option>
+                <option value="ts">Telangana</option>
+                <option value="other">Other State (Central Schemes)</option>
+              </select>
+            </div>
+            <div class="schol-field">
+              <label id="sfLblCaste">Social Category / Caste</label>
+              <select id="sf_caste">
+                <option value="sc">SC (Scheduled Caste)</option>
+                <option value="st">ST (Scheduled Tribe)</option>
+                <option value="obc">BC / OBC (Backward Class)</option>
+                <option value="minority">Minority (Muslim/Christian/etc.)</option>
+                <option value="general">General / OC / EWS</option>
+              </select>
+            </div>
+            <div class="schol-field">
+              <label id="sfLblIncome">Annual Family Income</label>
+              <select id="sf_income">
+                <option value="below1">Below ₹1 Lakh / White Ration Card</option>
+                <option value="1to2.5" selected>₹1 Lakh – ₹2.5 Lakh</option>
+                <option value="2.5to8">₹2.5 Lakh – ₹8 Lakh</option>
+                <option value="above8">Above ₹8 Lakh</option>
+              </select>
+            </div>
+            <div class="schol-field" style="grid-column:1/-1;">
+              <label id="sfLblGender">Gender</label>
+              <div class="schol-gender-row">
+                <button type="button" class="schol-gender-btn active" id="btnGenderAll" onclick="setCheckerGender('all')">👨‍🎓 All / Male</button>
+                <button type="button" class="schol-gender-btn" id="btnGenderFemale" onclick="setCheckerGender('female')">👩‍🎓 Female (Girls Only Schemes)</button>
+              </div>
+            </div>
+          </div>
+          <button class="schol-submit-btn" onclick="runEligibilityChecker()">
+            🔍 Find My Matching Scholarships
+          </button>
         </div>
-        <div class="cards-grid" id="scholarshipGridAll"></div>
       </div>
+
+      <!-- Checker Results Bar & Grid -->
+      <div id="scholCheckerResults" style="display:none;">
+        <div class="schol-profile-bar" id="scholProfileBar"></div>
+        <div id="scholEligibleCountBanner" class="schol-eligible-banner"></div>
+        <div class="cards-grid" id="scholCheckerGrid" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr));"></div>
+        <div style="text-align:center;margin-top:28px;">
+          <button class="schol-edit-btn" onclick="resetEligibilityChecker()" style="font-size:0.92rem;padding:10px 24px;">
+            ↺ Change Answers & Check Again
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- VIEW 3: DOCUMENTS & PORTALS GUIDE (Hidden by default) -->
+    <div id="scholViewGuide" class="schol-view-container" style="display:none;">
+      <div id="scholGuideContent"></div>
     </div>
 
   </div>
@@ -4040,172 +4079,411 @@ function handleSubjectSearch(val) {
 }
 
 // ═══════════════════════════════════════════
-// RENDER SCHOLARSHIPS
+// SECTION 5: SCHOLARSHIPS SYSTEM (EXCLUSIVE VIEWS)
 // ═══════════════════════════════════════════
-// ═══════════════════════════════════════════
-// SCHOLARSHIP ELIGIBILITY SYSTEM
-// ═══════════════════════════════════════════
+let currentScholView = 'hub';
+let currentScholFilter = 'all';
+let checkerGender = 'all';
+let lastCheckerProfile = null;
 
-// Generic eligibility filter engine
+const officialSourcesMap = {
+  "AP Jagananna Vidya Deevena": { en: "AP Jnanabhumi (G.O. Ms. No. 77)", te: "AP జ్ఞానభూమి (G.O. Ms. No. 77)" },
+  "AP జగనన్న విద్యా దీవెన": { en: "AP Jnanabhumi (G.O. Ms. No. 77)", te: "AP జ్ఞానభూమి (G.O. Ms. No. 77)" },
+  "AP Jagananna Vasathi Deevena": { en: "AP Social Welfare (G.O. Ms. No. 115)", te: "AP సాంఘిక సంక్షేమం (G.O. Ms. 115)" },
+  "AP జగనన్న వసతి దీవెన": { en: "AP Social Welfare (G.O. Ms. No. 115)", te: "AP సాంఘిక సంక్షేమం (G.O. Ms. 115)" },
+  "Telangana ePASS Post-Matric": { en: "TS ePASS (Centre for Good Governance)", te: "తెలంగాణ ePASS (CGG పోర్టల్)" },
+  "తెలంగాణ ePASS పోస్ట్-మెట్రిక్": { en: "TS ePASS (Centre for Good Governance)", te: "తెలంగాణ ePASS (CGG పోర్టల్)" },
+  "Telangana ePASS Pre-Matric": { en: "TS Welfare Dept (ePASS Portal)", te: "TS సంక్షేమ శాఖ (ePASS)" },
+  "తెలంగాణ ePASS ప్రీ-మెట్రిక్": { en: "TS Welfare Dept (ePASS Portal)", te: "TS సంక్షేమ శాఖ (ePASS)" },
+  "AP Pre-Matric Scholarship": { en: "AP Social Welfare (Jnanabhumi)", te: "AP సాంఘిక సంక్షేమం (జ్ఞానభూమి)" },
+  "AP ప్రీ-మెట్రిక్ స్కాలర్‌షిప్": { en: "AP Social Welfare (Jnanabhumi)", te: "AP సాంఘిక సంక్షేమం (జ్ఞానభూమి)" },
+  "NMMS (National Means-cum-Merit)": { en: "Ministry of Education / NCERT", te: "విద్యా మంత్రిత్వ శాఖ / NCERT" },
+  "NMMS (జాతీయ మెరిట్ స్కాలర్‌షిప్)": { en: "Ministry of Education / NCERT", te: "విద్యా మంత్రిత్వ శాఖ / NCERT" },
+  "Central Sector Scheme (PM-USP CSSS)": { en: "Higher Education Dept / NSP", te: "ఉన్నత విద్యా శాఖ / NSP పోర్టల్" },
+  "సెంట్రల్ సెక్టార్ స్కీమ్ (PM-USP CSSS)": { en: "Higher Education Dept / NSP", te: "ఉన్నత విద్యా శాఖ / NSP పోర్టల్" },
+  "AICTE Pragati for Girls": { en: "AICTE India (aicte-india.org)", te: "AICTE ఇండియా (aicte-india.org)" },
+  "AICTE ప్రగతి (అమ్మాయిలకు)": { en: "AICTE India (aicte-india.org)", te: "AICTE ఇండియా (aicte-india.org)" },
+  "AICTE Saksham (Disabled Students)": { en: "AICTE India / NSP Portal", te: "AICTE ఇండియా / NSP పోర్టల్" },
+  "AICTE సక్షమ్ (దివ్యాంగులకు)": { en: "AICTE India / NSP Portal", te: "AICTE ఇండియా / NSP పోర్టల్" },
+  "INSPIRE Scholarship (SHE)": { en: "Dept of Science & Tech (online-inspire)", te: "సైన్స్ & టెక్నాలజీ విభాగం (DST)" },
+  "INSPIRE స్కాలర్‌షిప్ (SHE)": { en: "Dept of Science & Tech (online-inspire)", te: "సైన్స్ & టెక్నాలజీ విభాగం (DST)" },
+  "Begum Hazrat Mahal (Minority Girls)": { en: "Ministry of Minority Affairs / NSP", te: "మైనారిటీ వ్యవహారాల మంత్రిత్వ శాఖ" },
+  "బేగం హజ్రత్ మహల్ (మైనారిటీ అమ్మాయిలు)": { en: "Ministry of Minority Affairs / NSP", te: "మైనారిటీ వ్యవహారాల మంత్రిత్వ శాఖ" },
+  "Post-Matric Scholarship for SC": { en: "MoSJE / NSP (scholarships.gov.in)", te: "సామాజిక న్యాయ మంత్రిత్వ శాఖ / NSP" },
+  "పోస్ట్-మెట్రిక్ స్కాలర్‌షిప్ SC": { en: "MoSJE / NSP (scholarships.gov.in)", te: "సామాజిక న్యాయ మంత్రిత్వ శాఖ / NSP" },
+  "Post-Matric Scholarship for ST": { en: "Ministry of Tribal Affairs / NSP", te: "గిరిజన వ్యవహారాల మంత్రిత్వ శాఖ" },
+  "పోస్ట్-మెట్రిక్ స్కాలర్‌షిప్ ST": { en: "Ministry of Tribal Affairs / NSP", te: "గిరిజన వ్యవహారాల మంత్రిత్వ శాఖ" },
+  "PM YASASVI Post-Matric (OBC/EBC)": { en: "Ministry of Social Justice (NSP)", te: "సామాజిక న్యాయ మంత్రిత్వ శాఖ (NSP)" },
+  "PM YASASVI పోస్ట్-మెట్రిక్ (OBC/EBC)": { en: "Ministry of Social Justice (NSP)", te: "సామాజిక న్యాయ మంత్రిత్వ శాఖ (NSP)" },
+  "PM YASASVI Pre-Matric (OBC/EBC)": { en: "Ministry of Social Justice (NSP)", te: "సామాజిక న్యాయ మంత్రిత్వ శాఖ (NSP)" },
+  "PM YASASVI ప్రీ-మెట్రిక్ (OBC/EBC)": { en: "Ministry of Social Justice (NSP)", te: "సామాజిక న్యాయ మంత్రిత్వ శాఖ (NSP)" },
+  "Vidyasaarathi (Corporate CSR)": { en: "NSDL e-Gov CSR (vidyasaarathi.co.in)", te: "NSDL e-గవర్నెన్స్ CSR పోర్టల్" },
+  "విద్యాసారథి (కార్పొరేట్ CSR)": { en: "NSDL e-Gov CSR (vidyasaarathi.co.in)", te: "NSDL e-గవర్నెన్స్ CSR పోర్టల్" },
+  "HDFC Parivartan ECSS": { en: "HDFC Bank Parivartan CSR Initiative", te: "HDFC బ్యాంక్ పరివర్తన్ CSR" },
+  "HDFC పరివర్తన్ ECSS": { en: "HDFC Bank Parivartan CSR Initiative", te: "HDFC బ్యాంక్ పరివర్తన్ CSR" },
+  "Reliance Foundation UG Scholarship": { en: "Reliance Foundation Education", te: "రిలయన్స్ ఫౌండేషన్ ఎడ్యుకేషన్" },
+  "రిలయన్స్ ఫౌండేషన్ UG స్కాలర్‌షిప్": { en: "Reliance Foundation Education", te: "రిలయన్స్ ఫౌండేషన్ ఎడ్యుకేషన్" },
+  "Kotak Kanya Scholarship (Girls)": { en: "Kotak Education Foundation", te: "కోటక్ ఎడ్యుకేషన్ ఫౌండేషన్" },
+  "కోటక్ కన్య స్కాలర్‌షిప్ (అమ్మాయిలు)": { en: "Kotak Education Foundation", te: "కోటక్ ఎడ్యుకేషన్ ఫౌండేషన్" },
+  "Jagannath Scholarship (AP Minorities)": { en: "AP Minorities Finance Corp (apsmfc)", te: "AP రాష్ట్ర మైనారిటీల కార్పొరేషన్" },
+  "జగన్నాథ్ స్కాలర్‌షిప్ (AP మైనారిటీలు)": { en: "AP Minorities Finance Corp (apsmfc)", te: "AP రాష్ట్ర మైనారిటీల కార్పొరేషన్" }
+};
+
+function switchScholView(mode) {
+  currentScholView = mode;
+  const isTe = activeLanguage === 'te';
+
+  const tabH = document.getElementById('scholTabHub');
+  const tabC = document.getElementById('scholTabChecker');
+  const tabG = document.getElementById('scholTabGuide');
+  if (tabH) tabH.classList.toggle('active', mode === 'hub');
+  if (tabC) tabC.classList.toggle('active', mode === 'checker');
+  if (tabG) tabG.classList.toggle('active', mode === 'guide');
+
+  const viewH = document.getElementById('scholViewHub');
+  const viewC = document.getElementById('scholViewChecker');
+  const viewG = document.getElementById('scholViewGuide');
+  if (viewH) viewH.style.display = mode === 'hub' ? 'block' : 'none';
+  if (viewC) viewC.style.display = mode === 'checker' ? 'block' : 'none';
+  if (viewG) viewG.style.display = mode === 'guide' ? 'block' : 'none';
+
+  if (mode === 'hub') {
+    renderScholarshipHub(currentScholFilter);
+  } else if (mode === 'checker') {
+    if (lastCheckerProfile) {
+      renderCheckerResults(lastCheckerProfile);
+    } else {
+      const cForm = document.getElementById('scholCheckerForm');
+      const cRes = document.getElementById('scholCheckerResults');
+      if (cForm) cForm.style.display = 'block';
+      if (cRes) cRes.style.display = 'none';
+    }
+  } else if (mode === 'guide') {
+    renderScholarshipGuide();
+  }
+}
+
+const scholFilterKeys = [
+  { id: "all", en: "All Schemes", te: "అన్ని పథకాలు" },
+  { id: "10th", en: "10th SSC (Pre-Matric)", te: "10వ SSC (ప్రీ-మెట్రిక్)" },
+  { id: "inter", en: "Intermediate (+2)", te: "ఇంటర్మీడియట్ (+2)" },
+  { id: "ap", en: "Andhra Pradesh", te: "ఆంధ్రప్రదేశ్" },
+  { id: "ts", en: "Telangana", te: "తెలంగాణ" },
+  { id: "central", en: "Central Govt", te: "కేంద్ర ప్రభుత్వం" },
+  { id: "female", en: "Girls Only", te: "అమ్మాయిలకు మాత్రమే" }
+];
+
+function renderScholarshipHub(filter) {
+  currentScholFilter = filter || 'all';
+  const isTe = activeLanguage === 'te';
+
+  const filtersEl = document.getElementById('scholFilters');
+  if (filtersEl) {
+    filtersEl.innerHTML = scholFilterKeys.map(k => {
+      const active = k.id === currentScholFilter ? 'active' : '';
+      const label = isTe ? k.te : k.en;
+      return `<button class="filter-btn ${active}" onclick="renderScholarshipHub('${k.id}')">${label}</button>`;
+    }).join('');
+  }
+
+  let data = scholarships;
+  if (currentScholFilter === '10th') {
+    data = data.filter(s => s.eligRules && (s.eligRules.classes.includes('9') || s.eligRules.classes.includes('10')));
+  } else if (currentScholFilter === 'inter') {
+    data = data.filter(s => s.eligRules && (s.eligRules.classes.includes('inter1') || s.eligRules.classes.includes('inter2')));
+  } else if (currentScholFilter === 'ap') {
+    data = data.filter(s => s.eligRules && s.eligRules.states.includes('ap'));
+  } else if (currentScholFilter === 'ts') {
+    data = data.filter(s => s.eligRules && s.eligRules.states.includes('ts'));
+  } else if (currentScholFilter === 'central') {
+    data = data.filter(s => (s.cat || '').toLowerCase().includes('central') || (s.cat || '').includes('కేంద్ర'));
+  } else if (currentScholFilter === 'female') {
+    data = data.filter(s => s.eligRules && s.eligRules.gender === 'female');
+  }
+
+  const grid = document.getElementById('scholHubGrid');
+  if (grid) {
+    grid.innerHTML = data.map(s => scholCard(s, false)).join('');
+  }
+  observeFadeIns();
+}
+
+function setCheckerGender(val) {
+  checkerGender = val;
+  const btnAll = document.getElementById('btnGenderAll');
+  const btnFem = document.getElementById('btnGenderFemale');
+  if (btnAll) btnAll.classList.toggle('active', val === 'all');
+  if (btnFem) btnFem.classList.toggle('active', val === 'female');
+}
+
 const incomeOrder = ['below1','1to2.5','2.5to8','above8'];
 function isScholarshipEligible(s, profile) {
   const r = s.eligRules;
   if (!r) return false;
-  // Caste check
   if (!r.castes.includes(profile.caste) && !r.castes.includes('general')) return false;
-  // Gender check
-  if (r.gender !== 'all' && r.gender !== profile.gender) return false;
-  // Class check
+  if (r.gender !== 'all' && profile.gender !== 'female' && r.gender === 'female') return false;
   if (!r.classes.includes(profile.class)) return false;
-  // Income check (student's income must be ≤ scholarship's max)
   const studentIdx = incomeOrder.indexOf(profile.income);
   const maxIdx = incomeOrder.indexOf(r.incomeMax);
   if (studentIdx > maxIdx) return false;
-  // State check
   if (!r.states.includes(profile.state) && !r.states.includes('other')) return false;
-  // Age check (if scholarship has age limits)
-  if (r.minAge && profile.age && profile.age < r.minAge) return false;
-  if (r.maxAge && profile.age && profile.age > r.maxAge) return false;
   return true;
 }
 
-function submitScholProfile() {
-  const name   = document.getElementById('sf_name').value.trim();
-  const age    = parseInt(document.getElementById('sf_age').value) || null;
-  const cls    = document.getElementById('sf_class').value;
-  const caste  = document.getElementById('sf_caste').value;
-  const gender = document.getElementById('sf_gender').value;
+function runEligibilityChecker() {
+  const cls = document.getElementById('sf_class').value;
+  const state = document.getElementById('sf_state').value;
+  const caste = document.getElementById('sf_caste').value;
   const income = document.getElementById('sf_income').value;
-  const state  = document.getElementById('sf_state').value;
+  const gender = checkerGender;
 
-  if (!cls || !caste || !gender || !income || !state) {
-    alert('Please fill in all fields to find your matching scholarships!');
-    return;
-  }
-
-  const profile = { name, age, class: cls, caste, gender, income, state };
-
-  // Save to localStorage
+  const profile = { class: cls, state, caste, income, gender };
+  lastCheckerProfile = profile;
   localStorage.setItem('vidyauday_schol_profile', JSON.stringify(profile));
 
-  showScholResults(profile);
+  renderCheckerResults(profile);
 }
 
-function showScholResults(profile) {
-  // Hide form, show results
-  document.getElementById('scholProfileForm').style.display = 'none';
-  document.getElementById('scholResults').style.display    = 'block';
+function renderCheckerResults(profile) {
+  const cForm = document.getElementById('scholCheckerForm');
+  const cRes = document.getElementById('scholCheckerResults');
+  if (cForm) cForm.style.display = 'none';
+  if (cRes) cRes.style.display = 'block';
 
-  // Profile bar
+  const isTe = activeLanguage === 'te';
   const classMap = {
-    '9':'Class 9','10':'Class 10','inter1':'Inter 1st Yr',
-    'inter2':'Inter 2nd Yr','degree':'Degree/B.Tech','pg':'Post Graduation'
+    '9': isTe ? '9వ తరగతి' : 'Class 9',
+    '10': isTe ? '10వ తరగతి (SSC)' : 'Class 10 (SSC)',
+    'inter1': isTe ? 'ఇంటర్ 1st ఇయర్' : 'Inter 1st Yr',
+    'inter2': isTe ? 'ఇంటర్ 2nd ఇయర్' : 'Inter 2nd Yr',
+    'degree': isTe ? 'డిప్లొమా / డిగ్రీ / B.Tech' : 'Degree / B.Tech'
   };
-  const casteMap = {sc:'SC',st:'ST',obc:'OBC',minority:'Minority',general:'General'};
-  const incMap   = {
-    'below1':'< ₹1L','1to2.5':'₹1L–₹2.5L',
-    '2.5to8':'₹2.5L–₹8L','above8':'> ₹8L'
+  const casteMap = {
+    sc: 'SC', st: 'ST', obc: isTe ? 'BC / OBC' : 'BC / OBC',
+    minority: isTe ? 'మైనారిటీ' : 'Minority', general: isTe ? 'జనరల్ / OC' : 'General'
   };
-  const stateMap = {ap:'Andhra Pradesh',ts:'Telangana',other:'Other State'};
+  const incMap = {
+    'below1': isTe ? '< ₹1 లక్ష' : '< ₹1 Lakh',
+    '1to2.5': isTe ? '₹1L – ₹2.5L' : '₹1L – ₹2.5L',
+    '2.5to8': isTe ? '₹2.5L – ₹8L' : '₹2.5L – ₹8L',
+    'above8': isTe ? '> ₹8L' : '> ₹8L'
+  };
+  const stateMap = {
+    ap: isTe ? 'ఆంధ్రప్రదేశ్' : 'Andhra Pradesh',
+    ts: isTe ? 'తెలంగాణ' : 'Telangana',
+    other: isTe ? 'ఇతర రాష్ట్రం' : 'Other State'
+  };
 
-  document.getElementById('scholProfileBar').innerHTML = `
-    <div class="schol-profile-info">
-      <span style="font-size:1.2rem;">👤</span>
-      <strong style="color:var(--white);">${profile.name || 'Student'}</strong>
-      <span class="schol-profile-tag">${classMap[profile.class]}</span>
-      <span class="schol-profile-tag">${casteMap[profile.caste]}</span>
-      <span class="schol-profile-tag">${profile.gender}</span>
-      <span class="schol-profile-tag">${incMap[profile.income]}</span>
-      <span class="schol-profile-tag">${stateMap[profile.state]}</span>
-    </div>
-    <button class="schol-edit-btn" onclick="editScholProfile()">✏️ Edit Profile</button>
-  `;
+  const pBar = document.getElementById('scholProfileBar');
+  if (pBar) {
+    pBar.innerHTML = `
+      <div class="schol-profile-info">
+        <span style="font-size:1.3rem;">🎯</span>
+        <strong style="color:var(--text);font-family:var(--font-display);">${isTe ? 'మీ ప్రొఫైల్:' : 'Your Profile:'}</strong>
+        <span class="schol-profile-tag">${classMap[profile.class] || profile.class}</span>
+        <span class="schol-profile-tag">${stateMap[profile.state] || profile.state}</span>
+        <span class="schol-profile-tag">${casteMap[profile.caste] || profile.caste}</span>
+        <span class="schol-profile-tag">${incMap[profile.income] || profile.income}</span>
+        <span class="schol-profile-tag">${profile.gender === 'female' ? (isTe ? 'అమ్మాయిలు' : 'Female') : (isTe ? 'అందరూ' : 'All/Male')}</span>
+      </div>
+      <button class="schol-edit-btn" onclick="resetEligibilityChecker()">${isTe ? '✏️ మార్చండి' : '✏️ Edit Filters'}</button>
+    `;
+  }
 
-  // Find eligible scholarships
   const eligible = scholarships.filter(s => isScholarshipEligible(s, profile));
-  const others = scholarships.filter(s => !isScholarshipEligible(s, profile));
+  const banner = document.getElementById('scholEligibleCountBanner');
+  if (banner) {
+    if (eligible.length > 0) {
+      banner.innerHTML = isTe
+        ? `🎉 అభినందనలు! మీ ప్రొఫైల్ ప్రకారం మీరు <strong>${eligible.length} ప్రభుత్వ స్కాలర్‌షిప్‌లకు</strong> అర్హత సాధించారు!`
+        : `🎉 Congratulations! Based on your profile, you qualify for <strong>${eligible.length} Government Scholarships</strong>!`;
+    } else {
+      banner.innerHTML = isTe
+        ? `ℹ️ మీ ప్రస్తుత వివరాలకు సరిపోయే ప్రత్యక్ష ప్రభుత్వ స్కాలర్‌షిప్‌లు లేవు. దిగువన ఉన్న మెరిట్ మరియు జనరల్ స్కీమ్‌లను చూడండి.`
+        : `ℹ️ No direct government matches found for this specific combination. Check below for general merit schemes.`;
+    }
+  }
 
-  // Show eligible count
-  document.getElementById('scholResultsTitle').innerHTML =
-    eligible.length > 0
-      ? `✅ ${eligible.length} Scholarship${eligible.length>1?'s':''} Found for You! <span style="font-size:0.85rem;font-weight:400;color:var(--text2);">Based on your profile</span>`
-      : `😔 No exact matches found — but check all scholarships below`;
-
-  // Render eligible
-  document.getElementById('scholarshipGrid').innerHTML =
-    eligible.length > 0
-      ? eligible.map(s => scholCard(s, true)).join('')
-      : '';
-
-  document.getElementById('scholNoResult').style.display =
-    eligible.length === 0 ? 'block' : 'none';
-
-  // Render all others
-  document.getElementById('scholarshipGridAll').innerHTML =
-    others.map(s => scholCard(s, false)).join('');
-
+  const grid = document.getElementById('scholCheckerGrid');
+  if (grid) {
+    const listToRender = eligible.length > 0 ? eligible : scholarships.slice(0, 4);
+    grid.innerHTML = listToRender.map(s => scholCard(s, eligible.includes(s))).join('');
+  }
   observeFadeIns();
 }
 
-function scholYtBtn(s) {
-  if (!s.youtube) return '';
-  return '<a href="' + s.youtube + '" target="_blank" class="yt-btn" style="display:inline-flex;align-items:center;gap:6px;background:#FF0000;color:#fff;padding:8px 16px;border-radius:8px;font-size:0.82rem;font-weight:600;text-decoration:none;transition:all 0.2s;"><svg width="16" height="16" viewBox="0 0 24 24" fill="white"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/><polygon fill="white" points="9.545,15.568 15.818,12 9.545,8.432"/></svg>🎥 How to Apply (Telugu)</a>';
+function resetEligibilityChecker() {
+  const cRes = document.getElementById('scholCheckerResults');
+  const cForm = document.getElementById('scholCheckerForm');
+  if (cRes) cRes.style.display = 'none';
+  if (cForm) cForm.style.display = 'block';
 }
 
 function scholCard(s, isEligible) {
+  const isTe = activeLanguage === 'te';
+  const catClass = (s.cat || '').toLowerCase().includes('state') || (s.cat || '').includes('రాష్ట్రం')
+    ? 'state'
+    : ((s.cat || '').toLowerCase().includes('central') || (s.cat || '').includes('కేంద్ర') ? 'central' : 'corporate');
+  
+  const catLabel = isTe ? `${s.cat} ప్రభుత్వం` : `${s.cat} Government`;
+  const sourceObj = officialSourcesMap[s.name] || {};
+  const sourceText = isTe ? (sourceObj.te || `${s.cat} పోర్టల్`) : (sourceObj.en || `${s.cat} Portal`);
+  const applyText = isTe ? `అధికారిక పోర్టల్‌లో దరఖాస్తు చేయండి ↗` : `Apply on Official Portal ↗`;
+  const ytBtn = s.youtube
+    ? `<a href="${s.youtube}" target="_blank" rel="noopener noreferrer" class="schol-yt-btn">🎥 ${isTe ? 'తెలుగు వీడియో గైడ్' : 'Telugu Video Guide'}</a>`
+    : '';
+
   return `
     <div class="schol-card fade-in ${isEligible ? 'eligible' : ''}">
-      ${isEligible ? '<div style="background:rgba(29,185,84,0.15);color:#4ade80;font-size:0.72rem;font-weight:700;padding:4px 12px;border-radius:100px;display:inline-block;margin-bottom:10px;">✅ You are Eligible!</div>' : ''}
+      ${isEligible ? `<div style="background:rgba(16,185,129,0.15);color:#34d399;font-size:0.75rem;font-weight:700;padding:4px 12px;border-radius:100px;display:inline-block;width:fit-content;border:1px solid rgba(16,185,129,0.3);">✅ ${isTe ? 'మీరు అర్హులు!' : 'You are Eligible!'}</div>` : ''}
       <div class="schol-header">
         <span class="schol-icon">${s.icon}</span>
         <div>
           <div class="schol-name">${s.name}</div>
-          <div class="schol-cat">${s.cat} Government</div>
+          <div>
+            <span class="schol-cat-badge ${catClass}">${catLabel}</span>
+            <span class="schol-annual-badge">🟢 ${isTe ? 'వార్షిక 2024-25' : 'Annual 2024-25'}</span>
+          </div>
         </div>
       </div>
-      <div class="schol-row"><strong>Eligibility</strong>${s.elig}</div>
-      <div class="schol-row"><strong>Benefits</strong>${s.benefits}</div>
-      <div class="schol-row"><strong>How to Apply</strong>${s.process}</div>
-      <div class="schol-row"><strong>Deadline</strong><span class="deadline">⚠ ${s.deadline}</span></div>
-      <div class="schol-btn-row" style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap;">
-        <a href="${s.link}" target="_blank" class="link-btn">Apply Now →</a>
-        ${scholYtBtn(s)}
+      <div class="schol-benefit-box">
+        <span>💰</span>
+        <span>${s.benefits}</span>
       </div>
-    </div>`;
+      <div class="schol-elig-row">
+        <strong>${isTe ? 'అర్హత:' : 'Eligibility:'}</strong> ${s.elig}
+      </div>
+      <div class="schol-source-tag">
+        <span>🏛️</span>
+        <span>${isTe ? 'అధికారిక మూలం:' : 'Official Source:'} ${sourceText}</span>
+      </div>
+      <div class="schol-deadline-row">
+        <span>⏰</span>
+        <span>${isTe ? 'గడువు:' : 'Deadline:'} ${s.deadline}</span>
+      </div>
+      <div class="schol-btn-row">
+        <a href="${s.link}" target="_blank" rel="noopener noreferrer" class="schol-apply-btn">${applyText}</a>
+        ${ytBtn}
+      </div>
+    </div>
+  `;
 }
 
-function editScholProfile() {
-  localStorage.removeItem('vidyauday_schol_profile');
-  document.getElementById('scholResults').style.display    = 'none';
-  document.getElementById('scholProfileForm').style.display = 'block';
-}
+function renderScholarshipGuide() {
+  const container = document.getElementById('scholGuideContent');
+  if (!container) return;
+  const isTe = activeLanguage === 'te';
 
-function filterScholarships() {
-  const q = document.getElementById('scholSearch').value.toLowerCase();
-  const filtered = scholarships.filter(s =>
-    s.name.toLowerCase().includes(q) || s.cat.toLowerCase().includes(q) || s.elig.toLowerCase().includes(q)
-  );
-  document.getElementById('scholarshipGridAll').innerHTML =
-    filtered.map(s => scholCard(s, false)).join('');
+  const docs = isTe ? [
+    { icon: "🆔", name: "ఆధార్ కార్డు (Aadhaar Card)", desc: "యాక్టివ్ మొబైల్ నంబర్ (OTP కోసం) మరియు బ్యాంక్ ఖాతా (DBT నగదు బదిలీ కోసం)తో తప్పనిసరిగా లింక్ అయి ఉండాలి." },
+    { icon: "📜", name: "మీసేవ కుల ధృవీకరణ పత్రం (Caste Certificate)", desc: "అధికారిక బార్‌కోడ్ లేదా డిజిటల్ సంతకంతో కూడిన మీసేవ ఇంటిగ్రేటెడ్ సర్టిఫికెట్." },
+    { icon: "💵", name: "ఆదాయ ధృవీకరణ పత్రం / తెల్ల రేషన్ కార్డు", desc: "గత 1 సంవత్సరంలోపు మీసేవ ద్వారా జారీ చేయబడిన వార్షిక కుటుంబ ఆదాయ సర్టిఫికెట్ లేదా తెల్ల రేషన్ కార్డ్." },
+    { icon: "🏫", name: "పాఠశాల / కాలేజ్ బోనాఫైడ్ సర్టిఫికెట్", desc: "ప్రస్తుత విద్యా సంవత్సరం అడ్మిషన్ నంబర్, రోల్ నంబర్ మరియు ప్రిన్సిపాల్ సంతకంతో కూడిన లెటర్." },
+    { icon: "🏦", name: "బ్యాంక్ పాస్‌బుక్ (Bank Passbook)", desc: "IFSC కోడ్ స్పష్టంగా ఉన్న విద్యార్థి లేదా తల్లి పొదుపు ఖాతా పాస్‌బుక్ (AP విద్యా దీవెనకు తల్లి ఖాతా తప్పనిసరి)." }
+  ] : [
+    { icon: "🆔", name: "Aadhaar Card", desc: "Must be actively linked with student's mobile number (for OTP) and bank account (for Direct Benefit Transfer)." },
+    { icon: "📜", name: "MeeSeva Caste Certificate", desc: "Integrated community/caste certificate with official digital QR code and barcode issued by Revenue Dept." },
+    { icon: "💵", name: "Income Certificate / White Ration Card", desc: "Latest annual family income certificate issued within the last 1 year by MeeSeva or valid Rice/Ration Card." },
+    { icon: "🏫", name: "School / College Bonafide Certificate", desc: "Official study bonafide with current year admission number, hall ticket, and Principal's stamp." },
+    { icon: "🏦", name: "Bank Passbook Copy", desc: "Active savings bank passbook with clear IFSC and account number (Mother's bank account for AP Vidya Deevena)." }
+  ];
+
+  const portals = isTe ? [
+    { name: "AP జ్ఞానభూమి పోర్టల్ (Jnanabhumi)", url: "https://jnanabhumi.ap.gov.in", desc: "AP జగనన్న విద్యా దీవెన, వసతి దీవెన మరియు ప్రీ-మెట్రిక్ స్కాలర్‌షిప్‌ల అధికారిక పోర్టల్." },
+    { name: "తెలంగాణ ePASS పోర్టల్ (TS ePASS)", url: "https://telanganaepass.cgg.gov.in", desc: "తెలంగాణ పోస్ట్-మెట్రిక్ & ప్రీ-మెట్రిక్ సంక్షేమ స్కాలర్‌షిప్‌ల అధికారిక వెబ్‌సైట్." },
+    { name: "నేషనల్ స్కాలర్‌షిప్ పోర్టల్ (NSP)", url: "https://scholarships.gov.in", desc: "NMMS, సెంట్రల్ సెక్టార్, AICTE ప్రగతి మరియు మైనారిటీ స్కాలర్‌షిప్‌ల కేంద్ర ప్రభుత్వ పోర్టల్." },
+    { name: "విద్యాసారథి CSR పోర్టల్ (Vidyasaarathi)", url: "https://www.vidyasaarathi.co.in", desc: "గ్రామీణ పేద విద్యార్థులకు ప్రైవేట్/కార్పొరేట్ సంస్థలు అందించే ఉచిత CSR స్కాలర్‌షిప్‌లు." }
+  ] : [
+    { name: "AP Jnanabhumi Portal", url: "https://jnanabhumi.ap.gov.in", desc: "Official AP Government portal for Jagananna Vidya Deevena, Vasathi Deevena, and Pre-Matric." },
+    { name: "Telangana ePASS Portal", url: "https://telanganaepass.cgg.gov.in", desc: "Official Telangana state welfare portal for Post-Matric fee reimbursement and Pre-Matric." },
+    { name: "National Scholarship Portal (NSP)", url: "https://scholarships.gov.in", desc: "Central Govt portal for NMMS, Central Sector Scheme (CSSS), AICTE Pragati, and Minority." },
+    { name: "Vidyasaarathi CSR Portal", url: "https://www.vidyasaarathi.co.in", desc: "NSDL portal offering verified corporate CSR scholarships for rural students in 10th, Inter & Degree." }
+  ];
+
+  const steps = isTe ? [
+    { step: "1", months: "జూలై – ఆగస్టు", title: "సర్టిఫికెట్లు సిద్ధం చేసుకోండి", desc: "మీసేవలో కులం, ఆదాయ సర్టిఫికెట్లు తీసుకోండి మరియు ఆధార్‌తో బ్యాంక్ ఖాతా లింక్ అయిందో లేదో సరిచూసుకోండి." },
+    { step: "2", months: "సెప్టెంబర్ – నవంబర్", title: "ఆన్‌లైన్ రిజిస్ట్రేషన్", desc: "పోర్టల్‌లో కొత్త లేదా రెన్యూవల్ దరఖాస్తు పూర్తి చేసి, కాలేజ్ లేదా పాఠశాలలో బోనాఫైడ్ సమర్పించండి." },
+    { step: "3", months: "నవంబర్ – జనవరి", title: "బయోమెట్రిక్ eKYC", desc: "గ్రామ సచివాలయం (AP) లేదా కాలేజ్ ప్రిన్సిపాల్ ద్వారా బయోమెట్రిక్ అథెంటికేషన్ పూర్తి చేయండి." },
+    { step: "4", months: "ఫిబ్రవరి – ఏప్రిల్", title: "DBT నగదు జమ", desc: "మంజూరైన ఫీజు రీయింబర్స్‌మెంట్ మొత్తం నేరుగా తల్లి లేదా విద్యార్థి బ్యాంక్ ఖాతాలోకి జమ అవుతుంది!" }
+  ] : [
+    { step: "1", months: "July – August", title: "Prepare Certificates", desc: "Get MeeSeva Caste & Income certificates ready and ensure Aadhaar is linked to your bank account." },
+    { step: "2", months: "September – November", title: "Online Registration", desc: "Submit fresh or renewal application on official portal and submit study bonafide to your institution." },
+    { step: "3", months: "November – January", title: "Biometric eKYC Verification", desc: "Complete biometric authentication at your local Village Secretariat (Grama Sachivalayam) or college." },
+    { step: "4", months: "February – April", title: "Direct Bank Disbursement", desc: "Sanctioned scholarship funds are credited directly to your bank account via DBT!" }
+  ];
+
+  container.innerHTML = `
+    <!-- 1. DOCUMENTS CHECKLIST -->
+    <div class="schol-guide-section">
+      <div class="schol-guide-title">
+        <span>📄</span>
+        <span>${isTe ? 'దరఖాస్తుకు అవసరమైన 5 ముఖ్యమైన డాక్యుమెంట్లు' : 'Mandatory 5-Document Checklist'}</span>
+      </div>
+      <div class="schol-docs-grid">
+        ${docs.map(d => `
+          <div class="schol-doc-card fade-in">
+            <span class="schol-doc-icon">${d.icon}</span>
+            <div>
+              <div class="schol-doc-name">${d.name}</div>
+              <div class="schol-doc-desc">${d.desc}</div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+
+    <!-- 2. OFFICIAL PORTALS -->
+    <div class="schol-guide-section">
+      <div class="schol-guide-title">
+        <span>🏛️</span>
+        <span>${isTe ? 'అధికారిక ప్రభుత్వ పోర్టల్స్ డైరెక్టరీ' : 'Official Government Portals Directory'}</span>
+      </div>
+      <div class="dl-hub-grid">
+        ${portals.map(p => `
+          <div class="dl-hub-card fade-in">
+            <div class="dl-hub-header">
+              <span class="dl-hub-icon">🌐</span>
+              <div>
+                <div class="dl-hub-title">${p.name}</div>
+                <div class="dl-hub-sub">${p.desc}</div>
+              </div>
+            </div>
+            <div class="dl-action-links">
+              <a href="${p.url}" target="_blank" rel="noopener noreferrer" class="dl-btn">
+                <span>🔗 ${isTe ? 'అధికారిక పోర్టల్ ఓపెన్ చేయండి' : 'Open Official Portal'}</span>
+                <span>↗</span>
+              </a>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+
+    <!-- 3. TIMELINE -->
+    <div class="schol-guide-section">
+      <div class="schol-guide-title">
+        <span>⏰</span>
+        <span>${isTe ? 'వార్షిక దరఖాస్తు మరియు నిధుల జమ టైమ్‌లైన్' : 'Annual Application & Disbursement Timeline'}</span>
+      </div>
+      <div class="schol-timeline-steps">
+        ${steps.map(s => `
+          <div class="schol-step-card fade-in">
+            <span class="schol-step-num">Step ${s.step}</span>
+            <div class="schol-step-months">${s.months}</div>
+            <div class="schol-step-title">${s.title}</div>
+            <div class="schol-step-desc">${s.desc}</div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+  observeFadeIns();
 }
 
 function renderScholarships() {
-  // Check localStorage for saved profile
-  const saved = localStorage.getItem('vidyauday_schol_profile');
-  if (saved) {
-    try {
-      const profile = JSON.parse(saved);
-      showScholResults(profile);
-      return;
-    } catch(e) {
-      localStorage.removeItem('vidyauday_schol_profile');
-    }
-  }
-  // First time — show form
-  document.getElementById('scholProfileForm').style.display = 'block';
-  document.getElementById('scholResults').style.display    = 'none';
+  renderScholarshipHub(currentScholFilter);
+  renderScholarshipGuide();
 }
-
 // ═══════════════════════════════════════════
 // RENDER CODING
 // ═══════════════════════════════════════════
@@ -4475,7 +4753,7 @@ let cPaths = cPaths_en;
 let cTrees = cTrees_en;
 let activeLanguage = 'en';
 
-const translations = {"en":{"nav_ai":"AI Tools","nav_careers":"Careers","nav_resources":"Resources","nav_scholarships":"Scholarships","nav_coding":"Coding","nav_digital":"Digital Skills","mn_ai":"🤖 AI Tools","mn_careers":"🎯 Career Guidance","mn_resources":"📚 Learning Resources","mn_scholarships":"🏆 Scholarships","mn_coding":"💻 Coding Platforms","mn_digital":"🌐 Digital Skills","hero_tag":"🇮🇳 B.Tech Community Project · VidyaUday · Andhra Pradesh","hero_title":"Your Future Starts with <span id=\"heroTyping\">Digital Awareness</span>","hero_desc":"A free platform giving rural 10th & Intermediate students access to AI tools, career guidance, scholarships, and learning resources — all in one place.","hero_btn_ai":"🚀 Explore AI Tools","hero_btn_career":"🎯 View Career Paths","hc_ai_title":"AI Tools","hc_ai_desc":"ChatGPT, Gemini & more","hc_career_title":"Career Paths","hc_career_desc":"After 10th & Intermediate","hc_schol_title":"Scholarships","hc_schol_desc":"₹50K+ opportunities","hc_coding_title":"Free Coding","hc_coding_desc":"Learn from zero","hc_explore":"Explore →","stat_label1":"Rural students lack career guidance","stat_label2":"Unaware of free AI tools","stat_label3":"Scholarships missed yearly","stat_label4":"Students we aim to reach","mission_tag":"Our Mission","mission_title":"Why VidyaUday Exists","mission_p1":"Thousands of bright rural students across Andhra Pradesh miss life-changing opportunities every year — not because of lack of talent, but because of lack of information. A scholarship deadline passes. A free course goes unused. An AI tool that could help with studies is never discovered.","mission_p2":"VidyaUday was built by students, for students — to be the guide that every rural learner deserves but rarely gets.","mc_info_title":"Centralized Info","mc_info_desc":"All opportunities in one place","mc_inc_title":"Digital Inclusion","mc_inc_desc":"Bridging the urban-rural divide","mc_peer_title":"Peer Support","mc_peer_desc":"Built by students, for students","mc_free_title":"Always Free","mc_free_desc":"Every resource listed is free","ai_tag":"AI Awareness","ai_title":"Discover AI Tools Built for You","ai_finder_title":"🎯 What do you want to accomplish today?","ai_prompts_title":"💡 Ready-to-Use Student Prompts","ai_prompts_sub":"Copy any prompt and paste it directly into ChatGPT or Google Gemini to get instant, student-friendly answers.","ai_sub":"Click any card to learn more, then click \"Open Tool\" to start using it — all are completely free for students.","ai_search_placeholder":"Search any AI tool... e.g. Grammarly, Midjourney, Adobe Firefly","ai_tools_label":"Our Top 10 Recommended Tools","career_tag":"Career Guidance","career_title":"Your Complete Career Roadmap & AI Outlook","career_sub":"Click your stage → choose your path → see the full year-by-year milestone journey with salary growth & AI impact reality check.","c_stage1_10th_title":"After 10th Class","c_stage1_10th_desc":"Just completed SSC? See all 5 paths available right now.","c_explore_paths":"Explore Paths →","c_stage1_inter_title":"After Intermediate","c_stage1_inter_desc":"Completed 12th? Discover 6 paths with full roadmaps.","c_back":"← Back","res_tag":"Free Resources","res_title":"10th & Intermediate Free Learning Hub","res_sub":"Curated free platforms, 1-click textbooks, previous exam papers, and instant subject search.","schol_tag":"Scholarships","schol_title":"Find Scholarships You Qualify For","schol_sub":"Enter your details once — we'll show only the scholarships you are eligible for.","sf_header_title":"Tell Us About Yourself","sf_header_sub":"We'll match you with scholarships you can actually apply for","sf_lbl_name":"Your Name","sf_lbl_age":"Your Age","sf_pl_age":"Enter your age","sf_pl_name":"Enter your name","sf_lbl_class":"Current Education","sf_opt_class":"Select your class","sf_opt_c9":"Class 9","sf_opt_c10":"Class 10 (SSC)","sf_opt_ci1":"Intermediate 1st Year","sf_opt_ci2":"Intermediate 2nd Year","sf_opt_cdeg":"Degree / B.Tech / Engineering","sf_opt_cpg":"Post Graduation","sf_lbl_caste":"Caste Category","sf_opt_caste":"Select category","sf_opt_csc":"SC (Scheduled Caste)","sf_opt_cst":"ST (Scheduled Tribe)","sf_opt_cobc":"OBC (Other Backward Class)","sf_opt_cmin":"Minority (Muslim/Christian/Sikh/Buddhist/Jain)","sf_opt_cgen":"General / Open Category","sf_lbl_gender":"Gender","sf_opt_gender":"Select gender","sf_opt_gfem":"Female","sf_opt_gmale":"Male","sf_opt_goth":"Other","sf_lbl_income":"Family Annual Income","sf_opt_income":"Select income range","sf_opt_inc1":"Below ₹1 Lakh","sf_opt_inc2":"₹1 Lakh – ₹2.5 Lakh","sf_opt_inc3":"₹2.5 Lakh – ₹8 Lakh","sf_opt_inc4":"Above ₹8 Lakh","sf_lbl_state":"State","sf_opt_state":"Select state","sf_opt_sap":"Andhra Pradesh","sf_opt_sts":"Telangana","sf_opt_soth":"Other State","sf_btn_submit":"🔍 Find My Scholarships","schol_no_result":"No scholarships match your profile right now. But check back — new schemes are added regularly!","schol_other_ref":"Showing all other scholarships for reference:","schol_search_placeholder":"Search all scholarships...","coding_tag":"Start Coding","coding_title":"Coding Platforms to Launch Your Tech Career","coding_sub":"Practice problems, earn certificates, and get noticed by top companies.","dl_tag":"Digital Skills","dl_title":"Essential Digital Skills for Every Student","dl_sub":"Master these fundamentals to thrive in the modern world.","logo_tagline":"Rise of Knowledge","footer_brand_desc":"Empowering rural students of Andhra Pradesh with digital knowledge, AI awareness, and career guidance. Built with ❤️ as a B.Tech Community Project.","footer_col1_title":"Platform","footer_ai":"AI Tools","footer_careers":"Career Guidance","footer_resources":"Learning Resources","footer_scholarships":"Scholarships","footer_col2_title":"Learn","footer_coding":"Coding Platforms","footer_digital":"Digital Skills","footer_col3_title":"Quick Links","footer_link_nsp":"National Scholarships","footer_link_swayam":"SWAYAM","footer_link_nptel":"NPTEL","footer_link_ap":"AP Epass","footer_copy":"© 2024 VidyaUday · Rise of Knowledge · B.Tech Community Project","footer_made":"🇮🇳 Made in Andhra Pradesh","chat_title":"Uday the Owl","chat_status":"AI Study Assistant","chat_welcome":"Hoo hoo! I'm <strong>Uday</strong>, your AI study owl! 🎓<br><br>You can <strong>type</strong> or <strong>speak</strong> in English, తెలుగు, or हिंदी — I'll understand and reply in the same language!<br><br>Ask me about careers, scholarships, AI tools, coding, or anything about your education! 🚀","modal_tool_details":"Tool Details"},"te":{"nav_ai":"AI సాధనాలు","nav_careers":"కెరీర్ మార్గాలు","nav_resources":"ఉచిత వనరులు","nav_scholarships":"స్కాలర్‌షిప్‌లు","nav_coding":"కోడింగ్","nav_digital":"డిజిటల్ స్కిల్స్","mn_ai":"🤖 AI సాధనాలు","mn_careers":"🎯 కెరీర్ మార్గదర్శకత్వం","mn_resources":"📚 లెర్నింగ్ రిసోర్సెస్","mn_scholarships":"🏆 స్కాలర్‌షిప్‌లు","mn_coding":"💻 కోడింగ్ ప్లాట్‌ఫారమ్‌లు","mn_digital":"🌐 డిజిటల్ నైపుణ్యాలు","hero_tag":"🇮🇳 బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్ · విద్యాఉదయ్ · ఆంధ్రప్రదేశ్","hero_title":"మీ భవిష్యత్తు <span id=\"heroTyping\">డిజిటల్ అవగాహన</span>తో ప్రారంభమవుతుంది","hero_desc":"గ్రామీణ 10వ తరగతి మరియు ఇంటర్మీడియట్ విద్యార్థులకు AI సాధనాలు, కెరీర్ మార్గదర్శకత్వం, స్కాలర్‌షిప్‌లు మరియు లెర్నింగ్ రిసోర్స్‌లను ఒకే చోట అందించే ఉచిత ప్లాట్‌ఫారమ్.","hero_btn_ai":"🚀 AI సాధనాలను అన్వేషించండి","hero_btn_career":"🎯 కెరీర్ మార్గాలను చూడండి","hc_ai_title":"AI సాధనాలు","hc_ai_desc":"ChatGPT, Gemini మరియు ఇతరమైనవి","hc_career_title":"కెరీర్ మార్గాలు","hc_career_desc":"10వ తరగతి & ఇంటర్మీడియట్ తర్వాత","hc_schol_title":"స్కాలర్‌షిప్‌లు","hc_schol_desc":"₹50వేలకు పైగా అవకాశాలు","hc_coding_title":"ఉచిత కోడింగ్","hc_coding_desc":"మొదటి నుండి నేర్చుకోండి","hc_explore":"అన్వేషించండి →","stat_label1":"గ్రామీణ విద్యార్థులకు కెరీర్ మార్గదర్శకత్వం లేదు","stat_label2":"ఉచిత AI సాధనాల గురించి అవగాహన లేదు","stat_label3":"ఏటా కోల్పోతున్న స్కాలర్‌షిప్‌లు","stat_label4":"మేము చేరుకోవాలనుకుంటున్న విద్యార్థులు","mission_tag":"మా లక్ష్యం","mission_title":"విద్యాఉదయ్ ఎందుకు అవసరం","mission_p1":"ఆంధ్రప్రదేశ్‌లోని వేలాది మంది ప్రతిభావంతులైన గ్రామీణ విద్యార్థులు ప్రతి సంవత్సరం జీవితాన్ని మార్చే అవకాశాలను కోల్పోతున్నారు — ప్రతిభ లేకపోవడం వల్ల కాదు, సమాచారం లేకపోవడం వల్ల. స్కాలర్‌షిప్ గడువు ముగుస్తుంది. ఉచిత కోర్సు ఉపయోగించబడదు. చదువుకు సహాయపడే AI సాధనం కనుగొనబడదు.","mission_p2":"విద్యాఉదయ్ విద్యార్థుల కోసం, విద్యార్థుల చేత నిర్మించబడింది — ప్రతి గ్రామీణ విద్యార్థికి అర్హమైన కానీ అరుదుగా లభించే మార్గదర్శిగా నిలవడానికి.","mc_info_title":"కేంద్రీకృత సమాచారం","mc_info_desc":"అన్ని అవకాశాలు ఒకే చోట","mc_inc_title":"డిజిటల్ సమ్మిళితం","mc_inc_desc":"పట్టణ-గ్రామీణ విభజనను తగ్గించడం","mc_peer_title":"తోటివారి మద్దతు","mc_peer_desc":"విద్యార్థుల చేత, విద్యార్థుల కోసం నిర్మించబడింది","mc_free_title":"ఎల్లప్పుడూ ఉచితం","mc_free_desc":"లిస్ట్ చేయబడిన ప్రతి వనరు ఉచితం","ai_tag":"AI అవగాహన","ai_title":"మీ కోసం రూపొందించిన AI సాధనాలను కనుగొనండి","ai_finder_title":"🎯 ఈరోజు మీరు ఏమి చేయాలనుకుంటున్నారు?","ai_prompts_title":"💡 విద్యార్థుల కోసం రెడీమేడ్ స్టడీ ప్రాంప్ట్‌లు","ai_prompts_sub":"ఏదైనా ప్రాంప్ట్‌ను కాపీ చేసి ChatGPT లేదా Google Gemini లో పేస్ట్ చేయండి — తక్షణమే విద్యార్థికి సరిపడే సమాధానం పొందండి.","ai_sub":"మరింత తెలుసుకోవడానికి ఏదైనా కార్డ్‌పై క్లిక్ చేయండి, ఆపై ఉపయోగించడం ప్రారంభించడానికి \"Open Tool\" క్లిక్ చేయండి — ఇవన్నీ విద్యార్థులకు పూర్తిగా ఉచితం.","ai_search_placeholder":"ఏదైనా AI సాధనాన్ని శోధించండి... ఉదా. Grammarly, Midjourney, Adobe Firefly","ai_tools_label":"మా టాప్ 10 సిఫార్సు చేసిన సాధనాలు","career_tag":"కెరీర్ మార్గదర్శకత్వం","career_title":"మీ పూర్తి కెరీర్ రోడ్‌మ్యాప్ & AI విశ్లేషణ","career_sub":"మీ దశను ఎంచుకోండి → మీ మార్గాన్ని ఎంచుకోండి → జీతం వృద్ధితో కూడిన పూర్తి కెరీర్ రోడ్‌మ్యాప్ మరియు AI విశ్లేషణను చూడండి.","c_stage1_10th_title":"10వ తరగతి తర్వాత","c_stage1_10th_desc":"SSC పూర్తి చేసారా? ప్రస్తుతం అందుబాటులో ఉన్న 5 మార్గాలను చూడండి.","c_explore_paths":"మార్గాలను అన్వేషించండి →","c_stage1_inter_title":"ఇంటర్మీడియట్ తర్వాత","c_stage1_inter_desc":"12వ తరగతి పూర్తి చేసారా? పూర్తి రోడ్‌మ్యాప్‌లతో 6 మార్గాలను కనుగొనండి.","c_back":"← వెనుకకు","res_tag":"ఉచిత వనరులు","res_title":"10వ & ఇంటర్మీడియట్ ఉచిత లెర్నింగ్ హబ్","res_sub":"ఎంపిక చేసిన ఉచిత ప్లాట్‌ఫారమ్‌లు, 1-క్లిక్ పాఠ్యపుస్తకాలు, గత పరీక్ష పేపర్లు మరియు తక్షణ సబ్జెక్ట్ శోధన.","schol_tag":"స్కాలర్‌షిప్‌లు","schol_title":"మీరు అర్హత సాధించే స్కాలర్‌షిప్‌లను కనుగొనండి","schol_sub":"మీ వివరాలను ఒకసారి నమోదు చేయండి — మేము మీకు అర్హత ఉన్న స్కాలర్‌షిప్‌లను మాత్రమే చూపిస్తాము.","sf_header_title":"మీ గురించి మాకు చెప్పండి","sf_header_sub":"మీరు దరఖాస్తు చేసుకోగల స్కాలర్‌షిప్‌లతో మేము మిమ్మల్ని మ్యాచ్ చేస్తాము","sf_lbl_name":"మీ పేరు","sf_pl_name":"మీ పేరును నమోదు చేయండి","sf_lbl_class":"ప్రస్తుత విద్య","sf_opt_class":"మీ తరగతిని ఎంచుకోండి","sf_opt_c9":"9వ తరగతి","sf_opt_c10":"10వ తరగతి (SSC)","sf_opt_ci1":"ఇంటర్మీడియట్ మొదటి సంవత్సరం","sf_opt_ci2":"ఇంటర్మీడియట్ రెండవ సంవత్సరం","sf_opt_cdeg":"డిగ్రీ / బి.టెక్ / ఇంజనీరింగ్","sf_opt_cpg":"పోస్ట్ గ్రాడ్యుయేషన్","sf_lbl_caste":"కుల వర్గం","sf_opt_caste":"వర్గాన్ని ఎంచుకోండి","sf_opt_csc":"SC (షెడ్యూల్డ్ కులం)","sf_opt_cst":"ST (షెడ్యూల్డ్ తెగ)","sf_opt_cobc":"OBC (ఇతర వెనుకబడిన తరగతి)","sf_opt_cmin":"మైనారిటీ (ముస్లిం/క్రిస్టియన్/సిక్కు/బౌద్ధ/జైన్)","sf_opt_cgen":"జనరల్ / ఓపెన్ కేటగిరీ","sf_lbl_gender":"లింగం","sf_opt_gender":"లింగాన్ని ఎంచుకోండి","sf_opt_gfem":"స్త్రీ","sf_opt_gmale":"పురుషుడు","sf_opt_goth":"ఇతర","sf_lbl_income":"कुटुంబ వార్షిక ఆదాయం","sf_opt_income":"ఆదాయ పరిధిని ఎంచుకోండి","sf_opt_inc1":"₹1 లక్ష లోపు","sf_opt_inc2":"₹1 లక్ష – ₹2.5 లక్షలు","sf_opt_inc3":"₹2.5 లక్షలు – ₹8 లక్షలు","sf_opt_inc4":"₹8 లక్షల పైన","sf_lbl_state":"రాష్ట్రం","sf_opt_state":"రాష్ట్రాన్ని ఎంచుకోండి","sf_opt_sap":"ఆంధ్రప్రదేశ్","sf_opt_sts":"తెలంగాణ","sf_opt_soth":"ఇతర రాష్ట్రం","sf_btn_submit":"🔍 నా స్కాలర్‌షిప్‌లను కనుగొనండి","schol_no_result":"ప్రస్తుతానికి మీ ప్రొఫైల్‌కు సరిపోయే స్కాలర్‌షిప్‌లు లేవు. కానీ మళ్లీ తనిఖీ చేయండి — కొత్త పథకాలు క్రమం తప్పకుండా జోడించబడతాయి!","schol_other_ref":"సూచన కోసం మిగిలిన అన్ని స్కాలర్‌షిప్‌లను చూపుతోంది:","schol_search_placeholder":"అన్ని స్కాలర్‌షిప్‌లను శోధించండి...","coding_tag":"కోడింగ్ ప్రారంభించండి","coding_title":"మీ టెక్ కెరీర్‌ను ప్రారంభించడానికి కోడింగ్ ప్లాట్‌ఫారమ్‌లు","coding_sub":"సమస్యలను సాధన చేయండి, సర్టిఫికేట్‌లను పొందండి మరియు ప్రముఖ కంపెనీల దృష్టిని ఆకర్షించండి.","dl_tag":"డిజిటల్ నైపుణ్యాలు","dl_title":"ప్రతి విద్యార్థికి అవసరమైన డిజిటల్ నైపుణ్యాలు","dl_sub":"ఆధునిక ప్రపంచంలో రాణించడానికి ఈ ప్రాథమిక అంశాలలో నైపుణ్యం సాధించండి.","logo_tagline":"నాలెడ్జ్ రైజ్","footer_brand_desc":"ఆంధ్రప్రదేశ్ గ్రామీణ విద్యార్థులకు డిజిటల్ జ్ఞానం, AI అవగాహన మరియు కెరీర్ మార్గదర్శకత్వంతో సాధికారత కల్పించడం. బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్‌గా ❤️ తో నిర్మించబడింది.","footer_col1_title":"ప్లాట్‌ఫారమ్","footer_ai":"AI సాధనాలు","footer_careers":"కెరీర్ మార్గదర్శకత్వం","footer_resources":"లెర్నింగ్ రిసోర్సెస్","footer_scholarships":"స్కాలర్‌షిప్‌లు","footer_col2_title":"నేర్చుకోండి","footer_coding":"కోడింగ్ ప్లాట్‌ఫారమ్‌లు","footer_digital":"డిజిటల్ నైపుణ్యాలు","footer_col3_title":"త్వరిత లింకులు","footer_link_nsp":"నేషనల్ స్కాలర్‌షిప్ పోర్టల్","footer_link_swayam":"స్వయం (SWAYAM)","footer_link_nptel":"NPTEL","footer_link_ap":"AP ఈపాస్","footer_copy":"© 2024 విద్యాఉదయ్ · నాలెడ్జ్ రైజ్ · బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్","footer_made":"🇮🇳 ఆంధ్రప్రదేశ్‌లో తయారు చేయబడింది","chat_title":"ఉదయ్ ది ఔల్","chat_status":"AI స్టడీ అసిస్టెంట్","chat_welcome":"హూ హూ! నేను మీ AI స్టడీ ఔల్ <strong>ఉదయ్</strong>ని! 🎓<br><br>మీరు ఇంగ్లీష్, తెలుగు లేదా హిందీలో <strong>టైప్ చేయవచ్చు</strong> లేదా <strong>మాట్లాడవచ్చు</strong> — నేను అర్థం చేసుకుని అదే భాషలో సమాధానం ఇస్తాను!<br><br>కెరీర్, స్కాలర్‌షిప్‌లు, AI సాధనాలు, కోడింగ్ లేదా మీ చదువుకు సంబంధించిన ఏదైనా నన్ను అడగండి! 🚀","modal_tool_details":"సాధనం వివరాలు"}};
+const translations = {"en":{"nav_ai":"AI Tools","nav_careers":"Careers","nav_resources":"Resources","nav_scholarships":"Scholarships","nav_coding":"Coding","nav_digital":"Digital Skills","mn_ai":"🤖 AI Tools","mn_careers":"🎯 Career Guidance","mn_resources":"📚 Learning Resources","mn_scholarships":"🏆 Scholarships","mn_coding":"💻 Coding Platforms","mn_digital":"🌐 Digital Skills","hero_tag":"🇮🇳 B.Tech Community Project · VidyaUday · Andhra Pradesh","hero_title":"Your Future Starts with <span id=\"heroTyping\">Digital Awareness</span>","hero_desc":"A free platform giving rural 10th & Intermediate students access to AI tools, career guidance, scholarships, and learning resources — all in one place.","hero_btn_ai":"🚀 Explore AI Tools","hero_btn_career":"🎯 View Career Paths","hc_ai_title":"AI Tools","hc_ai_desc":"ChatGPT, Gemini & more","hc_career_title":"Career Paths","hc_career_desc":"After 10th & Intermediate","hc_schol_title":"Scholarships","hc_schol_desc":"₹50K+ opportunities","hc_coding_title":"Free Coding","hc_coding_desc":"Learn from zero","hc_explore":"Explore →","stat_label1":"Rural students lack career guidance","stat_label2":"Unaware of free AI tools","stat_label3":"Scholarships missed yearly","stat_label4":"Students we aim to reach","mission_tag":"Our Mission","mission_title":"Why VidyaUday Exists","mission_p1":"Thousands of bright rural students across Andhra Pradesh miss life-changing opportunities every year — not because of lack of talent, but because of lack of information. A scholarship deadline passes. A free course goes unused. An AI tool that could help with studies is never discovered.","mission_p2":"VidyaUday was built by students, for students — to be the guide that every rural learner deserves but rarely gets.","mc_info_title":"Centralized Info","mc_info_desc":"All opportunities in one place","mc_inc_title":"Digital Inclusion","mc_inc_desc":"Bridging the urban-rural divide","mc_peer_title":"Peer Support","mc_peer_desc":"Built by students, for students","mc_free_title":"Always Free","mc_free_desc":"Every resource listed is free","ai_tag":"AI Awareness","ai_title":"Discover AI Tools Built for You","ai_finder_title":"🎯 What do you want to accomplish today?","ai_prompts_title":"💡 Ready-to-Use Student Prompts","ai_prompts_sub":"Copy any prompt and paste it directly into ChatGPT or Google Gemini to get instant, student-friendly answers.","ai_sub":"Click any card to learn more, then click \"Open Tool\" to start using it — all are completely free for students.","ai_search_placeholder":"Search any AI tool... e.g. Grammarly, Midjourney, Adobe Firefly","ai_tools_label":"Our Top 10 Recommended Tools","career_tag":"Career Guidance","career_title":"Your Complete Career Roadmap & AI Outlook","career_sub":"Click your stage → choose your path → see the full year-by-year milestone journey with salary growth & AI impact reality check.","c_stage1_10th_title":"After 10th Class","c_stage1_10th_desc":"Just completed SSC? See all 5 paths available right now.","c_explore_paths":"Explore Paths →","c_stage1_inter_title":"After Intermediate","c_stage1_inter_desc":"Completed 12th? Discover 6 paths with full roadmaps.","c_back":"← Back","res_tag":"Free Resources","res_title":"10th & Intermediate Free Learning Hub","res_sub":"Curated free platforms, 1-click textbooks, previous exam papers, and instant subject search.","schol_tag":"Scholarships","schol_title":"10th & Intermediate Scholarships Hub","schol_sub":"Verified government schemes, instant eligibility check, and essential document guides.","sf_header_title":"Tell Us About Yourself","sf_header_sub":"We'll match you with scholarships you can actually apply for","sf_lbl_name":"Your Name","sf_lbl_age":"Your Age","sf_pl_age":"Enter your age","sf_pl_name":"Enter your name","sf_lbl_class":"Current Education","sf_opt_class":"Select your class","sf_opt_c9":"Class 9","sf_opt_c10":"Class 10 (SSC)","sf_opt_ci1":"Intermediate 1st Year","sf_opt_ci2":"Intermediate 2nd Year","sf_opt_cdeg":"Degree / B.Tech / Engineering","sf_opt_cpg":"Post Graduation","sf_lbl_caste":"Caste Category","sf_opt_caste":"Select category","sf_opt_csc":"SC (Scheduled Caste)","sf_opt_cst":"ST (Scheduled Tribe)","sf_opt_cobc":"OBC (Other Backward Class)","sf_opt_cmin":"Minority (Muslim/Christian/Sikh/Buddhist/Jain)","sf_opt_cgen":"General / Open Category","sf_lbl_gender":"Gender","sf_opt_gender":"Select gender","sf_opt_gfem":"Female","sf_opt_gmale":"Male","sf_opt_goth":"Other","sf_lbl_income":"Family Annual Income","sf_opt_income":"Select income range","sf_opt_inc1":"Below ₹1 Lakh","sf_opt_inc2":"₹1 Lakh – ₹2.5 Lakh","sf_opt_inc3":"₹2.5 Lakh – ₹8 Lakh","sf_opt_inc4":"Above ₹8 Lakh","sf_lbl_state":"State","sf_opt_state":"Select state","sf_opt_sap":"Andhra Pradesh","sf_opt_sts":"Telangana","sf_opt_soth":"Other State","sf_btn_submit":"🔍 Find My Scholarships","schol_no_result":"No scholarships match your profile right now. But check back — new schemes are added regularly!","schol_other_ref":"Showing all other scholarships for reference:","schol_search_placeholder":"Search all scholarships...","coding_tag":"Start Coding","coding_title":"Coding Platforms to Launch Your Tech Career","coding_sub":"Practice problems, earn certificates, and get noticed by top companies.","dl_tag":"Digital Skills","dl_title":"Essential Digital Skills for Every Student","dl_sub":"Master these fundamentals to thrive in the modern world.","logo_tagline":"Rise of Knowledge","footer_brand_desc":"Empowering rural students of Andhra Pradesh with digital knowledge, AI awareness, and career guidance. Built with ❤️ as a B.Tech Community Project.","footer_col1_title":"Platform","footer_ai":"AI Tools","footer_careers":"Career Guidance","footer_resources":"Learning Resources","footer_scholarships":"Scholarships","footer_col2_title":"Learn","footer_coding":"Coding Platforms","footer_digital":"Digital Skills","footer_col3_title":"Quick Links","footer_link_nsp":"National Scholarships","footer_link_swayam":"SWAYAM","footer_link_nptel":"NPTEL","footer_link_ap":"AP Epass","footer_copy":"© 2024 VidyaUday · Rise of Knowledge · B.Tech Community Project","footer_made":"🇮🇳 Made in Andhra Pradesh","chat_title":"Uday the Owl","chat_status":"AI Study Assistant","chat_welcome":"Hoo hoo! I'm <strong>Uday</strong>, your AI study owl! 🎓<br><br>You can <strong>type</strong> or <strong>speak</strong> in English, తెలుగు, or हिंदी — I'll understand and reply in the same language!<br><br>Ask me about careers, scholarships, AI tools, coding, or anything about your education! 🚀","modal_tool_details":"Tool Details"},"te":{"nav_ai":"AI సాధనాలు","nav_careers":"కెరీర్ మార్గాలు","nav_resources":"ఉచిత వనరులు","nav_scholarships":"స్కాలర్‌షిప్‌లు","nav_coding":"కోడింగ్","nav_digital":"డిజిటల్ స్కిల్స్","mn_ai":"🤖 AI సాధనాలు","mn_careers":"🎯 కెరీర్ మార్గదర్శకత్వం","mn_resources":"📚 లెర్నింగ్ రిసోర్సెస్","mn_scholarships":"🏆 స్కాలర్‌షిప్‌లు","mn_coding":"💻 కోడింగ్ ప్లాట్‌ఫారమ్‌లు","mn_digital":"🌐 డిజిటల్ నైపుణ్యాలు","hero_tag":"🇮🇳 బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్ · విద్యాఉదయ్ · ఆంధ్రప్రదేశ్","hero_title":"మీ భవిష్యత్తు <span id=\"heroTyping\">డిజిటల్ అవగాహన</span>తో ప్రారంభమవుతుంది","hero_desc":"గ్రామీణ 10వ తరగతి మరియు ఇంటర్మీడియట్ విద్యార్థులకు AI సాధనాలు, కెరీర్ మార్గదర్శకత్వం, స్కాలర్‌షిప్‌లు మరియు లెర్నింగ్ రిసోర్స్‌లను ఒకే చోట అందించే ఉచిత ప్లాట్‌ఫారమ్.","hero_btn_ai":"🚀 AI సాధనాలను అన్వేషించండి","hero_btn_career":"🎯 కెరీర్ మార్గాలను చూడండి","hc_ai_title":"AI సాధనాలు","hc_ai_desc":"ChatGPT, Gemini మరియు ఇతరమైనవి","hc_career_title":"కెరీర్ మార్గాలు","hc_career_desc":"10వ తరగతి & ఇంటర్మీడియట్ తర్వాత","hc_schol_title":"స్కాలర్‌షిప్‌లు","hc_schol_desc":"₹50వేలకు పైగా అవకాశాలు","hc_coding_title":"ఉచిత కోడింగ్","hc_coding_desc":"మొదటి నుండి నేర్చుకోండి","hc_explore":"అన్వేషించండి →","stat_label1":"గ్రామీణ విద్యార్థులకు కెరీర్ మార్గదర్శకత్వం లేదు","stat_label2":"ఉచిత AI సాధనాల గురించి అవగాహన లేదు","stat_label3":"ఏటా కోల్పోతున్న స్కాలర్‌షిప్‌లు","stat_label4":"మేము చేరుకోవాలనుకుంటున్న విద్యార్థులు","mission_tag":"మా లక్ష్యం","mission_title":"విద్యాఉదయ్ ఎందుకు అవసరం","mission_p1":"ఆంధ్రప్రదేశ్‌లోని వేలాది మంది ప్రతిభావంతులైన గ్రామీణ విద్యార్థులు ప్రతి సంవత్సరం జీవితాన్ని మార్చే అవకాశాలను కోల్పోతున్నారు — ప్రతిభ లేకపోవడం వల్ల కాదు, సమాచారం లేకపోవడం వల్ల. స్కాలర్‌షిప్ గడువు ముగుస్తుంది. ఉచిత కోర్సు ఉపయోగించబడదు. చదువుకు సహాయపడే AI సాధనం కనుగొనబడదు.","mission_p2":"విద్యాఉదయ్ విద్యార్థుల కోసం, విద్యార్థుల చేత నిర్మించబడింది — ప్రతి గ్రామీణ విద్యార్థికి అర్హమైన కానీ అరుదుగా లభించే మార్గదర్శిగా నిలవడానికి.","mc_info_title":"కేంద్రీకృత సమాచారం","mc_info_desc":"అన్ని అవకాశాలు ఒకే చోట","mc_inc_title":"డిజిటల్ సమ్మిళితం","mc_inc_desc":"పట్టణ-గ్రామీణ విభజనను తగ్గించడం","mc_peer_title":"తోటివారి మద్దతు","mc_peer_desc":"విద్యార్థుల చేత, విద్యార్థుల కోసం నిర్మించబడింది","mc_free_title":"ఎల్లప్పుడూ ఉచితం","mc_free_desc":"లిస్ట్ చేయబడిన ప్రతి వనరు ఉచితం","ai_tag":"AI అవగాహన","ai_title":"మీ కోసం రూపొందించిన AI సాధనాలను కనుగొనండి","ai_finder_title":"🎯 ఈరోజు మీరు ఏమి చేయాలనుకుంటున్నారు?","ai_prompts_title":"💡 విద్యార్థుల కోసం రెడీమేడ్ స్టడీ ప్రాంప్ట్‌లు","ai_prompts_sub":"ఏదైనా ప్రాంప్ట్‌ను కాపీ చేసి ChatGPT లేదా Google Gemini లో పేస్ట్ చేయండి — తక్షణమే విద్యార్థికి సరిపడే సమాధానం పొందండి.","ai_sub":"మరింత తెలుసుకోవడానికి ఏదైనా కార్డ్‌పై క్లిక్ చేయండి, ఆపై ఉపయోగించడం ప్రారంభించడానికి \"Open Tool\" క్లిక్ చేయండి — ఇవన్నీ విద్యార్థులకు పూర్తిగా ఉచితం.","ai_search_placeholder":"ఏదైనా AI సాధనాన్ని శోధించండి... ఉదా. Grammarly, Midjourney, Adobe Firefly","ai_tools_label":"మా టాప్ 10 సిఫార్సు చేసిన సాధనాలు","career_tag":"కెరీర్ మార్గదర్శకత్వం","career_title":"మీ పూర్తి కెరీర్ రోడ్‌మ్యాప్ & AI విశ్లేషణ","career_sub":"మీ దశను ఎంచుకోండి → మీ మార్గాన్ని ఎంచుకోండి → జీతం వృద్ధితో కూడిన పూర్తి కెరీర్ రోడ్‌మ్యాప్ మరియు AI విశ్లేషణను చూడండి.","c_stage1_10th_title":"10వ తరగతి తర్వాత","c_stage1_10th_desc":"SSC పూర్తి చేసారా? ప్రస్తుతం అందుబాటులో ఉన్న 5 మార్గాలను చూడండి.","c_explore_paths":"మార్గాలను అన్వేషించండి →","c_stage1_inter_title":"ఇంటర్మీడియట్ తర్వాత","c_stage1_inter_desc":"12వ తరగతి పూర్తి చేసారా? పూర్తి రోడ్‌మ్యాప్‌లతో 6 మార్గాలను కనుగొనండి.","c_back":"← వెనుకకు","res_tag":"ఉచిత వనరులు","res_title":"10వ & ఇంటర్మీడియట్ ఉచిత లెర్నింగ్ హబ్","res_sub":"ఎంపిక చేసిన ఉచిత ప్లాట్‌ఫారమ్‌లు, 1-క్లిక్ పాఠ్యపుస్తకాలు, గత పరీక్ష పేపర్లు మరియు తక్షణ సబ్జెక్ట్ శోధన.","schol_tag":"స్కాలర్‌షిప్‌లు","schol_title":"10వ & ఇంటర్మీడియట్ స్కాలర్‌షిప్‌ల హబ్","schol_sub":"ధృవీకరించబడిన ప్రభుత్వ పథకాలు, తక్షణ అర్హత పరీక్ష మరియు అవసరమైన డాక్యుమెంట్ల మార్గదర్శకాలు.","sf_header_title":"మీ గురించి మాకు చెప్పండి","sf_header_sub":"మీరు దరఖాస్తు చేసుకోగల స్కాలర్‌షిప్‌లతో మేము మిమ్మల్ని మ్యాచ్ చేస్తాము","sf_lbl_name":"మీ పేరు","sf_pl_name":"మీ పేరును నమోదు చేయండి","sf_lbl_class":"ప్రస్తుత విద్య","sf_opt_class":"మీ తరగతిని ఎంచుకోండి","sf_opt_c9":"9వ తరగతి","sf_opt_c10":"10వ తరగతి (SSC)","sf_opt_ci1":"ఇంటర్మీడియట్ మొదటి సంవత్సరం","sf_opt_ci2":"ఇంటర్మీడియట్ రెండవ సంవత్సరం","sf_opt_cdeg":"డిగ్రీ / బి.టెక్ / ఇంజనీరింగ్","sf_opt_cpg":"పోస్ట్ గ్రాడ్యుయేషన్","sf_lbl_caste":"కుల వర్గం","sf_opt_caste":"వర్గాన్ని ఎంచుకోండి","sf_opt_csc":"SC (షెడ్యూల్డ్ కులం)","sf_opt_cst":"ST (షెడ్యూల్డ్ తెగ)","sf_opt_cobc":"OBC (ఇతర వెనుకబడిన తరగతి)","sf_opt_cmin":"మైనారిటీ (ముస్లిం/క్రిస్టియన్/సిక్కు/బౌద్ధ/జైన్)","sf_opt_cgen":"జనరల్ / ఓపెన్ కేటగిరీ","sf_lbl_gender":"లింగం","sf_opt_gender":"లింగాన్ని ఎంచుకోండి","sf_opt_gfem":"స్త్రీ","sf_opt_gmale":"పురుషుడు","sf_opt_goth":"ఇతర","sf_lbl_income":"कुटुంబ వార్షిక ఆదాయం","sf_opt_income":"ఆదాయ పరిధిని ఎంచుకోండి","sf_opt_inc1":"₹1 లక్ష లోపు","sf_opt_inc2":"₹1 లక్ష – ₹2.5 లక్షలు","sf_opt_inc3":"₹2.5 లక్షలు – ₹8 లక్షలు","sf_opt_inc4":"₹8 లక్షల పైన","sf_lbl_state":"రాష్ట్రం","sf_opt_state":"రాష్ట్రాన్ని ఎంచుకోండి","sf_opt_sap":"ఆంధ్రప్రదేశ్","sf_opt_sts":"తెలంగాణ","sf_opt_soth":"ఇతర రాష్ట్రం","sf_btn_submit":"🔍 నా స్కాలర్‌షిప్‌లను కనుగొనండి","schol_no_result":"ప్రస్తుతానికి మీ ప్రొఫైల్‌కు సరిపోయే స్కాలర్‌షిప్‌లు లేవు. కానీ మళ్లీ తనిఖీ చేయండి — కొత్త పథకాలు క్రమం తప్పకుండా జోడించబడతాయి!","schol_other_ref":"సూచన కోసం మిగిలిన అన్ని స్కాలర్‌షిప్‌లను చూపుతోంది:","schol_search_placeholder":"అన్ని స్కాలర్‌షిప్‌లను శోధించండి...","coding_tag":"కోడింగ్ ప్రారంభించండి","coding_title":"మీ టెక్ కెరీర్‌ను ప్రారంభించడానికి కోడింగ్ ప్లాట్‌ఫారమ్‌లు","coding_sub":"సమస్యలను సాధన చేయండి, సర్టిఫికేట్‌లను పొందండి మరియు ప్రముఖ కంపెనీల దృష్టిని ఆకర్షించండి.","dl_tag":"డిజిటల్ నైపుణ్యాలు","dl_title":"ప్రతి విద్యార్థికి అవసరమైన డిజిటల్ నైపుణ్యాలు","dl_sub":"ఆధునిక ప్రపంచంలో రాణించడానికి ఈ ప్రాథమిక అంశాలలో నైపుణ్యం సాధించండి.","logo_tagline":"నాలెడ్జ్ రైజ్","footer_brand_desc":"ఆంధ్రప్రదేశ్ గ్రామీణ విద్యార్థులకు డిజిటల్ జ్ఞానం, AI అవగాహన మరియు కెరీర్ మార్గదర్శకత్వంతో సాధికారత కల్పించడం. బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్‌గా ❤️ తో నిర్మించబడింది.","footer_col1_title":"ప్లాట్‌ఫారమ్","footer_ai":"AI సాధనాలు","footer_careers":"కెరీర్ మార్గదర్శకత్వం","footer_resources":"లెర్నింగ్ రిసోర్సెస్","footer_scholarships":"స్కాలర్‌షిప్‌లు","footer_col2_title":"నేర్చుకోండి","footer_coding":"కోడింగ్ ప్లాట్‌ఫారమ్‌లు","footer_digital":"డిజిటల్ నైపుణ్యాలు","footer_col3_title":"త్వరిత లింకులు","footer_link_nsp":"నేషనల్ స్కాలర్‌షిప్ పోర్టల్","footer_link_swayam":"స్వయం (SWAYAM)","footer_link_nptel":"NPTEL","footer_link_ap":"AP ఈపాస్","footer_copy":"© 2024 విద్యాఉదయ్ · నాలెడ్జ్ రైజ్ · బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్","footer_made":"🇮🇳 ఆంధ్రప్రదేశ్‌లో తయారు చేయబడింది","chat_title":"ఉదయ్ ది ఔల్","chat_status":"AI స్టడీ అసిస్టెంట్","chat_welcome":"హూ హూ! నేను మీ AI స్టడీ ఔల్ <strong>ఉదయ్</strong>ని! 🎓<br><br>మీరు ఇంగ్లీష్, తెలుగు లేదా హిందీలో <strong>టైప్ చేయవచ్చు</strong> లేదా <strong>మాట్లాడవచ్చు</strong> — నేను అర్థం చేసుకుని అదే భాషలో సమాధానం ఇస్తాను!<br><br>కెరీర్, స్కాలర్‌షిప్‌లు, AI సాధనాలు, కోడింగ్ లేదా మీ చదువుకు సంబంధించిన ఏదైనా నన్ను అడగండి! 🚀","modal_tool_details":"సాధనం వివరాలు"}};
 
 function applyStaticTranslations(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -4577,17 +4855,51 @@ function switchLanguage(lang) {
   renderCoding();
   renderDigitalLiteracy();
   
-  // Scholarships profile updates
-  const saved = localStorage.getItem('vidyauday_schol_profile');
-  if (saved) {
-    try {
-      const profile = JSON.parse(saved);
-      showScholResults(profile);
-    } catch(e) {
-      renderScholarships();
+  // Update Scholarship Section Mode Switcher labels
+  const tabScholH = document.getElementById('lblScholTabHub');
+  const tabScholC = document.getElementById('lblScholTabChecker');
+  const tabScholG = document.getElementById('lblScholTabGuide');
+  if (tabScholH) tabScholH.textContent = lang === 'te' ? 'టాప్ స్కాలర్‌షిప్‌ల హబ్' : 'Top Scholarships Hub';
+  if (tabScholC) tabScholC.textContent = lang === 'te' ? '30-సెకన్ల అర్హత చెకర్' : '30-Sec Eligibility Checker';
+  if (tabScholG) tabScholG.textContent = lang === 'te' ? 'డాక్యుమెంట్లు & పోర్టల్స్ గైడ్' : 'Documents & Portals Guide';
+
+  const trustText = document.getElementById('scholTrustText');
+  if (trustText) {
+    trustText.innerHTML = lang === 'te'
+      ? `<strong>ధృవీకరించబడిన ప్రభుత్వ పథకాలు (విద్యా సంవత్సరం 2024–25):</strong> అన్ని అర్హత నిబంధనలు అధికారిక ప్రభుత్వ గెజిట్లు మరియు DBT పోర్టల్స్ (NSP, AP జ్ఞానభూమి, TS ePASS, AICTE) నుండి ధృవీకరించబడ్డాయి. అన్ని దరఖాస్తు లింకులు నేరుగా అధికారిక <code>.gov.in</code> వెబ్‌సైట్‌లకు మళ్ళించబడతాయి.`
+      : `<strong>Verified Government Schemes (Academic Year 2024–25):</strong> All eligibility criteria are curated from official Government Gazettes and DBT Portals (National Scholarship Portal, AP Jnanabhumi, TS ePASS, AICTE). All application links redirect strictly to official <code>.gov.in</code> websites.`;
+  }
+
+  // Update Checker Form labels in Telugu/English
+  const cTitle = document.getElementById('sfCheckerTitle');
+  const cSub = document.getElementById('sfCheckerSub');
+  const lClass = document.getElementById('sfLblClass');
+  const lState = document.getElementById('sfLblState');
+  const lCaste = document.getElementById('sfLblCaste');
+  const lInc = document.getElementById('sfLblIncome');
+  const lGen = document.getElementById('sfLblGender');
+  const btnAll = document.getElementById('btnGenderAll');
+  const btnFem = document.getElementById('btnGenderFemale');
+
+  if (cTitle) cTitle.textContent = lang === 'te' ? 'త్వరిత 30-సెకన్ల అర్హత చెకర్' : 'Quick 30-Second Eligibility Matcher';
+  if (cSub) cSub.textContent = lang === 'te' ? 'మీ వివరాలను ఎంచుకుని మీరు అర్హత సాధించే ప్రతి ప్రభుత్వ స్కాలర్‌షిప్‌ను తక్షణమే చూడండి' : 'Select your basic details to instantly see every scholarship you can legally apply for';
+  if (lClass) lClass.textContent = lang === 'te' ? 'ప్రస్తుత విద్య' : 'Current Education';
+  if (lState) lState.textContent = lang === 'te' ? 'రాష్ట్రం' : 'State';
+  if (lCaste) lCaste.textContent = lang === 'te' ? 'సామాజిక వర్గం / కులం' : 'Social Category / Caste';
+  if (lInc) lInc.textContent = lang === 'te' ? 'వార్షిక కుటుంబ ఆదాయం' : 'Annual Family Income';
+  if (lGen) lGen.textContent = lang === 'te' ? 'లింగం' : 'Gender';
+  if (btnAll) btnAll.innerHTML = lang === 'te' ? '👨‍🎓 అందరూ / అబ్బాయిలు' : '👨‍🎓 All / Male';
+  if (btnFem) btnFem.innerHTML = lang === 'te' ? '👩‍🎓 అమ్మాయిలు (ప్రత్యేక పథకాలు)' : '👩‍🎓 Female (Girls Only Schemes)';
+
+  // Re-render according to active view
+  if (currentScholView === 'hub') {
+    renderScholarshipHub(currentScholFilter);
+  } else if (currentScholView === 'checker') {
+    if (lastCheckerProfile) {
+      renderCheckerResults(lastCheckerProfile);
     }
-  } else {
-    renderScholarships();
+  } else if (currentScholView === 'guide') {
+    renderScholarshipGuide();
   }
   
   // Career Path state re-rendering
