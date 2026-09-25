@@ -621,6 +621,266 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 .schol-step-desc{font-size:0.8rem;color:var(--text2);line-height:1.45;}
 @media(max-width:600px){.schol-form-grid{grid-template-columns:1fr;}}
 
+
+/* ═══════════════════════════════════════ */
+/* SECTION 7: DIGITAL LITERACY (10TH & INTER FOCUS) */
+/* ═══════════════════════════════════════ */
+.dl-view-container { animation: fadeIn 0.25s ease-in-out; }
+.dl-skill-card {
+  background: var(--card);
+  border: 1.5px solid var(--card-border);
+  border-radius: 16px;
+  padding: 22px;
+  transition: all 0.28s;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  position: relative;
+}
+.dl-skill-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--teal);
+  box-shadow: 0 14px 35px rgba(0,0,0,0.35);
+}
+.dl-skill-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.dl-skill-icon {
+  font-size: 2rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+.dl-skill-name {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+.dl-skill-tag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  display: inline-block;
+  background: rgba(13,148,136,0.15);
+  color: #2dd4bf;
+  border: 1px solid rgba(13,148,136,0.3);
+}
+.dl-skill-why {
+  background: rgba(13,148,136,0.08);
+  border-left: 3px solid #2dd4bf;
+  border-radius: 6px;
+  padding: 8px 12px;
+  font-size: 0.82rem;
+  color: #2dd4bf;
+  font-weight: 600;
+  line-height: 1.45;
+}
+.dl-skill-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dl-skill-steps li {
+  font-size: 0.84rem;
+  color: var(--text2);
+  line-height: 1.5;
+  padding-left: 20px;
+  position: relative;
+}
+.dl-skill-steps li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #34d399;
+  font-weight: 700;
+}
+.dl-skill-action {
+  margin-top: auto;
+  padding-top: 8px;
+}
+.dl-skill-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 100%;
+  background: rgba(13,148,136,0.1);
+  border: 1px solid rgba(13,148,136,0.3);
+  color: #2dd4bf;
+  font-family: var(--font-display);
+  font-size: 0.84rem;
+  font-weight: 600;
+  padding: 10px 14px;
+  border-radius: 8px;
+  text-decoration: none;
+  transition: all 0.2s;
+}
+.dl-skill-btn:hover {
+  background: #0d9488;
+  color: #fff;
+  box-shadow: 0 4px 14px rgba(13,148,136,0.35);
+}
+
+/* QUIZ STYLES (VIEW 2) */
+.dl-quiz-container {
+  max-width: 820px;
+  margin: 0 auto;
+  background: var(--card);
+  border: 1.5px solid var(--card-border);
+  border-radius: 20px;
+  padding: 32px;
+}
+.dl-quiz-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 24px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--card-border);
+}
+.dl-quiz-item {
+  background: var(--deep2);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+.dl-quiz-qtext {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--text);
+  flex: 1;
+  min-width: 240px;
+  line-height: 1.45;
+}
+.dl-quiz-options {
+  display: flex;
+  gap: 10px;
+}
+.dl-quiz-opt-btn {
+  background: var(--card);
+  border: 1.5px solid var(--card-border);
+  color: var(--text2);
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding: 8px 18px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.dl-quiz-opt-btn.selected-yes {
+  background: rgba(16,185,129,0.18);
+  border-color: #10b981;
+  color: #34d399;
+}
+.dl-quiz-opt-btn.selected-no {
+  background: rgba(239,68,68,0.18);
+  border-color: #ef4444;
+  color: #f87171;
+}
+.dl-quiz-result {
+  margin-top: 24px;
+  border-radius: 14px;
+  padding: 22px;
+  text-align: center;
+  display: none;
+}
+.dl-quiz-result.high {
+  background: linear-gradient(135deg, rgba(16,185,129,0.15), rgba(13,148,136,0.1));
+  border: 1.5px solid rgba(16,185,129,0.4);
+  color: #34d399;
+}
+.dl-quiz-result.mid {
+  background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(255,107,43,0.1));
+  border: 1.5px solid rgba(245,158,11,0.4);
+  color: #fbbf24;
+}
+.dl-quiz-result.low {
+  background: linear-gradient(135deg, rgba(239,68,68,0.15), rgba(255,107,43,0.1));
+  border: 1.5px solid rgba(239,68,68,0.4);
+  color: #f87171;
+}
+
+/* SCAMS STYLES (VIEW 3) */
+.dl-scams-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 18px;
+}
+.dl-scam-card {
+  background: var(--card);
+  border: 1.5px solid rgba(239,68,68,0.25);
+  border-radius: 16px;
+  padding: 22px;
+  transition: all 0.28s;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+.dl-scam-card:hover {
+  transform: translateY(-4px);
+  border-color: #ef4444;
+  box-shadow: 0 14px 35px rgba(239,68,68,0.15);
+}
+.dl-scam-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.dl-scam-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+.dl-scam-title {
+  font-family: var(--font-display);
+  font-size: 1.02rem;
+  font-weight: 700;
+  color: var(--text);
+}
+.dl-scam-box {
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+.dl-scam-box.trap {
+  background: rgba(239,68,68,0.08);
+  border: 1px solid rgba(239,68,68,0.25);
+  color: #fca5a5;
+}
+.dl-scam-box.safe {
+  background: rgba(16,185,129,0.08);
+  border: 1px solid rgba(16,185,129,0.25);
+  color: #86efac;
+}
+.dl-scam-label {
+  font-weight: 700;
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.05em;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.dl-scam-box.trap .dl-scam-label { color: #ef4444; }
+.dl-scam-box.safe .dl-scam-label { color: #10b981; }
+
 /* ═══════════════════════════════════════ */
 /* RESPONSIVE — TABLET (max-width: 900px) */
 /* ═══════════════════════════════════════ */
@@ -1227,10 +1487,51 @@ footer{background:var(--deep2);border-top:1px solid var(--card-border);padding:6
 <!-- DIGITAL LITERACY -->
 <section id="digital-literacy" class="bg-alt">
   <div class="max-w">
-    <div class="section-tag" data-i18n="dl_tag">Digital Skills</div>
-    <h2 class="section-title" data-i18n="dl_title">Essential Digital Skills for Every Student</h2>
-    <p class="section-sub" data-i18n="dl_sub">Master these fundamentals to thrive in the modern world.</p>
-    <div class="cards-grid" id="digitalGrid"></div>
+    <div class="section-tag" data-i18n="dl_tag">Digital Literacy</div>
+    <h2 class="section-title" data-i18n="dl_title">10th & Intermediate Digital Skills Hub</h2>
+    <p class="section-sub" data-i18n="dl_sub">Master online admissions, DigiLocker certificates, cyber scam safety, and cloud productivity.</p>
+
+    <!-- EXCLUSIVE VIEW SWITCHER -->
+    <div class="c-mode-switcher-wrap">
+      <div class="c-mode-switcher">
+        <button class="c-mode-btn active" id="dlTabSkills" onclick="switchDigitalView('skills')">
+          <span>🛡️</span> <span id="lblDlTabSkills">Essential Student Skills</span>
+        </button>
+        <button class="c-mode-btn" id="dlTabQuiz" onclick="switchDigitalView('quiz')">
+          <span>📋</span> <span id="lblDlTabQuiz">30-Sec Digital Readiness Quiz</span>
+        </button>
+        <button class="c-mode-btn" id="dlTabScams" onclick="switchDigitalView('scams')">
+          <span>⚠️</span> <span id="lblDlTabScams">Student Scam Buster Guide</span>
+        </button>
+      </div>
+    </div>
+
+    <!-- VIEW 1: ESSENTIAL STUDENT SKILLS (Active by default) -->
+    <div id="dlViewSkills" class="dl-view-container">
+      <div class="filter-row" id="dlFilters"></div>
+      <div class="cards-grid" id="dlSkillsGrid" style="grid-template-columns:repeat(auto-fill,minmax(320px,1fr));"></div>
+    </div>
+
+    <!-- VIEW 2: 30-SEC DIGITAL READINESS QUIZ (Hidden by default) -->
+    <div id="dlViewQuiz" class="dl-view-container" style="display:none;">
+      <div class="dl-quiz-container">
+        <div class="dl-quiz-header">
+          <span style="font-size:2rem;">🎯</span>
+          <div>
+            <div style="font-family:var(--font-display);font-size:1.15rem;font-weight:700;" id="dlQuizTitle">Are You College & Admission Form Ready?</div>
+            <div style="font-size:0.84rem;color:var(--text2);margin-top:3px;" id="dlQuizSub">Answer these 5 quick questions to test your digital readiness score</div>
+          </div>
+        </div>
+        <div id="dlQuizList"></div>
+        <div id="dlQuizResult" class="dl-quiz-result"></div>
+      </div>
+    </div>
+
+    <!-- VIEW 3: STUDENT SCAM BUSTER GUIDE (Hidden by default) -->
+    <div id="dlViewScams" class="dl-view-container" style="display:none;">
+      <div class="dl-scams-grid" id="dlScamsGrid"></div>
+    </div>
+
   </div>
 </section>
 
@@ -4504,16 +4805,484 @@ function renderCoding() {
 }
 
 // ═══════════════════════════════════════════
-// RENDER DIGITAL LITERACY
+// SECTION 7: DIGITAL LITERACY SYSTEM (EXCLUSIVE VIEWS)
 // ═══════════════════════════════════════════
-function renderDigitalLiteracy() {
-  document.getElementById('digitalGrid').innerHTML = digitalLiteracy.map(d => `
-    <div class="dl-card fade-in" style="border-top:3px solid ${d.color}">
-      <div class="dl-icon">${d.icon}</div>
-      <div class="dl-title">${d.title}</div>
-      <ul class="dl-tips">${d.tips.map(t=>`<li>${t}</li>`).join('')}</ul>
+let currentDigitalView = 'skills';
+let currentDigitalFilter = 'all';
+let digitalQuizAnswers = {};
+
+const digitalSkills_data = {
+  en: [
+    {
+      id: "digilocker",
+      cat: "govt",
+      name: "DigiLocker & Legal Digital Records",
+      icon: "📲",
+      tag: "Govt Official • 100% Legal",
+      why: "Legally valid across all AP & TS colleges under IT Act 2000 — never carry fragile paper originals.",
+      steps: [
+        "Download official DigiLocker app & link with Aadhaar-registered mobile number",
+        "Pull Class 10 (SSC) and Inter marks memos instantly using Board name & Roll number",
+        "Store Caste, Income & Residence certificates permanently without risking rain/physical damage",
+        "Share digital QR-verified credentials directly during AP/TS EAMCET & POLYCET counselling"
+      ],
+      btnText: "Open DigiLocker (digilocker.gov.in) ↗",
+      link: "https://www.digilocker.gov.in"
+    },
+    {
+      id: "exam_forms",
+      cat: "exam",
+      name: "Online Exam & Admission Form Mastery",
+      icon: "📝",
+      tag: "EAMCET • POLYCET • DOST",
+      why: "Avoid paying ₹100–₹200 to cyber café agents for basic form submissions.",
+      steps: [
+        "Compress passport photos to 30KB–50KB and signature to 10KB–30KB using free browser tools",
+        "Convert phone snapshots of certificates into clear, single-page PDFs under 200KB",
+        "Double-check your name spelling against 10th memo letter-for-letter before clicking Final Submit",
+        "Download and save the PDF Acknowledgement Receipt with Transaction ID immediately"
+      ],
+      btnText: "Free Photo/PDF Resizer Guide (DocuPub) ↗",
+      link: "https://docupub.com/pdfconvert/"
+    },
+    {
+      id: "cyber_safety",
+      cat: "safety",
+      name: "Cyber Scam & OTP Shield",
+      icon: "🛡️",
+      tag: "Student Cyber Safety",
+      why: "Protect yourself and parents from WhatsApp scholarship frauds and fake college job offers.",
+      steps: [
+        "Golden Rule: Central & State Govt scholarships NEVER demand an application fee or OTP",
+        "Spot fake URLs: Verified portals always end in .gov.in or .nic.in — avoid .xyz, .top, or .club",
+        "UPI Safety: Entering your UPI PIN always DEDUCTS money; you never need a PIN to receive funds",
+        "Report student online cyber fraud immediately on the national helpline 1930 or cybercrime.gov.in"
+      ],
+      btnText: "National Cyber Crime Portal (1930) ↗",
+      link: "https://cybercrime.gov.in"
+    },
+    {
+      id: "cloud_vault",
+      cat: "cloud",
+      name: "Google Drive & Cloud Certificate Vault",
+      icon: "☁️",
+      tag: "Permanent Cloud Backup",
+      why: "Physical paper certificates get torn, wet in monsoons, or lost during travel; cloud storage lasts forever.",
+      steps: [
+        "Create a dedicated Google Drive folder named 'Academic_Certificates_2024'",
+        "Upload high-resolution scans of 10th Memo, Inter Hall Ticket, Aadhaar, Caste & Income Certificate",
+        "Name files clearly: e.g., '10th_Memo_Ramesh.pdf' instead of random camera numbers",
+        "Enable 2-Step Verification on your Gmail so your certificate cloud vault can never be hacked"
+      ],
+      btnText: "Open Google Drive (drive.google.com) ↗",
+      link: "https://drive.google.com"
+    },
+    {
+      id: "email_etiquette",
+      cat: "cloud",
+      name: "Professional Student Email Etiquette",
+      icon: "📧",
+      tag: "College Communication",
+      why: "Contacting college principals, scholarship officers, and grievance cells requires formal communication.",
+      steps: [
+        "Create a clean professional email address: firstname.lastname@gmail.com (avoid coolboy99@gmail.com)",
+        "Always write a descriptive Subject Line: e.g., 'Query Regarding Hall Ticket - Roll No 24081023'",
+        "Start with a respectful greeting: 'Respected Sir/Madam' and conclude with 'Sincerely, [Your Full Name]'",
+        "Attach files before drafting text, and review for spelling mistakes before hitting send"
+      ],
+      btnText: "Open Gmail (mail.google.com) ↗",
+      link: "https://mail.google.com"
+    },
+    {
+      id: "keyboard_shortcuts",
+      cat: "cloud",
+      name: "Essential Keyboard Shortcuts & Productivity",
+      icon: "⌨️",
+      tag: "Time-Saving Shortcuts",
+      why: "Saves hours while preparing school assignments, lab reports, and browsing exam portals.",
+      steps: [
+        "Ctrl + C (Copy), Ctrl + V (Paste), Ctrl + Z (Undo last action), Ctrl + S (Save file immediately)",
+        "Ctrl + F (Find any name, roll number, or rank inside a 500-page merit list PDF instantly)",
+        "Alt + Tab (Switch between open windows/apps smoothly without touching the mouse)",
+        "Windows + Shift + S (Capture a clean rectangular screenshot of receipts or admit cards)"
+      ],
+      btnText: "Free Typing Practice (TypingClub) ↗",
+      link: "https://www.typingclub.com"
+    }
+  ],
+  te: [
+    {
+      id: "digilocker",
+      cat: "govt",
+      name: "డిజిలాకర్ & అధికారిక డిజిటల్ రికార్డులు",
+      icon: "📲",
+      tag: "ప్రభుత్వ గుర్తింపు • 100% చట్టబద్ధం",
+      why: "IT చట్టం 2000 ప్రకారం అన్ని AP & TS కాలేజీలలో ఒరిజినల్ సర్టిఫికెట్లతో సమానంగా చెల్లుబాటు అవుతుంది.",
+      steps: [
+        "డిజిలాకర్ యాప్ డౌన్‌లోడ్ చేసి ఆధార్ లింక్ అయిన మొబైల్ నంబర్‌తో లాగిన్ అవ్వండి",
+        "మీ హాల్ టికెట్ నంబర్ ఎంటర్ చేసి 10వ తరగతి మరియు ఇంటర్ మార్కుల మెమోలను పొందండి",
+        "మీసేవ కుల, ఆదాయ సర్టిఫికెట్లను భద్రపరుచుకోండి — ఒరిజినల్ కాగితాలు పాడయ్యే ప్రమాదం ఉండదు",
+        "EAMCET, POLYCET కౌన్సెలింగ్ సమయంలో డిజిటల్ క్యూఆర్ కోడ్ సర్టిఫికెట్లను సమర్పించవచ్చు"
+      ],
+      btnText: "డిజిలాకర్ ఓపెన్ చేయండి (digilocker.gov.in) ↗",
+      link: "https://www.digilocker.gov.in"
+    },
+    {
+      id: "exam_forms",
+      cat: "exam",
+      name: "ఆన్‌లైన్ పరీక్షలు & అడ్మిషన్ ఫారమ్‌ల గైడ్",
+      icon: "📝",
+      tag: "EAMCET • POLYCET • DOST",
+      why: "నెట్ సెంటర్లలో చిన్న అప్లికేషన్ కోసం ₹100–₹200 ఖర్చు చేయకుండా మీరే స్వయంగా దరఖాస్తు చేసుకోవచ్చు.",
+      steps: [
+        "పాస్‌పోర్ట్ సైజ్ ఫోటో (50KB లోపు), సంతకం (30KB లోపు) ఉచిత ఆన్‌లైన్ టూల్స్ ద్వారా రీసైజ్ చేసుకోండి",
+        "ఫోన్‌తో తీసిన సర్టిఫికెట్ ఫోటోలను 200KB లోపు స్పష్టమైన PDFగా మార్చుకోండి",
+        "10వ తరగతి మార్కుల మెమోలోని స్పెల్లింగ్ ప్రకారమే పేరు, పుట్టిన తేదీ సరిచూసుకోండి",
+        "దరఖాస్తు పూర్తి కాగానే అప్లికేషన్ రసీదు మరియు ట్రాన్సాక్షన్ ఐడీని PDFగా సేవ్ చేసుకోండి"
+      ],
+      btnText: "ఉచిత ఫోటో/PDF రీసైజర్ టూల్ ↗",
+      link: "https://docupub.com/pdfconvert/"
+    },
+    {
+      id: "cyber_safety",
+      cat: "safety",
+      name: "సైబర్ మోసాలు & OTP రక్షణ కవచం",
+      icon: "🛡️",
+      tag: "స్టూడెంట్ సైబర్ రక్షణ",
+      why: "వాట్సాప్ ఫేక్ స్కాలర్‌షిప్ లింకులు మరియు మోసపూరిత ఉద్యోగ మెసేజ్‌ల నుండి మిమ్మల్ని రక్షిస్తుంది.",
+      steps: [
+        "బంగారు సూత్రం: ప్రభుత్వం ఇచ్చే స్కాలర్‌షిప్‌లకు ఎప్పుడూ ఎలాంటి రిజిస్ట్రేషన్ ఫీజు లేదా OTP అవసరం లేదు",
+        "నకిలీ వెబ్‌సైట్లు గుర్తించండి: ప్రభుత్వ సైట్లు ఎల్లప్పుడూ .gov.in తో ముగుస్తాయి; ఫేక్ సైట్ల లింకులు నొక్కవద్దు",
+        "UPI సూత్రం: మీ UPI పిన్ నొక్కితే మీ ఖాతా నుండి డబ్బు కట్ అవుతుంది, డబ్బు రావడానికి పిన్ అవసరం లేదు",
+        "సైబర్ మోసం జరిగితే వెంటనే 1930 టోల్ ఫ్రీ నంబర్‌కు లేదా cybercrime.gov.in లో ఫిర్యాదు చేయండి"
+      ],
+      btnText: "జాతీయ సైబర్ క్రైమ్ పోర్టల్ (1930) ↗",
+      link: "https://cybercrime.gov.in"
+    },
+    {
+      id: "cloud_vault",
+      cat: "cloud",
+      name: "గూగుల్ డ్రైవ్ & సర్టిఫికెట్ల క్లౌడ్ భద్రత",
+      icon: "☁️",
+      tag: "క్లౌడ్ శాశ్వత బ్యాకప్",
+      why: "కాగితపు సర్టిఫికెట్లు వర్షంలో తడిచినా, ప్రయాణంలో పోయినా క్లౌడ్‌లో ఎప్పటికీ సురక్షితంగా ఉంటాయి.",
+      steps: [
+        "మీ గూగుల్ డ్రైవ్‌లో 'Academic_Certificates' అనే ప్రత్యేక ఫోల్డర్‌ను సృష్టించండి",
+        "10వ మెమో, ఇంటర్ హాల్ టికెట్, ఆధార్, కుల, ఆదాయ ధృవీకరణ పత్రాల స్కాన్‌లను అప్‌లోడ్ చేయండి",
+        "ఫైళ్లకు స్పష్టమైన పేర్లు ఇవ్వండి (ఉదా: 10th_Marks_Memo.pdf) — వెతకడం చాలా సులభం",
+        "మీ జీమెయిల్‌కు 2-స్టెప్ వెరిఫికేషన్ ఆన్ చేసుకోండి — ఖాతా ఎప్పటికీ హ్యాక్ అవ్వదు"
+      ],
+      btnText: "గూగుల్ డ్రైవ్ ఓపెన్ చేయండి (drive.google.com) ↗",
+      link: "https://drive.google.com"
+    },
+    {
+      id: "email_etiquette",
+      cat: "cloud",
+      name: "ప్రొఫెషనల్ ఈమెయిల్ వినియోగం & మర్యాదలు",
+      icon: "📧",
+      tag: "కాలేజీ కమ్యూనికేషన్",
+      why: "కాలేజీ ప్రిన్సిపాల్, స్కాలర్‌షిప్ అధికారులు మరియు బోర్డుకు లేఖలు రాయడానికి ఇది ఎంతో ముఖ్యం.",
+      steps: [
+        "స్పష్టమైన ఈమెయిల్ ఐడి ఉండాలి: firstname.lastname@gmail.com (విచిత్రమైన పేర్లు వాడవద్దు)",
+        "సబ్జెక్ట్ లైన్ ఎల్లప్పుడూ స్పష్టంగా రాయండి: ఉదా: 'హాల్ టికెట్ సందేహం - రోల్ నెం 24081023'",
+        "'Respected Sir/Madam' తో ప్రారంభించి, చివరిలో మీ పేరు, ఫోన్ నంబర్ రాయండి",
+        "ఈమెయిల్ పంపే ముందు స్పెల్లింగ్ తప్పులు సరిచూసుకుని, సర్టిఫికెట్ ఫైల్ అటాచ్ అయిందో లేదో చూడండి"
+      ],
+      btnText: "జీమెయిల్ ఓపెన్ చేయండి (mail.google.com) ↗",
+      link: "https://mail.google.com"
+    },
+    {
+      id: "keyboard_shortcuts",
+      cat: "cloud",
+      name: "ముఖ్యమైన కంప్యూటర్ & కీబోర్డ్ షార్ట్‌కట్‌లు",
+      icon: "⌨️",
+      tag: "సమయం ఆదా చేసే షార్ట్‌కట్‌లు",
+      why: "ప్రాజెక్ట్ వర్క్, ల్యాబ్ రిపోర్టులు మరియు ఎగ్జామ్ పోర్టల్స్ చూసేటప్పుడు గంటల సమయం ఆదా అవుతుంది.",
+      steps: [
+        "Ctrl + C (కాపీ), Ctrl + V (పేస్ట్), Ctrl + Z (తప్పును వెనక్కి తీసుకోవడం), Ctrl + S (వెంటనే సేవ్)",
+        "Ctrl + F (500 పేజీల మెరిట్ లిస్ట్ PDF లో మీ హాల్ టికెట్ నంబర్ లేదా ర్యాంక్ క్షణాల్లో వెతకడానికి)",
+        "Alt + Tab (మౌస్ ముట్టుకోకుండా ఒక విండో నుండి మరొక విండోకి త్వరగా మారడానికి)",
+        "Windows + Shift + S (స్క్రీన్ మీద రసీదు లేదా హాల్ టికెట్‌ను క్లీన్‌గా స్క్రీన్‌షాట్ తీయడానికి)"
+      ],
+      btnText: "ఉచిత టైపింగ్ సాధన (TypingClub) ↗",
+      link: "https://www.typingclub.com"
+    }
+  ]
+};
+
+const digitalQuiz_questions = {
+  en: [
+    { id: 1, q: "Do you have an active DigiLocker account with your Class 10 roll number or Aadhaar linked?" },
+    { id: 2, q: "Do you know how to compress a passport photo and signature to under 50KB for online exam forms?" },
+    { id: 3, q: "Do you know that entering your UPI PIN always DEDUCTS money and is NEVER needed to receive money?" },
+    { id: 4, q: "Do you have a personal, professional email ID (firstname.lastname@gmail.com) with a safe password?" },
+    { id: 5, q: "Are digital copies of your Aadhaar, Caste, and Marks memos saved safely in Google Drive?" }
+  ],
+  te: [
+    { id: 1, q: "మీ 10వ తరగతి రోల్ నంబర్ లేదా ఆధార్ లింక్ అయిన డిజిలాకర్ ఖాతా మీకు ఉందా?" },
+    { id: 2, q: "ఆన్‌లైన్ దరఖాస్తుల కోసం పాస్‌పోర్ట్ ఫోటో మరియు సంతకాన్ని 50KB లోపు రీసైజ్ చేయడం మీకు తెలుసా?" },
+    { id: 3, q: "UPI పిన్ నొక్కితే ఖాతా నుండి డబ్బు కట్ అవుతుందని, డబ్బు రావడానికి పిన్ అవసరం లేదని మీకు తెలుసా?" },
+    { id: 4, q: "మీకంటూ సొంతంగా ప్రొఫెషనల్ ఈమెయిల్ ఐడి (firstname.lastname@gmail.com) ఉందా?" },
+    { id: 5, q: "మీ ఆధార్, కుల ధృవీకరణ పత్రం, మార్కుల మెమోల డిజిటల్ కాపీలు గూగుల్ డ్రైవ్‌లో భద్రపరిచారా?" }
+  ]
+};
+
+const digitalScams_data = {
+  en: [
+    {
+      icon: "🚨",
+      title: "Fake Scholarship Portals Demanding Registration Fees",
+      trap: "A WhatsApp forward or cyber café says: 'Pay ₹500 processing fee to guarantee your AP Vidya Deevena, TS ePASS, or PM Scholarship approval.'",
+      safe: "ALL Central & State Government scholarships in India are 100% FREE. Authentic portals (scholarships.gov.in, jnanabhumi.ap.gov.in, telanganaepass.cgg.gov.in) NEVER ask for payment. If a site demands money, it is a 100% scam."
+    },
+    {
+      icon: "💸",
+      title: "Student Work-From-Home & Telegram Typing Job Scams",
+      trap: "Telegram or Instagram DM: 'Earn ₹2,000/day by typing simple pages or liking YouTube videos. Pay ₹1,000 refundable security deposit first.'",
+      safe: "Legitimate companies NEVER ask students to pay money to get a job. Once you send the deposit, they immediately block your number or demand more money to 'unlock' your earnings. Never send money for a job offer."
+    },
+    {
+      icon: "📱",
+      title: "OTP Demands for Board Exam Results or Admit Cards",
+      trap: "An SMS arrives: 'Your 10th SSC / Inter marks memo or hall ticket is on hold. Share the 6-digit OTP received on your mobile to download it.'",
+      safe: "Official state exam boards (bse.ap.gov.in, bie.ap.gov.in, bse.telangana.gov.in) publish results openly by Roll Number and Date of Birth. They NEVER call or SMS demanding an OTP. Sharing an OTP can compromise your Aadhaar or bank account."
+    },
+    {
+      icon: "💳",
+      title: "The Fake UPI 'Receive Money' QR Code Trap",
+      trap: "A caller claims: 'You won a ₹15,000 scholarship award! Scan this PhonePe/GPay QR code and enter your UPI PIN to claim the money into your account.'",
+      safe: "GOLDEN RULE OF UPI: Entering your UPI PIN always DEDUCTS money from your bank account. You NEVER enter a PIN to receive money. Government DBT benefits are credited directly via Aadhaar-linked bank accounts without any QR codes."
+    }
+  ],
+  te: [
+    {
+      icon: "🚨",
+      title: "రిజిస్ట్రేషన్ ఫీజు అడిగే నకిలీ స్కాలర్‌షిప్ పోర్టల్స్",
+      trap: "వాట్సాప్ మెసేజ్ లేదా నెట్ సెంటర్ వ్యక్తి: '₹500 ప్రాసెసింగ్ ఫీజు చెల్లిస్తే AP విద్యా దీవెన లేదా TS ePASS గ్యారెంటీగా వస్తుంది' అని చెప్పడం.",
+      safe: "భారతదేశంలో అన్ని కేంద్ర, రాష్ట్ర ప్రభుత్వ స్కాలర్‌షిప్‌లు 100% ఉచితం. అధికారిక సైట్లు ఎప్పుడూ పైసా కూడా అడగవు. డబ్బులు అడిగే సైట్లన్నీ నకిలీవి."
+    },
+    {
+      icon: "💸",
+      title: "స్టూడెంట్ పార్ట్-టైమ్ టైపింగ్ & టెలిగ్రామ్ జాబ్ మోసాలు",
+      trap: "టెలిగ్రామ్/ఇన్‌స్టాగ్రామ్ మెసేజ్: 'రోజుకు ₹2,000 సంపాదించండి, కేవలం పేజీలు టైప్ చేస్తే చాలు. ముందుగా ₹1,000 సెక్యూరిటీ డిపాజిట్ కట్టండి.'",
+      safe: "నిజమైన కంపెనీలు ఎప్పుడూ ఉద్యోగం ఇవ్వడానికి విద్యార్థుల నుండి డబ్బు అడగవు. డిపాజిట్ కట్టగానే నంబర్ బ్లాక్ చేస్తారు. ఎలాంటి ఉద్యోగానికైనా డబ్బులు చెల్లించవద్దు."
+    },
+    {
+      icon: "📱",
+      title: "బోర్డు పరీక్ష ఫలితాలు & హాల్ టికెట్ కోసం OTP అడగడం",
+      trap: "SMS రావడం: 'మీ 10వ తరగతి లేదా ఇంటర్ ఫలితాలు నిలిపివేయబడ్డాయి. డౌన్‌లోడ్ చేసుకోవడానికి మీ మొబైల్‌కు వచ్చిన 6 అంకెల OTP చెప్పండి.'",
+      safe: "బోర్డు అధికారిక వెబ్‌సైట్లలో హాల్ టికెట్ నంబర్, పుట్టిన తేదీ ఎంటర్ చేస్తే సరిపోతుంది. ఏ ప్రభుత్వ బోర్డు కూడా ఫోన్ చేసి లేదా SMS లో OTP అడగదు. OTP చెబితే బ్యాంక్ ఖాతా లేదా ఆధార్ దుర్వినియోగం అవుతుంది."
+    },
+    {
+      icon: "💳",
+      title: "డబ్బులు జమ చేయడానికి UPI క్యూఆర్ కోడ్ స్కామ్",
+      trap: "ఫోన్ చేసి: 'మీకు ₹15,000 స్కాలర్‌షిప్ వచ్చింది! మీ ఖాతాలో పడటానికి ఈ Google Pay/PhonePe QR కోడ్ స్కాన్ చేసి UPI పిన్ ఎంటర్ చేయండి.'",
+      safe: "UPI బంగారు నియమం: UPI పిన్ ఎంటర్ చేస్తే మీ బ్యాంక్ నుండి డబ్బు పోతుంది, డబ్బు రావడానికి పిన్ నొక్కాల్సిన అవసరం లేదు. ప్రభుత్వ నగదు నేరుగా మీ ఆధార్ లింక్ అయిన బ్యాంక్ ఖాతాలో మాత్రమే పడుతుంది."
+    }
+  ]
+};
+
+function switchDigitalView(mode) {
+  currentDigitalView = mode;
+  const isTe = activeLanguage === 'te';
+
+  const tabS = document.getElementById('dlTabSkills');
+  const tabQ = document.getElementById('dlTabQuiz');
+  const tabSc = document.getElementById('dlTabScams');
+  if (tabS) tabS.classList.toggle('active', mode === 'skills');
+  if (tabQ) tabQ.classList.toggle('active', mode === 'quiz');
+  if (tabSc) tabSc.classList.toggle('active', mode === 'scams');
+
+  const viewS = document.getElementById('dlViewSkills');
+  const viewQ = document.getElementById('dlViewQuiz');
+  const viewSc = document.getElementById('dlViewScams');
+  if (viewS) viewS.style.display = mode === 'skills' ? 'block' : 'none';
+  if (viewQ) viewQ.style.display = mode === 'quiz' ? 'block' : 'none';
+  if (viewSc) viewSc.style.display = mode === 'scams' ? 'block' : 'none';
+
+  if (mode === 'skills') {
+    renderDigitalSkills(currentDigitalFilter);
+  } else if (mode === 'quiz') {
+    renderDigitalQuiz();
+  } else if (mode === 'scams') {
+    renderDigitalScams();
+  }
+}
+
+const dlFilterKeys = [
+  { id: "all", en: "All Skills", te: "అన్ని స్కిల్స్" },
+  { id: "govt", en: "Govt Portals & Docs", te: "ప్రభుత్వ పోర్టల్స్ & రికార్డులు" },
+  { id: "exam", en: "Online Exam Forms", te: "ఆన్‌లైన్ పరీక్ష దరఖాస్తులు" },
+  { id: "safety", en: "Cyber Safety", te: "సైబర్ భద్రత" },
+  { id: "cloud", en: "Cloud & Productivity", te: "క్లౌడ్ & కంప్యూటర్" }
+];
+
+function renderDigitalSkills(filter) {
+  currentDigitalFilter = filter || 'all';
+  const isTe = activeLanguage === 'te';
+  const list = isTe ? digitalSkills_data.te : digitalSkills_data.en;
+
+  const filtersEl = document.getElementById('dlFilters');
+  if (filtersEl) {
+    filtersEl.innerHTML = dlFilterKeys.map(k => {
+      const active = k.id === currentDigitalFilter ? 'active' : '';
+      const label = isTe ? k.te : k.en;
+      return `<button class="filter-btn ${active}" onclick="renderDigitalSkills('${k.id}')">${label}</button>`;
+    }).join('');
+  }
+
+  let filtered = list;
+  if (currentDigitalFilter !== 'all') {
+    filtered = list.filter(item => item.cat === currentDigitalFilter);
+  }
+
+  const grid = document.getElementById('dlSkillsGrid');
+  if (grid) {
+    grid.innerHTML = filtered.map(item => `
+      <div class="dl-skill-card fade-in">
+        <div class="dl-skill-header">
+          <span class="dl-skill-icon">${item.icon}</span>
+          <div>
+            <div class="dl-skill-name">${item.name}</div>
+            <span class="dl-skill-tag">${item.tag}</span>
+          </div>
+        </div>
+        <div class="dl-skill-why">
+          💡 ${item.why}
+        </div>
+        <ul class="dl-skill-steps">
+          ${item.steps.map(s => `<li>${s}</li>`).join('')}
+        </ul>
+        <div class="dl-skill-action">
+          <a href="${item.link}" target="_blank" rel="noopener noreferrer" class="dl-skill-btn">
+            ${item.btnText}
+          </a>
+        </div>
+      </div>
+    `).join('');
+  }
+  observeFadeIns();
+}
+
+function renderDigitalQuiz() {
+  const isTe = activeLanguage === 'te';
+  const qList = isTe ? digitalQuiz_questions.te : digitalQuiz_questions.en;
+  const container = document.getElementById('dlQuizList');
+  if (!container) return;
+
+  container.innerHTML = qList.map((item, idx) => {
+    const ans = digitalQuizAnswers[idx];
+    const yesActive = ans === true ? 'selected-yes' : '';
+    const noActive = ans === false ? 'selected-no' : '';
+    const yesLabel = isTe ? 'అవును ✓' : 'Yes ✓';
+    const noLabel = isTe ? 'కాదు ✕' : 'No ✕';
+
+    return `
+      <div class="dl-quiz-item fade-in">
+        <div class="dl-quiz-qtext">
+          <span style="color:var(--teal);font-weight:700;margin-right:6px;">Q${idx + 1}.</span>
+          ${item.q}
+        </div>
+        <div class="dl-quiz-options">
+          <button type="button" class="dl-quiz-opt-btn ${yesActive}" onclick="setQuizAnswer(${idx}, true)">${yesLabel}</button>
+          <button type="button" class="dl-quiz-opt-btn ${noActive}" onclick="setQuizAnswer(${idx}, false)">${noLabel}</button>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  renderQuizResult();
+  observeFadeIns();
+}
+
+function setQuizAnswer(idx, ans) {
+  digitalQuizAnswers[idx] = ans;
+  renderDigitalQuiz();
+}
+
+function renderQuizResult() {
+  const resultBox = document.getElementById('dlQuizResult');
+  if (!resultBox) return;
+
+  const totalAnswered = Object.keys(digitalQuizAnswers).length;
+  if (totalAnswered < 5) {
+    resultBox.style.display = 'none';
+    return;
+  }
+
+  const isTe = activeLanguage === 'te';
+  let yesCount = 0;
+  for (let i = 0; i < 5; i++) {
+    if (digitalQuizAnswers[i] === true) yesCount++;
+  }
+
+  let resultClass = 'high';
+  let title = '';
+  let msg = '';
+
+  if (yesCount === 5) {
+    resultClass = 'high';
+    title = isTe ? '🏆 5/5 — అద్భుతమైన డిజిటల్ సంసిద్ధత!' : '🏆 5/5 — Outstanding Digital Native!';
+    msg = isTe
+      ? 'అభినందనలు! కాలేజీ అడ్మిషన్లు, ఆన్‌లైన్ ప్రవేశ పరీక్షలు మరియు DBT స్కాలర్‌షిప్‌ల కోసం మీరు 100% సిద్ధంగా ఉన్నారు. నెట్ సెంటర్లపై ఆధారపడకుండా మీరే స్వయంగా చేసుకోగలరు!'
+      : 'Congratulations! You are 100% prepared for college admissions, competitive exams, and government DBT scholarships without needing cyber cafés!';
+  } else if (yesCount >= 3) {
+    resultClass = 'mid';
+    title = isTe ? `👍 ${yesCount}/5 — మంచి పురోగతి!` : `👍 ${yesCount}/5 — Good Progress!`;
+    msg = isTe
+      ? 'మీకు ప్రాథమిక అంశాలు తెలుసు! మిగిలిన 1 లేదా 2 విషయాల కోసం మన ఎసెన్షియల్ స్కిల్స్ గైడ్ చదవండి మరియు సర్టిఫికెట్లను సురక్షితంగా ఉంచుకోండి.'
+      : 'You know the basics! Review the remaining 1 or 2 areas in our Essential Skills guide to become fully self-reliant and avoid application mistakes.';
+  } else {
+    resultClass = 'low';
+    title = isTe ? `💡 ${yesCount}/5 — డిజిటల్ లెర్నర్ దశ!` : `💡 ${yesCount}/5 — Getting Started!`;
+    msg = isTe
+      ? 'ఏం కంగారు పడకండి! ఈరోజే ప్రారంభించండి: 1) డిజిలాకర్ ఖాతా తెరవండి, 2) గూగుల్ డ్రైవ్‌లో సర్టిఫికెట్ల ఫోల్డర్ పెట్టండి, మరియు 3) ఎవరితోనూ OTP పంచుకోవద్దు.'
+      : 'No worries! Start today: 1) Install DigiLocker, 2) Create a Google Drive folder for certificates, and 3) Remember never to share OTPs.';
+  }
+
+  resultBox.className = `dl-quiz-result ${resultClass} fade-in`;
+  resultBox.style.display = 'block';
+  resultBox.innerHTML = `
+    <div style="font-family:var(--font-display);font-size:1.15rem;font-weight:700;margin-bottom:8px;">${title}</div>
+    <div style="font-size:0.9rem;line-height:1.55;max-width:680px;margin:0 auto 16px;">${msg}</div>
+    <button class="schol-edit-btn" onclick="resetDigitalQuiz()" style="font-size:0.86rem;padding:8px 20px;">
+      ↺ ${isTe ? 'మళ్ళీ పరీక్ష రాయండి' : 'Retake Quiz'}
+    </button>
+  `;
+}
+
+function resetDigitalQuiz() {
+  digitalQuizAnswers = {};
+  renderDigitalQuiz();
+}
+
+function renderDigitalScams() {
+  const isTe = activeLanguage === 'te';
+  const scams = isTe ? digitalScams_data.te : digitalScams_data.en;
+  const grid = document.getElementById('dlScamsGrid');
+  if (!grid) return;
+
+  grid.innerHTML = scams.map(s => `
+    <div class="dl-scam-card fade-in">
+      <div class="dl-scam-header">
+        <span class="dl-scam-icon">${s.icon}</span>
+        <div class="dl-scam-title">${s.title}</div>
+      </div>
+      <div class="dl-scam-box trap">
+        <div class="dl-scam-label">❌ ${isTe ? 'మోసపూరిత వల (The Trap)' : 'The Trap'}</div>
+        <div>${s.trap}</div>
+      </div>
+      <div class="dl-scam-box safe">
+        <div class="dl-scam-label">✅ ${isTe ? 'సురక్షితమైన చర్య (The Safe Action)' : 'The Safe Action'}</div>
+        <div>${s.safe}</div>
+      </div>
     </div>
   `).join('');
+  observeFadeIns();
+}
+
+function renderDigitalLiteracy() {
+  switchDigitalView(currentDigitalView);
 }
 
 
@@ -4753,7 +5522,7 @@ let cPaths = cPaths_en;
 let cTrees = cTrees_en;
 let activeLanguage = 'en';
 
-const translations = {"en":{"nav_ai":"AI Tools","nav_careers":"Careers","nav_resources":"Resources","nav_scholarships":"Scholarships","nav_coding":"Coding","nav_digital":"Digital Skills","mn_ai":"🤖 AI Tools","mn_careers":"🎯 Career Guidance","mn_resources":"📚 Learning Resources","mn_scholarships":"🏆 Scholarships","mn_coding":"💻 Coding Platforms","mn_digital":"🌐 Digital Skills","hero_tag":"🇮🇳 B.Tech Community Project · VidyaUday · Andhra Pradesh","hero_title":"Your Future Starts with <span id=\"heroTyping\">Digital Awareness</span>","hero_desc":"A free platform giving rural 10th & Intermediate students access to AI tools, career guidance, scholarships, and learning resources — all in one place.","hero_btn_ai":"🚀 Explore AI Tools","hero_btn_career":"🎯 View Career Paths","hc_ai_title":"AI Tools","hc_ai_desc":"ChatGPT, Gemini & more","hc_career_title":"Career Paths","hc_career_desc":"After 10th & Intermediate","hc_schol_title":"Scholarships","hc_schol_desc":"₹50K+ opportunities","hc_coding_title":"Free Coding","hc_coding_desc":"Learn from zero","hc_explore":"Explore →","stat_label1":"Rural students lack career guidance","stat_label2":"Unaware of free AI tools","stat_label3":"Scholarships missed yearly","stat_label4":"Students we aim to reach","mission_tag":"Our Mission","mission_title":"Why VidyaUday Exists","mission_p1":"Thousands of bright rural students across Andhra Pradesh miss life-changing opportunities every year — not because of lack of talent, but because of lack of information. A scholarship deadline passes. A free course goes unused. An AI tool that could help with studies is never discovered.","mission_p2":"VidyaUday was built by students, for students — to be the guide that every rural learner deserves but rarely gets.","mc_info_title":"Centralized Info","mc_info_desc":"All opportunities in one place","mc_inc_title":"Digital Inclusion","mc_inc_desc":"Bridging the urban-rural divide","mc_peer_title":"Peer Support","mc_peer_desc":"Built by students, for students","mc_free_title":"Always Free","mc_free_desc":"Every resource listed is free","ai_tag":"AI Awareness","ai_title":"Discover AI Tools Built for You","ai_finder_title":"🎯 What do you want to accomplish today?","ai_prompts_title":"💡 Ready-to-Use Student Prompts","ai_prompts_sub":"Copy any prompt and paste it directly into ChatGPT or Google Gemini to get instant, student-friendly answers.","ai_sub":"Click any card to learn more, then click \"Open Tool\" to start using it — all are completely free for students.","ai_search_placeholder":"Search any AI tool... e.g. Grammarly, Midjourney, Adobe Firefly","ai_tools_label":"Our Top 10 Recommended Tools","career_tag":"Career Guidance","career_title":"Your Complete Career Roadmap & AI Outlook","career_sub":"Click your stage → choose your path → see the full year-by-year milestone journey with salary growth & AI impact reality check.","c_stage1_10th_title":"After 10th Class","c_stage1_10th_desc":"Just completed SSC? See all 5 paths available right now.","c_explore_paths":"Explore Paths →","c_stage1_inter_title":"After Intermediate","c_stage1_inter_desc":"Completed 12th? Discover 6 paths with full roadmaps.","c_back":"← Back","res_tag":"Free Resources","res_title":"10th & Intermediate Free Learning Hub","res_sub":"Curated free platforms, 1-click textbooks, previous exam papers, and instant subject search.","schol_tag":"Scholarships","schol_title":"10th & Intermediate Scholarships Hub","schol_sub":"Verified government schemes, instant eligibility check, and essential document guides.","sf_header_title":"Tell Us About Yourself","sf_header_sub":"We'll match you with scholarships you can actually apply for","sf_lbl_name":"Your Name","sf_lbl_age":"Your Age","sf_pl_age":"Enter your age","sf_pl_name":"Enter your name","sf_lbl_class":"Current Education","sf_opt_class":"Select your class","sf_opt_c9":"Class 9","sf_opt_c10":"Class 10 (SSC)","sf_opt_ci1":"Intermediate 1st Year","sf_opt_ci2":"Intermediate 2nd Year","sf_opt_cdeg":"Degree / B.Tech / Engineering","sf_opt_cpg":"Post Graduation","sf_lbl_caste":"Caste Category","sf_opt_caste":"Select category","sf_opt_csc":"SC (Scheduled Caste)","sf_opt_cst":"ST (Scheduled Tribe)","sf_opt_cobc":"OBC (Other Backward Class)","sf_opt_cmin":"Minority (Muslim/Christian/Sikh/Buddhist/Jain)","sf_opt_cgen":"General / Open Category","sf_lbl_gender":"Gender","sf_opt_gender":"Select gender","sf_opt_gfem":"Female","sf_opt_gmale":"Male","sf_opt_goth":"Other","sf_lbl_income":"Family Annual Income","sf_opt_income":"Select income range","sf_opt_inc1":"Below ₹1 Lakh","sf_opt_inc2":"₹1 Lakh – ₹2.5 Lakh","sf_opt_inc3":"₹2.5 Lakh – ₹8 Lakh","sf_opt_inc4":"Above ₹8 Lakh","sf_lbl_state":"State","sf_opt_state":"Select state","sf_opt_sap":"Andhra Pradesh","sf_opt_sts":"Telangana","sf_opt_soth":"Other State","sf_btn_submit":"🔍 Find My Scholarships","schol_no_result":"No scholarships match your profile right now. But check back — new schemes are added regularly!","schol_other_ref":"Showing all other scholarships for reference:","schol_search_placeholder":"Search all scholarships...","coding_tag":"Start Coding","coding_title":"Coding Platforms to Launch Your Tech Career","coding_sub":"Practice problems, earn certificates, and get noticed by top companies.","dl_tag":"Digital Skills","dl_title":"Essential Digital Skills for Every Student","dl_sub":"Master these fundamentals to thrive in the modern world.","logo_tagline":"Rise of Knowledge","footer_brand_desc":"Empowering rural students of Andhra Pradesh with digital knowledge, AI awareness, and career guidance. Built with ❤️ as a B.Tech Community Project.","footer_col1_title":"Platform","footer_ai":"AI Tools","footer_careers":"Career Guidance","footer_resources":"Learning Resources","footer_scholarships":"Scholarships","footer_col2_title":"Learn","footer_coding":"Coding Platforms","footer_digital":"Digital Skills","footer_col3_title":"Quick Links","footer_link_nsp":"National Scholarships","footer_link_swayam":"SWAYAM","footer_link_nptel":"NPTEL","footer_link_ap":"AP Epass","footer_copy":"© 2024 VidyaUday · Rise of Knowledge · B.Tech Community Project","footer_made":"🇮🇳 Made in Andhra Pradesh","chat_title":"Uday the Owl","chat_status":"AI Study Assistant","chat_welcome":"Hoo hoo! I'm <strong>Uday</strong>, your AI study owl! 🎓<br><br>You can <strong>type</strong> or <strong>speak</strong> in English, తెలుగు, or हिंदी — I'll understand and reply in the same language!<br><br>Ask me about careers, scholarships, AI tools, coding, or anything about your education! 🚀","modal_tool_details":"Tool Details"},"te":{"nav_ai":"AI సాధనాలు","nav_careers":"కెరీర్ మార్గాలు","nav_resources":"ఉచిత వనరులు","nav_scholarships":"స్కాలర్‌షిప్‌లు","nav_coding":"కోడింగ్","nav_digital":"డిజిటల్ స్కిల్స్","mn_ai":"🤖 AI సాధనాలు","mn_careers":"🎯 కెరీర్ మార్గదర్శకత్వం","mn_resources":"📚 లెర్నింగ్ రిసోర్సెస్","mn_scholarships":"🏆 స్కాలర్‌షిప్‌లు","mn_coding":"💻 కోడింగ్ ప్లాట్‌ఫారమ్‌లు","mn_digital":"🌐 డిజిటల్ నైపుణ్యాలు","hero_tag":"🇮🇳 బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్ · విద్యాఉదయ్ · ఆంధ్రప్రదేశ్","hero_title":"మీ భవిష్యత్తు <span id=\"heroTyping\">డిజిటల్ అవగాహన</span>తో ప్రారంభమవుతుంది","hero_desc":"గ్రామీణ 10వ తరగతి మరియు ఇంటర్మీడియట్ విద్యార్థులకు AI సాధనాలు, కెరీర్ మార్గదర్శకత్వం, స్కాలర్‌షిప్‌లు మరియు లెర్నింగ్ రిసోర్స్‌లను ఒకే చోట అందించే ఉచిత ప్లాట్‌ఫారమ్.","hero_btn_ai":"🚀 AI సాధనాలను అన్వేషించండి","hero_btn_career":"🎯 కెరీర్ మార్గాలను చూడండి","hc_ai_title":"AI సాధనాలు","hc_ai_desc":"ChatGPT, Gemini మరియు ఇతరమైనవి","hc_career_title":"కెరీర్ మార్గాలు","hc_career_desc":"10వ తరగతి & ఇంటర్మీడియట్ తర్వాత","hc_schol_title":"స్కాలర్‌షిప్‌లు","hc_schol_desc":"₹50వేలకు పైగా అవకాశాలు","hc_coding_title":"ఉచిత కోడింగ్","hc_coding_desc":"మొదటి నుండి నేర్చుకోండి","hc_explore":"అన్వేషించండి →","stat_label1":"గ్రామీణ విద్యార్థులకు కెరీర్ మార్గదర్శకత్వం లేదు","stat_label2":"ఉచిత AI సాధనాల గురించి అవగాహన లేదు","stat_label3":"ఏటా కోల్పోతున్న స్కాలర్‌షిప్‌లు","stat_label4":"మేము చేరుకోవాలనుకుంటున్న విద్యార్థులు","mission_tag":"మా లక్ష్యం","mission_title":"విద్యాఉదయ్ ఎందుకు అవసరం","mission_p1":"ఆంధ్రప్రదేశ్‌లోని వేలాది మంది ప్రతిభావంతులైన గ్రామీణ విద్యార్థులు ప్రతి సంవత్సరం జీవితాన్ని మార్చే అవకాశాలను కోల్పోతున్నారు — ప్రతిభ లేకపోవడం వల్ల కాదు, సమాచారం లేకపోవడం వల్ల. స్కాలర్‌షిప్ గడువు ముగుస్తుంది. ఉచిత కోర్సు ఉపయోగించబడదు. చదువుకు సహాయపడే AI సాధనం కనుగొనబడదు.","mission_p2":"విద్యాఉదయ్ విద్యార్థుల కోసం, విద్యార్థుల చేత నిర్మించబడింది — ప్రతి గ్రామీణ విద్యార్థికి అర్హమైన కానీ అరుదుగా లభించే మార్గదర్శిగా నిలవడానికి.","mc_info_title":"కేంద్రీకృత సమాచారం","mc_info_desc":"అన్ని అవకాశాలు ఒకే చోట","mc_inc_title":"డిజిటల్ సమ్మిళితం","mc_inc_desc":"పట్టణ-గ్రామీణ విభజనను తగ్గించడం","mc_peer_title":"తోటివారి మద్దతు","mc_peer_desc":"విద్యార్థుల చేత, విద్యార్థుల కోసం నిర్మించబడింది","mc_free_title":"ఎల్లప్పుడూ ఉచితం","mc_free_desc":"లిస్ట్ చేయబడిన ప్రతి వనరు ఉచితం","ai_tag":"AI అవగాహన","ai_title":"మీ కోసం రూపొందించిన AI సాధనాలను కనుగొనండి","ai_finder_title":"🎯 ఈరోజు మీరు ఏమి చేయాలనుకుంటున్నారు?","ai_prompts_title":"💡 విద్యార్థుల కోసం రెడీమేడ్ స్టడీ ప్రాంప్ట్‌లు","ai_prompts_sub":"ఏదైనా ప్రాంప్ట్‌ను కాపీ చేసి ChatGPT లేదా Google Gemini లో పేస్ట్ చేయండి — తక్షణమే విద్యార్థికి సరిపడే సమాధానం పొందండి.","ai_sub":"మరింత తెలుసుకోవడానికి ఏదైనా కార్డ్‌పై క్లిక్ చేయండి, ఆపై ఉపయోగించడం ప్రారంభించడానికి \"Open Tool\" క్లిక్ చేయండి — ఇవన్నీ విద్యార్థులకు పూర్తిగా ఉచితం.","ai_search_placeholder":"ఏదైనా AI సాధనాన్ని శోధించండి... ఉదా. Grammarly, Midjourney, Adobe Firefly","ai_tools_label":"మా టాప్ 10 సిఫార్సు చేసిన సాధనాలు","career_tag":"కెరీర్ మార్గదర్శకత్వం","career_title":"మీ పూర్తి కెరీర్ రోడ్‌మ్యాప్ & AI విశ్లేషణ","career_sub":"మీ దశను ఎంచుకోండి → మీ మార్గాన్ని ఎంచుకోండి → జీతం వృద్ధితో కూడిన పూర్తి కెరీర్ రోడ్‌మ్యాప్ మరియు AI విశ్లేషణను చూడండి.","c_stage1_10th_title":"10వ తరగతి తర్వాత","c_stage1_10th_desc":"SSC పూర్తి చేసారా? ప్రస్తుతం అందుబాటులో ఉన్న 5 మార్గాలను చూడండి.","c_explore_paths":"మార్గాలను అన్వేషించండి →","c_stage1_inter_title":"ఇంటర్మీడియట్ తర్వాత","c_stage1_inter_desc":"12వ తరగతి పూర్తి చేసారా? పూర్తి రోడ్‌మ్యాప్‌లతో 6 మార్గాలను కనుగొనండి.","c_back":"← వెనుకకు","res_tag":"ఉచిత వనరులు","res_title":"10వ & ఇంటర్మీడియట్ ఉచిత లెర్నింగ్ హబ్","res_sub":"ఎంపిక చేసిన ఉచిత ప్లాట్‌ఫారమ్‌లు, 1-క్లిక్ పాఠ్యపుస్తకాలు, గత పరీక్ష పేపర్లు మరియు తక్షణ సబ్జెక్ట్ శోధన.","schol_tag":"స్కాలర్‌షిప్‌లు","schol_title":"10వ & ఇంటర్మీడియట్ స్కాలర్‌షిప్‌ల హబ్","schol_sub":"ధృవీకరించబడిన ప్రభుత్వ పథకాలు, తక్షణ అర్హత పరీక్ష మరియు అవసరమైన డాక్యుమెంట్ల మార్గదర్శకాలు.","sf_header_title":"మీ గురించి మాకు చెప్పండి","sf_header_sub":"మీరు దరఖాస్తు చేసుకోగల స్కాలర్‌షిప్‌లతో మేము మిమ్మల్ని మ్యాచ్ చేస్తాము","sf_lbl_name":"మీ పేరు","sf_pl_name":"మీ పేరును నమోదు చేయండి","sf_lbl_class":"ప్రస్తుత విద్య","sf_opt_class":"మీ తరగతిని ఎంచుకోండి","sf_opt_c9":"9వ తరగతి","sf_opt_c10":"10వ తరగతి (SSC)","sf_opt_ci1":"ఇంటర్మీడియట్ మొదటి సంవత్సరం","sf_opt_ci2":"ఇంటర్మీడియట్ రెండవ సంవత్సరం","sf_opt_cdeg":"డిగ్రీ / బి.టెక్ / ఇంజనీరింగ్","sf_opt_cpg":"పోస్ట్ గ్రాడ్యుయేషన్","sf_lbl_caste":"కుల వర్గం","sf_opt_caste":"వర్గాన్ని ఎంచుకోండి","sf_opt_csc":"SC (షెడ్యూల్డ్ కులం)","sf_opt_cst":"ST (షెడ్యూల్డ్ తెగ)","sf_opt_cobc":"OBC (ఇతర వెనుకబడిన తరగతి)","sf_opt_cmin":"మైనారిటీ (ముస్లిం/క్రిస్టియన్/సిక్కు/బౌద్ధ/జైన్)","sf_opt_cgen":"జనరల్ / ఓపెన్ కేటగిరీ","sf_lbl_gender":"లింగం","sf_opt_gender":"లింగాన్ని ఎంచుకోండి","sf_opt_gfem":"స్త్రీ","sf_opt_gmale":"పురుషుడు","sf_opt_goth":"ఇతర","sf_lbl_income":"कुटुంబ వార్షిక ఆదాయం","sf_opt_income":"ఆదాయ పరిధిని ఎంచుకోండి","sf_opt_inc1":"₹1 లక్ష లోపు","sf_opt_inc2":"₹1 లక్ష – ₹2.5 లక్షలు","sf_opt_inc3":"₹2.5 లక్షలు – ₹8 లక్షలు","sf_opt_inc4":"₹8 లక్షల పైన","sf_lbl_state":"రాష్ట్రం","sf_opt_state":"రాష్ట్రాన్ని ఎంచుకోండి","sf_opt_sap":"ఆంధ్రప్రదేశ్","sf_opt_sts":"తెలంగాణ","sf_opt_soth":"ఇతర రాష్ట్రం","sf_btn_submit":"🔍 నా స్కాలర్‌షిప్‌లను కనుగొనండి","schol_no_result":"ప్రస్తుతానికి మీ ప్రొఫైల్‌కు సరిపోయే స్కాలర్‌షిప్‌లు లేవు. కానీ మళ్లీ తనిఖీ చేయండి — కొత్త పథకాలు క్రమం తప్పకుండా జోడించబడతాయి!","schol_other_ref":"సూచన కోసం మిగిలిన అన్ని స్కాలర్‌షిప్‌లను చూపుతోంది:","schol_search_placeholder":"అన్ని స్కాలర్‌షిప్‌లను శోధించండి...","coding_tag":"కోడింగ్ ప్రారంభించండి","coding_title":"మీ టెక్ కెరీర్‌ను ప్రారంభించడానికి కోడింగ్ ప్లాట్‌ఫారమ్‌లు","coding_sub":"సమస్యలను సాధన చేయండి, సర్టిఫికేట్‌లను పొందండి మరియు ప్రముఖ కంపెనీల దృష్టిని ఆకర్షించండి.","dl_tag":"డిజిటల్ నైపుణ్యాలు","dl_title":"ప్రతి విద్యార్థికి అవసరమైన డిజిటల్ నైపుణ్యాలు","dl_sub":"ఆధునిక ప్రపంచంలో రాణించడానికి ఈ ప్రాథమిక అంశాలలో నైపుణ్యం సాధించండి.","logo_tagline":"నాలెడ్జ్ రైజ్","footer_brand_desc":"ఆంధ్రప్రదేశ్ గ్రామీణ విద్యార్థులకు డిజిటల్ జ్ఞానం, AI అవగాహన మరియు కెరీర్ మార్గదర్శకత్వంతో సాధికారత కల్పించడం. బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్‌గా ❤️ తో నిర్మించబడింది.","footer_col1_title":"ప్లాట్‌ఫారమ్","footer_ai":"AI సాధనాలు","footer_careers":"కెరీర్ మార్గదర్శకత్వం","footer_resources":"లెర్నింగ్ రిసోర్సెస్","footer_scholarships":"స్కాలర్‌షిప్‌లు","footer_col2_title":"నేర్చుకోండి","footer_coding":"కోడింగ్ ప్లాట్‌ఫారమ్‌లు","footer_digital":"డిజిటల్ నైపుణ్యాలు","footer_col3_title":"త్వరిత లింకులు","footer_link_nsp":"నేషనల్ స్కాలర్‌షిప్ పోర్టల్","footer_link_swayam":"స్వయం (SWAYAM)","footer_link_nptel":"NPTEL","footer_link_ap":"AP ఈపాస్","footer_copy":"© 2024 విద్యాఉదయ్ · నాలెడ్జ్ రైజ్ · బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్","footer_made":"🇮🇳 ఆంధ్రప్రదేశ్‌లో తయారు చేయబడింది","chat_title":"ఉదయ్ ది ఔల్","chat_status":"AI స్టడీ అసిస్టెంట్","chat_welcome":"హూ హూ! నేను మీ AI స్టడీ ఔల్ <strong>ఉదయ్</strong>ని! 🎓<br><br>మీరు ఇంగ్లీష్, తెలుగు లేదా హిందీలో <strong>టైప్ చేయవచ్చు</strong> లేదా <strong>మాట్లాడవచ్చు</strong> — నేను అర్థం చేసుకుని అదే భాషలో సమాధానం ఇస్తాను!<br><br>కెరీర్, స్కాలర్‌షిప్‌లు, AI సాధనాలు, కోడింగ్ లేదా మీ చదువుకు సంబంధించిన ఏదైనా నన్ను అడగండి! 🚀","modal_tool_details":"సాధనం వివరాలు"}};
+const translations = {"en":{"nav_ai":"AI Tools","nav_careers":"Careers","nav_resources":"Resources","nav_scholarships":"Scholarships","nav_coding":"Coding","nav_digital":"Digital Skills","mn_ai":"🤖 AI Tools","mn_careers":"🎯 Career Guidance","mn_resources":"📚 Learning Resources","mn_scholarships":"🏆 Scholarships","mn_coding":"💻 Coding Platforms","mn_digital":"🌐 Digital Skills","hero_tag":"🇮🇳 B.Tech Community Project · VidyaUday · Andhra Pradesh","hero_title":"Your Future Starts with <span id=\"heroTyping\">Digital Awareness</span>","hero_desc":"A free platform giving rural 10th & Intermediate students access to AI tools, career guidance, scholarships, and learning resources — all in one place.","hero_btn_ai":"🚀 Explore AI Tools","hero_btn_career":"🎯 View Career Paths","hc_ai_title":"AI Tools","hc_ai_desc":"ChatGPT, Gemini & more","hc_career_title":"Career Paths","hc_career_desc":"After 10th & Intermediate","hc_schol_title":"Scholarships","hc_schol_desc":"₹50K+ opportunities","hc_coding_title":"Free Coding","hc_coding_desc":"Learn from zero","hc_explore":"Explore →","stat_label1":"Rural students lack career guidance","stat_label2":"Unaware of free AI tools","stat_label3":"Scholarships missed yearly","stat_label4":"Students we aim to reach","mission_tag":"Our Mission","mission_title":"Why VidyaUday Exists","mission_p1":"Thousands of bright rural students across Andhra Pradesh miss life-changing opportunities every year — not because of lack of talent, but because of lack of information. A scholarship deadline passes. A free course goes unused. An AI tool that could help with studies is never discovered.","mission_p2":"VidyaUday was built by students, for students — to be the guide that every rural learner deserves but rarely gets.","mc_info_title":"Centralized Info","mc_info_desc":"All opportunities in one place","mc_inc_title":"Digital Inclusion","mc_inc_desc":"Bridging the urban-rural divide","mc_peer_title":"Peer Support","mc_peer_desc":"Built by students, for students","mc_free_title":"Always Free","mc_free_desc":"Every resource listed is free","ai_tag":"AI Awareness","ai_title":"Discover AI Tools Built for You","ai_finder_title":"🎯 What do you want to accomplish today?","ai_prompts_title":"💡 Ready-to-Use Student Prompts","ai_prompts_sub":"Copy any prompt and paste it directly into ChatGPT or Google Gemini to get instant, student-friendly answers.","ai_sub":"Click any card to learn more, then click \"Open Tool\" to start using it — all are completely free for students.","ai_search_placeholder":"Search any AI tool... e.g. Grammarly, Midjourney, Adobe Firefly","ai_tools_label":"Our Top 10 Recommended Tools","career_tag":"Career Guidance","career_title":"Your Complete Career Roadmap & AI Outlook","career_sub":"Click your stage → choose your path → see the full year-by-year milestone journey with salary growth & AI impact reality check.","c_stage1_10th_title":"After 10th Class","c_stage1_10th_desc":"Just completed SSC? See all 5 paths available right now.","c_explore_paths":"Explore Paths →","c_stage1_inter_title":"After Intermediate","c_stage1_inter_desc":"Completed 12th? Discover 6 paths with full roadmaps.","c_back":"← Back","res_tag":"Free Resources","res_title":"10th & Intermediate Free Learning Hub","res_sub":"Curated free platforms, 1-click textbooks, previous exam papers, and instant subject search.","schol_tag":"Scholarships","schol_title":"10th & Intermediate Scholarships Hub","schol_sub":"Verified government schemes, instant eligibility check, and essential document guides.","sf_header_title":"Tell Us About Yourself","sf_header_sub":"We'll match you with scholarships you can actually apply for","sf_lbl_name":"Your Name","sf_lbl_age":"Your Age","sf_pl_age":"Enter your age","sf_pl_name":"Enter your name","sf_lbl_class":"Current Education","sf_opt_class":"Select your class","sf_opt_c9":"Class 9","sf_opt_c10":"Class 10 (SSC)","sf_opt_ci1":"Intermediate 1st Year","sf_opt_ci2":"Intermediate 2nd Year","sf_opt_cdeg":"Degree / B.Tech / Engineering","sf_opt_cpg":"Post Graduation","sf_lbl_caste":"Caste Category","sf_opt_caste":"Select category","sf_opt_csc":"SC (Scheduled Caste)","sf_opt_cst":"ST (Scheduled Tribe)","sf_opt_cobc":"OBC (Other Backward Class)","sf_opt_cmin":"Minority (Muslim/Christian/Sikh/Buddhist/Jain)","sf_opt_cgen":"General / Open Category","sf_lbl_gender":"Gender","sf_opt_gender":"Select gender","sf_opt_gfem":"Female","sf_opt_gmale":"Male","sf_opt_goth":"Other","sf_lbl_income":"Family Annual Income","sf_opt_income":"Select income range","sf_opt_inc1":"Below ₹1 Lakh","sf_opt_inc2":"₹1 Lakh – ₹2.5 Lakh","sf_opt_inc3":"₹2.5 Lakh – ₹8 Lakh","sf_opt_inc4":"Above ₹8 Lakh","sf_lbl_state":"State","sf_opt_state":"Select state","sf_opt_sap":"Andhra Pradesh","sf_opt_sts":"Telangana","sf_opt_soth":"Other State","sf_btn_submit":"🔍 Find My Scholarships","schol_no_result":"No scholarships match your profile right now. But check back — new schemes are added regularly!","schol_other_ref":"Showing all other scholarships for reference:","schol_search_placeholder":"Search all scholarships...","coding_tag":"Start Coding","coding_title":"Coding Platforms to Launch Your Tech Career","coding_sub":"Practice problems, earn certificates, and get noticed by top companies.","dl_tag":"Digital Literacy","dl_title":"10th & Intermediate Digital Skills Hub","dl_sub":"Master online admissions, DigiLocker certificates, cyber scam safety, and cloud productivity.","logo_tagline":"Rise of Knowledge","footer_brand_desc":"Empowering rural students of Andhra Pradesh with digital knowledge, AI awareness, and career guidance. Built with ❤️ as a B.Tech Community Project.","footer_col1_title":"Platform","footer_ai":"AI Tools","footer_careers":"Career Guidance","footer_resources":"Learning Resources","footer_scholarships":"Scholarships","footer_col2_title":"Learn","footer_coding":"Coding Platforms","footer_digital":"Digital Skills","footer_col3_title":"Quick Links","footer_link_nsp":"National Scholarships","footer_link_swayam":"SWAYAM","footer_link_nptel":"NPTEL","footer_link_ap":"AP Epass","footer_copy":"© 2024 VidyaUday · Rise of Knowledge · B.Tech Community Project","footer_made":"🇮🇳 Made in Andhra Pradesh","chat_title":"Uday the Owl","chat_status":"AI Study Assistant","chat_welcome":"Hoo hoo! I'm <strong>Uday</strong>, your AI study owl! 🎓<br><br>You can <strong>type</strong> or <strong>speak</strong> in English, తెలుగు, or हिंदी — I'll understand and reply in the same language!<br><br>Ask me about careers, scholarships, AI tools, coding, or anything about your education! 🚀","modal_tool_details":"Tool Details"},"te":{"nav_ai":"AI సాధనాలు","nav_careers":"కెరీర్ మార్గాలు","nav_resources":"ఉచిత వనరులు","nav_scholarships":"స్కాలర్‌షిప్‌లు","nav_coding":"కోడింగ్","nav_digital":"డిజిటల్ స్కిల్స్","mn_ai":"🤖 AI సాధనాలు","mn_careers":"🎯 కెరీర్ మార్గదర్శకత్వం","mn_resources":"📚 లెర్నింగ్ రిసోర్సెస్","mn_scholarships":"🏆 స్కాలర్‌షిప్‌లు","mn_coding":"💻 కోడింగ్ ప్లాట్‌ఫారమ్‌లు","mn_digital":"🌐 డిజిటల్ నైపుణ్యాలు","hero_tag":"🇮🇳 బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్ · విద్యాఉదయ్ · ఆంధ్రప్రదేశ్","hero_title":"మీ భవిష్యత్తు <span id=\"heroTyping\">డిజిటల్ అవగాహన</span>తో ప్రారంభమవుతుంది","hero_desc":"గ్రామీణ 10వ తరగతి మరియు ఇంటర్మీడియట్ విద్యార్థులకు AI సాధనాలు, కెరీర్ మార్గదర్శకత్వం, స్కాలర్‌షిప్‌లు మరియు లెర్నింగ్ రిసోర్స్‌లను ఒకే చోట అందించే ఉచిత ప్లాట్‌ఫారమ్.","hero_btn_ai":"🚀 AI సాధనాలను అన్వేషించండి","hero_btn_career":"🎯 కెరీర్ మార్గాలను చూడండి","hc_ai_title":"AI సాధనాలు","hc_ai_desc":"ChatGPT, Gemini మరియు ఇతరమైనవి","hc_career_title":"కెరీర్ మార్గాలు","hc_career_desc":"10వ తరగతి & ఇంటర్మీడియట్ తర్వాత","hc_schol_title":"స్కాలర్‌షిప్‌లు","hc_schol_desc":"₹50వేలకు పైగా అవకాశాలు","hc_coding_title":"ఉచిత కోడింగ్","hc_coding_desc":"మొదటి నుండి నేర్చుకోండి","hc_explore":"అన్వేషించండి →","stat_label1":"గ్రామీణ విద్యార్థులకు కెరీర్ మార్గదర్శకత్వం లేదు","stat_label2":"ఉచిత AI సాధనాల గురించి అవగాహన లేదు","stat_label3":"ఏటా కోల్పోతున్న స్కాలర్‌షిప్‌లు","stat_label4":"మేము చేరుకోవాలనుకుంటున్న విద్యార్థులు","mission_tag":"మా లక్ష్యం","mission_title":"విద్యాఉదయ్ ఎందుకు అవసరం","mission_p1":"ఆంధ్రప్రదేశ్‌లోని వేలాది మంది ప్రతిభావంతులైన గ్రామీణ విద్యార్థులు ప్రతి సంవత్సరం జీవితాన్ని మార్చే అవకాశాలను కోల్పోతున్నారు — ప్రతిభ లేకపోవడం వల్ల కాదు, సమాచారం లేకపోవడం వల్ల. స్కాలర్‌షిప్ గడువు ముగుస్తుంది. ఉచిత కోర్సు ఉపయోగించబడదు. చదువుకు సహాయపడే AI సాధనం కనుగొనబడదు.","mission_p2":"విద్యాఉదయ్ విద్యార్థుల కోసం, విద్యార్థుల చేత నిర్మించబడింది — ప్రతి గ్రామీణ విద్యార్థికి అర్హమైన కానీ అరుదుగా లభించే మార్గదర్శిగా నిలవడానికి.","mc_info_title":"కేంద్రీకృత సమాచారం","mc_info_desc":"అన్ని అవకాశాలు ఒకే చోట","mc_inc_title":"డిజిటల్ సమ్మిళితం","mc_inc_desc":"పట్టణ-గ్రామీణ విభజనను తగ్గించడం","mc_peer_title":"తోటివారి మద్దతు","mc_peer_desc":"విద్యార్థుల చేత, విద్యార్థుల కోసం నిర్మించబడింది","mc_free_title":"ఎల్లప్పుడూ ఉచితం","mc_free_desc":"లిస్ట్ చేయబడిన ప్రతి వనరు ఉచితం","ai_tag":"AI అవగాహన","ai_title":"మీ కోసం రూపొందించిన AI సాధనాలను కనుగొనండి","ai_finder_title":"🎯 ఈరోజు మీరు ఏమి చేయాలనుకుంటున్నారు?","ai_prompts_title":"💡 విద్యార్థుల కోసం రెడీమేడ్ స్టడీ ప్రాంప్ట్‌లు","ai_prompts_sub":"ఏదైనా ప్రాంప్ట్‌ను కాపీ చేసి ChatGPT లేదా Google Gemini లో పేస్ట్ చేయండి — తక్షణమే విద్యార్థికి సరిపడే సమాధానం పొందండి.","ai_sub":"మరింత తెలుసుకోవడానికి ఏదైనా కార్డ్‌పై క్లిక్ చేయండి, ఆపై ఉపయోగించడం ప్రారంభించడానికి \"Open Tool\" క్లిక్ చేయండి — ఇవన్నీ విద్యార్థులకు పూర్తిగా ఉచితం.","ai_search_placeholder":"ఏదైనా AI సాధనాన్ని శోధించండి... ఉదా. Grammarly, Midjourney, Adobe Firefly","ai_tools_label":"మా టాప్ 10 సిఫార్సు చేసిన సాధనాలు","career_tag":"కెరీర్ మార్గదర్శకత్వం","career_title":"మీ పూర్తి కెరీర్ రోడ్‌మ్యాప్ & AI విశ్లేషణ","career_sub":"మీ దశను ఎంచుకోండి → మీ మార్గాన్ని ఎంచుకోండి → జీతం వృద్ధితో కూడిన పూర్తి కెరీర్ రోడ్‌మ్యాప్ మరియు AI విశ్లేషణను చూడండి.","c_stage1_10th_title":"10వ తరగతి తర్వాత","c_stage1_10th_desc":"SSC పూర్తి చేసారా? ప్రస్తుతం అందుబాటులో ఉన్న 5 మార్గాలను చూడండి.","c_explore_paths":"మార్గాలను అన్వేషించండి →","c_stage1_inter_title":"ఇంటర్మీడియట్ తర్వాత","c_stage1_inter_desc":"12వ తరగతి పూర్తి చేసారా? పూర్తి రోడ్‌మ్యాప్‌లతో 6 మార్గాలను కనుగొనండి.","c_back":"← వెనుకకు","res_tag":"ఉచిత వనరులు","res_title":"10వ & ఇంటర్మీడియట్ ఉచిత లెర్నింగ్ హబ్","res_sub":"ఎంపిక చేసిన ఉచిత ప్లాట్‌ఫారమ్‌లు, 1-క్లిక్ పాఠ్యపుస్తకాలు, గత పరీక్ష పేపర్లు మరియు తక్షణ సబ్జెక్ట్ శోధన.","schol_tag":"స్కాలర్‌షిప్‌లు","schol_title":"10వ & ఇంటర్మీడియట్ స్కాలర్‌షిప్‌ల హబ్","schol_sub":"ధృవీకరించబడిన ప్రభుత్వ పథకాలు, తక్షణ అర్హత పరీక్ష మరియు అవసరమైన డాక్యుమెంట్ల మార్గదర్శకాలు.","sf_header_title":"మీ గురించి మాకు చెప్పండి","sf_header_sub":"మీరు దరఖాస్తు చేసుకోగల స్కాలర్‌షిప్‌లతో మేము మిమ్మల్ని మ్యాచ్ చేస్తాము","sf_lbl_name":"మీ పేరు","sf_pl_name":"మీ పేరును నమోదు చేయండి","sf_lbl_class":"ప్రస్తుత విద్య","sf_opt_class":"మీ తరగతిని ఎంచుకోండి","sf_opt_c9":"9వ తరగతి","sf_opt_c10":"10వ తరగతి (SSC)","sf_opt_ci1":"ఇంటర్మీడియట్ మొదటి సంవత్సరం","sf_opt_ci2":"ఇంటర్మీడియట్ రెండవ సంవత్సరం","sf_opt_cdeg":"డిగ్రీ / బి.టెక్ / ఇంజనీరింగ్","sf_opt_cpg":"పోస్ట్ గ్రాడ్యుయేషన్","sf_lbl_caste":"కుల వర్గం","sf_opt_caste":"వర్గాన్ని ఎంచుకోండి","sf_opt_csc":"SC (షెడ్యూల్డ్ కులం)","sf_opt_cst":"ST (షెడ్యూల్డ్ తెగ)","sf_opt_cobc":"OBC (ఇతర వెనుకబడిన తరగతి)","sf_opt_cmin":"మైనారిటీ (ముస్లిం/క్రిస్టియన్/సిక్కు/బౌద్ధ/జైన్)","sf_opt_cgen":"జనరల్ / ఓపెన్ కేటగిరీ","sf_lbl_gender":"లింగం","sf_opt_gender":"లింగాన్ని ఎంచుకోండి","sf_opt_gfem":"స్త్రీ","sf_opt_gmale":"పురుషుడు","sf_opt_goth":"ఇతర","sf_lbl_income":"कुटुంబ వార్షిక ఆదాయం","sf_opt_income":"ఆదాయ పరిధిని ఎంచుకోండి","sf_opt_inc1":"₹1 లక్ష లోపు","sf_opt_inc2":"₹1 లక్ష – ₹2.5 లక్షలు","sf_opt_inc3":"₹2.5 లక్షలు – ₹8 లక్షలు","sf_opt_inc4":"₹8 లక్షల పైన","sf_lbl_state":"రాష్ట్రం","sf_opt_state":"రాష్ట్రాన్ని ఎంచుకోండి","sf_opt_sap":"ఆంధ్రప్రదేశ్","sf_opt_sts":"తెలంగాణ","sf_opt_soth":"ఇతర రాష్ట్రం","sf_btn_submit":"🔍 నా స్కాలర్‌షిప్‌లను కనుగొనండి","schol_no_result":"ప్రస్తుతానికి మీ ప్రొఫైల్‌కు సరిపోయే స్కాలర్‌షిప్‌లు లేవు. కానీ మళ్లీ తనిఖీ చేయండి — కొత్త పథకాలు క్రమం తప్పకుండా జోడించబడతాయి!","schol_other_ref":"సూచన కోసం మిగిలిన అన్ని స్కాలర్‌షిప్‌లను చూపుతోంది:","schol_search_placeholder":"అన్ని స్కాలర్‌షిప్‌లను శోధించండి...","coding_tag":"కోడింగ్ ప్రారంభించండి","coding_title":"మీ టెక్ కెరీర్‌ను ప్రారంభించడానికి కోడింగ్ ప్లాట్‌ఫారమ్‌లు","coding_sub":"సమస్యలను సాధన చేయండి, సర్టిఫికేట్‌లను పొందండి మరియు ప్రముఖ కంపెనీల దృష్టిని ఆకర్షించండి.","dl_tag":"డిజిటల్ నైపుణ్యాలు","dl_title":"ప్రతి విద్యార్థికి అవసరమైన డిజిటల్ నైపుణ్యాలు","dl_sub":"ఆధునిక ప్రపంచంలో రాణించడానికి ఈ ప్రాథమిక అంశాలలో నైపుణ్యం సాధించండి.","logo_tagline":"నాలెడ్జ్ రైజ్","footer_brand_desc":"ఆంధ్రప్రదేశ్ గ్రామీణ విద్యార్థులకు డిజిటల్ జ్ఞానం, AI అవగాహన మరియు కెరీర్ మార్గదర్శకత్వంతో సాధికారత కల్పించడం. బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్‌గా ❤️ తో నిర్మించబడింది.","footer_col1_title":"ప్లాట్‌ఫారమ్","footer_ai":"AI సాధనాలు","footer_careers":"కెరీర్ మార్గదర్శకత్వం","footer_resources":"లెర్నింగ్ రిసోర్సెస్","footer_scholarships":"స్కాలర్‌షిప్‌లు","footer_col2_title":"నేర్చుకోండి","footer_coding":"కోడింగ్ ప్లాట్‌ఫారమ్‌లు","footer_digital":"డిజిటల్ నైపుణ్యాలు","footer_col3_title":"త్వరిత లింకులు","footer_link_nsp":"నేషనల్ స్కాలర్‌షిప్ పోర్టల్","footer_link_swayam":"స్వయం (SWAYAM)","footer_link_nptel":"NPTEL","footer_link_ap":"AP ఈపాస్","footer_copy":"© 2024 విద్యాఉదయ్ · నాలెడ్జ్ రైజ్ · బి.టెక్ కమ్యూనిటీ ప్రాజెక్ట్","footer_made":"🇮🇳 ఆంధ్రప్రదేశ్‌లో తయారు చేయబడింది","chat_title":"ఉదయ్ ది ఔల్","chat_status":"AI స్టడీ అసిస్టెంట్","chat_welcome":"హూ హూ! నేను మీ AI స్టడీ ఔల్ <strong>ఉదయ్</strong>ని! 🎓<br><br>మీరు ఇంగ్లీష్, తెలుగు లేదా హిందీలో <strong>టైప్ చేయవచ్చు</strong> లేదా <strong>మాట్లాడవచ్చు</strong> — నేను అర్థం చేసుకుని అదే భాషలో సమాధానం ఇస్తాను!<br><br>కెరీర్, స్కాలర్‌షిప్‌లు, AI సాధనాలు, కోడింగ్ లేదా మీ చదువుకు సంబంధించిన ఏదైనా నన్ను అడగండి! 🚀","modal_tool_details":"సాధనం వివరాలు"}};
 
 function applyStaticTranslations(lang) {
   document.querySelectorAll('[data-i18n]').forEach(el => {
@@ -4853,6 +5622,20 @@ function switchLanguage(lang) {
   }
   
   renderCoding();
+
+  // Update Digital Literacy Section Mode Switcher labels
+  const tabDlS = document.getElementById('lblDlTabSkills');
+  const tabDlQ = document.getElementById('lblDlTabQuiz');
+  const tabDlSc = document.getElementById('lblDlTabScams');
+  if (tabDlS) tabDlS.textContent = lang === 'te' ? 'ముఖ్యమైన డిజిటల్ స్కిల్స్' : 'Essential Student Skills';
+  if (tabDlQ) tabDlQ.textContent = lang === 'te' ? '30-సెకన్ల డిజిటల్ పరీక్ష' : '30-Sec Digital Readiness Quiz';
+  if (tabDlSc) tabDlSc.textContent = lang === 'te' ? 'స్టూడెంట్ స్కామ్ బస్టర్ గైడ్' : 'Student Scam Buster Guide';
+
+  const dlQTitle = document.getElementById('dlQuizTitle');
+  const dlQSub = document.getElementById('dlQuizSub');
+  if (dlQTitle) dlQTitle.textContent = lang === 'te' ? 'మీరు కాలేజీ & ఆన్‌లైన్ దరఖాస్తులకు సిద్ధంగా ఉన్నారా?' : 'Are You College & Admission Form Ready?';
+  if (dlQSub) dlQSub.textContent = lang === 'te' ? 'మీ డిజిటల్ సంసిద్ధత స్కోర్‌ను పరీక్షించడానికి ఈ 5 ప్రశ్నలకు సమాధానం ఇవ్వండి' : 'Answer these 5 quick questions to test your digital readiness score';
+
   renderDigitalLiteracy();
   
   // Update Scholarship Section Mode Switcher labels
